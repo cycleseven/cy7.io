@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const DarkPage = styled.div`
   align-items: center;

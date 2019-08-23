@@ -1,29 +1,37 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
-  "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "name": "cy7.io",
+  "private": true,
+  "description": "My cool website!!",
+  "version": "0.1.0",
+  "author": "Owen Gillespie <owen@cy7.io>",
   "dependencies": {
-    "gatsby": "^1.9.153",
-    "gatsby-link": "^1.6.34",
-    "gatsby-plugin-favicon": "^2.1.1",
-    "gatsby-plugin-react-helmet": "^2.0.3",
-    "gatsby-plugin-styled-components": "^2.0.6",
-    "react-helmet": "^5.2.0",
-    "styled-components": "^3.1.6"
+    "gatsby": "2.13.73",
+    "gatsby-image": "2.2.10",
+    "gatsby-plugin-manifest": "2.2.6",
+    "gatsby-plugin-offline": "2.2.7",
+    "gatsby-plugin-react-helmet": "3.1.4",
+    "gatsby-plugin-sharp": "2.2.13",
+    "gatsby-plugin-styled-components": "3.1.3",
+    "gatsby-source-filesystem": "2.1.11",
+    "gatsby-transformer-sharp": "2.2.7",
+    "prettier": "1.18.2",
+    "prop-types": "15.7.2",
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
+    "react-helmet": "5.2.1",
+    "styled-components": "4.3.2"
   },
-  "keywords": [
-    "gatsby"
-  ],
   "license": "MIT",
-  "main": "n/a",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "yarn develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
   },
-  "devDependencies": {
-    "prettier": "^1.10.2"
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/cycleseven/cy7"
   }
 }
