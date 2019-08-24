@@ -1,0 +1,21 @@
+pre-push:
+  parallel: true
+  commands:
+    eslint:
+      files: git diff --name-only HEAD @{push}
+      glob: "*.js"
+      run: yarn eslint {files}
+    stylelint:
+      files: git diff --name-only HEAD @{push}
+      glob: "*.js"
+      run: yarn stylelint {files}
+
+pre-commit:
+  parallel: true
+  commands:
+    prettier-js:
+      glob: "*.js"
+      run: yarn prettier --write {staged_files} && git add {staged_files}
+    prettier-non-js:
+      glob: "*.{css,yml,yaml,json,md}"
+      run: yarn prettier --write --no-bracket-spacing {staged_files} && git add {staged_files}

@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Owen Gillespie <owen@cy7.io>",
   "dependencies": {
+    "@arkweid/lefthook": "0.6.3",
     "@dangerfarms/eslint-config-df": "4.0.0",
     "eslint": "6.2.1",
     "eslint-plugin-cypress": "2.6.1",
