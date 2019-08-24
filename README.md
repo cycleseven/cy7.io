@@ -22,4 +22,4 @@ Currently the hooks are:
 - On **commit**, code is automatically formatted with Prettier.
 - On **push**, changed files from the upstream branch are linted (with ESLint and Stylelint).
 
-Most checks are performed on **push** instead of **commit**. Hopefully this strikes the right balance between keeping bad code out of the remote repo without encumbering local git workflow.
+Most checks are performed on **push** instead of **commit**. Hopefully this strikes the right balance between keeping unchecked code out of the remote repo without encumbering local git workflow.
