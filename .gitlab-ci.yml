@@ -5,6 +5,7 @@ cache:
     - node_modules/
 
 deploy:
+  stage: deploy
   only:
     - master
   image: registry.gitlab.com/cycleseven/cy7/ci-deploy-job:0.1.0
