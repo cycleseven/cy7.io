@@ -4,7 +4,7 @@ Source code for the [cy7.io](https://cy7.io) website, built with Gatsby.
 
 ## Getting started with local development
 
-Tested with **Node v10.15.1** and **Yarn 1.17.3**.
+Tested with **Node v12.9.0** and **Yarn 1.17.3**.
 
 Install dependencies, then start the development server.
 

@@ -1,0 +1,14 @@
+# The `yarn` step can be pretty slow, so cache the dependencies
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+deploy:
+  only:
+    - master
+  image: registry.gitlab.com/cycleseven/cy7/ci-deploy-job:0.1.0
+  script:
+    - yarn
+    - yarn build
+    - aws s3 sync public s3://cy7.io --acl public-read
