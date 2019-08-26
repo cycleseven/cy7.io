@@ -6,7 +6,8 @@
   "author": "Owen Gillespie <owen@cy7.io>",
   "dependencies": {
     "@arkweid/lefthook": "0.6.3",
-    "@dangerfarms/eslint-config-df": "4.0.0",
+    "@dangerfarms/eslint-config-df": "5.0.0",
+    "babel-plugin-styled-components": "1.10.6",
     "eslint": "6.2.1",
     "eslint-plugin-cypress": "2.6.1",
     "eslint-plugin-import": "2.18.2",
