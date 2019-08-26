@@ -9,6 +9,7 @@
     "@dangerfarms/eslint-config-df": "5.0.0",
     "babel-plugin-styled-components": "1.10.6",
     "eslint": "6.2.1",
+    "eslint-config-prettier": "6.1.0",
     "eslint-plugin-cypress": "2.6.1",
     "eslint-plugin-import": "2.18.2",
     "eslint-plugin-jest": "22.15.2",
@@ -50,7 +51,10 @@
     "url": "https://gitlab.com/cycleseven/cy7"
   },
   "eslintConfig": {
-    "extends": "@dangerfarms/eslint-config-df",
+    "extends": [
+      "@dangerfarms/eslint-config-df",
+      "prettier"
+    ],
     "rules": {
       "import/order": [
         "warn",
@@ -81,5 +85,8 @@
     "processors": [
       "stylelint-processor-styled-components"
     ]
+  },
+  "prettier": {
+    "endOfLine": "lf"
   }
 }
