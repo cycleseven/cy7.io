@@ -9,7 +9,7 @@ lint:
   image: node:12.9.0-alpine
   script:
     - yarn
-    - yarn run lefthook full-lint
+    - yarn lefthook run full-lint
 
 deploy:
   stage: deploy
