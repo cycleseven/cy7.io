@@ -2,7 +2,7 @@
 # docker build -f ./deploy/ci-deploy-image/Dockerfile .
 
 # Use Node as base image: the main build step is `gatsby build`
-FROM node:12.9.0-alpine
+FROM node:12.9.1-alpine
 ENV AWSCLI_VERSION "1.16.225"
 
 # Install AWS CLI
