@@ -4,6 +4,13 @@ cache:
   paths:
     - node_modules/
 
+lint:
+  stage: test
+  image: node:12.9.0-alpine
+  script:
+    - yarn
+    - yarn run lefthook full-lint
+
 deploy:
   stage: deploy
   only:

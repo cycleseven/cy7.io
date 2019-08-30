@@ -20,8 +20,7 @@ pre-commit:
       glob: "*.{css,yml,yaml,json,md}"
       run: yarn prettier --write --no-bracket-spacing {staged_files} && git add {staged_files}
 
-# Custom script to be run before deployment
-pre-release:
+full-lint:
   parallel: true
   commands:
     eslint:
