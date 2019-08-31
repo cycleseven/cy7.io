@@ -1,15 +1,15 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 
+import Layout from "../components/Layout";
 import Logo from "../components/Logo";
-import DarkPage from "../components/DarkPage";
 
 function IndexPage() {
   return (
-    <DarkPage>
+    <Layout>
       <Helmet title="cy7.io" />
       <Logo />
-    </DarkPage>
+    </Layout>
   );
 }
 
