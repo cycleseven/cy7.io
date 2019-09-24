@@ -9,6 +9,10 @@ pre-push:
       files: git diff --name-only HEAD @{push}
       glob: "*.js"
       run: yarn stylelint {files}
+    prettier-check:
+      files: git diff --name-only HEAD @{push}
+      glob: "*.js"
+      run: yarn prettier --check {files}
 
 pre-commit:
   parallel: true
@@ -19,6 +23,9 @@ pre-commit:
     prettier-non-js:
       glob: "*.{css,yml,yaml,json,md}"
       run: yarn prettier --write --no-bracket-spacing {staged_files} && git add {staged_files}
+    format-terraform:
+      glob: "*.{tf,tfvars}"
+      run: "echo {staged_files} | xargs -n1 -I[] sh -c 'terraform fmt [] && git add []'"
 
 full-lint:
   parallel: true
