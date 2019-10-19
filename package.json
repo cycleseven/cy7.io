@@ -94,7 +94,11 @@
     ],
     "processors": [
       "stylelint-processor-styled-components"
-    ]
+    ],
+    "rules": {
+      "selector-type-case": null,
+      "selector-type-no-unknown": null
+    }
   },
   "prettier": {
     "endOfLine": "lf"
