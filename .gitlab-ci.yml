@@ -21,4 +21,4 @@ deploy:
   script:
     - yarn
     - yarn build
-    - aws s3 sync public s3://cy7.io --acl public-read
+    - aws s3 sync public s3://cy7.io
