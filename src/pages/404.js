@@ -1,15 +1,21 @@
 import React from "react";
-import { Helmet } from "react-helmet";
+import styled from "styled-components";
 
-import Layout from "../components/Layout";
-import Logo from "../components/Logo";
+import { CenteredPage } from "../components/CenteredPage";
+import { Logo as BaseLogo } from "../components/Logo";
+import { Meta } from "../components/Meta";
+
+const Logo = styled(BaseLogo)`
+  flex-shrink: 0;
+  margin: auto;
+`;
 
 function NotFoundPage() {
   return (
-    <Layout>
-      <Helmet title="cy7.io" />
+    <CenteredPage>
+      <Meta title="Not found" />
       <Logo />
-    </Layout>
+    </CenteredPage>
   );
 }
 

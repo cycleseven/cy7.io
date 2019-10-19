@@ -1,0 +1,37 @@
+import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
+import { ColourSwatch, SwatchGroup } from "./components/ColourSwatch";
+import { colours } from "..";
+
+<Meta title="Primitives | Colours" />
+
+# Colours
+
+All these colours are available via [the `theme` prop in Styled Components](https://www.styled-components.com/docs/advanced#theming).
+
+> If the `theme` isn't available, make sure the component tree is wrapped `<Cy7ThemeProvider />` as detailed in **Getting started**.
+
+```
+const ComponentUsingColours = styled.div`
+  background-color: ${props => props.theme.colours.paper}
+  color: ${props => props.theme.colours.obsidian}
+`;
+```
+
+For use outside of Styled Components, import the colours directly.
+
+```js
+import { colours } from "designPrimitives";
+const { paper, onyx } = colours;
+```
+
+## Palette
+
+<Preview>
+  <Story name="Palette">
+    <SwatchGroup>
+      <ColourSwatch colour={colours.paper} name="Paper" />
+      <ColourSwatch colour={colours.obsidian} name="Obsidian" />
+      <ColourSwatch colour={colours.onyx} name="Onyx" />
+    </SwatchGroup>
+  </Story>
+</Preview>

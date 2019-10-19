@@ -4,4 +4,13 @@
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
 
-// You can delete this file if you're not using it
+import React from "react";
+
+import { Cy7ThemeProvider } from "./src/designPrimitives";
+
+/* eslint-disable-next-line react/prop-types */
+function wrapRootElement({ element }) {
+  return <Cy7ThemeProvider>{element}</Cy7ThemeProvider>;
+}
+
+export { wrapRootElement };
