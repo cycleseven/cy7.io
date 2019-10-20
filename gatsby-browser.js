@@ -5,7 +5,6 @@
  */
 
 import React from "react";
-
 import { Cy7ThemeProvider } from "./src/designPrimitives";
 
 /* eslint-disable-next-line react/prop-types */
