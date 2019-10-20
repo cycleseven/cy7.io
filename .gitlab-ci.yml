@@ -30,5 +30,5 @@ deploy_storybook:
   image: registry.gitlab.com/cycleseven/cy7/ci-deploy-job:0.2.0
   script:
     - yarn
-    - yarn build-storybook
+    - yarn build-storybook --docs
     - aws s3 sync storybook-static s3://storybook.cy7.io
