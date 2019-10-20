@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-
-import { colours } from "../designPrimitives";
+import { colours } from "designPrimitives";
 
 function Logo({ size, ...otherProps }) {
   return (

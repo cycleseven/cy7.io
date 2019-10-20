@@ -1,9 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
-import { CenteredPage } from "../components/CenteredPage";
-import { Logo as BaseLogo } from "../components/Logo";
-import { Meta } from "../components/Meta";
+import { CenteredPage, Logo as BaseLogo, Meta } from "components";
 
 const Logo = styled(BaseLogo)`
   flex-shrink: 0;

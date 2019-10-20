@@ -72,9 +72,7 @@
           "groups": [
             [
               "builtin",
-              "external"
-            ],
-            [
+              "external",
               "internal",
               "parent",
               "sibling",
@@ -83,7 +81,8 @@
           ],
           "newlines-between": "always"
         }
-      ]
+      ],
+      "import/no-unresolved": "off"
     }
   },
   "stylelint": {

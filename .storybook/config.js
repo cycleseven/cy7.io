@@ -2,7 +2,6 @@
 
 import React from "react";
 import { addDecorator, configure } from "@storybook/react";
-
 import { Cy7ThemeProvider } from "../src/designPrimitives";
 
 /**

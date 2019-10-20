@@ -1,6 +1,5 @@
 import Typography from "typography";
-
-import { colours } from "./designPrimitives";
+import { colours } from "./theme";
 
 const typography = new Typography({
   baseFontSize: "16px",

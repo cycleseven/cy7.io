@@ -1,8 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { ThemeProvider } from "styled-components";
-
-import * as theme from "./designPrimitives";
+import * as theme from "./theme";
 import { GlobalStyles } from "./globalStyles";
 
 function Cy7ThemeProvider({ children, ...props }) {
