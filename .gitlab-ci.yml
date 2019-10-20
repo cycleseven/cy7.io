@@ -22,3 +22,13 @@ deploy:
     - yarn
     - yarn build
     - aws s3 sync public s3://cy7.io
+
+deploy_storybook:
+  stage: deploy
+  only:
+    - master
+  image: registry.gitlab.com/cycleseven/cy7/ci-deploy-job:0.2.0
+  script:
+    - yarn
+    - yarn build-storybook
+    - aws s3 sync storybook-static s3://storybook.cy7.io

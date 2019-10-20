@@ -11,6 +11,21 @@ terraform {
   }
 }
 
+locals {
+  root_domain = "cy7.io"
+}
+
 module "website" {
   source = "./modules/static_site"
+
+  alias_domains = ["www.cy7.io"]
+  root_domain   = local.root_domain
+  full_domain   = "cy7.io"
+}
+
+module "storybook" {
+  source = "./modules/static_site"
+
+  root_domain = local.root_domain
+  full_domain = "storybook.cy7.io"
 }

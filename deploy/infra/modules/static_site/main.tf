@@ -1,11 +1,10 @@
 locals {
-  s3_origin_id = "S3-cy7.io"
-  bare_domain  = "cy7.io"
-  www_domain   = "www.cy7.io"
+  s3_origin_id = "S3-${var.full_domain}"
+  all_domains  = concat([var.full_domain], var.alias_domains)
 }
 
 data "aws_acm_certificate" "root" {
-  domain = local.bare_domain
+  domain = var.root_domain
 }
 
 data "terraform_remote_state" "core" {
@@ -44,14 +43,14 @@ data "aws_iam_policy_document" "s3_policy" {
 # A special type of user that allows us to expose the origin bucket only via CloudFront.
 # https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
 resource "aws_cloudfront_origin_access_identity" "main" {
-  comment = local.bare_domain
+  comment = var.full_domain
 }
 
 # The origin bucket that holds the static files for the website. Note the bucket is private: that's because the contents
 # are exposed via CloudFront only.
 resource "aws_s3_bucket" "root" {
   acl    = "private"
-  bucket = local.bare_domain
+  bucket = var.full_domain
 
   tags = {
     project = "website"
@@ -66,7 +65,7 @@ resource "aws_s3_bucket_policy" "root" {
 }
 
 resource "aws_cloudfront_distribution" "web" {
-  aliases             = [local.bare_domain, local.www_domain]
+  aliases             = local.all_domains
   default_root_object = "index.html"
   enabled             = true
   is_ipv6_enabled     = true
@@ -120,20 +119,10 @@ resource "aws_cloudfront_distribution" "web" {
 }
 
 resource "aws_route53_record" "root" {
-  type    = "A"
-  name    = local.bare_domain
-  zone_id = data.terraform_remote_state.core.outputs.route53_primary_zone_id
+  for_each = toset(local.all_domains)
 
-  alias {
-    evaluate_target_health = false
-    name                   = aws_cloudfront_distribution.web.domain_name
-    zone_id                = aws_cloudfront_distribution.web.hosted_zone_id
-  }
-}
-
-resource "aws_route53_record" "www" {
   type    = "A"
-  name    = local.www_domain
+  name    = each.value
   zone_id = data.terraform_remote_state.core.outputs.route53_primary_zone_id
 
   alias {
