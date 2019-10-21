@@ -1,0 +1,30 @@
+service: cy7-redirect-lambda
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  region: us-east-1
+  timeout: 5
+  memorySize: 128
+
+package:
+  exclude:
+    - node_modules/**
+    - yarn.lock
+
+functions:
+  redirect:
+    handler: handlers.redirect
+
+resources:
+  Resources:
+    IamRoleLambdaExecution:
+      Type: "AWS::IAM::Role"
+      Properties:
+        AssumeRolePolicyDocument:
+          Statement:
+            - Effect: Allow
+              Principal:
+                Service:
+                  - lambda.amazonaws.com
+                  - edgelambda.amazonaws.com
