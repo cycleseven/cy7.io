@@ -19,13 +19,19 @@ module "website" {
   source = "./modules/static_site"
 
   alias_domains = ["www.cy7.io"]
-  root_domain   = local.root_domain
-  full_domain   = "cy7.io"
+  edge_lambdas = [
+    {
+      event_type = "viewer-request"
+      lambda_arn = jsondecode(file("${path.root}/../redirect-lambda/outputs.json")).RedirectLambdaFunctionQualifiedArn
+    }
+  ]
+  full_domain = "cy7.io"
+  root_domain = local.root_domain
 }
 
 module "storybook" {
   source = "./modules/static_site"
 
-  root_domain = local.root_domain
   full_domain = "storybook.cy7.io"
+  root_domain = local.root_domain
 }

@@ -2954,6 +2954,14 @@ serve-static@1.14.1:
     parseurl "~1.3.3"
     send "0.17.1"
 
+serverless-stack-output@0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/serverless-stack-output/-/serverless-stack-output-0.2.3.tgz#9125e61d5ac77118acb2c79849d7521913d26d96"
+  integrity sha512-bJUUXJ+bc0E+IBlWz+FyUpdNjEmSM0dYd2UpDX0h2zeW+luPOJeP//rbIamBmteJjbed9S3FtRWnLLRAJbzM5g==
+  dependencies:
+    tomlify-j0.4 "^2.0.0"
+    yamljs "^0.3.0"
+
 serverless@1.54.0:
   version "1.54.0"
   resolved "https://registry.yarnpkg.com/serverless/-/serverless-1.54.0.tgz#f7518d49887bfc3d5b7fcd634b6de44ea8c305f7"
@@ -3349,6 +3357,11 @@ toidentifier@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.0.tgz#7e1be3470f1e77948bc43d94a3c8f4d7752ba553"
   integrity sha512-yaOH/Pk/VEhBWWTlhI+qXxDFXlejDGcQipMlyxda9nthulaxLZUNcUqFxokp0vcYnvteJln5FNQDRrxj3YcbVw==
+
+tomlify-j0.4@^2.0.0:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/tomlify-j0.4/-/tomlify-j0.4-2.2.1.tgz#60c4e7dd2066b2e917dd9a0de5fd676c0a6d7c7b"
+  integrity sha512-0kCocYX8ujnbK6jQ9e+g9GLiCIfVkFaCB3DCTQDP7J79gPVZVmZgQZ/KUNe1a6hUfrmHHaErVGUjedfpaX5EZw==
 
 traverse@^0.6.6:
   version "0.6.6"

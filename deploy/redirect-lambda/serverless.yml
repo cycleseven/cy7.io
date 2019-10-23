@@ -12,6 +12,13 @@ package:
     - node_modules/**
     - yarn.lock
 
+plugins:
+  - serverless-stack-output
+
+custom:
+  output:
+    file: outputs.json
+
 functions:
   redirect:
     handler: handlers.redirect

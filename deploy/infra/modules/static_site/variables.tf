@@ -13,3 +13,12 @@ variable "alias_domains" {
   description = "Other domains that should point to the same bucket."
   type        = list(string)
 }
+
+variable "edge_lambdas" {
+  default     = []
+  description = "Optional Lambda@Edge definitions for the CloudFront distribution"
+  type = list(object({
+    event_type = string,
+    lambda_arn = string,
+  }))
+}

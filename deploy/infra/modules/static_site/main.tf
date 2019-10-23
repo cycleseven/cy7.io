@@ -88,6 +88,15 @@ resource "aws_cloudfront_distribution" "web" {
         forward = "none"
       }
     }
+
+    dynamic "lambda_function_association" {
+      for_each = var.edge_lambdas
+
+      content {
+        event_type = lambda_function_association.value.event_type
+        lambda_arn = lambda_function_association.value.lambda_arn
+      }
+    }
   }
 
   origin {

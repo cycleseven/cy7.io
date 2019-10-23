@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "serverless": "1.54.0"
+    "serverless": "1.54.0",
+    "serverless-stack-output": "0.2.3"
   }
 }
