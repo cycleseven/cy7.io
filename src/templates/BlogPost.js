@@ -37,11 +37,9 @@ const LogoContainer = styled.div`
 `;
 
 const BlogDate = styled.p`
-  font-weight: 600;
   opacity: 0.6;
-  font-family: ${props => props.theme.typography.getHeaderFontFamily()};
   font-size: ${props => props.theme.typography.scale(-0.3).fontSize};
-  margin: ${props => props.theme.typography.rhythm(1 / 4)} 0 0 0;
+  margin: ${props => props.theme.typography.rhythm(1 / 3)} 0 0 0;
 `;
 
 const BlogPost = ({ data }) => {
