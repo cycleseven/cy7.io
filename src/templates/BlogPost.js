@@ -42,6 +42,11 @@ const BlogDate = styled.p`
   margin: ${props => props.theme.typography.rhythm(1 / 3)} 0 0 0;
 `;
 
+// There's not much gain to be had from maintaining prop type definitions for
+// this component, because they're passed from Gatsby, it's not an interface
+// defined by us. The component will break in an obvious way if the data prop
+// is read incorrectly anyway.
+/* eslint-disable react/prop-types */
 const BlogPost = ({ data }) => {
   const blogPost = data.blogPost;
   const towersImage = data.towersImage.childImageSharp.fixed;
@@ -73,6 +78,7 @@ const BlogPost = ({ data }) => {
     </Article>
   );
 };
+/* eslint-enable */
 
 export const query = graphql`
   query blogPostPage($slug: String!) {
