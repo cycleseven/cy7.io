@@ -1,5 +1,5 @@
 ---
-title: "The rotate 0.0001deg trick (and why it works)."
+title: "The rotate 0.0001deg trick (and why it works)"
 slug: "the-rotate-trick"
 date: "2019-11-02"
 ---

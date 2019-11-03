@@ -1,5 +1,5 @@
 ---
-title: "Use anonymous functions sparingly."
+title: "Use anonymous functions sparingly"
 slug: "anonymous-functions"
 date: "2019-10-29"
 ---

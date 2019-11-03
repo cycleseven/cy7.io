@@ -1,5 +1,5 @@
 import { Logo, Meta } from "@cy7/designSystem";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import React from "react";
 import styled from "styled-components";
@@ -57,7 +57,9 @@ const BlogPost = ({ data }) => {
       </BackgroundImageContainer>
 
       <LogoContainer>
-        <Logo size={170} />
+        <Link to="/">
+          <Logo size={170} />
+        </Link>
       </LogoContainer>
 
       <Header>
