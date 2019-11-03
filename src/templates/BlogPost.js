@@ -1,4 +1,4 @@
-import { Meta } from "@cy7/designSystem";
+import { Logo, Meta } from "@cy7/designSystem";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import React from "react";
@@ -16,7 +16,7 @@ const Header = styled.header`
   flex-direction: column;
   justify-content: center;
   padding-bottom: ${props => props.theme.typography.rhythm(3)};
-  padding-top: ${props => props.theme.typography.rhythm(3)};
+  padding-top: ${props => props.theme.typography.rhythm(9)};
 `;
 
 const Heading = styled.h1`
@@ -27,6 +27,13 @@ const BackgroundImageContainer = styled.div`
   position: absolute;
   top: 0;
   right: 0;
+  z-index: -1;
+`;
+
+const LogoContainer = styled.div`
+  left: 2.1rem;
+  position: absolute;
+  top: -16px;
 `;
 
 const BlogDate = styled.p`
@@ -44,9 +51,14 @@ const BlogPost = ({ data }) => {
   return (
     <Article>
       <Meta title={blogPost.frontmatter.title} />
+
       <BackgroundImageContainer>
         <Img fixed={towersImage} />
       </BackgroundImageContainer>
+
+      <LogoContainer>
+        <Logo size={170} />
+      </LogoContainer>
 
       <Header>
         <Heading>{blogPost.frontmatter.title}</Heading>
@@ -75,7 +87,7 @@ export const query = graphql`
       html
     }
 
-    towersImage: file(relativePath: { eq: "towers.png" }) {
+    towersImage: file(relativePath: { eq: "towers2.png" }) {
       childImageSharp {
         fixed(width: 260) {
           ...GatsbyImageSharpFixed
