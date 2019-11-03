@@ -4,8 +4,8 @@
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
 
+import { Cy7ThemeProvider } from "@cy7/designSystem";
 import React from "react";
-import { Cy7ThemeProvider } from "./src/designPrimitives";
 
 /* eslint-disable-next-line react/prop-types */
 function wrapRootElement({ element }) {

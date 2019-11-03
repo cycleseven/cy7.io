@@ -1,11 +1,12 @@
 import Typography from "typography";
-import { colours } from "./theme";
+import { colours } from "./colours";
 
 const typography = new Typography({
   baseFontSize: "16px",
-  baseLineHeight: 1.6,
+  baseLineHeight: 1.55,
   bodyColor: colours.onyx,
   bodyFontFamily: ["Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
+  bodyWeight: 400,
   headerColor: colours.obsidian,
   headerFontFamily: [
     "Montserrat",
@@ -16,7 +17,12 @@ const typography = new Typography({
     "Arial",
     "sans-serif"
   ],
-  scaleRatio: 2.8
+  headerWeight: 700,
+  scaleRatio: 2.2
 });
+
+typography.getHeaderFontFamily = () => {
+  return typography.options.headerFontFamily.join(", ");
+};
 
 export { typography };

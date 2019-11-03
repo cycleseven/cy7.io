@@ -28,7 +28,7 @@ const ColorName = styled.p`
   margin-bottom: 0;
 `;
 
-const ColorString = styled.p`
+const ColorString = styled.code`
   margin-bottom: 0;
 `;
 
@@ -43,7 +43,7 @@ function ColourSwatch({ colour, name }) {
     <Figure>
       <ColourPreview colour={colour} />
       <Caption>
-        <ColorName>{name}</ColorName>
+        <ColorName>theme.colours.{name}</ColorName>
         <ColorString>{colour}</ColorString>
       </Caption>
     </Figure>

@@ -1,6 +1,6 @@
+import { ColourSwatch, SwatchGroup } from "@cy7/designSystem/docComponents";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { ColourSwatch, SwatchGroup } from "./components/ColourSwatch";
-import { colours } from "..";
+import { colours } from "./colours";
 
 <Meta title="Primitives | Colours" />
 
@@ -8,7 +8,7 @@ import { colours } from "..";
 
 All these colours are available via [the `theme` prop in Styled Components](https://www.styled-components.com/docs/advanced#theming).
 
-> If the `theme` isn't available, make sure the component tree is wrapped `<Cy7ThemeProvider />` as detailed in **Getting started**.
+> If the `theme` isn't available, make sure the component tree is wrapped `<Cy7ThemeProvider />`.
 
 ```
 const ComponentUsingColours = styled.div`
@@ -29,9 +29,9 @@ const { paper, onyx } = colours;
 <Preview>
   <Story name="Palette">
     <SwatchGroup>
-      <ColourSwatch colour={colours.paper} name="Paper" />
-      <ColourSwatch colour={colours.obsidian} name="Obsidian" />
-      <ColourSwatch colour={colours.onyx} name="Onyx" />
+      <ColourSwatch colour={colours.paper} name="paper" />
+      <ColourSwatch colour={colours.obsidian} name="obsidian" />
+      <ColourSwatch colour={colours.onyx} name="onyx" />
     </SwatchGroup>
   </Story>
 </Preview>

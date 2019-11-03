@@ -1,0 +1,41 @@
+import { Meta as Cy7Meta } from "@cy7/designSystem";
+import { Meta, Props } from "@storybook/addon-docs/blocks";
+
+<Meta title="Components | Meta" />
+
+# Meta
+
+> **Note:** the `<Meta />` component doesn't render any visible elements.
+
+Manages `<meta>` tags for the page, similar to the [SEO component](https://www.gatsbyjs.org/docs/add-seo-component/) suggested in Gatsby's docs. **Every page in the website should include a `<Meta />` component**.
+
+Under the hood, the `<Meta />` component uses [react-helmet](https://github.com/nfl/react-helmet), so it doesn't matter where the component lives in the tree. By convention, it's usually placed near the root of a page component.
+
+## Usage
+
+```jsx
+import { Meta } from "components";
+
+// Then use the component in your page like this
+<Meta title="Blog" />
+```
+
+If the `title` prop isn't provided, a plain title is rendered by default.
+
+```html
+<title>
+  cy7.io
+</title>
+```
+
+Otherwise, the title uses `| cy7.io` as a suffix.
+
+```html
+<title>
+  Blog | cy7.io
+</title>
+```
+
+## Props
+
+<Props of={Cy7Meta} />
