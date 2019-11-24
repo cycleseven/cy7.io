@@ -6,8 +6,8 @@ import styled from "styled-components";
 
 const Article = styled.article`
   margin: auto;
-  max-width: 37rem;
-  padding: 0 3rem;
+  max-width: 38rem;
+  padding: 0 1rem;
   position: relative;
 `;
 
@@ -15,8 +15,8 @@ const Header = styled.header`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: ${props => props.theme.typography.rhythm(3)};
-  padding-top: ${props => props.theme.typography.rhythm(9)};
+  margin-bottom: ${props => props.theme.typography.rhythm(1.5)};
+  margin-top: ${props => props.theme.typography.rhythm(6)};
 `;
 
 const Heading = styled.h1`
@@ -25,21 +25,24 @@ const Heading = styled.h1`
 
 const BackgroundImageContainer = styled.div`
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -240px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: -1;
 `;
 
 const LogoContainer = styled.div`
-  left: 2.1rem;
-  position: absolute;
-  top: -16px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: ${props => props.theme.typography.rhythm(1)};
 `;
 
 const BlogDate = styled.p`
-  opacity: 0.6;
-  font-size: ${props => props.theme.typography.scale(-0.3).fontSize};
-  margin: ${props => props.theme.typography.rhythm(1 / 3)} 0 0 0;
+  opacity: 0.7;
+  font-size: ${props => props.theme.typography.scale(-(1 / 2)).fontSize};
+  line-height: ${props => props.theme.typography.rhythm(1)};
+  margin: ${props => props.theme.typography.rhythm(1 / 4)} 0 0 0;
 `;
 
 // There's not much gain to be had from maintaining prop type definitions for
@@ -61,7 +64,7 @@ const BlogPost = ({ data }) => {
 
       <LogoContainer>
         <Link to="/">
-          <Logo size={170} />
+          <Logo size={90} variant="circularBordered" />
         </Link>
       </LogoContainer>
 
@@ -93,9 +96,9 @@ export const query = graphql`
       html
     }
 
-    towersImage: file(relativePath: { eq: "towers2.png" }) {
+    towersImage: file(relativePath: { eq: "towers3.png" }) {
       childImageSharp {
-        fixed(width: 260) {
+        fixed(width: 170) {
           ...GatsbyImageSharpFixed
         }
       }

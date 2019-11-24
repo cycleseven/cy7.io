@@ -29,9 +29,9 @@ const { paper, onyx } = colours;
 <Preview>
   <Story name="Palette">
     <SwatchGroup>
-      <ColourSwatch colour={colours.paper} name="paper" />
-      <ColourSwatch colour={colours.obsidian} name="obsidian" />
-      <ColourSwatch colour={colours.onyx} name="onyx" />
+      {Object.keys(colours).map(colour => (
+        <ColourSwatch colour={colours[colour]} name={colour} />
+      ))}
     </SwatchGroup>
   </Story>
 </Preview>
