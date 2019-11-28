@@ -1,4 +1,4 @@
-# Note: docker build is expected to be ran from the repo root, *not* from this directory!
+# Note: `docker build` should be executed from the repo root, *not* from this directory!
 # docker build -f ./deploy/ci-deploy-image/Dockerfile .
 
 # Use Node as base image: the main build step is `gatsby build`
