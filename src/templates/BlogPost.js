@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 const Article = styled.article`
   margin: auto;
-  max-width: 38rem;
+  max-width: 36rem;
   padding: 0 1rem;
   position: relative;
 `;
@@ -25,7 +25,7 @@ const Heading = styled.h1`
 
 const BackgroundImageContainer = styled.div`
   position: absolute;
-  top: -240px;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
   z-index: -1;
@@ -35,12 +35,12 @@ const LogoContainer = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin-top: ${props => props.theme.typography.rhythm(1)};
+  padding-top: ${props => props.theme.typography.rhythm(1)};
 `;
 
 const BlogDate = styled.p`
   opacity: 0.7;
-  font-size: ${props => props.theme.typography.scale(-(1 / 2)).fontSize};
+  font-size: ${props => props.theme.typography.scale(-(1 / 3)).fontSize};
   line-height: ${props => props.theme.typography.rhythm(1)};
   margin: ${props => props.theme.typography.rhythm(1 / 4)} 0 0 0;
 `;
@@ -59,12 +59,12 @@ const BlogPost = ({ data }) => {
       <Meta title={blogPost.frontmatter.title} />
 
       <BackgroundImageContainer>
-        <Img fixed={towersImage} />
+        <Img fadeIn={false} fixed={towersImage} loading="eager" />
       </BackgroundImageContainer>
 
       <LogoContainer>
         <Link to="/">
-          <Logo size={90} variant="circularBordered" />
+          <Logo size={84} variant="circularBordered" />
         </Link>
       </LogoContainer>
 
@@ -96,10 +96,10 @@ export const query = graphql`
       html
     }
 
-    towersImage: file(relativePath: { eq: "towers3.png" }) {
+    towersImage: file(relativePath: { eq: "tower.png" }) {
       childImageSharp {
         fixed(width: 170) {
-          ...GatsbyImageSharpFixed
+          ...GatsbyImageSharpFixed_noBase64
         }
       }
     }
