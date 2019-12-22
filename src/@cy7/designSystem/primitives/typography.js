@@ -10,7 +10,12 @@ const typography = new Typography({
   headerColor: colours.obsidian,
   headerFontFamily: ["Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
   headerWeight: 700,
-  scaleRatio: 2.2
+  scaleRatio: 2.2,
+  overrideStyles: () => ({
+    h1: {
+      letterSpacing: "-0.01em"
+    }
+  })
 });
 
 typography.getHeaderFontFamily = () => {

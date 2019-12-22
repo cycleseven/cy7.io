@@ -40,9 +40,12 @@ const LogoContainer = styled.div`
 
 const BlogDate = styled.p`
   opacity: 0.7;
-  font-size: ${props => props.theme.typography.scale(-(1 / 3)).fontSize};
+  font-size: ${props => props.theme.typography.scale(-0.6).fontSize};
+  font-weight: 500;
+  letter-spacing: 0.1em;
   line-height: ${props => props.theme.typography.rhythm(1)};
   margin: ${props => props.theme.typography.rhythm(1 / 4)} 0 0 0;
+  text-transform: uppercase;
 `;
 
 // There's not much gain to be had from maintaining prop type definitions for
@@ -63,7 +66,7 @@ const BlogPost = ({ data }) => {
       </BackgroundImageContainer>
 
       <LogoContainer>
-        <Link to="/">
+        <Link aria-label="Return to home" to="/">
           <Logo size={84} variant="circularBordered" />
         </Link>
       </LogoContainer>

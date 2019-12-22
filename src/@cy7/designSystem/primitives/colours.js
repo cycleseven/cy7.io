@@ -1,8 +1,8 @@
 const colours = {
   candyfloss: "hsla(319, 98%, 84%, 1)",
-  paper: "hsla(35, 100%, 95%, 1)",
-  obsidian: "hsla(36, 5%, 19%, 1)",
-  onyx: "hsl(36, 3%, 29%)"
+  paper: "hsla(35, 100%, 97%, 1)",
+  obsidian: "hsla(35, 80%, 10%, 1)",
+  onyx: "hsla(35, 15%, 20%, 1)"
 };
 
 export { colours };
