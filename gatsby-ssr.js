@@ -12,4 +12,11 @@ function wrapRootElement({ element }) {
   return <Cy7ThemeProvider>{element}</Cy7ThemeProvider>;
 }
 
-export { wrapRootElement };
+function onRenderBody({ setHtmlAttributes }) {
+  // Set lang="en" attribute in root <html> element
+  setHtmlAttributes({
+    lang: "en"
+  });
+}
+
+export { wrapRootElement, onRenderBody };
