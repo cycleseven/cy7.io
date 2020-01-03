@@ -75,21 +75,21 @@ const GlobalStyles = createGlobalStyle`
     border: 0;
     vertical-align: baseline;
   }
-  
+
   table {
     border-spacing: 0;
   }
-  
+
   /**
    * Styles from typography.js, including more resets etc
    */
   ${typography.toString()}
-  
+
   /**
    * Other global styles
    */
   html {
-    background-color: ${props => props.theme.colours.paper};
+    background-color: ${props => props.theme.colours.paper()};
   }
 `;
 

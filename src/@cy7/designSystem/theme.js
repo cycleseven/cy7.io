@@ -1,4 +1,4 @@
-import { colours } from "./primitives/colours";
+import { colours, palettes } from "./primitives/colours";
 import { typography } from "./primitives/typography";
 
-export { colours, typography };
+export { colours, palettes, typography };

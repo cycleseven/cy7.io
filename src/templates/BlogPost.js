@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import React from "react";
 import styled from "styled-components";
+import { Cy7PrismStyles } from "@cy7/blog";
 
 const Article = styled.article`
   margin: auto;
@@ -15,7 +16,7 @@ const Header = styled.header`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-bottom: ${props => props.theme.typography.rhythm(1.5)};
+  margin-bottom: ${props => props.theme.typography.rhythm(2)};
   margin-top: ${props => props.theme.typography.rhythm(6)};
 `;
 
@@ -60,6 +61,7 @@ const BlogPost = ({ data }) => {
   return (
     <Article>
       <Meta title={blogPost.frontmatter.title} />
+      <Cy7PrismStyles />
 
       <BackgroundImageContainer>
         <Img fadeIn={false} fixed={towersImage} loading="eager" />
@@ -67,7 +69,7 @@ const BlogPost = ({ data }) => {
 
       <LogoContainer>
         <Link aria-label="Return to home" to="/">
-          <Logo size={84} variant="circularBordered" />
+          <Logo size={84} variant="circular" />
         </Link>
       </LogoContainer>
 

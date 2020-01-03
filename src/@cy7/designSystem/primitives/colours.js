@@ -1,8 +1,54 @@
-const colours = {
-  candyfloss: "hsla(319, 98%, 84%, 1)",
-  paper: "hsla(35, 100%, 97%, 1)",
-  obsidian: "hsla(35, 80%, 10%, 1)",
-  onyx: "hsla(35, 15%, 20%, 1)"
+const coreColours = {
+  candyfloss: {
+    hue: 319,
+    saturation: 98,
+    lightness: 84,
+    alpha: 1
+  },
+  paper: {
+    hue: 35,
+    saturation: 100,
+    lightness: 97,
+    alpha: 1
+  },
+  obsidian: {
+    hue: 200,
+    saturation: 40,
+    lightness: 12,
+    alpha: 1
+  }
 };
 
-export { colours };
+// TODO: test
+function getColourFunction(colourName, parameters) {
+  const baseColour = coreColours[colourName];
+  const colour = {
+    ...baseColour,
+    ...parameters
+  };
+
+  return overrides => {
+    const { hue, saturation, lightness, alpha } = { ...colour, ...overrides };
+    return `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
+  };
+}
+
+const palettes = {
+  paper: {
+    background: getColourFunction("paper"),
+    header: getColourFunction("paper", { saturation: 15, lightness: 15 }),
+    body: getColourFunction("paper", { saturation: 80, lightness: 10 })
+  },
+  candyfloss: {
+    background: getColourFunction("candyfloss"),
+    header: getColourFunction("candyfloss", { lightness: 14 })
+  }
+};
+
+const colours = {
+  candyfloss: getColourFunction("candyfloss"),
+  paper: getColourFunction("paper"),
+  obsidian: getColourFunction("obsidian")
+};
+
+export { colours, palettes };

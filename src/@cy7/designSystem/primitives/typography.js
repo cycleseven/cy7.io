@@ -1,19 +1,19 @@
 import Typography from "typography";
-import { colours } from "./colours";
+import { palettes } from "./colours";
 
 const typography = new Typography({
   baseFontSize: "17px",
   baseLineHeight: 1.55,
-  bodyColor: colours.onyx,
+  bodyColor: palettes.paper.body,
   bodyFontFamily: ["Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
   bodyWeight: 400,
-  headerColor: colours.obsidian,
+  headerColor: palettes.paper.header,
   headerFontFamily: ["Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
   headerWeight: 700,
   scaleRatio: 2.2,
   overrideStyles: () => ({
     h1: {
-      letterSpacing: "-0.01em"
+      letterSpacing: "-0.015em"
     }
   })
 });

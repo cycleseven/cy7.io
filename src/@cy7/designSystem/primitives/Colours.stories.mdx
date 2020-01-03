@@ -13,7 +13,7 @@ All these colours are available via [the `theme` prop in Styled Components](http
 ```
 const ComponentUsingColours = styled.div`
   background-color: ${props => props.theme.colours.paper}
-  color: ${props => props.theme.colours.obsidian}
+  color: ${props => props.theme.colours.obsidian()}
 `;
 ```
 
@@ -21,7 +21,7 @@ For use outside of Styled Components, import the colours directly.
 
 ```js
 import { colours } from "designPrimitives";
-const { paper, onyx } = colours;
+const { paper, candyfloss } = colours;
 ```
 
 ## Palette
@@ -30,7 +30,7 @@ const { paper, onyx } = colours;
   <Story name="Palette">
     <SwatchGroup>
       {Object.keys(colours).map(colour => (
-        <ColourSwatch colour={colours[colour]} name={colour} />
+        <ColourSwatch colour={colours[colour]()} name={colour} />
       ))}
     </SwatchGroup>
   </Story>
