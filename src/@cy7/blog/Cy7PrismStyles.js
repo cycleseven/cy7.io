@@ -81,9 +81,10 @@ const Cy7PrismStyles = createGlobalStyle`
   .token.atrule,
   .token.attr-value,
   .token.function,
-  .token.class-name {
+  .token.class-name,
+  .token.tag {
     color: ${props =>
-      props.theme.colours.paper({ lightness: 89, saturation: 100 })};
+      props.theme.colours.paper({ lightness: 86, saturation: 100 })};
   }
 
   .token.keyword {
