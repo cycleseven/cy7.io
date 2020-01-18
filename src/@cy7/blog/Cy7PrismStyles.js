@@ -26,14 +26,14 @@ const Cy7PrismStyles = createGlobalStyle`
 
   /* Code blocks */
   pre[class*="language-"] {
-    padding: 1.5rem;
+    padding: ${props => props.theme.typography.rhythm(1)};
     overflow: auto;
-    border-radius: 0.3em;
+    border-radius: 5px;
   }
 
   :not(pre) > code[class*="language-"],
   pre[class*="language-"] {
-    background-color: ${props => props.theme.colours.obsidian()}
+    background-color: ${props => props.theme.colours.obsidian()};
   }
 
   /* Inline code */
@@ -53,12 +53,12 @@ const Cy7PrismStyles = createGlobalStyle`
 
   .token.operator {
     color: ${props =>
-      props.theme.colours.obsidian({ lightness: 80, saturation: 50 })}
+      props.theme.colours.obsidian({ lightness: 80, saturation: 50 })};
   }
 
   .token.punctuation {
     color: ${props =>
-      props.theme.colours.obsidian({ lightness: 55, saturation: 18 })}
+      props.theme.colours.obsidian({ lightness: 55, saturation: 18 })};
   }
 
   .namespace {
@@ -72,7 +72,9 @@ const Cy7PrismStyles = createGlobalStyle`
   .token.string,
   .token.char,
   .token.builtin,
-  .token.inserted {
+  .token.inserted,
+  .token.regex,
+  .token.important {
     color: ${props =>
       props.theme.colours.paper({ lightness: 70, saturation: 90 })};
   }
@@ -96,21 +98,9 @@ const Cy7PrismStyles = createGlobalStyle`
       props.theme.colours.candyfloss({ lightness: 80, saturation: 100 })};
   }
 
-  .token.regex,
-  .token.important {
-    color: white;
-  }
-
   .token.important,
   .token.bold {
     font-weight: bold;
-  }
-  .token.italic {
-    font-style: italic;
-  }
-
-  .token.entity {
-    cursor: help;
   }
 `;
 
