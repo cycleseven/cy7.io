@@ -51,6 +51,11 @@ const Cy7PrismStyles = createGlobalStyle`
       props.theme.colours.obsidian({ lightness: 50, saturation: 20 })};
   }
 
+  .token.operator {
+    color: ${props =>
+      props.theme.colours.obsidian({ lightness: 80, saturation: 50 })}
+  }
+
   .token.punctuation {
     color: ${props =>
       props.theme.colours.obsidian({ lightness: 55, saturation: 18 })}
@@ -69,10 +74,9 @@ const Cy7PrismStyles = createGlobalStyle`
   .token.builtin,
   .token.inserted {
     color: ${props =>
-      props.theme.colours.paper({ lightness: 65, saturation: 90 })};
+      props.theme.colours.paper({ lightness: 70, saturation: 90 })};
   }
 
-  .token.operator,
   .token.entity,
   .token.url,
   .language-css .token.string,
