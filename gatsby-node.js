@@ -21,7 +21,7 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
 
-  if (node.internal.type === "MarkdownRemark") {
+  if (node.internal.type === "Mdx") {
     // Format the date for blog posts
     // TODO: seems quite unit testable actually...
     const date = format(new Date(node.frontmatter.date), "do MMMM yyyy");
@@ -34,7 +34,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const result = await graphql(`
     query blogPosts {
-      allMarkdownRemark {
+      allMdx {
         edges {
           node {
             frontmatter {
@@ -46,7 +46,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  result.data.allMdx.edges.forEach(({ node }) => {
     createPage({
       path: node.frontmatter.slug,
       component: path.resolve(`./src/templates/BlogPost.js`),

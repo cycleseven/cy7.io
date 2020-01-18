@@ -1,6 +1,7 @@
 import { Logo, Meta } from "@cy7/designSystem";
 import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
 import styled from "styled-components";
 import { Cy7PrismStyles } from "@cy7/blog";
@@ -82,7 +83,7 @@ const BlogPost = ({ data }) => {
         </BlogDate>
       </Header>
 
-      <div dangerouslySetInnerHTML={{ __html: blogPost.html }} />
+      <MDXRenderer>{blogPost.body}</MDXRenderer>
     </Article>
   );
 };
@@ -90,7 +91,8 @@ const BlogPost = ({ data }) => {
 
 export const query = graphql`
   query blogPostPage($slug: String!) {
-    blogPost: markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+    blogPost: mdx(frontmatter: { slug: { eq: $slug } }) {
+      body
       fields {
         friendlyDate
       }
@@ -98,7 +100,6 @@ export const query = graphql`
         date
         title
       }
-      html
     }
 
     towersImage: file(relativePath: { eq: "tower.png" }) {

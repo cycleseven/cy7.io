@@ -17,13 +17,13 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "blogPosts",
-        path: `${__dirname}/blogPosts`
+        path: `${__dirname}/src/@cy7/blog/posts`
       }
     },
     {
-      resolve: "gatsby-transformer-remark",
+      resolve: "gatsby-plugin-mdx",
       options: {
-        plugins: [
+        gatsbyRemarkPlugins: [
           {
             resolve: "gatsby-remark-prismjs",
             options: {}
