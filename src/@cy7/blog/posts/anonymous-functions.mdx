@@ -3,8 +3,9 @@ title: "Overusing anonymous functions"
 slug: "anonymous-functions"
 date: "2020-01-01"
 ---
+import { CodeBlock } from "@cy7/blog";
 
-If you've spent much time with JavaScript, you'll have seen plenty of anonymous functions. They can make callback-heavy code more concise.
+Anonymous functions are a super-common feature of JS that can make callback-heavy code more concise.
 
 ```js
 // With named functions
@@ -16,13 +17,13 @@ array
     return x * 2;
   });
 
-// With anonymous functions
+// The same code with anonymous functions
 array
   .filter(x => x !== null)
   .map(x => x * 2);
 ```
 
-The ES6 arrow syntax is commonly used for anonymous functions. But arrow functions don't need to be anonymous.
+The ES6 arrow syntax is commonly used for anonymous functions, although arrow functions don't need to be anonymous.
 
 ```js
 // A named arrow function
@@ -30,44 +31,52 @@ let double = x => x * 2;
 console.log(double.name); // "double"
 ```
 
-**Anonymous functions have a downside**: they make stack traces less readable.
+Anonymous functions have a downside: they make stack traces less readable. Look at the stack trace for this named callback:
+
+<CodeBlock
+  code={`
+    const doSomething = () => {
+      throw new Error("oh no");
+    };
+    setTimeout(doSomething);
+  `}
+  language="js"
+  output={`
+    Error: oh no
+        doSomething stackTraceExample.js:2
+  `}
+  outputType="error"
+/>
+
+Notice how `doSomething` appears in the error output.
 
 ```js
-// Named version
-const namedFunction = () => {
-  throw new Error("oh no");
-};
-setTimeout(namedFunction);
-
-// Anonymous version
 setTimeout(() => {
   throw new Error("oh no");
 });
 ```
 
-[example of unclear error, named vs anonymous]
+```
+Error: oh no
+    evaluate stackTraceExample.js:2
+```
 
 If you write a lot of your code in `index.js` files, things can get even more cryptic.
 
-[even worse error]
+```
+Error: oh no
+    evaluate index.js:2
+```
 
-There's a similar problem to watch out for in React. At the time of writing, [the official Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-seven/) contains snippets with anonymous function components. I've seen this style often lately.
+## Anonymous React components
+
+I've seen this style of writing React components cropping up lately. It's even in the Gatsby docs. [citation needed]
 
 ```jsx
 import React from "react";
-import Layout from "../components/layout";
-
-export default () => {
-  return (
-    <Layout>
-      <div>Hello blog post</div>
-    </Layout>
-  );
-};
+export default () => <p>Hello world</p>;
 ```
 
-But if you write your components that way, you'll have a difficult time finding them in React Dev Tools.
+This suffers from a similar problem: you'll have a difficult time finding this in React Dev Tools.
 
 [screenshot of anonymous component tree]
-
-So, my preference is to **use anonymous functions sparingly**.
