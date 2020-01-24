@@ -70,7 +70,10 @@ module.exports = {
           }
         }
       }
-    }
+    },
+
+    // Output a schema.json on running Gatsby dev server
+    "gatsby-plugin-extract-schema"
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
