@@ -20,17 +20,7 @@ module.exports = {
         path: `${__dirname}/src/@cy7/blog/posts`
       }
     },
-    {
-      resolve: "gatsby-plugin-mdx",
-      options: {
-        gatsbyRemarkPlugins: [
-          {
-            resolve: "gatsby-remark-prismjs",
-            options: {}
-          }
-        ]
-      }
-    },
+    "gatsby-plugin-mdx",
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     {

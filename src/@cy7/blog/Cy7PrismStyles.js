@@ -43,6 +43,16 @@ const Cy7PrismStyles = createGlobalStyle`
     white-space: normal;
   }
 
+  /**
+   * Render blank lines properly. The "empty" class is a special one added by
+   * this project's custom <CodeBlock /> component.
+   *
+   * https://github.com/FormidableLabs/prism-react-renderer/issues/36
+   */
+  .token.empty {
+    display: inline-block;
+  }
+
   .token.comment,
   .token.prolog,
   .token.doctype,

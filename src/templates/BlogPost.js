@@ -1,10 +1,11 @@
+import { Cy7PrismStyles, MdxCodeBlock } from "@cy7/blog";
 import { Logo, Meta } from "@cy7/designSystem";
+import { MDXProvider } from "@mdx-js/react";
 import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
 import styled from "styled-components";
-import { Cy7PrismStyles } from "@cy7/blog";
 
 const Article = styled.article`
   margin: auto;
@@ -50,6 +51,10 @@ const BlogDate = styled.p`
   text-transform: uppercase;
 `;
 
+const mdxComponents = {
+  pre: MdxCodeBlock
+};
+
 // There's not much gain to be had from maintaining prop type definitions for
 // this component, because they're passed from Gatsby, it's not an interface
 // defined by us. The component will break in an obvious way if the data prop
@@ -83,7 +88,9 @@ const BlogPost = ({ data }) => {
         </BlogDate>
       </Header>
 
-      <MDXRenderer>{blogPost.body}</MDXRenderer>
+      <MDXProvider components={mdxComponents}>
+        <MDXRenderer>{blogPost.body}</MDXRenderer>
+      </MDXProvider>
     </Article>
   );
 };
