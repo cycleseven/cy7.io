@@ -10,7 +10,7 @@ const typography = new Typography({
   headerColor: palettes.paper.header,
   headerFontFamily: ["Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
   headerWeight: 700,
-  scaleRatio: 2.2,
+  scaleRatio: 2.5,
   overrideStyles: () => ({
     h1: {
       letterSpacing: "-0.015em"
