@@ -8,8 +8,8 @@ import { Cy7ThemeProvider } from "@cy7/designSystem";
 import React from "react";
 
 /* eslint-disable-next-line react/prop-types */
-function wrapRootElement({ element }) {
+function wrapPageElement({ element }) {
   return <Cy7ThemeProvider>{element}</Cy7ThemeProvider>;
 }
 
-export { wrapRootElement };
+export { wrapPageElement };

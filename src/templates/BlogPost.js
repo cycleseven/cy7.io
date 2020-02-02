@@ -67,7 +67,6 @@ const BlogPost = ({ data }) => {
   return (
     <Article>
       <Meta title={blogPost.frontmatter.title} />
-      <Cy7PrismStyles />
 
       <BackgroundImageContainer>
         <Img fadeIn={false} fixed={towersImage} loading="eager" />
