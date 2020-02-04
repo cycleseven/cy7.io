@@ -47,39 +47,41 @@ const Code = styled.code`
 `;
 
 function CodeBlock({ code, language, output }) {
-  const trimmedCode = trimCodeSnippet(code);
+  const trimmedCode = code ? trimCodeSnippet(code) : null;
   const trimmedOutput = output ? trimCodeSnippet(output) : null;
 
   return (
     <div>
-      <Highlight code={trimmedCode} language={language} Prism={Prism}>
-        {({ tokens, getLineProps, getTokenProps }) => (
-          <Pre>
-            <Code>
-              {tokens.map((line, i) => {
-                const { key: lineKey } = getLineProps({ line, key: i });
+      {code && (
+        <Highlight code={trimmedCode} language={language} Prism={Prism}>
+          {({ tokens, getLineProps, getTokenProps }) => (
+            <Pre>
+              <Code>
+                {tokens.map((line, i) => {
+                  const { key: lineKey } = getLineProps({ line, key: i });
 
-                return (
-                  <div key={lineKey}>
-                    {line.map((token, j) => {
-                      const { children, key: tokenKey } = getTokenProps({
-                        token,
-                        key: j
-                      });
+                  return (
+                    <div key={lineKey}>
+                      {line.map((token, j) => {
+                        const { children, key: tokenKey } = getTokenProps({
+                          token,
+                          key: j
+                        });
 
-                      return (
-                        <Token key={tokenKey} token={token}>
-                          {children}
-                        </Token>
-                      );
-                    })}
-                  </div>
-                );
-              })}
-            </Code>
-          </Pre>
-        )}
-      </Highlight>
+                        return (
+                          <Token key={tokenKey} token={token}>
+                            {children}
+                          </Token>
+                        );
+                      })}
+                    </div>
+                  );
+                })}
+              </Code>
+            </Pre>
+          )}
+        </Highlight>
+      )}
 
       {output && (
         <Pre>
@@ -91,12 +93,15 @@ function CodeBlock({ code, language, output }) {
 }
 
 CodeBlock.propTypes = {
-  code: PropTypes.string.isRequired,
-  language: PropTypes.oneOf(["js", "jsx"])
+  code: PropTypes.string,
+  language: PropTypes.oneOf(["js", "jsx"]),
+  output: PropTypes.string
 };
 
 CodeBlock.defaultProps = {
-  language: null
+  code: null,
+  language: null,
+  output: null
 };
 
 export { CodeBlock };

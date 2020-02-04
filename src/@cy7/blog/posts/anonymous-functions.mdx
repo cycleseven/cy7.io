@@ -5,7 +5,7 @@ date: "2020-01-01"
 ---
 import { CodeBlock } from "@cy7/blog";
 
-Anonymous functions are a super-common feature of JS that can make callback-heavy code more concise.
+Anonymous functions are a common feature of JS that can make callback-heavy code more concise.
 
 ```js
 // With named functions
@@ -23,7 +23,7 @@ array
   .map(x => x * 2);
 ```
 
-The ES6 arrow syntax is commonly used for anonymous functions, although arrow functions don't need to be anonymous.
+The ES6 arrow syntax is commonly used for anonymous functions. But arrow functions don't need to be anonymous.
 
 ```js
 // A named arrow function
@@ -31,7 +31,7 @@ let double = x => x * 2;
 console.log(double.name); // "double"
 ```
 
-Anonymous functions have a downside: they make stack traces less readable. Look at the stack trace for this named callback:
+Anonymous functions have a downside: they make stack traces less readable. For example, here's what happens when a named callback throws an exception.
 
 <CodeBlock
   code={`
@@ -48,25 +48,31 @@ Anonymous functions have a downside: they make stack traces less readable. Look 
   outputType="error"
 />
 
-Notice how `doSomething` appears in the error output.
+Notice how the function name `doSomething` appears in the error output. The anonymous version isn't so clear:
 
-```js
-setTimeout(() => {
-  throw new Error("oh no");
-});
-```
-
-```
-Error: oh no
-    evaluate stackTraceExample.js:2
-```
+<CodeBlock
+  code={`
+    setTimeout(() => {
+      throw new Error("oh no");
+    });
+  `}
+  language="js"
+  output={`
+    Error: oh no
+        evaluate stackTraceExample.js:2
+  `}
+  outputType="error"
+/>
 
 If you write a lot of your code in `index.js` files, things can get even more cryptic.
 
-```
-Error: oh no
-    evaluate index.js:2
-```
+<CodeBlock
+  output={`
+    Error: oh no
+        evaluate index.js:2
+  `}
+  outputType="error"
+/>
 
 ## Anonymous React components
 
