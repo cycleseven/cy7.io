@@ -17,11 +17,22 @@ import Highlight, { Prism } from "prism-react-renderer";
 
 const Pre = styled.pre`
   background-color: ${props => props.theme.colours.obsidian()};
-  border-radius: 5px;
   hyphens: none;
+  margin: 0;
   overflow: auto;
   padding: ${props => props.theme.typography.rhythm(1)};
   tab-size: 2;
+
+  &:first-of-type {
+    border-top-left-radius: ${props => props.theme.scales.borderRadius()};
+    border-top-right-radius: ${props => props.theme.scales.borderRadius()};
+  }
+
+  &:last-of-type {
+    border-bottom-left-radius: ${props => props.theme.scales.borderRadius()};
+    border-bottom-right-radius: ${props => props.theme.scales.borderRadius()};
+    margin-bottom: ${props => props.theme.typography.rhythm(1)};
+  }
 `;
 
 const Code = styled.code`

@@ -1,4 +1,4 @@
-import { Cy7PrismStyles, MdxCodeBlock } from "@cy7/blog";
+import { MdxCodeBlock } from "@cy7/blog";
 import { Logo, Meta } from "@cy7/designSystem";
 import { MDXProvider } from "@mdx-js/react";
 import { graphql, Link } from "gatsby";
