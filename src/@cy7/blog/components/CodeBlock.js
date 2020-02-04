@@ -17,6 +17,8 @@ import Highlight, { Prism } from "prism-react-renderer";
 
 const Pre = styled.pre`
   background-color: ${props => props.theme.colours.obsidian()};
+  color: ${props =>
+    props.theme.colours.candyfloss({ lightness: 93, saturation: 40 })};
   hyphens: none;
   margin: 0;
   overflow: auto;
@@ -35,9 +37,13 @@ const Pre = styled.pre`
   }
 `;
 
-const Code = styled.code`
+const ErrorPre = styled(Pre)`
+  background-color: ${props => props.theme.colours.candyfloss()};
   color: ${props =>
-    props.theme.colours.candyfloss({ lightness: 93, saturation: 40 })};
+    props.theme.colours.candyfloss({ lightness: 6, saturation: 100 })};
+`;
+
+const Code = styled.code`
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   text-align: left;
   white-space: pre;
@@ -84,9 +90,9 @@ function CodeBlock({ code, language, output }) {
       )}
 
       {output && (
-        <Pre>
+        <ErrorPre>
           <Code>{trimmedOutput}</Code>
-        </Pre>
+        </ErrorPre>
       )}
     </div>
   );

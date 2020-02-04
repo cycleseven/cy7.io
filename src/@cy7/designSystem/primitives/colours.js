@@ -1,4 +1,10 @@
 const coreColours = {
+  angrypeach: {
+    hue: 2,
+    saturation: 80,
+    lightness: 95,
+    alpha: 1
+  },
   candyfloss: {
     hue: 319,
     saturation: 98,
@@ -46,6 +52,7 @@ const palettes = {
 };
 
 const colours = {
+  angrypeach: getColourFunction("angrypeach"),
   candyfloss: getColourFunction("candyfloss"),
   paper: getColourFunction("paper"),
   obsidian: getColourFunction("obsidian")
