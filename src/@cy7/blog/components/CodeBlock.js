@@ -16,31 +16,13 @@ import Highlight, { Prism } from "prism-react-renderer";
  */
 
 const Pre = styled.pre`
-  background-color: ${props => props.theme.colours.obsidian()};
   color: ${props =>
     props.theme.colours.candyfloss({ lightness: 93, saturation: 40 })};
   hyphens: none;
+  padding: ${props => props.theme.typography.rhythm(1)};
   margin: 0;
   overflow: auto;
-  padding: ${props => props.theme.typography.rhythm(1)};
   tab-size: 2;
-
-  &:first-of-type {
-    border-top-left-radius: ${props => props.theme.scales.borderRadius()};
-    border-top-right-radius: ${props => props.theme.scales.borderRadius()};
-  }
-
-  &:last-of-type {
-    border-bottom-left-radius: ${props => props.theme.scales.borderRadius()};
-    border-bottom-right-radius: ${props => props.theme.scales.borderRadius()};
-    margin-bottom: ${props => props.theme.typography.rhythm(1)};
-  }
-`;
-
-const ErrorPre = styled(Pre)`
-  background-color: ${props => props.theme.colours.candyfloss()};
-  color: ${props =>
-    props.theme.colours.candyfloss({ lightness: 6, saturation: 100 })};
 `;
 
 const Code = styled.code`
@@ -52,12 +34,30 @@ const Code = styled.code`
   word-wrap: normal;
 `;
 
+const ErrorPre = styled(Pre)`
+  background-color: ${props =>
+    props.theme.colours.angrypeach({ lightness: 10, saturation: 20 })};
+  border-left: solid 5px ${props => props.theme.colours.angrypeach()};
+  border-bottom-left-radius: ${props => props.theme.scales.borderRadius()};
+  border-bottom-right-radius: ${props => props.theme.scales.borderRadius()};
+  color: ${props => props.theme.colours.angrypeach()};
+  padding-left: calc(${props => props.theme.typography.rhythm(1)} - 6px);
+`;
+
+const CodeContainer = styled.div`
+  background-color: ${props => props.theme.colours.obsidian()};
+  border-radius: ${props => props.theme.scales.borderRadius()};
+  box-shadow: 5px 5px 0 0 ${props => props.theme.colours.candyfloss()};
+  margin-bottom: ${props => props.theme.typography.rhythm(1)};
+  position: relative;
+`;
+
 function CodeBlock({ code, language, output }) {
   const trimmedCode = code ? trimCodeSnippet(code) : null;
   const trimmedOutput = output ? trimCodeSnippet(output) : null;
 
   return (
-    <div>
+    <CodeContainer>
       {code && (
         <Highlight code={trimmedCode} language={language} Prism={Prism}>
           {({ tokens, getLineProps, getTokenProps }) => (
@@ -94,7 +94,7 @@ function CodeBlock({ code, language, output }) {
           <Code>{trimmedOutput}</Code>
         </ErrorPre>
       )}
-    </div>
+    </CodeContainer>
   );
 }
 

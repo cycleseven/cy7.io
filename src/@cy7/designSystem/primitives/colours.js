@@ -1,8 +1,8 @@
 const coreColours = {
   angrypeach: {
     hue: 2,
-    saturation: 80,
-    lightness: 95,
+    saturation: 85,
+    lightness: 70,
     alpha: 1
   },
   candyfloss: {
