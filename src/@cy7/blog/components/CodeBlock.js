@@ -19,7 +19,11 @@ import Highlight, { Prism } from "prism-react-renderer";
 const CodeContainer = styled.div`
   background-color: ${props => props.theme.colours.obsidian()};
   border-radius: ${props => props.theme.scales.borderRadius()};
-  box-shadow: 5px 5px 0 0 ${props => props.theme.colours.candyfloss()};
+  box-shadow: 5px 5px 0 0
+    ${props =>
+      props.hasError
+        ? props.theme.colours.angrypeach()
+        : props.theme.colours.candyfloss()};
   margin-bottom: ${props => props.theme.typography.rhythm(1)};
   overflow: auto;
 `;
@@ -38,6 +42,7 @@ const Pre = styled.pre`
   hyphens: none;
   padding: ${props => props.theme.typography.rhythm(1)};
   margin: 0;
+  min-width: 100%; /* Needed in combo with float: left in case pre is narrower than container */
   tab-size: 2;
 `;
 
@@ -53,19 +58,25 @@ const Code = styled.code`
 const ErrorPre = styled(Pre)`
   background-color: ${props =>
     props.theme.colours.angrypeach({ lightness: 10, saturation: 20 })};
-  border-left: solid 5px ${props => props.theme.colours.angrypeach()};
   border-bottom-left-radius: ${props => props.theme.scales.borderRadius()};
   border-bottom-right-radius: ${props => props.theme.scales.borderRadius()};
   color: ${props => props.theme.colours.angrypeach()};
-  padding-left: calc(${props => props.theme.typography.rhythm(1)} - 6px);
+  padding-left: ${props => props.theme.typography.rhythm(1)};
+
+  ${Pre} + & {
+    border-top: solid 2px
+      ${props => props.theme.colours.obsidian({ lightness: 14 })};
+  }
 `;
 
+// TODO: find a better way to differentiate error output once different output
+//       types are introduced
 function CodeBlock({ code, language, output }) {
   const trimmedCode = code ? trimCodeSnippet(code) : null;
   const trimmedOutput = output ? trimCodeSnippet(output) : null;
 
   return (
-    <CodeContainer>
+    <CodeContainer hasError={output !== null}>
       {code && (
         <Highlight code={trimmedCode} language={language} Prism={Prism}>
           {({ tokens, getLineProps, getTokenProps }) => (
