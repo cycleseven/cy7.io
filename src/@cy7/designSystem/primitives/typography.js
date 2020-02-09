@@ -11,9 +11,12 @@ const typography = new Typography({
   headerFontFamily: ["Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
   headerWeight: 700,
   scaleRatio: 2.5,
-  overrideStyles: () => ({
+  overrideStyles: ({ rhythm }) => ({
     h1: {
       letterSpacing: "-0.015em"
+    },
+    h2: {
+      marginTop: rhythm(2)
     }
   })
 });
