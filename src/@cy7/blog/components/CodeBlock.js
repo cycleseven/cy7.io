@@ -28,13 +28,13 @@ const Pre = styled.pre`
   color: ${props =>
     props.theme.colours.candyfloss({ lightness: 93, saturation: 40 })};
 
-  // The "float: left" declaration fixes an issue where horizontally overflowing
-  // code wasn't padded nicely along the right edge. I find floats a bit magical
-  // and don't fully understand why this works. It's a stolen trick from a
-  // couple of blogs that also use Prism highlighting and have the code block
-  // padded correctly: overreacted.io and kentcdodds.com
+  /* This float declaration fixes an issue where horizontally overflowing
+   * code wasn't padded nicely along the right edge. I find floats a bit magical
+   * and don't fully understand why this works. It's a stolen trick from a
+   * couple of blogs that also use Prism highlighting and have the code block
+   * padded correctly: overreacted.io and kentcdodds.com
+   */
   float: left;
-
   hyphens: none;
   padding: ${props => props.theme.typography.rhythm(1)};
   margin: 0;
