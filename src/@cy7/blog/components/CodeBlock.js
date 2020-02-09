@@ -65,7 +65,8 @@ const ErrorPre = styled(Pre)`
 
   ${Pre} + & {
     border-top: solid 2px
-      ${props => props.theme.colours.obsidian({ lightness: 14 })};
+      ${props =>
+        props.theme.colours.angrypeach({ lightness: 14, saturation: 70 })};
   }
 `;
 
