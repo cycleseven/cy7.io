@@ -6,22 +6,38 @@ import styled from "styled-components";
 import Highlight, { Prism } from "prism-react-renderer";
 
 /**
- * The <CodeBlock /> styles are use Prism's okaidia as a starting point.
+ * These styles use Prism's okaidia as a starting point.
+ *
  * Colours are heavily tweaked to blend in better with the cy7 theme (see
- * <Token /> component).
+ * <Token /> component in particular).
  *
  * https://github.com/PrismJS/prism/blob/master/themes/prism-okaidia.css
  *
  * TODO: check cross-browser rendering of fonts, provide if needed
  */
 
+const CodeContainer = styled.div`
+  background-color: ${props => props.theme.colours.obsidian()};
+  border-radius: ${props => props.theme.scales.borderRadius()};
+  box-shadow: 5px 5px 0 0 ${props => props.theme.colours.candyfloss()};
+  margin-bottom: ${props => props.theme.typography.rhythm(1)};
+  overflow: auto;
+`;
+
 const Pre = styled.pre`
   color: ${props =>
     props.theme.colours.candyfloss({ lightness: 93, saturation: 40 })};
+
+  // The "float: left" declaration fixes an issue where horizontally overflowing
+  // code wasn't padded nicely along the right edge. I find floats a bit magical
+  // and don't fully understand why this works. It's a stolen trick from a
+  // couple of blogs that also use Prism highlighting and have the code block
+  // padded correctly: overreacted.io and kentcdodds.com
+  float: left;
+
   hyphens: none;
   padding: ${props => props.theme.typography.rhythm(1)};
   margin: 0;
-  overflow: auto;
   tab-size: 2;
 `;
 
@@ -42,14 +58,6 @@ const ErrorPre = styled(Pre)`
   border-bottom-right-radius: ${props => props.theme.scales.borderRadius()};
   color: ${props => props.theme.colours.angrypeach()};
   padding-left: calc(${props => props.theme.typography.rhythm(1)} - 6px);
-`;
-
-const CodeContainer = styled.div`
-  background-color: ${props => props.theme.colours.obsidian()};
-  border-radius: ${props => props.theme.scales.borderRadius()};
-  box-shadow: 5px 5px 0 0 ${props => props.theme.colours.candyfloss()};
-  margin-bottom: ${props => props.theme.typography.rhythm(1)};
-  position: relative;
 `;
 
 function CodeBlock({ code, language, output }) {

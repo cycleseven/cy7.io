@@ -20,7 +20,7 @@ const coreColours = {
   obsidian: {
     hue: 200,
     saturation: 40,
-    lightness: 12,
+    lightness: 10,
     alpha: 1
   }
 };
