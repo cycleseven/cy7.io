@@ -3,6 +3,7 @@ title: "Overusing anonymous functions"
 slug: "anonymous-functions"
 date: "2020-01-01"
 ---
+
 import { CodeBlock } from "@cy7/blog";
 
 Anonymous functions are a common feature of JS that can make callback-heavy code more concise.
@@ -18,12 +19,10 @@ array
   });
 
 // The same code with anonymous functions
-array
-  .filter(x => x !== null)
-  .map(x => x * 2);
+array.filter(x => x !== null).map(x => x * 2);
 ```
 
-The ES6 arrow syntax is commonly used for anonymous functions. But arrow functions don't need to be anonymous.
+The ES6 arrow syntax is commonly used for anonymous functions. But arrow functions can have names too. Just assign the function to a variable.
 
 ```js
 // A named arrow function
@@ -48,7 +47,7 @@ Anonymous functions have a downside: they make stack traces less readable. For e
   outputType="error"
 />
 
-Notice how the function name `doSomething` appears in the error output. The anonymous version isn't so clear:
+Notice how the function name `doSomething` appears in the error output. The anonymous version isn't so clear. You might see something like this instead (depending on your development environment):
 
 <CodeBlock
   code={`
@@ -76,13 +75,13 @@ If you write a lot of your code in `index.js` files, things can get even more cr
 
 ## Anonymous React components
 
-I've seen this style of writing React components cropping up lately. It's even in the Gatsby docs. [citation needed]
+I've seen this style of writing React components cropping up lately, where the function is written as an anonymous default export.
 
 ```jsx
 import React from "react";
 export default () => <p>Hello world</p>;
 ```
 
-This suffers from a similar problem: you'll have a difficult time finding this in React Dev Tools.
+Components like this are pretty awkward to find in the React Dev Tools.
 
 [screenshot of anonymous component tree]
