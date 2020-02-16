@@ -19,11 +19,7 @@ import Highlight, { Prism } from "prism-react-renderer";
 const CodeContainer = styled.div`
   background-color: ${props => props.theme.colours.obsidian()};
   border-radius: ${props => props.theme.scales.borderRadius()};
-  box-shadow: 5px 5px 0 0
-    ${props =>
-      props.hasError
-        ? props.theme.colours.angrypeach()
-        : props.theme.colours.candyfloss()};
+  box-shadow: 5px 5px 0 0 ${props => props.theme.colours.candyfloss()};
   margin-bottom: ${props => props.theme.typography.rhythm(1)};
   overflow: auto;
 `;
@@ -31,19 +27,11 @@ const CodeContainer = styled.div`
 const Pre = styled.pre`
   color: ${props =>
     props.theme.colours.candyfloss({ lightness: 93, saturation: 40 })};
-
-  /* This float declaration fixes an issue where horizontally overflowing
-   * code wasn't padded nicely along the right edge. I find floats a bit magical
-   * and don't fully understand why this works. It's a stolen trick from a
-   * couple of blogs that also use Prism highlighting and have the code block
-   * padded correctly: overreacted.io and kentcdodds.com
-   */
-  float: left;
+  display: inline-block;
   hyphens: none;
   padding: ${props => props.theme.typography.rhythm(1)};
   margin: 0;
-  min-width: 100%; /* Needed in combo with float: left in case pre is narrower than container */
-  tab-size: 2;
+  min-width: 100%;
 `;
 
 const Code = styled.code`
@@ -55,24 +43,49 @@ const Code = styled.code`
   word-wrap: normal;
 `;
 
-const ErrorPre = styled(Pre)`
-  background-color: ${props =>
-    props.theme.colours.angrypeach({ lightness: 10, saturation: 20 })};
-  border-bottom-left-radius: ${props => props.theme.scales.borderRadius()};
-  border-bottom-right-radius: ${props => props.theme.scales.borderRadius()};
-  color: ${props => props.theme.colours.angrypeach()};
-  padding-left: ${props => props.theme.typography.rhythm(1)};
+const OutputContainer = styled.div`
+  position: relative;
 
   ${Pre} + & {
-    border-top: solid 2px
+    border-top: solid 1px
       ${props =>
-        props.theme.colours.angrypeach({ lightness: 14, saturation: 70 })};
+        props.theme.colours.obsidian({ lightness: 20, saturation: 50 })};
   }
 `;
 
-// TODO: find a better way to differentiate error output once different output
-//       types are introduced
-function CodeBlock({ code, language, output }) {
+const OutputPre = styled(Pre)`
+  background-color: ${props => props.theme.colours.obsidian({ lightness: 13 })};
+  border-bottom-left-radius: ${props => props.theme.scales.borderRadius()};
+  border-bottom-right-radius: ${props => props.theme.scales.borderRadius()};
+  color: ${props =>
+    props.outputType === "error"
+      ? props.theme.colours.angrypeach()
+      : props.theme.colours.candyfloss()};
+  padding-top: ${props => props.theme.typography.rhythm(1)};
+  padding-left: ${props => props.theme.typography.rhythm(1)};
+`;
+
+const Tag = styled.div`
+  background-color: ${props =>
+    props.outputType === "error"
+      ? props.theme.colours.angrypeach()
+      : props.theme.colours.candyfloss()};
+  border-top-right-radius: ${props => props.theme.scales.borderRadius()};
+  border-bottom-right-radius: ${props => props.theme.scales.borderRadius()};
+  color: ${props => props.theme.colours.candyfloss({ lightness: 7 })};
+  font-size: ${props => props.theme.typography.scale(-0.7).fontSize};
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  left: 0;
+  padding: 2px ${props => props.theme.typography.rhythm(1 / 2)} 2px
+    ${props => props.theme.typography.rhythm()};
+  position: absolute;
+  text-transform: uppercase;
+  transform: translateY(-50%);
+  top: 0;
+`;
+
+function CodeBlock({ code, language, output, outputType }) {
   const trimmedCode = code ? trimCodeSnippet(code) : null;
   const trimmedOutput = output ? trimCodeSnippet(output) : null;
 
@@ -110,9 +123,13 @@ function CodeBlock({ code, language, output }) {
       )}
 
       {output && (
-        <ErrorPre>
-          <Code>{trimmedOutput}</Code>
-        </ErrorPre>
+        <OutputContainer>
+          <OutputPre outputType={outputType}>
+            <Code>{trimmedOutput}</Code>
+          </OutputPre>
+
+          {code && <Tag outputType={outputType}>{outputType}</Tag>}
+        </OutputContainer>
       )}
     </CodeContainer>
   );
@@ -121,13 +138,15 @@ function CodeBlock({ code, language, output }) {
 CodeBlock.propTypes = {
   code: PropTypes.string,
   language: PropTypes.oneOf(["js", "jsx"]),
-  output: PropTypes.string
+  output: PropTypes.string,
+  outputType: PropTypes.oneOf(["error", "output"])
 };
 
 CodeBlock.defaultProps = {
   code: null,
   language: null,
-  output: null
+  output: null,
+  outputType: "output"
 };
 
 export { CodeBlock };

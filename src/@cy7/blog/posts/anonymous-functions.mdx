@@ -6,7 +6,7 @@ date: "2020-01-01"
 
 import { CodeBlock } from "@cy7/blog";
 
-Anonymous functions are a common feature of JS that can make callback-heavy code more concise.
+Anonymous functions are something you come across often in JS. They're commonly used to tidy up callback-heavy code.
 
 ```js
 // With named functions
@@ -19,18 +19,27 @@ array
   });
 
 // The same code with anonymous functions
-array.filter(x => x !== null).map(x => x * 2);
+array
+  .filter(x => x !== null)
+  .map(x => x * 2);
 ```
 
-The ES6 arrow syntax is commonly used for anonymous functions. But arrow functions can have names too. Just assign the function to a variable.
+I wrote the anonymous version of that code with arrow functions. That's also common. Note that arrow functions can have names too though.
 
-```js
-// A named arrow function
-let double = x => x * 2;
-console.log(double.name); // "double"
-```
+<CodeBlock
+  code={`
+    // A named arrow function.
+    // The name comes from the assigned variable.
+    let double = x => x * 2;
+    console.log(double.name);
+  `}
+  language="js"
+  output={`
+    "double"
+  `}
+/>
 
-Anonymous functions have a downside: they make stack traces less readable. For example, here's what happens when a named callback throws an exception.
+Function names can make stack traces easier to read. Here's what happens when a **named** callback throws an exception.
 
 <CodeBlock
   code={`
@@ -42,12 +51,14 @@ Anonymous functions have a downside: they make stack traces less readable. For e
   language="js"
   output={`
     Error: oh no
-        doSomething stackTraceExample.js:2
+        at doSomething (stackTraceExample.js:2)
   `}
   outputType="error"
 />
 
-Notice how the function name `doSomething` appears in the error output. The anonymous version isn't so clear. You might see something like this instead (depending on your development environment):
+Notice how the function name `doSomething` appears in the error output.
+
+The anonymous version isn't so clear. The output will vary depending on your environment, but you'll probably see something like this:
 
 <CodeBlock
   code={`
@@ -58,20 +69,26 @@ Notice how the function name `doSomething` appears in the error output. The anon
   language="js"
   output={`
     Error: oh no
-        evaluate stackTraceExample.js:2
+        at stackTraceExample.js:2
   `}
   outputType="error"
 />
 
-If you write a lot of your code in `index.js` files, things can get even more cryptic.
+If you write a lot of your code in `index.js` files, and you run into a more generic error, you can end up with a stack trace that gives you little to go on.
 
 <CodeBlock
   output={`
-    Error: oh no
-        evaluate index.js:2
+    SyntaxError: invalid assignment left-hand side
+        at index.js:2
   `}
   outputType="error"
 />
+
+Admittedly, most of the time there's still a way to track the error down. The error message itself often gives you a useful clue, like a variable name. Maybe you can narrow your search down to recently changed lines of code.
+
+But sometimes seeing a function or file name is the thing that points you in the right direction. Every now and again, it's the best (or only!) clue you get. And in any case, it's a lot easier to scan for "my code" in a long stack trace when familiar names jump out at you.
+
+[example]
 
 ## Anonymous React components
 
@@ -82,6 +99,12 @@ import React from "react";
 export default () => <p>Hello world</p>;
 ```
 
-Components like this are pretty awkward to find in the React Dev Tools.
+Components like this are pretty awkward to find in React Dev Tools.
 
 [screenshot of anonymous component tree]
+
+This is harder to defend: dropping the name doesn't add an obvious readability improvement this time, and the tooling pain is a pretty clear downside.
+
+## Conclusions
+
+I still write a lot of anonymous functions.

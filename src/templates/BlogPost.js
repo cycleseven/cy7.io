@@ -1,4 +1,4 @@
-import { MdxCodeBlock } from "@cy7/blog";
+import { MdxCodeBlock, MdxInlineCode } from "@cy7/blog";
 import { Logo, Meta } from "@cy7/designSystem";
 import { MDXProvider } from "@mdx-js/react";
 import { graphql, Link } from "gatsby";
@@ -45,13 +45,14 @@ const BlogDate = styled.p`
   opacity: 0.7;
   font-size: ${props => props.theme.typography.scale(-0.6).fontSize};
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   line-height: ${props => props.theme.typography.rhythm(1)};
   margin: ${props => props.theme.typography.rhythm(1 / 4)} 0 0 0;
   text-transform: uppercase;
 `;
 
 const mdxComponents = {
+  inlineCode: MdxInlineCode,
   pre: MdxCodeBlock
 };
 
