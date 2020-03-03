@@ -1,5 +1,5 @@
 import assert from "assert";
-import { trimCodeSnippet } from "@cy7/blog";
+import { trimCodeSnippet } from "@cy7/blog/codeBlocks";
 
 describe("trimCodeSnippet", () => {
   test("should remove trailing whitespace on a one-liner", () => {

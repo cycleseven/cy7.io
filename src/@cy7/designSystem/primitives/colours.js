@@ -14,7 +14,7 @@ const coreColours = {
   paper: {
     hue: 35,
     saturation: 100,
-    lightness: 97,
+    lightness: 98,
     alpha: 1
   },
   obsidian: {
@@ -26,7 +26,7 @@ const coreColours = {
 };
 
 // TODO: test
-function getColourFunction(colourName, parameters) {
+function createColourFunction(colourName, parameters) {
   const baseColour = coreColours[colourName];
   const colour = {
     ...baseColour,
@@ -41,21 +41,21 @@ function getColourFunction(colourName, parameters) {
 
 const palettes = {
   paper: {
-    background: getColourFunction("paper"),
-    header: getColourFunction("paper", { saturation: 15, lightness: 15 }),
-    body: getColourFunction("paper", { saturation: 80, lightness: 10 })
+    background: createColourFunction("paper"),
+    header: createColourFunction("paper", { saturation: 15, lightness: 15 }),
+    body: createColourFunction("paper", { saturation: 80, lightness: 10 })
   },
   candyfloss: {
-    background: getColourFunction("candyfloss"),
-    header: getColourFunction("candyfloss", { lightness: 14 })
+    background: createColourFunction("candyfloss"),
+    header: createColourFunction("candyfloss", { lightness: 14 })
   }
 };
 
 const colours = {
-  angrypeach: getColourFunction("angrypeach"),
-  candyfloss: getColourFunction("candyfloss"),
-  paper: getColourFunction("paper"),
-  obsidian: getColourFunction("obsidian")
+  angrypeach: createColourFunction("angrypeach"),
+  candyfloss: createColourFunction("candyfloss"),
+  paper: createColourFunction("paper"),
+  obsidian: createColourFunction("obsidian")
 };
 
 export { colours, palettes };

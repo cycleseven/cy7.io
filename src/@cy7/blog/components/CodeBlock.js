@@ -74,7 +74,7 @@ const Tag = styled.div`
   border-bottom-right-radius: ${props => props.theme.scales.borderRadius()};
   color: ${props => props.theme.colours.candyfloss({ lightness: 7 })};
   font-size: ${props => props.theme.typography.scale(-0.7).fontSize};
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.13em;
   left: 0;
   padding: 2px ${props => props.theme.typography.rhythm(1 / 2)} 2px
