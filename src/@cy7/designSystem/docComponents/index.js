@@ -1,1 +1,1 @@
-export * from "./ColourSwatch";
+export * from "./ColorSwatch";

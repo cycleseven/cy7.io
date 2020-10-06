@@ -1,5 +1,5 @@
 import { MdxCodeBlock, MdxInlineCode } from "@cy7/blog";
-import { Logo, Meta } from "@cy7/designSystem";
+import { Meta } from "@cy7/designSystem";
 import { MDXProvider } from "@mdx-js/react";
 import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
@@ -9,7 +9,7 @@ import styled from "styled-components";
 
 const Article = styled.article`
   margin: auto;
-  max-width: 36rem;
+  max-width: 38rem;
   padding: 0 1rem;
   position: relative;
 `;
@@ -18,34 +18,26 @@ const Header = styled.header`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-bottom: ${props => props.theme.typography.rhythm(2)};
-  margin-top: ${props => props.theme.typography.rhythm(6)};
+  margin-bottom: ${props => props.theme.typography.rhythm(1.5)};
+  margin-top: ${props => props.theme.typography.rhythm(3)};
 `;
 
 const Heading = styled.h1`
   margin: 0;
 `;
 
-const BackgroundImageContainer = styled.div`
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: -1;
-`;
-
-const LogoContainer = styled.div`
+const HeaderImageContainer = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  padding-top: ${props => props.theme.typography.rhythm(1)};
 `;
 
 const BlogDate = styled.p`
-  opacity: 0.7;
+  color: ${props => props.theme.palettes.paper.header};
+  opacity: 0.8;
   font-size: ${props => props.theme.typography.scale(-0.6).fontSize};
-  font-weight: 500;
-  letter-spacing: 0.12em;
+  font-weight: 700;
+  letter-spacing: 0.11em;
   line-height: ${props => props.theme.typography.rhythm(1)};
   margin: ${props => props.theme.typography.rhythm(1 / 4)} 0 0 0;
   text-transform: uppercase;
@@ -69,15 +61,11 @@ const BlogPost = ({ data }) => {
     <Article>
       <Meta title={blogPost.frontmatter.title} />
 
-      <BackgroundImageContainer>
-        <Img fadeIn={false} fixed={towersImage} loading="eager" />
-      </BackgroundImageContainer>
-
-      <LogoContainer>
+      <HeaderImageContainer>
         <Link aria-label="Return to home" to="/">
-          <Logo size={84} variant="circular" />
+          <Img fadeIn={false} fixed={towersImage} loading="eager" />
         </Link>
-      </LogoContainer>
+      </HeaderImageContainer>
 
       <Header>
         <Heading>{blogPost.frontmatter.title}</Heading>
@@ -111,7 +99,7 @@ export const query = graphql`
 
     towersImage: file(relativePath: { eq: "tower.png" }) {
       childImageSharp {
-        fixed(width: 170) {
+        fixed(width: 220) {
           ...GatsbyImageSharpFixed_noBase64
         }
       }

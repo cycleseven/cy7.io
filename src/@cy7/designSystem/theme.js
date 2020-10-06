@@ -1,5 +1,5 @@
-import { colours, palettes } from "./primitives/colours";
+import { colors, palettes } from "@cy7/designSystem/primitives/colors";
 import * as scales from "./primitives/scales";
 import { typography } from "./primitives/typography";
 
-export { colours, palettes, scales, typography };
+export { colors, palettes, scales, typography };

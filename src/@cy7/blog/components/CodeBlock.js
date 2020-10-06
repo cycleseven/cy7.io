@@ -4,11 +4,12 @@ import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import Highlight, { Prism } from "prism-react-renderer";
+import { hslAdjust } from "@cy7/css";
 
 /**
  * These styles use Prism's okaidia as a starting point.
  *
- * Colours are heavily tweaked to blend in better with the cy7 theme (see
+ * Colors are heavily tweaked to blend in better with the cy7 theme (see
  * <Token /> component in particular).
  *
  * https://github.com/PrismJS/prism/blob/master/themes/prism-okaidia.css
@@ -17,16 +18,19 @@ import Highlight, { Prism } from "prism-react-renderer";
  */
 
 const CodeContainer = styled.div`
-  background-color: ${props => props.theme.colours.obsidian()};
+  background-color: ${props => props.theme.colors.obsidian};
   border-radius: ${props => props.theme.scales.borderRadius()};
-  box-shadow: 5px 5px 0 0 ${props => props.theme.colours.candyfloss()};
+  box-shadow: 5px 5px 0 0 ${props => props.theme.colors.candyfloss};
   margin-bottom: ${props => props.theme.typography.rhythm(1)};
   overflow: auto;
 `;
 
 const Pre = styled.pre`
   color: ${props =>
-    props.theme.colours.candyfloss({ lightness: 93, saturation: 40 })};
+    hslAdjust(props.theme.colors.candyfloss, {
+      lightness: 0.93,
+      saturation: 0.4
+    })};
   display: inline-block;
   hyphens: none;
   padding: ${props => props.theme.typography.rhythm(1)};
@@ -47,20 +51,18 @@ const OutputContainer = styled.div`
   position: relative;
 
   ${Pre} + & {
-    border-top: solid 1px
-      ${props =>
-        props.theme.colours.obsidian({ lightness: 20, saturation: 50 })};
+    margin-top: ${props => props.theme.typography.rhythm(0.5)};
   }
 `;
 
 const OutputPre = styled(Pre)`
-  background-color: ${props => props.theme.colours.obsidian({ lightness: 13 })};
+  background-color: ${props => props.theme.colors.obsidian};
   border-bottom-left-radius: ${props => props.theme.scales.borderRadius()};
   border-bottom-right-radius: ${props => props.theme.scales.borderRadius()};
   color: ${props =>
     props.outputType === "error"
-      ? props.theme.colours.angrypeach()
-      : props.theme.colours.candyfloss()};
+      ? props.theme.colors.angrypeach
+      : props.theme.colors.candyfloss};
   padding-top: ${props => props.theme.typography.rhythm(1)};
   padding-left: ${props => props.theme.typography.rhythm(1)};
 `;
@@ -68,11 +70,9 @@ const OutputPre = styled(Pre)`
 const Tag = styled.div`
   background-color: ${props =>
     props.outputType === "error"
-      ? props.theme.colours.angrypeach()
-      : props.theme.colours.candyfloss()};
-  border-top-right-radius: ${props => props.theme.scales.borderRadius()};
-  border-bottom-right-radius: ${props => props.theme.scales.borderRadius()};
-  color: ${props => props.theme.colours.candyfloss({ lightness: 7 })};
+      ? props.theme.colors.angrypeach
+      : props.theme.colors.candyfloss};
+  color: ${props => props.theme.colors.obsidian};
   font-size: ${props => props.theme.typography.scale(-0.7).fontSize};
   font-weight: 700;
   letter-spacing: 0.13em;

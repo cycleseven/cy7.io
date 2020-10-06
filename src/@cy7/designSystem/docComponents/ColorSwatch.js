@@ -4,8 +4,8 @@ import styled from "styled-components";
 
 const swatchSize = 50;
 
-const ColourPreview = styled.div`
-  background-color: ${props => props.colour};
+const ColorPreview = styled.div`
+  background-color: ${props => props.color};
   box-shadow: 4px 4px 0 0 black;
   border: solid 4px black;
   height: ${swatchSize}px;
@@ -38,21 +38,21 @@ const SwatchGroup = styled.div`
   }
 `;
 
-function ColourSwatch({ colour, name }) {
+function ColorSwatch({ color, name }) {
   return (
     <Figure>
-      <ColourPreview colour={colour} />
+      <ColorPreview color={color} />
       <Caption>
-        <ColorName>theme.colours.{name}</ColorName>
-        <ColorString>{colour}</ColorString>
+        <ColorName>theme.colors.{name}</ColorName>
+        <ColorString>{color}</ColorString>
       </Caption>
     </Figure>
   );
 }
 
-ColourSwatch.propTypes = {
-  colour: PropTypes.string.isRequired,
+ColorSwatch.propTypes = {
+  color: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired
 };
 
-export { ColourSwatch, SwatchGroup };
+export { ColorSwatch, SwatchGroup };

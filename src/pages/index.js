@@ -1,19 +1,48 @@
-import { CenteredPage, Logo as BaseLogo, Meta } from "@cy7/designSystem";
+import { Meta } from "@cy7/designSystem";
+import heroImage from "images/hero.svg";
 import React from "react";
 import styled from "styled-components";
 
-const Logo = styled(BaseLogo)`
-  flex-shrink: 0;
-  margin: auto;
+const Root = styled.div`
+  padding: 0 ${({ theme }) => theme.typography.rhythm(1)};
 `;
 
-function IndexPage() {
+const Header = styled.header`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: -19px;
+`;
+
+const HeroImage = styled.img`
+  width: 460px;
+`;
+
+const Main = styled.main`
+  margin: ${({ theme }) => theme.typography.rhythm(3)} auto;
+  max-width: 65rem;
+`;
+
+const Intro = styled.p`
+  max-width: 23em;
+`;
+
+function HomePage() {
   return (
-    <CenteredPage>
+    <Root>
       <Meta />
-      <Logo />
-    </CenteredPage>
+      <Header>
+        <HeroImage alt="cy7.io" src={heroImage} />
+      </Header>
+      <Main>
+        <Intro>I'm Owen, a web developer from Edinburgh, Scotland.</Intro>
+        <Intro>
+          Say hey on Github{" "}
+          <a href="https://github.com/cycleseven">@cycleseven</a>
+        </Intro>
+      </Main>
+    </Root>
   );
 }
 
-export default IndexPage;
+export default HomePage;

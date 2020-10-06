@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import { hslAdjust } from "@cy7/css";
 import { arraysHaveIntersect } from "@cy7/utils/array";
 
-function getTokenColour(token, theme) {
+function getTokenColor(token, theme) {
   if (arraysHaveIntersect(token.types, ["keyword"])) {
-    return theme.colours.candyfloss({ lightness: 80, saturation: 100 });
+    return theme.colors.candyfloss;
   } else if (
     arraysHaveIntersect(token.types, [
       "boolean",
@@ -18,7 +19,7 @@ function getTokenColour(token, theme) {
       "important"
     ])
   ) {
-    return theme.colours.paper({ lightness: 70, saturation: 90 });
+    return hslAdjust(theme.colors.paper, { lightness: 0.7, saturation: 0.9 });
   } else if (
     arraysHaveIntersect(token.types, [
       "entity",
@@ -31,15 +32,24 @@ function getTokenColour(token, theme) {
       "tag"
     ])
   ) {
-    return theme.colours.paper({ lightness: 86, saturation: 100 });
+    return hslAdjust(theme.colors.paper, { lightness: 0.84, saturation: 1 });
   } else if (arraysHaveIntersect(token.types, ["comment", "doctype"])) {
-    return theme.colours.obsidian({ lightness: 50, saturation: 20 });
+    return hslAdjust(theme.colors.obsidian, {
+      lightness: 0.6,
+      saturation: 0.2
+    });
   } else if (arraysHaveIntersect(token.types, ["operator"])) {
-    return theme.colours.obsidian({ lightness: 80, saturation: 50 });
+    return hslAdjust(theme.colors.obsidian, {
+      lightness: 0.8,
+      saturation: 0.5
+    });
   } else if (arraysHaveIntersect(token.types, ["punctuation"])) {
-    return theme.colours.obsidian({ lightness: 55, saturation: 18 });
+    return hslAdjust(theme.colors.obsidian, {
+      lightness: 0.55,
+      saturation: 0.18
+    });
   } else if (arraysHaveIntersect(token.types, ["plain"])) {
-    return "white";
+    return theme.colors.candyfloss;
   }
 
   return null;
@@ -73,7 +83,7 @@ const Token = styled.span.attrs(({ token }) => {
   // Shave a few bytes in prod by leaving out the debug data
   return null;
 })`
-  color: ${({ token, theme }) => getTokenColour(token, theme)};
+  color: ${({ token, theme }) => getTokenColor(token, theme)};
   display: ${({ token }) => getTokenDisplay(token)};
   font-weight: ${({ token }) => getTokenWeight(token)};
 `;
