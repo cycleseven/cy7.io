@@ -32,6 +32,8 @@ function HomePage() {
     <Root>
       <Meta />
       <Header>
+        {/* TODO: use gatsby-image instead, or add height attribute.
+                  Jumping after load atm... */}
         <HeroImage alt="cy7.io" src={heroImage} />
       </Header>
       <Main>

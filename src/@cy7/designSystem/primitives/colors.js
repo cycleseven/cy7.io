@@ -5,7 +5,8 @@ const colors = {
   candyfloss: "hsl(308, 98%, 84%)",
   paper: "hsl(35, 100%, 99%)",
   obsidian: "hsl(213, 64%, 14%)",
-  glasgow: "hsl(213, 90%, 28%)"
+  glasgow: "hsl(213, 90%, 28%)",
+  dijon: "hsl(51, 100%, 50%)"
 };
 
 const palettes = {

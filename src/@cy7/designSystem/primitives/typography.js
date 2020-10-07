@@ -4,7 +4,7 @@ import { palettes } from "@cy7/designSystem/primitives/colors";
 const typography = new Typography({
   baseFontSize: "17px",
   baseLineHeight: 1.6,
-  blockMarginBottom: 0.75,
+  blockMarginBottom: 0.9,
   bodyColor: palettes.paper.body,
   bodyFontFamily: ["Inter"],
   bodyWeight: 400,

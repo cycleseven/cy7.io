@@ -1,3 +1,4 @@
+import { lighten } from "polished";
 import { createGlobalStyle } from "styled-components";
 import { typography } from "./primitives/typography";
 
@@ -90,6 +91,30 @@ const GlobalStyles = createGlobalStyle`
    */
   html {
     background-color: ${props => props.theme.colors.paper};
+  }
+
+  a {
+    box-shadow:
+      inset 0 -0.05em ${props => props.theme.colors.paper},
+      inset 0 -0.4em ${props => lighten(0.08, props.theme.colors.candyfloss)};
+    color: hsl(227, 67%, 43%);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  a:hover {
+    box-shadow:
+      inset 0 -0.05em ${props => props.theme.colors.paper},
+      inset 0 -0.4em ${props => lighten(0.04, props.theme.colors.candyfloss)};
+    color: hsl(227, 97%, 40%);
+  }
+
+  a:focus {
+    background: ${props => props.theme.colors.dijon};
+    border-bottom: solid 3px ${props => props.theme.colors.obsidian};
+    box-shadow: none;
+    color: ${props => props.theme.colors.obsidian};
+    outline: none;
   }
 `;
 

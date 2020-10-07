@@ -1,7 +1,7 @@
 import { MdxCodeBlock, MdxInlineCode } from "@cy7/blog";
-import { Meta } from "@cy7/designSystem";
+import { Meta, PlainLink } from "@cy7/designSystem";
 import { MDXProvider } from "@mdx-js/react";
-import { graphql, Link } from "gatsby";
+import { Link, graphql } from "gatsby";
 import Img from "gatsby-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
@@ -62,9 +62,9 @@ const BlogPost = ({ data }) => {
       <Meta title={blogPost.frontmatter.title} />
 
       <HeaderImageContainer>
-        <Link aria-label="Return to home" to="/">
+        <PlainLink aria-label="Return to home" as={Link} to="/">
           <Img fadeIn={false} fixed={towersImage} loading="eager" />
-        </Link>
+        </PlainLink>
       </HeaderImageContainer>
 
       <Header>

@@ -128,7 +128,7 @@ function CodeBlock({ code, language, output, outputType }) {
             <Code>{trimmedOutput}</Code>
           </OutputPre>
 
-          {code && <Tag outputType={outputType}>{outputType}</Tag>}
+          {code && <Tag outputType={outputType}>Output</Tag>}
         </OutputContainer>
       )}
     </CodeContainer>
