@@ -95,18 +95,18 @@ const GlobalStyles = createGlobalStyle`
 
   a {
     box-shadow:
-      inset 0 -0.05em ${props => props.theme.colors.paper},
-      inset 0 -0.4em ${props => lighten(0.08, props.theme.colors.candyfloss)};
-    color: hsl(227, 67%, 43%);
+      inset 0 0 ${props => props.theme.colors.paper},
+      inset 0 -0.37em ${props => lighten(0.09, props.theme.colors.candyfloss)};
+    color: hsl(227, 75%, 40%);
     font-weight: 700;
     text-decoration: none;
   }
 
   a:hover {
     box-shadow:
-      inset 0 -0.05em ${props => props.theme.colors.paper},
-      inset 0 -0.4em ${props => lighten(0.04, props.theme.colors.candyfloss)};
-    color: hsl(227, 97%, 40%);
+      inset 0 0 ${props => props.theme.colors.paper},
+      inset 0 -0.37em ${props => lighten(0.04, props.theme.colors.candyfloss)};
+    color: hsl(227, 97%, 34%);
   }
 
   a:focus {
