@@ -37,7 +37,7 @@ function HomePage() {
         <HeroImage alt="cy7.io" src={heroImage} />
       </Header>
       <Main>
-        <Intro>I'm Owen, a web developer from Edinburgh, Scotland.</Intro>
+        <Intro>I&apos;m Owen, a web developer from Edinburgh, Scotland.</Intro>
         <Intro>
           Say hey on Github{" "}
           <a href="https://github.com/cycleseven">@cycleseven</a>

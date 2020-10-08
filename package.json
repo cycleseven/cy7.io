@@ -18,6 +18,8 @@
     "babel-loader": "8.0.6",
     "babel-plugin-styled-components": "1.10.7",
     "babel-preset-gatsby": "0.2.29",
+    "browserslist": "4.14.5",
+    "caniuse-lite": "1.0.30001146",
     "date-fns": "2.9.0",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.10.0",
@@ -54,11 +56,11 @@
     "react-helmet": "5.2.1",
     "react-typography": "0.16.19",
     "styled-components": "5.0.1",
-    "stylelint": "13.1.0",
-    "stylelint-config-prettier": "8.0.1",
+    "stylelint": "13.7.2",
+    "stylelint-config-prettier": "8.0.2",
     "stylelint-config-standard": "20.0.0",
     "stylelint-config-styled-components": "0.1.1",
-    "stylelint-processor-styled-components": "1.9.0",
+    "stylelint-processor-styled-components": "1.10.0",
     "typography": "0.16.19"
   },
   "engines": {
@@ -125,8 +127,10 @@
       "stylelint-processor-styled-components"
     ],
     "rules": {
+      "declaration-empty-line-before": null,
       "selector-type-case": null,
-      "selector-type-no-unknown": null
+      "selector-type-no-unknown": null,
+      "value-keyword-case": null
     }
   },
   "prettier": {
