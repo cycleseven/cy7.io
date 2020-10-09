@@ -30,7 +30,7 @@ const Intro = styled.p`
 function HomePage() {
   return (
     <Root>
-      <Meta />
+      <Meta title="hi" />
       <Header>
         {/* TODO: use gatsby-image instead, or add height attribute.
                   Jumping after load atm... */}
