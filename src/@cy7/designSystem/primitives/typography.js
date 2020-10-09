@@ -6,10 +6,16 @@ const typography = new Typography({
   baseLineHeight: 1.6,
   blockMarginBottom: 0.9,
   bodyColor: palettes.paper.body,
-  bodyFontFamily: ["Inter"],
+  bodyFontFamily: [
+    "Inter",
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    "sans-serif"
+  ],
   bodyWeight: 400,
   headerColor: palettes.paper.header,
-  headerFontFamily: ["Oswald"],
+  headerFontFamily: ["Oswald", "Open Sans Condensed", "Impact", "sans-serif"],
   headerWeight: 700,
   scaleRatio: 2.5,
   overrideStyles: ({ rhythm }) => ({
