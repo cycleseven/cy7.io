@@ -99,7 +99,7 @@ export const query = graphql`
 
     towersImage: file(relativePath: { eq: "tower.png" }) {
       childImageSharp {
-        fixed(width: 220) {
+        fixed(width: 190) {
           ...GatsbyImageSharpFixed_noBase64
         }
       }

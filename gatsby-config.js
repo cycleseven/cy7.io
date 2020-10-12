@@ -41,13 +41,23 @@ module.exports = {
 
     // Enable optimised import of SVGs
     {
-      resolve: "gatsby-plugin-svgr",
+      resolve: "gatsby-plugin-svgr-svgo",
       options: {
-        svgoConfig: {
-          plugins: {
-            removeViewBox: false
+        urlSvgOptions: [
+          {
+            test: /\.svg$/,
+            svgoConfig: {
+              plugins: [
+                {
+                  removeViewBox: false
+                }
+              ]
+            },
+            urlLoaderOptions: {
+              limit: 512
+            }
           }
-        }
+        ]
       }
     },
 

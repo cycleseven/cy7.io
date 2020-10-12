@@ -11,7 +11,6 @@ const Header = styled.header`
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin-top: -19px;
 `;
 
 const HeroImage = styled.img`
