@@ -1,29 +1,29 @@
 import { Meta } from "@cy7/designSystem";
-import heroImage from "images/hero.svg";
+import Hero from "@cy7/home/Hero";
 import React from "react";
 import styled from "styled-components";
 
-const Root = styled.div`
-  padding: 0 ${({ theme }) => theme.typography.rhythm(1)};
-`;
+const Root = styled.div``;
 
 const Header = styled.header`
   align-items: center;
   display: flex;
   flex-direction: column;
-`;
-
-const HeroImage = styled.img`
-  width: 460px;
+  padding: 0 ${({ theme }) => theme.typography.rhythm(1)};
 `;
 
 const Main = styled.main`
   margin: ${({ theme }) => theme.typography.rhythm(3)} auto;
   max-width: 65rem;
+  padding: 0 ${({ theme }) => theme.typography.rhythm(1)};
 `;
 
 const Intro = styled.p`
   max-width: 23em;
+`;
+
+const HeroImage = styled(Hero)`
+  max-width: 460px;
 `;
 
 function HomePage() {
@@ -31,9 +31,7 @@ function HomePage() {
     <Root>
       <Meta title="hi" />
       <Header>
-        {/* TODO: use gatsby-image instead, or add height attribute.
-                  Jumping after load atm... */}
-        <HeroImage alt="cy7.io" src={heroImage} />
+        <HeroImage />
       </Header>
       <Main>
         <Intro>I&apos;m Owen, a web developer from Edinburgh, Scotland.</Intro>

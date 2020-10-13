@@ -39,28 +39,6 @@ module.exports = {
     // Manages the Babel plugin + SSR for styled-components
     "gatsby-plugin-styled-components",
 
-    // Enable optimised import of SVGs
-    {
-      resolve: "gatsby-plugin-svgr-svgo",
-      options: {
-        urlSvgOptions: [
-          {
-            test: /\.svg$/,
-            svgoConfig: {
-              plugins: [
-                {
-                  removeViewBox: false
-                }
-              ]
-            },
-            urlLoaderOptions: {
-              limit: 512
-            }
-          }
-        ]
-      }
-    },
-
     // Output a schema.json on running Gatsby dev server
     "gatsby-plugin-extract-schema"
 
