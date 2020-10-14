@@ -1,13 +1,15 @@
-import * as React from "react";
+import { Svg } from "@cy7/designSystem";
+import React from "react";
 
 function Hero(props) {
   return (
-    <svg
+    <Svg
       clipRule="evenodd"
       fillRule="evenodd"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeMiterlimit={1.5}
+      strokeWidth={1.2}
       viewBox="0 0 542 470"
       {...props}
     >
@@ -17,70 +19,55 @@ function Hero(props) {
           fill="none"
           id="reuse-9"
           stroke="#162a6f"
-          strokeWidth={1.2}
         />
         <path
           d="M736.283 1626.65l-6.495-3.75v6.25l6.495 3.75v-6.25z"
           fill="none"
           id="reuse-8"
           stroke="#162a6f"
-          strokeWidth={1.2}
         />
         <path
           d="M703.808 1621.65l3.247-1.88v-7.5M707.055 1619.77l12.99 7.5"
           fill="none"
           id="reuse-7"
           stroke="#162a6f"
-          strokeWidth={1.2}
         />
         <path
           d="M703.808 1626.65l16.237 9.37v-11.25l-16.237-9.37v11.25z"
           fill="none"
           id="reuse-6"
           stroke="#162a6f"
-          strokeWidth={1.2}
         />
         <path
           d="M305.436 1709.15l9.743 5.62v1.25l-9.743-5.62v-1.25z"
           fill="none"
           id="reuse-5"
           stroke="#162a6f"
-          strokeWidth={1.2}
         />
         <path
           d="M781.75 1660.4v8.75"
           fill="none"
           id="reuse-4"
           stroke="#162a6f"
-          strokeWidth={1.2}
         />
         <path
           d="M366.058 1769.15v15"
           fill="none"
           id="reuse-3"
           stroke="#162a6f"
-          strokeWidth={1.2}
         />
-        <path
-          d="M346.572 1757.9v15"
-          fill="none"
-          id="reuse-2"
-          stroke="#162a6f"
-          strokeWidth={1.2}
-        />
+        <path d="M346.572 1757.9v15" id="reuse-2" stroke="#162a6f" />
         <path
           d="M305.436 1735.4v15l80.107 46.25v-15l-80.107-46.25z"
           fill="none"
           id="reuse-1"
           stroke="#162a6f"
-          strokeWidth={1.2}
         />
         <path
           d="M479.723 1896.02v5l12.925-7.54v-4.92l-12.925 7.46z"
           fill="none"
           id="reuse-0"
           stroke="#162a6f"
-          strokeWidth={1.2}
         />
       </defs>
       <g
@@ -832,7 +819,7 @@ function Hero(props) {
           />
         </g>
       </g>
-    </svg>
+    </Svg>
   );
 }
 
