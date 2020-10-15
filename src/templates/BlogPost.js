@@ -1,5 +1,5 @@
 import { MdxCodeBlock, MdxInlineCode } from "@cy7/blog";
-import { Meta, PlainLink } from "@cy7/designSystem";
+import { Meta, PlainLink, paletteColor, rhythm } from "@cy7/designSystem";
 import { MDXProvider } from "@mdx-js/react";
 import { Link, graphql } from "gatsby";
 import Img from "gatsby-image";
@@ -18,8 +18,8 @@ const Header = styled.header`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-bottom: ${props => props.theme.typography.rhythm(1.5)};
-  margin-top: ${props => props.theme.typography.rhythm(3)};
+  margin-bottom: ${rhythm(1.5)};
+  margin-top: ${rhythm(3)};
 `;
 
 const Heading = styled.h1`
@@ -33,13 +33,13 @@ const HeaderImageContainer = styled.div`
 `;
 
 const BlogDate = styled.p`
-  color: ${props => props.theme.palettes.paper.header};
+  color: ${paletteColor("paper", "header")};
   opacity: 0.8;
-  font-size: ${props => props.theme.typography.scale(-0.6).fontSize};
+  font-size: 0.54rem;
   font-weight: 700;
   letter-spacing: 0.11em;
-  line-height: ${props => props.theme.typography.rhythm(1)};
-  margin: ${props => props.theme.typography.rhythm(1 / 4)} 0 0 0;
+  line-height: ${rhythm(1)};
+  margin: ${rhythm(1 / 4)} 0 0 0;
   text-transform: uppercase;
 `;
 

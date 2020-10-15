@@ -13,6 +13,7 @@
     "@storybook/addon-actions": "5.3.13",
     "@storybook/addon-docs": "5.3.13",
     "@storybook/react": "5.3.13",
+    "@styled-system/css": "5.1.5",
     "babel-jest": "26.5.2",
     "babel-loader": "8.1.0",
     "babel-plugin-styled-components": "1.11.1",

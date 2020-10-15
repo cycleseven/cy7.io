@@ -1,10 +1,11 @@
 import { trimCodeSnippet } from "@cy7/blog/codeBlocks";
 import { Token } from "@cy7/blog/components/Token";
+import { hslAdjust } from "@cy7/css";
+import { borderRadius, color, rhythm } from "@cy7/designSystem";
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import Highlight, { Prism } from "prism-react-renderer";
-import { hslAdjust } from "@cy7/css";
 
 /**
  * These styles use Prism's okaidia as a starting point.
@@ -18,22 +19,22 @@ import { hslAdjust } from "@cy7/css";
  */
 
 const CodeContainer = styled.div`
-  background-color: ${props => props.theme.colors.obsidian};
-  border-radius: ${props => props.theme.scales.borderRadius()};
-  box-shadow: 5px 5px 0 0 ${props => props.theme.colors.candyfloss};
-  margin-bottom: ${props => props.theme.typography.rhythm(1)};
+  background-color: ${color("obsidian")};
+  border-radius: ${borderRadius()};
+  box-shadow: 5px 5px 0 0 ${color("candyfloss")};
+  margin-bottom: ${rhythm(1)};
   overflow: auto;
 `;
 
 const Pre = styled.pre`
-  color: ${props =>
-    hslAdjust(props.theme.colors.candyfloss, {
+  color: ${({ theme }) =>
+    hslAdjust(theme.colors.candyfloss, {
       lightness: 0.93,
       saturation: 0.4
     })};
   display: inline-block;
   hyphens: none;
-  padding: ${props => props.theme.typography.rhythm(1)};
+  padding: ${rhythm(1)};
   margin: 0;
   min-width: 100%;
 `;
@@ -51,34 +52,29 @@ const OutputContainer = styled.div`
   position: relative;
 
   ${Pre} + & {
-    margin-top: ${props => props.theme.typography.rhythm(0.5)};
+    margin-top: ${rhythm(0.5)};
   }
 `;
 
 const OutputPre = styled(Pre)`
-  background-color: ${props => props.theme.colors.obsidian};
-  border-bottom-left-radius: ${props => props.theme.scales.borderRadius()};
-  border-bottom-right-radius: ${props => props.theme.scales.borderRadius()};
-  color: ${props =>
-    props.outputType === "error"
-      ? props.theme.colors.angrypeach
-      : props.theme.colors.candyfloss};
-  padding-top: ${props => props.theme.typography.rhythm(1)};
-  padding-left: ${props => props.theme.typography.rhythm(1)};
+  background-color: ${color("obsidian")};
+  border-bottom-left-radius: ${borderRadius()};
+  border-bottom-right-radius: ${borderRadius()};
+  color: ${({ theme, outputType }) =>
+    outputType === "error" ? theme.colors.angrypeach : theme.colors.candyfloss};
+  padding-top: ${rhythm(1)};
+  padding-left: ${rhythm(1)};
 `;
 
 const Tag = styled.div`
-  background-color: ${props =>
-    props.outputType === "error"
-      ? props.theme.colors.angrypeach
-      : props.theme.colors.candyfloss};
-  color: ${props => props.theme.colors.obsidian};
-  font-size: ${props => props.theme.typography.scale(-0.7).fontSize};
+  background-color: ${({ theme, outputType }) =>
+    outputType === "error" ? theme.colors.angrypeach : theme.colors.candyfloss};
+  color: ${color("obsidian")};
+  font-size: 0.5rem;
   font-weight: 700;
   letter-spacing: 0.13em;
   left: 0;
-  padding: 2px ${props => props.theme.typography.rhythm(1 / 2)} 2px
-    ${props => props.theme.typography.rhythm()};
+  padding: 2px ${rhythm(1 / 2)} 2px ${rhythm(1)};
   position: absolute;
   text-transform: uppercase;
   transform: translateY(-50%);

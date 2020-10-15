@@ -1,4 +1,4 @@
-import { Meta } from "@cy7/designSystem";
+import { Meta, rhythm } from "@cy7/designSystem";
 import Hero from "@cy7/home/Hero";
 import React from "react";
 import styled from "styled-components";
@@ -9,13 +9,12 @@ const Header = styled.header`
   align-items: center;
   display: flex;
   flex-direction: column;
-  padding: 0 ${({ theme }) => theme.typography.rhythm(1)};
 `;
 
 const Main = styled.main`
-  margin: ${({ theme }) => theme.typography.rhythm(3)} auto;
+  margin: ${rhythm(3)} auto;
   max-width: 65rem;
-  padding: 0 ${({ theme }) => theme.typography.rhythm(1)};
+  padding: 0 ${rhythm(1)};
 `;
 
 const Intro = styled.p`
