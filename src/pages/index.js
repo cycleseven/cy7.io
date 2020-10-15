@@ -1,9 +1,11 @@
-import { Meta, rhythm } from "@cy7/designSystem";
+import { Meta, rhythm, size } from "@cy7/designSystem";
 import Hero from "@cy7/home/Hero";
 import React from "react";
 import styled from "styled-components";
 
-const Root = styled.div``;
+const Root = styled.div`
+  padding: 0 ${size("gutter")};
+`;
 
 const Header = styled.header`
   align-items: center;
@@ -14,7 +16,6 @@ const Header = styled.header`
 const Main = styled.main`
   margin: ${rhythm(3)} auto;
   max-width: 65rem;
-  padding: 0 ${rhythm(1)};
 `;
 
 const Intro = styled.p`

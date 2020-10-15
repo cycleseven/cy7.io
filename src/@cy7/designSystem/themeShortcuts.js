@@ -55,4 +55,10 @@ function rhythm(n) {
   };
 }
 
-export { borderRadius, color, paletteColor, rhythm };
+function size(sizeName) {
+  return function getSize({ theme }) {
+    return theme.sizes[sizeName];
+  };
+}
+
+export { borderRadius, color, paletteColor, rhythm, size };

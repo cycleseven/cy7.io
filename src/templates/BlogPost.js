@@ -1,5 +1,5 @@
 import { MdxCodeBlock, MdxInlineCode } from "@cy7/blog";
-import { Meta, PlainLink, paletteColor, rhythm } from "@cy7/designSystem";
+import { Meta, PlainLink, paletteColor, rhythm, size } from "@cy7/designSystem";
 import { MDXProvider } from "@mdx-js/react";
 import { Link, graphql } from "gatsby";
 import Img from "gatsby-image";
@@ -10,7 +10,7 @@ import styled from "styled-components";
 const Article = styled.article`
   margin: auto;
   max-width: 38rem;
-  padding: 0 1rem;
+  padding: 0 ${size("gutter")};
   position: relative;
 `;
 
