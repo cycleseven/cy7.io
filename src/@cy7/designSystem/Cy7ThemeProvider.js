@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { ThemeProvider } from "styled-components";
-import * as theme from "./theme";
+import theme from "./theme";
 import { Fonts } from "./Fonts";
 import { GlobalStyles } from "./GlobalStyles";
 

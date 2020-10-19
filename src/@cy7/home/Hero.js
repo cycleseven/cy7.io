@@ -1,7 +1,9 @@
-import { Svg } from "@cy7/designSystem";
+import { Svg, useTheme } from "@cy7/designSystem";
 import React from "react";
 
 function Hero(props) {
+  const theme = useTheme();
+
   return (
     <Svg
       clipRule="evenodd"
@@ -18,56 +20,60 @@ function Hero(props) {
           d="M406.111 1738.52l-4.33-2.5 4.33-2.5 4.33 2.5"
           fill="none"
           id="reuse-9"
-          stroke="#162a6f"
+          stroke={theme.colors.glasgow}
         />
         <path
           d="M736.283 1626.65l-6.495-3.75v6.25l6.495 3.75v-6.25z"
           fill="none"
           id="reuse-8"
-          stroke="#162a6f"
+          stroke={theme.colors.glasgow}
         />
         <path
           d="M703.808 1621.65l3.247-1.88v-7.5M707.055 1619.77l12.99 7.5"
           fill="none"
           id="reuse-7"
-          stroke="#162a6f"
+          stroke={theme.colors.glasgow}
         />
         <path
           d="M703.808 1626.65l16.237 9.37v-11.25l-16.237-9.37v11.25z"
           fill="none"
           id="reuse-6"
-          stroke="#162a6f"
+          stroke={theme.colors.glasgow}
         />
         <path
           d="M305.436 1709.15l9.743 5.62v1.25l-9.743-5.62v-1.25z"
           fill="none"
           id="reuse-5"
-          stroke="#162a6f"
+          stroke={theme.colors.glasgow}
         />
         <path
           d="M781.75 1660.4v8.75"
           fill="none"
           id="reuse-4"
-          stroke="#162a6f"
+          stroke={theme.colors.glasgow}
         />
         <path
           d="M366.058 1769.15v15"
           fill="none"
           id="reuse-3"
-          stroke="#162a6f"
+          stroke={theme.colors.glasgow}
         />
-        <path d="M346.572 1757.9v15" id="reuse-2" stroke="#162a6f" />
+        <path
+          d="M346.572 1757.9v15"
+          id="reuse-2"
+          stroke={theme.colors.glasgow}
+        />
         <path
           d="M305.436 1735.4v15l80.107 46.25v-15l-80.107-46.25z"
           fill="none"
           id="reuse-1"
-          stroke="#162a6f"
+          stroke={theme.colors.glasgow}
         />
         <path
           d="M479.723 1896.02v5l12.925-7.54v-4.92l-12.925 7.46z"
           fill="none"
           id="reuse-0"
-          stroke="#162a6f"
+          stroke={theme.colors.glasgow}
         />
       </defs>
       <g
@@ -81,98 +87,98 @@ function Hero(props) {
           <path d="M850 0h800v600H850z" fill="none" />
           <path
             d="M1359.813 438.703c-20.655 0-35.112 11.926-35.112 28.966 0 17.323 14.457 29.25 35.112 29.25 20.998 0 35.455-11.927 35.455-29.25 0-17.04-14.457-28.966-35.455-28.966zM1136.79 102.842c-63.008 0-108.831 35.238-108.831 83.634 0 49.1 44.677 85.043 106.253 85.043 30.932 0 65.014-12.921 87.353-32.89l-38.377-33.594c-13.175 11.511-31.218 18.794-45.538 18.794-24.058 0-41.527-15.975-41.527-38.058 0-21.849 17.47-37.588 41.527-37.588 15.465 0 33.509 8.692 45.538 22.082l38.377-37.352c-20.62-18.325-54.13-30.071-84.774-30.071zM1399.974 217.006l71.29-114.164h-65.61l-38.627 63.818-40.046-63.818h-65.609l72.71 115.346v50.345h65.892v-51.527z"
-            fill="#162a6f"
+            fill={theme.colors.glasgow}
           />
           <path
             d="M1441.86 318.452V25.88l51.188-24.381 43.19 20.578 12.798-6.096 14.396 6.851v12.19l19.196 9.144V89.88l3.2 1.524v19.81l-3.2 1.523v224.001l-51.188 24.381-33.592-15.994v-6.095l-15.998-7.62-6.398 3.049-33.592-16.007z"
-            fill="#ffc3f9"
+            fill={theme.colors.candyfloss}
           />
           <path
             d="M1416.265 135.595l-115.173 54.857v36.572l38.391 18.285 102.377-48.762v-48.762l-25.595-12.19z"
-            fill="#ffc3f9"
+            fill={theme.colors.candyfloss}
           />
           <path
             d="M574.608 1781.93l86.682-49.95 172.727 100.18-86.204 49.77-173.205-100z"
-            fill="#ffc3f9"
-            stroke="#162a6f"
+            fill={theme.colors.candyfloss}
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 413.615 -1768.473)"
           />
           <path
             d="M1109.135 269.69l102.377-48.762 127.971 60.953v36.571l-229.882 109.496-58.052-27.21V321.5l57.586-27.429v-24.38zM853.194 159.976l76.783-36.572 105.576 50.286 3.199-1.524 6.398 3.048v3.047l6.399 3.048V449.5l-6.399 3.048v6.095l-6.398 3.048-6.398-3.048-6.399 3.048v6.095l-6.398 3.048-6.4-3.048-12.797 6.095v6.096l-19.195 9.143-127.971-60.953V190.452l6.398-3.048-6.398-3.047v-24.381z"
-            fill="#ffc3f9"
+            fill={theme.colors.candyfloss}
           />
           <path
             d="M1212.518 360.887v-38.616h-173.703v68.763h61.201v-24.416h36l-69.3 130.3h73.5l72.302-136.03z"
-            fill="#162a6f"
+            fill={theme.colors.glasgow}
           />
           <path
             d="M419.554 1871.45l120.413-69.52 121.244 70-120.413 69.52-121.244-70z"
-            fill="#ffc3f9"
-            stroke="#162a6f"
+            fill={theme.colors.candyfloss}
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 413.615 -1768.473)"
           />
           <path
             d="M1601.824 242.508l15.997-7.619 30.393 14.482v15.238l-15.996 7.62-30.394-14.483v-15.238z"
-            fill="#ffc3f9"
+            fill={theme.colors.candyfloss}
           />
           <path
             d="M788.18 2724.56l10.825-6.25v12.5l-10.825 6.25v-12.5z"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 467.54 -3064.39)"
           />
           <path
             d="M799.005 2718.31l-20.568-11.88-10.826 6.25 20.569 11.88"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 467.54 -3064.39)"
           />
           <path
             d="M397.073 1624.43l-12.991 7.5-86.602-50 51.961-30 71.448 41.25M427.384 1596.93l4.33 2.5-4.33 2.5M297.48 1581.93v20M297.48 1606.93v195M384.082 1631.93v20M384.082 1656.93v195l-86.602-50M471 1802v-29.89l155.57-90.18v30M470.685 1771.93l-38.971-22.5M626.57 1681.93l-8.661-5M479.345 1666.93l-8.66 5 17.255 9.96M471 1802l-39.298-22.57M471 1802l155.57-89.82M470.685 1671.93v20M384.082 1851.93l12.991-7.5"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 413.615 -1768.473)"
           />
           <path
             d="M414.772 1958.52l4.33-2.5"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 406.657 -1916.703)"
           />
           <path
             d="M743.483 1499.43l12.99 7.5v240l-22.733-13.13M718.585 1725.05l-22.733-13.12v-240l22.733 13.12"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 413.615 -1768.473)"
           />
           <path
             d="M727.623 1604.15l-4.33 2.5"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 406.657 -1916.703)"
           />
           <path
             d="M695.852 1471.93l34.641-20 29.228 16.87M778.124 1479.43l12.99 7.5-34.641 20M791.114 1486.93v37.5M791.114 1543.18v183.75l-34.641 20M626.57 1651.93l69.282-40M626.57 1651.93l-25.981-15v-30l25.981 15v30zM626.57 1621.93l69.282-40M600.589 1606.93l77.942-45 17.321 10"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 413.615 -1768.473)"
           />
           <path
             d="M302.188 1723.52l4.33 2.5-4.33 2.5M302.188 1728.52l86.603 50"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 406.657 -1916.703)"
           />
           <path
             d="M302.188 1723.52l86.603 50 8.66-5v5l-8.66 5M475.393 1888.52v-5l147.225-85v5l-147.225 85z"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 406.657 -1916.703)"
           />
           <path
             d="M622.618 1798.52l-77.943-45-60.621 35v5l12.99 7.5 4.33-2.5-17.32-10M501.374 1798.52l-64.952 37.5M475.393 1883.52l-38.971-22.5M475.393 1888.52l-38.971-22.5M479.723 1896.02v5l12.925-7.54v-4.92l-12.925 7.46z"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 406.657 -1916.703)"
           />
           <use
@@ -350,31 +356,31 @@ function Hero(props) {
           <path
             d="M392.038 1780.4l3.248-1.88v72.5l-3.248 1.88v-72.5z"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 406.657 -1916.703)"
           />
           <path
             d="M767.677 1654.77l21.651-12.5 8.66 5v16.25"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47769 0 0 1.21905 406.662 -1916.7)"
           />
           <path
             d="M797.988 1647.27l-21.651 12.5-8.66-5"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47769 0 0 1.21905 406.662 -1916.7)"
           />
           <path
             d="M767.677 1654.77v16.25l8.66 5 21.651-12.5"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47769 0 0 1.21905 406.662 -1916.7)"
           />
           <path
             d="M777.42 1659.15v16.25"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47769 0 0 1.21905 405.063 -1915.944)"
           />
           <use
@@ -400,7 +406,7 @@ function Hero(props) {
           <path
             d="M397.451 1773.52l-4.33-2.5M305.436 1709.15l8.66 5M305.436 1709.15l9.743 5.62v1.25l-9.743-5.62v-1.25z"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 406.657 -1916.703)"
           />
           <use
@@ -426,13 +432,13 @@ function Hero(props) {
           <path
             d="M748.191 1621.02v-10l-9.742-5.62v250"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 406.657 -1916.703)"
           />
           <path
             d="M738.449 1605.4l34.641-20 9.742 5.62v10l-34.641 20M748.191 1611.02l34.641-20"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 406.657 -1916.703)"
           />
           <use
@@ -722,37 +728,37 @@ function Hero(props) {
           <path
             d="M723.293 1846.65v-240"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 406.657 -1916.703)"
           />
           <path
             d="M726.541 1604.77l10.825 6.25"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 408.257 -1917.46)"
           />
           <path
             d="M726.541 1604.77v240"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 408.257 -1917.46)"
           />
           <path
             d="M723.293 1846.65l4.33-2.5 10.826 6.25"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 406.657 -1916.703)"
           />
           <path
             d="M401.781 1746.02l-4.33-2.5 12.99-7.5"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 406.657 -1916.703)"
           />
           <path
             d="M410.441 1961.02v-228.75l-4.33 2.5v228.75"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47769 0 0 1.21905 419.46 -1922.8)"
           />
           <use
@@ -762,7 +768,7 @@ function Hero(props) {
           <path
             d="M410.441 1961.02v-232.5l-4.33 2.5v232.5"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47769 0 0 1.21905 438.655 -1931.943)"
           />
           <use
@@ -772,49 +778,49 @@ function Hero(props) {
           <path
             d="M419.102 1721.02v232.5"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 413.055 -1922.793)"
           />
           <path
             d="M410.441 1727.27v228.75"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 406.657 -1916.703)"
           />
           <path
             d="M401.781 1746.02v220"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 406.657 -1916.703)"
           />
           <path
             d="M414.772 1958.52l-4.331-2.5-8.66 5"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 406.657 -1916.703)"
           />
           <path
             d="M436.422 1721.02v220l-4.33 2.5v5l-4.33 2.5-4.33-2.5-4.33 2.5"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 406.657 -1916.703)"
           />
           <path
             d="M419.102 1731.02l4.33-2.5"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 406.657 -1916.703)"
           />
           <path
             d="M545.734 2825.48l47.632-27.5M622.594 2781.1l-29.228 16.88M545.734 2825.48l162.38 93.75 47.632-27.5M755.746 2891.73l28.145-16.25-161.297-94.38"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 472.394 -3040.551)"
           />
           <path
             d="M768.153 2691.74v12.5l20.568 11.88"
             fill="none"
-            stroke="#162a6f"
+            stroke={theme.colors.glasgow}
             transform="matrix(1.47768 0 0 1.21905 466.74 -3038.865)"
           />
         </g>

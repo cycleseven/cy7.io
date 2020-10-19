@@ -4,7 +4,7 @@ import { palettes } from "@cy7/designSystem/primitives/colors";
 const typography = new Typography({
   baseFontSize: "17px",
   baseLineHeight: 1.6,
-  blockMarginBottom: 0.9,
+  blockMarginBottom: 0.75,
   bodyColor: palettes.paper.body,
   bodyFontFamily: [
     "Inter",
@@ -19,7 +19,7 @@ const typography = new Typography({
   headerWeight: 700,
   scaleRatio: 2.5,
   overrideStyles: ({ rhythm }) => ({
-    "h1,h2": {
+    "h1,h2,h3": {
       textTransform: "uppercase"
     },
     h1: {
@@ -27,7 +27,7 @@ const typography = new Typography({
       marginBottom: rhythm(1.5)
     },
     h2: {
-      marginBottom: rhythm(1.5),
+      marginBottom: rhythm(1),
       marginTop: rhythm(2)
     }
   })

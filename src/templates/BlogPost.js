@@ -1,5 +1,11 @@
 import { MdxCodeBlock, MdxInlineCode } from "@cy7/blog";
-import { Meta, PlainLink, paletteColor, rhythm, size } from "@cy7/designSystem";
+import {
+  Meta,
+  PlainLink,
+  paletteColor,
+  rhythm,
+  GutterBox
+} from "@cy7/designSystem";
 import { MDXProvider } from "@mdx-js/react";
 import { Link, graphql } from "gatsby";
 import Img from "gatsby-image";
@@ -10,7 +16,6 @@ import styled from "styled-components";
 const Article = styled.article`
   margin: auto;
   max-width: 38rem;
-  padding: 0 ${size("gutter")};
   position: relative;
 `;
 
@@ -35,7 +40,7 @@ const HeaderImageContainer = styled.div`
 const BlogDate = styled.p`
   color: ${paletteColor("paper", "header")};
   opacity: 0.8;
-  font-size: 0.54rem;
+  font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.11em;
   line-height: ${rhythm(1)};
@@ -58,28 +63,30 @@ const BlogPost = ({ data }) => {
   const towersImage = data.towersImage.childImageSharp.fixed;
 
   return (
-    <Article>
-      <Meta title={blogPost.frontmatter.title} />
+    <GutterBox>
+      <Article>
+        <Meta title={blogPost.frontmatter.title} />
 
-      <HeaderImageContainer>
-        <PlainLink aria-label="Return to home" as={Link} to="/">
-          <Img fadeIn={false} fixed={towersImage} loading="eager" />
-        </PlainLink>
-      </HeaderImageContainer>
+        <HeaderImageContainer>
+          <PlainLink aria-label="Return to home" as={Link} to="/">
+            <Img fadeIn={false} fixed={towersImage} loading="eager" />
+          </PlainLink>
+        </HeaderImageContainer>
 
-      <Header>
-        <Heading>{blogPost.frontmatter.title}</Heading>
-        <BlogDate>
-          <time dateTime={blogPost.frontmatter.date}>
-            {blogPost.fields.friendlyDate}
-          </time>
-        </BlogDate>
-      </Header>
+        <Header>
+          <Heading>{blogPost.frontmatter.title}</Heading>
+          <BlogDate>
+            <time dateTime={blogPost.frontmatter.date}>
+              {blogPost.fields.friendlyDate}
+            </time>
+          </BlogDate>
+        </Header>
 
-      <MDXProvider components={mdxComponents}>
-        <MDXRenderer>{blogPost.body}</MDXRenderer>
-      </MDXProvider>
-    </Article>
+        <MDXProvider components={mdxComponents}>
+          <MDXRenderer>{blogPost.body}</MDXRenderer>
+        </MDXProvider>
+      </Article>
+    </GutterBox>
   );
 };
 /* eslint-enable */

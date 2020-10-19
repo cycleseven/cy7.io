@@ -1,6 +1,8 @@
 import { lighten } from "polished";
 import { createGlobalStyle } from "styled-components";
 import { typography } from "./primitives/typography";
+import { color } from "@cy7/designSystem/themeShortcuts";
+import { hslAdjust } from "@cy7/css";
 
 const GlobalStyles = createGlobalStyle`
   /*
@@ -96,8 +98,8 @@ const GlobalStyles = createGlobalStyle`
   a {
     box-shadow:
       inset 0 0 ${props => props.theme.colors.paper},
-      inset 0 -0.37em ${props => lighten(0.09, props.theme.colors.candyfloss)};
-    color: hsl(227, 75%, 40%);
+      inset 0 -6px ${props => lighten(0.05, props.theme.colors.candyfloss)};
+    color: inherit;
     font-weight: 700;
     text-decoration: none;
   }
@@ -105,8 +107,8 @@ const GlobalStyles = createGlobalStyle`
   a:hover {
     box-shadow:
       inset 0 0 ${props => props.theme.colors.paper},
-      inset 0 -0.37em ${props => lighten(0.04, props.theme.colors.candyfloss)};
-    color: hsl(227, 97%, 34%);
+      inset 0 -6px ${props => props.theme.colors.candyfloss};
+    color: inherit;
   }
 
   a:focus {

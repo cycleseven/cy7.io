@@ -9,7 +9,6 @@ const PlainLink = styled.a`
 
   &:focus {
     border: 0;
-    outline: solid 4px ${props => props.theme.colors.obsidian};
   }
 `;
 

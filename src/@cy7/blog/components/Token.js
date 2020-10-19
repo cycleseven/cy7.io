@@ -4,7 +4,7 @@ import { arraysHaveIntersect } from "@cy7/utils/array";
 
 function getTokenColor(token, theme) {
   if (arraysHaveIntersect(token.types, ["keyword"])) {
-    return theme.colors.candyfloss;
+    return theme.colors.candyflossXX;
   } else if (
     arraysHaveIntersect(token.types, [
       "boolean",
@@ -49,7 +49,7 @@ function getTokenColor(token, theme) {
       saturation: 0.18
     });
   } else if (arraysHaveIntersect(token.types, ["plain"])) {
-    return theme.colors.candyfloss;
+    return theme.colors.candyflossLite;
   }
 
   return null;

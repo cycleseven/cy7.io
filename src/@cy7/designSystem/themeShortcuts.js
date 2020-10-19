@@ -43,6 +43,17 @@ function color(colorName) {
   };
 }
 
+function fontStack(bodyOrHeader) {
+  return function getFontStack({ theme }) {
+    // TODO: a bit hacky. Maybe it's better to define typography constants
+    //       directly in the theme, then feed those into typography.js, so
+    //       there's easier access to font stacks, base typography scale
+    //       constants, etc.
+    const fontStackKey = `${bodyOrHeader}FontFamily`;
+    return theme.typography[fontStackKey];
+  };
+}
+
 function paletteColor(paletteName, colorName) {
   return function getPaletteColor({ theme }) {
     return theme.palettes[paletteName][colorName];
@@ -61,4 +72,4 @@ function size(sizeName) {
   };
 }
 
-export { borderRadius, color, paletteColor, rhythm, size };
+export { borderRadius, color, fontStack, paletteColor, rhythm, size };
