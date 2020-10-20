@@ -2,7 +2,7 @@ import { hslAdjust } from "@cy7/css";
 
 const baseColors = {
   angrypeach: "hsl(2, 100%, 75%)",
-  candyfloss: "hsl(309, 84%, 87%)",
+  candyfloss: "hsl(320, 85%, 87%)",
   paper: "hsl(35, 100%, 99%)",
   obsidian: "hsl(213, 64%, 14%)",
   glasgow: "hsl(214, 89%, 20%)",

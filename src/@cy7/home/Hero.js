@@ -11,7 +11,7 @@ function Hero(props) {
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeMiterlimit={1.5}
-      strokeWidth={1.2}
+      strokeWidth={1.25}
       viewBox="0 0 542 470"
       {...props}
     >
@@ -76,10 +76,7 @@ function Hero(props) {
           stroke={theme.colors.glasgow}
         />
       </defs>
-      <g
-        strokeWidth={1.2}
-        transform="matrix(.67673 0 0 .82031 -575.223 -22.68)"
-      >
+      <g transform="matrix(.67673 0 0 .82031 -575.223 -22.68)">
         <clipPath id="prefix__a">
           <path d="M850 27.656h800V600.39H850z" />
         </clipPath>

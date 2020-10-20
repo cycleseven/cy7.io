@@ -1,4 +1,11 @@
-import { GutterBox, Meta, color, fontStack, rhythm } from "@cy7/designSystem";
+import {
+  GutterBox,
+  Meta,
+  color,
+  fontStack,
+  rhythm,
+  paletteColor
+} from "@cy7/designSystem";
 import Hero from "@cy7/home/Hero";
 import { graphql, Link } from "gatsby";
 import React from "react";
@@ -29,14 +36,13 @@ const ShowcaseGrid = styled.div`
   grid-gap: ${rhythm(1.5)};
 
   ${({ theme }) => theme.mediaQueries.desktop} {
-    grid-gap: ${rhythm(1)} ${rhythm(2.5)};
+    grid-gap: ${rhythm(1)} ${rhythm(2)};
     grid-template-columns: repeat(3, 1fr);
   }
 `;
 
 const SectionHeading = styled.h2`
-  border-bottom: solid 4px;
-  border-bottom-color: ${color("glasgow")};
+  border-bottom: solid 4px ${color("glasgow")};
   font-family: ${fontStack("oswald")};
   margin-bottom: ${rhythm(2)};
   margin-top: ${rhythm(4)};
@@ -47,7 +53,7 @@ const SectionHeading = styled.h2`
 const ShowcaseHeading = styled.h3`
   font-size: 1.2rem;
   line-height: 1.3;
-  margin-bottom: ${rhythm(0.5)};
+  margin: 0;
 
   a {
     box-shadow: inset 0 -2px ${color("paper")},
@@ -63,6 +69,21 @@ const ShowcaseHeading = styled.h3`
     border-bottom: solid 3px ${props => props.theme.colors.obsidian};
     box-shadow: none;
   }
+`;
+
+const ShowcaseDescription = styled.p`
+  font-size: 0.85rem;
+`;
+
+const ShowcaseDate = styled.p`
+  color: ${paletteColor("paper", "header")};
+  opacity: 0.7;
+  font-size: 0.54rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  line-height: ${rhythm(1)};
+  margin: 0 0 ${rhythm(0.5)} 0;
+  text-transform: uppercase;
 `;
 
 /* eslint-disable react/prop-types */
@@ -87,7 +108,10 @@ function HomePage({ data }) {
                     {blogPost.frontmatter.title}
                   </Link>
                 </ShowcaseHeading>
-                <p>{blogPost.frontmatter.description}</p>
+                <ShowcaseDate>{blogPost.fields.friendlyDate}</ShowcaseDate>
+                <ShowcaseDescription>
+                  {blogPost.frontmatter.description}
+                </ShowcaseDescription>
               </div>
             ))}
           </ShowcaseGrid>
@@ -102,6 +126,9 @@ export const query = graphql`
   query homePage {
     blogPosts: allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
+        fields {
+          friendlyDate
+        }
         frontmatter {
           description
           title
