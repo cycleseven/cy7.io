@@ -25,12 +25,4 @@ const colors = {
   ...shades
 };
 
-const palettes = {
-  paper: {
-    background: colors.paper,
-    header: hslAdjust(colors.glasgow),
-    body: hslAdjust(colors.glasgow)
-  }
-};
-
-export { colors, palettes };
+export { colors };

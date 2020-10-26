@@ -1,22 +1,15 @@
 import { MdxCodeBlock, MdxInlineCode } from "@cy7/blog";
-import {
-  Meta,
-  PlainLink,
-  paletteColor,
-  rhythm,
-  GutterBox
-} from "@cy7/designSystem";
+import { rhythm, GutterBox, color, MaxWidth } from "@cy7/designSystem";
+import { Meta, Link, Page } from "@cy7/gatsby";
 import { MDXProvider } from "@mdx-js/react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
 import styled from "styled-components";
 
-const Article = styled.article`
-  margin: auto;
-  max-width: 38rem;
-  position: relative;
+const Article = styled(MaxWidth).attrs({ as: "article", width: "bestForText" })`
+  padding-bottom: ${rhythm(3)};
 `;
 
 const Header = styled.header`
@@ -38,7 +31,7 @@ const HeaderImageContainer = styled.div`
 `;
 
 const BlogDate = styled.p`
-  color: ${paletteColor("paper", "header")};
+  color: ${color("glasgow")};
   opacity: 0.8;
   font-size: 0.6rem;
   font-weight: 700;
@@ -50,7 +43,8 @@ const BlogDate = styled.p`
 
 const mdxComponents = {
   inlineCode: MdxInlineCode,
-  pre: MdxCodeBlock
+  pre: MdxCodeBlock,
+  a: Link
 };
 
 // There's not much gain to be had from maintaining prop type definitions for
@@ -63,30 +57,32 @@ const BlogPost = ({ data }) => {
   const towersImage = data.towersImage.childImageSharp.fixed;
 
   return (
-    <GutterBox>
-      <Article>
-        <Meta title={blogPost.frontmatter.title} />
+    <Page>
+      <GutterBox>
+        <Article>
+          <Meta title={blogPost.frontmatter.title} />
 
-        <HeaderImageContainer>
-          <PlainLink aria-label="Return to home" as={Link} to="/">
-            <Img fadeIn={false} fixed={towersImage} loading="eager" />
-          </PlainLink>
-        </HeaderImageContainer>
+          <HeaderImageContainer>
+            <Link aria-label="Return to home" to="/" appearance="image">
+              <Img fadeIn={false} fixed={towersImage} loading="eager" />
+            </Link>
+          </HeaderImageContainer>
 
-        <Header>
-          <Heading>{blogPost.frontmatter.title}</Heading>
-          <BlogDate>
-            <time dateTime={blogPost.frontmatter.date}>
-              {blogPost.fields.friendlyDate}
-            </time>
-          </BlogDate>
-        </Header>
+          <Header>
+            <Heading>{blogPost.frontmatter.title}</Heading>
+            <BlogDate>
+              <time dateTime={blogPost.frontmatter.date}>
+                {blogPost.fields.friendlyDate}
+              </time>
+            </BlogDate>
+          </Header>
 
-        <MDXProvider components={mdxComponents}>
-          <MDXRenderer>{blogPost.body}</MDXRenderer>
-        </MDXProvider>
-      </Article>
-    </GutterBox>
+          <MDXProvider components={mdxComponents}>
+            <MDXRenderer>{blogPost.body}</MDXRenderer>
+          </MDXProvider>
+        </Article>
+      </GutterBox>
+    </Page>
   );
 };
 /* eslint-enable */

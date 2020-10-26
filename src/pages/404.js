@@ -1,4 +1,5 @@
-import { CenteredPage, Logo as BaseLogo, Meta } from "@cy7/designSystem";
+import { CenteredPage, Logo as BaseLogo } from "@cy7/designSystem";
+import { Meta } from "@cy7/gatsby";
 import React from "react";
 import styled from "styled-components";
 

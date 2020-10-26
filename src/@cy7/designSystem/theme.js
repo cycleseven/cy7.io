@@ -1,11 +1,20 @@
-import { colors, palettes } from "@cy7/designSystem/primitives/colors";
+import { colors } from "@cy7/designSystem/primitives/colors";
 import * as scales from "./primitives/scales";
 import { typography } from "./primitives/typography";
+import { hslAdjust } from "@cy7/css";
 
 const theme = {
   breakpoints: ["900px"],
   colors,
-  palettes,
+  links: {
+    borderColor: hslAdjust(colors.candyfloss, { lightness: 0.92 }),
+    borderHoverColor: colors.candyfloss,
+    color: "inherit"
+  },
+  maxWidths: {
+    bestForText: "39rem",
+    regular: "56rem"
+  },
   scales,
   typography
 };

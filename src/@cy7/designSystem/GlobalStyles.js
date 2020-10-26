@@ -94,30 +94,6 @@ const GlobalStyles = createGlobalStyle`
   html {
     background-color: ${props => props.theme.colors.paper};
   }
-
-  a {
-    box-shadow:
-      inset 0 0 ${props => props.theme.colors.paper},
-      inset 0 -6px ${props => lighten(0.05, props.theme.colors.candyfloss)};
-    color: inherit;
-    font-weight: 700;
-    text-decoration: none;
-  }
-
-  a:hover {
-    box-shadow:
-      inset 0 0 ${props => props.theme.colors.paper},
-      inset 0 -6px ${props => props.theme.colors.candyfloss};
-    color: inherit;
-  }
-
-  a:focus {
-    background: ${props => props.theme.colors.dijon};
-    border-bottom: solid 3px ${props => props.theme.colors.obsidian};
-    box-shadow: none;
-    color: ${props => props.theme.colors.obsidian};
-    outline: none;
-  }
 `;
 
 export { GlobalStyles };

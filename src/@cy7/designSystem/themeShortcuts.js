@@ -50,13 +50,7 @@ function fontStack(bodyOrHeader) {
     //       there's easier access to font stacks, base typography scale
     //       constants, etc.
     const fontStackKey = `${bodyOrHeader}FontFamily`;
-    return theme.typography[fontStackKey];
-  };
-}
-
-function paletteColor(paletteName, colorName) {
-  return function getPaletteColor({ theme }) {
-    return theme.palettes[paletteName][colorName];
+    return theme.typography.options[fontStackKey].join(",");
   };
 }
 
@@ -72,4 +66,4 @@ function size(sizeName) {
   };
 }
 
-export { borderRadius, color, fontStack, paletteColor, rhythm, size };
+export { borderRadius, color, fontStack, rhythm, size };
