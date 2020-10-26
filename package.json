@@ -45,7 +45,6 @@
     "gatsby-transformer-remark": "2.8.38",
     "gatsby-transformer-sharp": "2.5.17",
     "jest": "25.1.0",
-    "polished": "3.6.5",
     "prettier": "1.19.1",
     "prism-react-renderer": "1.1.1",
     "prismjs": "1.21.0",
@@ -55,11 +54,6 @@
     "react-helmet": "6.1.0",
     "react-typography": "0.16.19",
     "styled-components": "5.2.0",
-    "stylelint": "13.7.2",
-    "stylelint-config-prettier": "8.0.2",
-    "stylelint-config-standard": "20.0.0",
-    "stylelint-config-styled-components": "0.1.1",
-    "stylelint-processor-styled-components": "1.10.0",
     "typography": "0.16.19"
   },
   "engines": {
@@ -115,22 +109,6 @@
       "node_modules",
       "src"
     ]
-  },
-  "stylelint": {
-    "extends": [
-      "stylelint-config-standard",
-      "stylelint-config-styled-components",
-      "stylelint-config-prettier"
-    ],
-    "processors": [
-      "stylelint-processor-styled-components"
-    ],
-    "rules": {
-      "declaration-empty-line-before": null,
-      "selector-type-case": null,
-      "selector-type-no-unknown": null,
-      "value-keyword-case": null
-    }
   },
   "prettier": {
     "endOfLine": "lf"

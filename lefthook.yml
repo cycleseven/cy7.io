@@ -5,10 +5,6 @@ pre-push:
       files: git diff --name-only HEAD @{push}
       glob: "*.js"
       run: yarn eslint {files} --max-warnings 0
-    stylelint:
-      files: git diff --name-only HEAD @{push}
-      glob: "*.js"
-      run: yarn stylelint {files}
     prettier-check:
       files: git diff --name-only HEAD @{push}
       glob: "*.{js,css,yml,yaml,json,md}"
@@ -33,9 +29,6 @@ full-lint:
     eslint:
       glob: "*.js"
       run: yarn eslint {all_files} --max-warnings 0
-    stylelint:
-      glob: "*.js"
-      run: yarn stylelint {all_files}
     prettier-check:
       glob: "*.{js,css,yml,yaml,json,md}"
       run: yarn prettier --check {all_files}

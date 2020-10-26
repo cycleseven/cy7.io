@@ -63,7 +63,7 @@ const BlogPost = ({ data }) => {
           <Meta title={blogPost.frontmatter.title} />
 
           <HeaderImageContainer>
-            <Link aria-label="Return to home" to="/" appearance="image">
+            <Link appearance="image" aria-label="Return to home" to="/">
               <Img fadeIn={false} fixed={towersImage} loading="eager" />
             </Link>
           </HeaderImageContainer>

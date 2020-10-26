@@ -1,11 +1,5 @@
 /**
- * Return color as a polished HSLObject.
- *
- * Although polished already provides a parseToHsl function, it's implemented in
- * a way that cause loss of precision, eg. parseToHsl("hsl(213, 64%, 14%)") can
- * result in output like { hue: 213.9130434, saturation: 0.638889, etc... }.
- * By assuming the input is an hsl string, we can parse more naively to
- * guarantee the exact values remain intact.
+ * Return color as a { hue, saturation, lightness } object.
  */
 function hslParse(hslColor) {
   const [h, s, l] = hslColor
@@ -39,7 +33,9 @@ function hslParse(hslColor) {
  *
  * @param color         An HSL color string (eg. "hsl(300, 24%, 50%)")
  *
- * @param adjustments   An HSLColor object (https://polished.js.org/docs/#hslcolor).
+ * @param adjustments   An object with the shape { hue, saturation, lightness }.
+ *                      Hue is an angle ie. 0-360, saturation and lightness are 0-1.
+ *
  *                      It's only necessary to provide the { hue, saturation, lightness }
  *                      values that you want to adjust: the object can be partial.
  */

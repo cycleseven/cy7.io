@@ -1,8 +1,5 @@
-import { lighten } from "polished";
 import { createGlobalStyle } from "styled-components";
 import { typography } from "./primitives/typography";
-import { color } from "@cy7/designSystem/themeShortcuts";
-import { hslAdjust } from "@cy7/css";
 
 const GlobalStyles = createGlobalStyle`
   /*

@@ -12,7 +12,6 @@ import { graphql, Link as GatsbyLink } from "gatsby";
 import Img from "gatsby-image";
 import React from "react";
 import styled from "styled-components";
-import { lighten } from "polished";
 
 const Header = styled.header`
   align-items: center;
@@ -80,12 +79,12 @@ const ShowcaseHeading = styled.h3`
   //       to the Oswald font, would be good to apply in a single place
   a {
     box-shadow: inset 0 -2px ${color("paper")},
-      inset 0 -10px ${({ theme }) => lighten(0.05, theme.colors.candyfloss)}};
+      inset 0 -10px ${({ theme }) => theme.links.borderColor};
   }
 
   a:hover:not(:focus) {
     box-shadow: inset 0 -2px ${color("paper")},
-      inset 0 -10px ${color("candyfloss")};
+      inset 0 -10px ${({ theme }) => theme.links.borderHoverColor};
   }
 
   a:focus {
