@@ -75,13 +75,15 @@ const ShowcaseHeading = styled.h3`
   line-height: 1.3;
   margin: 0;
 
-  // TODO: these anchor styles adjust the border-bottom
+  // TODO: these anchor styles adjust the border-bottom. Same thing really
+  //       applies to any heading + link combo, these adjustments are to adapt
+  //       to the Oswald font, would be good to apply in a single place
   a {
     box-shadow: inset 0 -2px ${color("paper")},
       inset 0 -10px ${({ theme }) => lighten(0.05, theme.colors.candyfloss)}};
   }
 
-  a:hover {
+  a:hover:not(:focus) {
     box-shadow: inset 0 -2px ${color("paper")},
       inset 0 -10px ${color("candyfloss")};
   }

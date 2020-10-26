@@ -25,7 +25,7 @@ const Link = styled.a.withConfig({
           color: ${theme.links.color};
           font-weight: 700;
 
-          &:hover {
+          &:hover:not(:focus) {
             box-shadow: inset 0 0 ${theme.colors.paper},
               inset 0 -6px ${theme.links.borderHoverColor};
             color: ${theme.links.color};

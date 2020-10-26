@@ -46,7 +46,7 @@ const FooterLink = styled(Link)`
 const LogoLink = styled(Link).attrs({ appearance: "image" })`
   display: inline-block;
 
-  &:focus g {
+  &:focus path {
     fill: ${({ theme }) => theme.colors.obsidian};
   }
 `;
