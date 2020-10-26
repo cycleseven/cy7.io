@@ -20,14 +20,14 @@ const Link = styled.a.withConfig({
   ${({ theme, appearance }) =>
     appearance === "default"
       ? css`
-          box-shadow: inset 0 0 ${theme.colors.paper},
-            inset 0 -0.3rem ${theme.links.borderColor};
+          box-shadow: inset 0 -0.04em ${theme.colors.paper},
+            inset 0 -0.4em ${theme.links.borderColor};
           color: ${theme.links.color};
           font-weight: 700;
 
           &:hover:not(:focus) {
-            box-shadow: inset 0 0 ${theme.colors.paper},
-              inset 0 -0.3rem ${theme.links.borderHoverColor};
+            box-shadow: inset 0 -0.04em ${theme.colors.paper},
+              inset 0 -0.4em ${theme.links.borderHoverColor};
             color: ${theme.links.color};
           }
         `
