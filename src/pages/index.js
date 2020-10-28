@@ -34,6 +34,7 @@ const Intro = styled.div`
 `;
 
 const IntroText = styled.p`
+  line-height: 1.6;
   margin-bottom: 0;
   max-width: 25rem;
 `;
@@ -187,8 +188,8 @@ export const query = graphql`
 
     photoOfMe: file(relativePath: { eq: "goat.jpg" }) {
       childImageSharp {
-        fixed(width: 72) {
-          ...GatsbyImageSharpFixed
+        fixed(width: 72, quality: 70) {
+          ...GatsbyImageSharpFixed_withWebp
         }
       }
     }
