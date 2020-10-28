@@ -1,4 +1,13 @@
-import { MdxCodeBlock, MdxInlineCode } from "@cy7/blog";
+import {
+  MdxCodeBlock,
+  MdxH1,
+  MdxH2,
+  MdxH3,
+  MdxH4,
+  MdxH5,
+  MdxH6,
+  MdxInlineCode
+} from "@cy7/blog";
 import { rhythm, GutterBox, color, MaxWidth } from "@cy7/designSystem";
 import { Meta, Link, Page } from "@cy7/gatsby";
 import { MDXProvider } from "@mdx-js/react";
@@ -7,6 +16,7 @@ import Img from "gatsby-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
 import styled from "styled-components";
+import {} from "@cy7/blog/components";
 
 const Article = styled(MaxWidth).attrs({ as: "article", width: "bestForText" })`
   padding-bottom: ${rhythm(3)};
@@ -44,7 +54,13 @@ const BlogDate = styled.p`
 const mdxComponents = {
   inlineCode: MdxInlineCode,
   pre: MdxCodeBlock,
-  a: Link
+  a: Link,
+  h1: MdxH1,
+  h2: MdxH2,
+  h3: MdxH3,
+  h4: MdxH4,
+  h5: MdxH5,
+  h6: MdxH6
 };
 
 // There's not much gain to be had from maintaining prop type definitions for
