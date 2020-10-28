@@ -9,14 +9,12 @@ import {
   MdxInlineCode
 } from "@cy7/blog";
 import { rhythm, GutterBox, color, MaxWidth } from "@cy7/designSystem";
-import { Meta, Link, Page } from "@cy7/gatsby";
+import { Meta, Link, Page, WarpTotem } from "@cy7/gatsby";
 import { MDXProvider } from "@mdx-js/react";
 import { graphql } from "gatsby";
-import Img from "gatsby-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
 import styled from "styled-components";
-import {} from "@cy7/blog/components";
 
 const Article = styled(MaxWidth).attrs({ as: "article", width: "bestForText" })`
   padding-bottom: ${rhythm(3)};
@@ -32,12 +30,6 @@ const Header = styled.header`
 
 const Heading = styled.h1`
   margin: 0;
-`;
-
-const HeaderImageContainer = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
 `;
 
 const BlogDate = styled.p`
@@ -70,7 +62,6 @@ const mdxComponents = {
 /* eslint-disable react/prop-types */
 const BlogPost = ({ data }) => {
   const blogPost = data.blogPost;
-  const towersImage = data.towersImage.childImageSharp.fixed;
 
   return (
     <Page>
@@ -78,11 +69,7 @@ const BlogPost = ({ data }) => {
         <Article>
           <Meta title={blogPost.frontmatter.title} />
 
-          <HeaderImageContainer>
-            <Link appearance="image" aria-label="Return to home" to="/">
-              <Img fadeIn={false} fixed={towersImage} loading="eager" />
-            </Link>
-          </HeaderImageContainer>
+          <WarpTotem />
 
           <Header>
             <Heading>{blogPost.frontmatter.title}</Heading>
@@ -113,14 +100,6 @@ export const query = graphql`
       frontmatter {
         date
         title
-      }
-    }
-
-    towersImage: file(relativePath: { eq: "tower.png" }) {
-      childImageSharp {
-        fixed(width: 190) {
-          ...GatsbyImageSharpFixed_noBase64
-        }
       }
     }
   }

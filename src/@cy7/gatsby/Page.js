@@ -1,13 +1,19 @@
+import { Footer } from "@cy7/gatsby/Footer";
+import { FullHeightPage } from "@cy7/gatsby/FullHeightPage";
 import PropTypes from "prop-types";
 import React from "react";
-import { Footer } from "@cy7/gatsby/Footer";
+import styled from "styled-components";
+
+const MainContent = styled.div`
+  flex-grow: 1;
+`;
 
 function Page({ children }) {
   return (
-    <>
-      {children}
+    <FullHeightPage>
+      <MainContent>{children}</MainContent>
       <Footer />
-    </>
+    </FullHeightPage>
   );
 }
 

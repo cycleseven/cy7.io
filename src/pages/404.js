@@ -1,19 +1,30 @@
-import { CenteredPage, Logo as BaseLogo } from "@cy7/designSystem";
-import { Meta } from "@cy7/gatsby";
+import { Link, Meta, Page, WarpTotem } from "@cy7/gatsby";
 import React from "react";
 import styled from "styled-components";
+import { MaxWidth, rhythm } from "@cy7/designSystem";
 
-const Logo = styled(BaseLogo)`
-  flex-shrink: 0;
-  margin: auto;
+const Article = styled(MaxWidth).attrs({ as: "article", width: "bestForText" })`
+  margin-bottom: ${rhythm(3)};
+  margin-top: ${rhythm(3)};
 `;
 
 function NotFoundPage() {
   return (
-    <CenteredPage>
+    <Page>
       <Meta title="Not found" />
-      <Logo />
-    </CenteredPage>
+      <WarpTotem />
+      <Article>
+        <h1>
+          Oh no{" "}
+          <span aria-label="sad face" role="img">
+            😓
+          </span>
+        </h1>
+        <p>
+          This page doesn&apos;t exist. <Link to="/">Return home?</Link>
+        </p>
+      </Article>
+    </Page>
   );
 }
 

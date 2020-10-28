@@ -5,11 +5,10 @@ const FullHeightContainer = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  padding: 48px;
 `;
 
 const GlobalStyles = createGlobalStyle`
-  html,  
+  html,
   body,
   #___gatsby,
   #gatsby-focus-wrapper {
@@ -17,7 +16,7 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-function CenteredPage(props) {
+function FullHeightPage(props) {
   return (
     <React.Fragment>
       <GlobalStyles />
@@ -26,4 +25,4 @@ function CenteredPage(props) {
   );
 }
 
-export { CenteredPage };
+export { FullHeightPage };
