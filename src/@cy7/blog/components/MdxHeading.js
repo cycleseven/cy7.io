@@ -1,14 +1,37 @@
 import PropTypes from "prop-types";
 import React from "react";
+import styled from "styled-components";
+import { Link, LinkIcon } from "@cy7/designSystem";
 import { slugify } from "@cy7/utils/slugify";
 
+const Anchor = styled(Link).attrs({ appearance: "image" })`
+  display: inline-block;
+  margin: -5px 0 0 -24px;
+  padding: 5px 4px;
+  vertical-align: middle;
+
+  &:not(:focus) svg {
+    visibility: hidden;
+  }
+`;
+
+const Heading = styled.h1`
+  &:hover ${Anchor} svg {
+    visibility: visible;
+  }
+`;
+
 function MdxHeading({ as, children, ...props }) {
-  const Element = as;
   const slug = slugify(children);
+  const label = `Link to "${children}" heading`;
+
   return (
-    <Element id={slug} {...props}>
+    <Heading as={as} id={slug} {...props}>
+      <Anchor aria-label={label} href={`#${slug}`} title={label}>
+        <LinkIcon width={16} />
+      </Anchor>
       {children}
-    </Element>
+    </Heading>
   );
 }
 

@@ -1,3 +1,5 @@
+export { LinkIcon } from "./icons/LinkIcon";
+
 export { GutterBox } from "./layout/GutterBox";
 export { MaxWidth } from "./layout/MaxWidth";
 export { Stack } from "./layout/Stack";

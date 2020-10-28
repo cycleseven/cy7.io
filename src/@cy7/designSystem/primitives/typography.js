@@ -2,8 +2,9 @@ import Typography from "typography";
 import { colors } from "@cy7/designSystem/primitives/colors";
 
 const typography = new Typography({
-  baseFontSize: "17px",
+  baseFontSize: "16px",
   baseLineHeight: 1.65,
+  blockMarginBottom: 0.8,
   bodyColor: colors.glasgow,
   bodyFontFamily: [
     "Inter",

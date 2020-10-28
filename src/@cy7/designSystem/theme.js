@@ -12,7 +12,7 @@ const theme = {
     color: "inherit"
   },
   maxWidths: {
-    bestForText: "39rem",
+    bestForText: "37rem",
     regular: "56rem"
   },
   scales,

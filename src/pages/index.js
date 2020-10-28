@@ -95,7 +95,7 @@ const ShowcaseHeading = styled.h3`
 
 const ShowcaseDescription = styled.p`
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.6;
 `;
 
 const ShowcaseDate = styled.p`
