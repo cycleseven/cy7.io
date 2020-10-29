@@ -29,7 +29,12 @@ function WarpTotem() {
 
   return (
     <Container>
-      <Link appearance="image" aria-label="Return to home" to="/">
+      <Link
+        appearance="image"
+        aria-label="Return to home"
+        title="Return to home"
+        to="/"
+      >
         <Img fadeIn={false} fixed={towersImage} loading="eager" />
       </Link>
     </Container>
