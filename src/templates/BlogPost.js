@@ -67,7 +67,10 @@ const BlogPost = ({ data }) => {
     <Page>
       <GutterBox>
         <Article>
-          <Meta title={blogPost.frontmatter.title} />
+          <Meta
+            description={blogPost.frontmatter.description}
+            title={blogPost.frontmatter.title}
+          />
 
           <nav>
             <WarpTotem />

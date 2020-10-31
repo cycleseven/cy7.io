@@ -1,10 +1,11 @@
 import {
   DarkModeProvider,
+  GutterBox,
   Logo,
   MaxWidth,
+  Stack,
   color,
   rhythm,
-  GutterBox,
   fontStack
 } from "@cy7/designSystem";
 import { Link } from "@cy7/gatsby";
@@ -56,7 +57,7 @@ const Heading = styled.h2`
   font-family: ${fontStack("body")};
   font-size: 0.8rem;
   letter-spacing: 0.12ch;
-  margin-bottom: ${rhythm(0.5)};
+  margin-bottom: ${rhythm(0.75)};
   margin-top: 0;
 `;
 
@@ -114,7 +115,7 @@ function Footer() {
 
               <div>
                 <Heading>{socialLinks.name}</Heading>
-                {renderLinks(socialLinks.links)}
+                <Stack space={0.15}>{renderLinks(socialLinks.links)}</Stack>
               </div>
 
               <div>
