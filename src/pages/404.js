@@ -13,18 +13,22 @@ function NotFoundPage() {
     <Page>
       <GutterBox>
         <Meta title="Not found" />
-        <WarpTotem />
-        <Article>
-          <h1>
-            Oh no{" "}
-            <span aria-label="sad face" role="img">
-              😓
-            </span>
-          </h1>
-          <p>
-            This page doesn&apos;t exist. <Link to="/">Return home?</Link>
-          </p>
-        </Article>
+        <nav>
+          <WarpTotem />
+        </nav>
+        <main>
+          <Article>
+            <h1>
+              Oh no{" "}
+              <span aria-label="sad face" role="img">
+                😓
+              </span>
+            </h1>
+            <p>
+              This page doesn&apos;t exist. <Link to="/">Return home?</Link>
+            </p>
+          </Article>
+        </main>
       </GutterBox>
     </Page>
   );

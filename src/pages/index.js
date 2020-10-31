@@ -4,7 +4,8 @@ import {
   MaxWidth,
   Stack,
   color,
-  rhythm
+  rhythm,
+  fontStack
 } from "@cy7/designSystem";
 import Hero from "@cy7/home/Hero";
 import { Meta, Page } from "@cy7/gatsby";
@@ -33,10 +34,22 @@ const Intro = styled.div`
   }
 `;
 
-const IntroText = styled.p`
+// TODO: this is an example of why directly styling h1/p/etc actually has
+//       downsides. I want the intro sentence to appear like a <p> but actually
+//       be an <h1>. That means adding properties to "undo" font-family,
+//       text-transform, etc.
+//
+//       Even without that, having margins on text elements by default undermines
+//       the approach to spacing used elsewhere (ie. components don't bring
+//       their own whitespace)
+const IntroText = styled.h1`
+  font-family: ${fontStack("body")};
+  font-size: 1.1rem;
+  font-weight: 400;
   line-height: 1.6;
   margin-bottom: 0;
   max-width: 25rem;
+  text-transform: none;
 `;
 
 const HeroImage = styled(Hero)`

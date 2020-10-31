@@ -107,7 +107,7 @@ function Footer() {
           <MaxWidth>
             <Columns>
               <div>
-                <LogoLink to="/">
+                <LogoLink aria-label="Return to home" to="/">
                   <Logo />
                 </LogoLink>
               </div>

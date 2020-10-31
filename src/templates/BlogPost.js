@@ -20,7 +20,7 @@ const Article = styled(MaxWidth).attrs({ as: "article", width: "bestForText" })`
   padding-bottom: ${rhythm(3)};
 `;
 
-const Header = styled.header`
+const BlogHeader = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -69,20 +69,24 @@ const BlogPost = ({ data }) => {
         <Article>
           <Meta title={blogPost.frontmatter.title} />
 
-          <WarpTotem />
+          <nav>
+            <WarpTotem />
+          </nav>
 
-          <Header>
-            <Heading>{blogPost.frontmatter.title}</Heading>
-            <BlogDate>
-              <time dateTime={blogPost.frontmatter.date}>
-                {blogPost.fields.friendlyDate}
-              </time>
-            </BlogDate>
-          </Header>
+          <main>
+            <BlogHeader>
+              <Heading>{blogPost.frontmatter.title}</Heading>
+              <BlogDate>
+                <time dateTime={blogPost.frontmatter.date}>
+                  {blogPost.fields.friendlyDate}
+                </time>
+              </BlogDate>
+            </BlogHeader>
 
-          <MDXProvider components={mdxComponents}>
-            <MDXRenderer>{blogPost.body}</MDXRenderer>
-          </MDXProvider>
+            <MDXProvider components={mdxComponents}>
+              <MDXRenderer>{blogPost.body}</MDXRenderer>
+            </MDXProvider>
+          </main>
         </Article>
       </GutterBox>
     </Page>
