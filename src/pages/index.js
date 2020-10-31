@@ -30,7 +30,13 @@ const Intro = styled.div`
   margin-bottom: 0;
 
   > * + * {
-    margin-left: ${rhythm(1)};
+    margin-left: ${rhythm(0.75)};
+  }
+
+  ${({ theme }) => theme.mediaQueries.desktop} {
+    > * + * {
+      margin-left: ${rhythm(1)};
+    }
   }
 `;
 
@@ -44,11 +50,11 @@ const Intro = styled.div`
 //       their own whitespace)
 const IntroText = styled.h1`
   font-family: ${fontStack("body")};
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.6;
   margin-bottom: 0;
-  max-width: 25rem;
+  max-width: 30ch;
   text-transform: none;
 `;
 
