@@ -17,6 +17,10 @@ const Link = styled.a.withConfig({
       appearance === "image" ? `solid 4px ${theme.colors.dijon}` : "none"};
   }
 
+  &:-webkit-any-link:focus {
+    outline-offset: 0;
+  }
+
   ${({ theme, appearance }) =>
     appearance === "default"
       ? css`
