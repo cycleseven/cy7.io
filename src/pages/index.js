@@ -1,4 +1,5 @@
 import {
+  Grid,
   GutterBox,
   Link,
   MaxWidth,
@@ -59,6 +60,8 @@ const IntroText = styled.h1`
 `;
 
 const HeroImage = styled(Hero)`
+  height: 398px;
+  width: 100%;
   max-width: 460px;
 `;
 
@@ -69,16 +72,6 @@ const MeImage = styled.div`
   height: 72px;
   overflow: hidden;
   width: 72px;
-`;
-
-const ShowcaseGrid = styled.div`
-  display: grid;
-  gap: ${rhythm(1.5)};
-
-  ${({ theme }) => theme.mediaQueries.desktop} {
-    grid-gap: ${rhythm(1)} ${rhythm(2)};
-    grid-template-columns: repeat(3, 1fr);
-  }
 `;
 
 const SectionHeading = styled.h2`
@@ -116,6 +109,8 @@ const ShowcaseHeading = styled.h3`
 const ShowcaseDescription = styled.p`
   font-size: 0.95rem;
   line-height: 1.6;
+  margin: 0;
+  max-width: 80ch;
 `;
 
 const ShowcaseDate = styled.p`
@@ -125,8 +120,12 @@ const ShowcaseDate = styled.p`
   font-weight: 700;
   letter-spacing: 0.11em;
   line-height: ${rhythm(1)};
-  margin: 0 0 ${rhythm(0.5)} 0;
+  margin: ${rhythm(0.1)} 0 ${rhythm(0.2)} 0;
   text-transform: uppercase;
+
+  ${({ theme }) => theme.mediaQueries.desktop} {
+    margin-bottom: ${rhythm(0.33)};
+  }
 `;
 
 /* eslint-disable react/prop-types */
@@ -159,7 +158,7 @@ function HomePage({ data }) {
               </Intro>
               <section>
                 <SectionHeading>Blog</SectionHeading>
-                <ShowcaseGrid>
+                <Grid>
                   {blogPosts.map(blogPost => (
                     <div key={blogPost.frontmatter.slug}>
                       <ShowcaseHeading>
@@ -178,7 +177,7 @@ function HomePage({ data }) {
                       </ShowcaseDescription>
                     </div>
                   ))}
-                </ShowcaseGrid>
+                </Grid>
               </section>
             </Stack>
           </Main>

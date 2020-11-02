@@ -1,5 +1,6 @@
 import {
   DarkModeProvider,
+  Grid,
   GutterBox,
   Logo,
   MaxWidth,
@@ -13,16 +14,6 @@ import { hslAdjust } from "@cy7/css";
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import styled from "styled-components";
-
-const Columns = styled.div`
-  display: grid;
-  gap: ${rhythm(2)};
-
-  ${({ theme }) => theme.mediaQueries.desktop} {
-    grid-gap: ${rhythm(1)} ${rhythm(2)};
-    grid-template-columns: repeat(3, 1fr);
-  }
-`;
 
 const FooterBlock = styled.footer`
   background-color: ${color("paper")};
@@ -106,7 +97,7 @@ function Footer() {
       <FooterBlock>
         <GutterBox>
           <MaxWidth>
-            <Columns>
+            <Grid>
               <div>
                 <LogoLink aria-label="Return to home" to="/">
                   <Logo />
@@ -122,7 +113,7 @@ function Footer() {
                 <Heading>{metaLinks.name}</Heading>
                 {renderLinks(metaLinks.links)}
               </div>
-            </Columns>
+            </Grid>
           </MaxWidth>
         </GutterBox>
       </FooterBlock>

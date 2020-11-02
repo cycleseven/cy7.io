@@ -2,8 +2,9 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const Stack = styled.div`
-  display: grid;
-  gap: ${({ theme, space }) => theme.typography.rhythm(space)};
+  > * + * {
+    margin-top: ${({ theme, space }) => theme.typography.rhythm(space)};
+  }
 `;
 
 Stack.propTypes = {
