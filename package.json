@@ -60,6 +60,12 @@
     "node": ">=12.9.1 <13.0.0",
     "yarn": ">=1.17.3 <2.0.0"
   },
+  "browserslist": [
+    "defaults",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
