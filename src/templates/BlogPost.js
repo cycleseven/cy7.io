@@ -33,7 +33,7 @@ const Heading = styled.h1`
 `;
 
 const BlogDate = styled.p`
-  color: ${color("glasgow")};
+  color: ${color("bodyText")};
   opacity: 0.8;
   font-size: 0.6rem;
   font-weight: 700;

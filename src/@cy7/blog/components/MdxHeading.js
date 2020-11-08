@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Link, LinkIcon } from "@cy7/designSystem";
 import { slugify } from "@cy7/utils/slugify";
 
-const Anchor = styled(Link).attrs({ appearance: "image" })`
+const Anchor = styled(Link).attrs({ appearance: "plain" })`
   display: inline-block;
   margin: -5px 0 0 -24px;
   padding: 5px 4px;

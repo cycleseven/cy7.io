@@ -1,5 +1,5 @@
 import {
-  DarkModeProvider,
+  ColorModeProvider,
   Grid,
   GutterBox,
   Logo,
@@ -16,7 +16,7 @@ import React from "react";
 import styled from "styled-components";
 
 const FooterBlock = styled.footer`
-  background-color: ${color("paper")};
+  background-color: ${color("bg")};
   padding: ${rhythm(2)} 0;
 `;
 
@@ -26,20 +26,20 @@ const FooterLink = styled(Link)`
 
   &:focus {
     border: none;
-    outline: ${({ theme }) => `solid 4px ${theme.colors.dijon}`};
+    outline: ${({ theme }) => `solid 4px ${theme.colors.linkFocusBg}`};
   }
 
   &:hover:not(:focus) {
     color: ${({ theme }) =>
-      hslAdjust(theme.colors.obsidian, { lightness: 0.92 })};
+      hslAdjust(theme.palette.obsidian, { lightness: 0.92 })};
   }
 `;
 
-const LogoLink = styled(Link).attrs({ appearance: "image" })`
+const LogoLink = styled(Link).attrs({ appearance: "borderless" })`
   display: inline-block;
 
   &:focus path {
-    fill: ${({ theme }) => theme.colors.obsidian};
+    fill: ${({ theme }) => theme.palette.obsidian};
   }
 `;
 
@@ -93,7 +93,7 @@ function Footer() {
   const { metaLinks, socialLinks } = data.site.siteMetadata;
 
   return (
-    <DarkModeProvider>
+    <ColorModeProvider mode="dark">
       <FooterBlock>
         <GutterBox>
           <MaxWidth>
@@ -117,7 +117,7 @@ function Footer() {
           </MaxWidth>
         </GutterBox>
       </FooterBlock>
-    </DarkModeProvider>
+    </ColorModeProvider>
   );
 }
 

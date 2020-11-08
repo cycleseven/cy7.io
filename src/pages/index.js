@@ -6,7 +6,8 @@ import {
   Stack,
   color,
   rhythm,
-  fontStack
+  fontStack,
+  palette
 } from "@cy7/designSystem";
 import Hero from "@cy7/home/Hero";
 import { Meta, Page } from "@cy7/gatsby";
@@ -67,7 +68,7 @@ const HeroImage = styled(Hero)`
 
 const MeImage = styled.div`
   border-radius: 50%;
-  box-shadow: 1px 2px 0 1px ${color("candyfloss")};
+  box-shadow: 1px 2px 0 1px ${color("accent")};
   flex-shrink: 0;
   height: 72px;
   overflow: hidden;
@@ -75,7 +76,7 @@ const MeImage = styled.div`
 `;
 
 const SectionHeading = styled.h2`
-  border-bottom: solid 4px ${color("glasgow")};
+  border-bottom: solid 4px ${color("bodyText")};
   margin-bottom: ${rhythm(2)};
   margin-top: 0;
   padding-bottom: ${rhythm(0.5)};
@@ -91,17 +92,17 @@ const ShowcaseHeading = styled.h3`
   //       applies to any heading + link combo, these adjustments are to adapt
   //       to the Oswald font, would be good to apply in a single place
   a {
-    box-shadow: inset 0 -2px ${color("paper")},
-      inset 0 -10px ${({ theme }) => theme.links.borderColor};
+    box-shadow: inset 0 -2px ${color("bg")},
+      inset 0 -10px ${({ theme }) => theme.colors.linkBorder};
   }
 
   a:hover:not(:focus) {
-    box-shadow: inset 0 -2px ${color("paper")},
-      inset 0 -10px ${({ theme }) => theme.links.borderHoverColor};
+    box-shadow: inset 0 -2px ${color("bg")},
+      inset 0 -10px ${({ theme }) => theme.colors.linkBorderHover};
   }
 
   a:focus {
-    border-bottom: solid 3px ${props => props.theme.colors.obsidian};
+    border-bottom: solid 3px ${({ theme }) => theme.colors.linkFocusBorder};
     box-shadow: none;
   }
 `;
@@ -114,7 +115,7 @@ const ShowcaseDescription = styled.p`
 `;
 
 const ShowcaseDate = styled.p`
-  color: ${color("glasgow")};
+  color: ${color("bodyText")};
   opacity: 0.7;
   font-size: 0.54rem;
   font-weight: 700;

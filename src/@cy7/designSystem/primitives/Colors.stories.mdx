@@ -1,6 +1,6 @@
 import { ColorSwatch, SwatchGroup } from "@cy7/designSystem/docComponents";
 import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { colors } from "./colors";
+import { palette } from "@cy7/designSystem/primitives/palette";
 
 <Meta title="Primitives | Colors" />
 
@@ -29,8 +29,8 @@ const { paper, candyfloss } = colors;
 <Preview>
   <Story name="Palette">
     <SwatchGroup>
-      {Object.keys(colors).map(color => (
-        <ColorSwatch color={colors[color]} name={color} />
+      {Object.keys(palette).map(color => (
+        <ColorSwatch color={palette[color]} name={color} />
       ))}
     </SwatchGroup>
   </Story>

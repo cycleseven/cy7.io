@@ -1,10 +1,10 @@
+import { color, palette } from "@cy7/designSystem";
 import styled from "styled-components";
-import { color } from "@cy7/designSystem";
 
 const MdxInlineCode = styled.code`
-  background-color: ${props => props.theme.colors.obsidian};
-  border-radius: ${props => props.theme.scales.borderRadius()};
-  color: ${color("candyflossLite")};
+  background-color: ${color("contrast")};
+  border-radius: ${({ theme }) => theme.scales.borderRadius()};
+  color: ${palette("candyflossLite")};
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   font-size: 0.8em;
   padding: 3px 6px;

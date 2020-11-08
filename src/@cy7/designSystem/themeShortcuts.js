@@ -26,8 +26,8 @@
  *
  * const Foo = styled.div`
  *   color: ${({ type, theme }) => outputType === "error"
-      ? props.theme.colors.angrypeach
-      : props.theme.colors.candyfloss};
+      ? props.theme.palette.angrypeach
+      : props.theme.palette.candyfloss};
  * `;
  */
 
@@ -54,6 +54,12 @@ function fontStack(bodyOrHeader) {
   };
 }
 
+function palette(colorName) {
+  return function getPaletteColor({ theme }) {
+    return theme.palette[colorName];
+  };
+}
+
 function rhythm(n) {
   return function getRhythm({ theme }) {
     return theme.typography.rhythm(n);
@@ -66,4 +72,4 @@ function size(sizeName) {
   };
 }
 
-export { borderRadius, color, fontStack, rhythm, size };
+export { borderRadius, color, fontStack, palette, rhythm, size };

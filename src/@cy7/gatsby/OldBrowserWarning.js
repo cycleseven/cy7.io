@@ -1,50 +1,38 @@
 import React from "react";
+import { GutterBox, color, ColorModeProvider } from "@cy7/designSystem";
+import { Link } from "@cy7/gatsby";
+import styled from "styled-components";
+
+const Container = styled(GutterBox)`
+  background-color: ${color("bg")};
+  color: ${color("bodyText")};
+  padding-bottom: 18px;
+  padding-top: 18px;
+  text-align: center;
+`;
+
+const Text = styled.p`
+  margin: auto;
+  max-width: 77ch;
+`;
 
 function OldBrowserWarning() {
   return (
-    <>
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-        .old-browser-warning {
-          background-color: hsl(51, 100%, 50%);
-          color: hsl(213, 64%, 14%);
-          display: block;
-          padding: 20px 18px;
-          text-align: center;
-        }
-
-        .old-browser-warning-text {
-          margin: auto;
-          max-width: 80ch;
-        }
-
-        @supports (display: grid) {
-          .old-browser-warning {
-            display: none;
-          }
-        }
-      `
-        }}
-      />
-      <div className="old-browser-warning">
-        <p className="old-browser-warning-text">
-          Your web browser is outdated and isn&apos;t supported by this website.
-          Things might look a little broken.{" "}
+    <ColorModeProvider mode="warning">
+      <Container>
+        <Text>
+          Your web browser is outdated, and isn&apos;t supported by this
+          website. Things might look a little broken.{" "}
           <strong>
             Read more about upgrading to a modern browser at{" "}
-            <a
-              href="https://browsehappy.com/"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
+            <Link to="https://browsehappy.com/" type="external">
               browsehappy.com
-            </a>{" "}
-            (I recommend Firefox!)
+            </Link>
+            .
           </strong>
-        </p>
-      </div>
-    </>
+        </Text>
+      </Container>
+    </ColorModeProvider>
   );
 }
 

@@ -19,7 +19,7 @@ function getTokenColor(token, theme) {
       "important"
     ])
   ) {
-    return hslAdjust(theme.colors.paper, { lightness: 0.7, saturation: 0.9 });
+    return hslAdjust(theme.colors.bg, { lightness: 0.7, saturation: 0.9 });
   } else if (
     arraysHaveIntersect(token.types, [
       "entity",
@@ -32,24 +32,24 @@ function getTokenColor(token, theme) {
       "tag"
     ])
   ) {
-    return hslAdjust(theme.colors.paper, { lightness: 0.84, saturation: 1 });
+    return hslAdjust(theme.colors.bg, { lightness: 0.84, saturation: 1 });
   } else if (arraysHaveIntersect(token.types, ["comment", "doctype"])) {
-    return hslAdjust(theme.colors.obsidian, {
+    return hslAdjust(theme.colors.bodyText, {
       lightness: 0.6,
       saturation: 0.2
     });
   } else if (arraysHaveIntersect(token.types, ["operator"])) {
-    return hslAdjust(theme.colors.obsidian, {
+    return hslAdjust(theme.colors.bodyText, {
       lightness: 0.8,
       saturation: 0.5
     });
   } else if (arraysHaveIntersect(token.types, ["punctuation"])) {
-    return hslAdjust(theme.colors.obsidian, {
+    return hslAdjust(theme.colors.bodyText, {
       lightness: 0.55,
       saturation: 0.18
     });
   } else if (arraysHaveIntersect(token.types, ["plain"])) {
-    return theme.colors.candyflossLite;
+    return theme.palette.candyflossLite;
   }
 
   return null;

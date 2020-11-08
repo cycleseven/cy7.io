@@ -89,7 +89,7 @@ const GlobalStyles = createGlobalStyle`
    * Other global styles
    */
   html {
-    background-color: ${props => props.theme.colors.paper};
+    background-color: ${({ theme }) => theme.colors.bg};
   }
 `;
 

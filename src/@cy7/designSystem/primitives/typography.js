@@ -1,11 +1,11 @@
 import Typography from "typography";
-import { colors } from "@cy7/designSystem/primitives/colors";
+import { palette } from "@cy7/designSystem/primitives/palette";
 
 const typography = new Typography({
   baseFontSize: "16px",
   baseLineHeight: 1.65,
   blockMarginBottom: 0.8,
-  bodyColor: colors.glasgow,
+  bodyColor: palette.glasgow,
   bodyFontFamily: [
     "Inter",
     "Helvetica Neue",
@@ -14,7 +14,7 @@ const typography = new Typography({
     "sans-serif"
   ],
   bodyWeight: 400,
-  headerColor: colors.glasgow,
+  headerColor: palette.glasgow,
   headerFontFamily: ["Oswald", "Open Sans Condensed", "Impact", "sans-serif"],
   headerWeight: 700,
   scaleRatio: 2.5,

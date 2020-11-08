@@ -1,6 +1,6 @@
 import { trimCodeSnippet } from "@cy7/blog/codeBlocks";
 import { Token } from "@cy7/blog/components/Token";
-import { borderRadius, color, rhythm } from "@cy7/designSystem";
+import { borderRadius, color, palette, rhythm } from "@cy7/designSystem";
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
@@ -18,15 +18,15 @@ import Highlight, { Prism } from "prism-react-renderer";
  */
 
 const CodeContainer = styled.div`
-  background-color: ${color("obsidian")};
+  background-color: ${color("contrast")};
   border-radius: ${borderRadius()};
-  box-shadow: 5px 5px 0 0 ${color("candyflossXX")};
+  box-shadow: 5px 5px 0 0 ${color("accent")};
   margin-bottom: ${rhythm(1)};
   overflow: auto;
 `;
 
 const Pre = styled.pre`
-  color: ${color("candyflossLite")};
+  color: ${palette("candyflossLite")};
   display: inline-block;
   hyphens: none;
   padding: ${rhythm(1)};
@@ -52,7 +52,7 @@ const OutputContainer = styled.div`
 `;
 
 const OutputPre = styled(Pre)`
-  background-color: ${color("obsidian")};
+  background-color: ${color("contrast")};
   border-bottom-left-radius: ${borderRadius()};
   border-bottom-right-radius: ${borderRadius()};
   color: ${({ theme, outputType }) =>
@@ -68,7 +68,7 @@ const Tag = styled.div`
     outputType === "error"
       ? theme.colors.angrypeach
       : theme.colors.candyflossXX};
-  color: ${color("obsidian")};
+  color: ${color("contrast")};
   font-size: 0.5rem;
   font-weight: 700;
   letter-spacing: 0.13em;

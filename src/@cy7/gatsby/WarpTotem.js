@@ -30,7 +30,7 @@ function WarpTotem() {
   return (
     <Container>
       <Link
-        appearance="image"
+        appearance="borderless"
         aria-label="Return to home"
         title="Return to home"
         to="/"
