@@ -5,6 +5,7 @@ const FullHeightContainer = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  min-width: 300px;
 `;
 
 const GlobalStyles = createGlobalStyle`

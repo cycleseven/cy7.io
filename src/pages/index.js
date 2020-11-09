@@ -61,7 +61,6 @@ const IntroText = styled.h1`
 `;
 
 const HeroImage = styled(Hero)`
-  height: 398px;
   width: 100%;
   max-width: 460px;
 `;
