@@ -6,8 +6,7 @@ import {
   Stack,
   color,
   rhythm,
-  fontStack,
-  palette
+  fontStack
 } from "@cy7/designSystem";
 import Hero from "@cy7/home/Hero";
 import { Meta, Page } from "@cy7/gatsby";
