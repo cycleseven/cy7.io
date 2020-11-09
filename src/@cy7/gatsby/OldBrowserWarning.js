@@ -9,6 +9,10 @@ const Container = styled(GutterBox)`
   padding-bottom: 18px;
   padding-top: 18px;
   text-align: center;
+
+  @supports (display: grid) {
+    display: none;
+  }
 `;
 
 const Text = styled.p`
