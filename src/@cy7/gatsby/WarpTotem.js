@@ -29,8 +29,8 @@ function WarpTotem(props) {
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeMiterlimit={1.5}
-          strokeWidth={1.35}
-          viewBox="0 0 253 360"
+          strokeWidth={1.4}
+          viewBox="0 0 254 360"
           width={180}
           {...props}
         >

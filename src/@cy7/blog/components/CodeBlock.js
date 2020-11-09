@@ -57,8 +57,8 @@ const OutputPre = styled(Pre)`
   border-bottom-right-radius: ${borderRadius()};
   color: ${({ theme, outputType }) =>
     outputType === "error"
-      ? theme.colors.angrypeach
-      : theme.colors.candyflossXX};
+      ? theme.palette.angrypeach
+      : theme.palette.candyflossXX};
   padding-top: ${rhythm(1)};
   padding-left: ${rhythm(1)};
 `;
@@ -66,8 +66,8 @@ const OutputPre = styled(Pre)`
 const Tag = styled.div`
   background-color: ${({ theme, outputType }) =>
     outputType === "error"
-      ? theme.colors.angrypeach
-      : theme.colors.candyflossXX};
+      ? theme.palette.angrypeach
+      : theme.palette.candyflossXX};
   color: ${color("contrast")};
   font-size: 0.5rem;
   font-weight: 700;
