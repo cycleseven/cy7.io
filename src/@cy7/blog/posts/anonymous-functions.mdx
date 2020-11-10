@@ -1,16 +1,17 @@
 ---
 title: "Overusing anonymous functions"
-description: "Name things to let your tools help you."
+description: "Function names are actually pretty helpful after all."
 slug: "anonymous-functions"
 date: "2020-01-01"
 ---
 
 import { CodeBlock } from "@cy7/blog";
 
-Anonymous functions are commonly used to tidy up callback-heavy JS.
+**Anonymous functions** are commonly used to tidy up callback-heavy JS. They can help reduce visual noise, and allow you to avoid coming up with names for trivial snippets of logic.
 
 ```js
-// With named functions
+// This code filters out the "null" items in a list,
+// then multiplies each element by 2.
 array
   .filter(function notNull(x) {
     return x !== null;
@@ -19,18 +20,18 @@ array
     return x * 2;
   });
 
-// The same code with anonymous functions
+// This does the same, but the functions are anonymous
 array
   .filter(x => x !== null)
   .map(x => x * 2);
 ```
 
-You'll often see anonymous functions written in the more compact [arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) form. But note that arrow functions themselves aren't necessarily anonymous.
+Anonymous functions are often [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) too. Arrow functions themselves aren't necessarily treated as nameless though: most environments these days are clever enough to use the variable name instead.
 
 <CodeBlock
   code={`
     // A named arrow function.
-    // The name comes from the assigned variable.
+    // The variable name "double" is used as the function name.
     let double = x => x * 2;
     console.log(double.name);
   `}
@@ -42,7 +43,7 @@ You'll often see anonymous functions written in the more compact [arrow function
 
 ## Stack traces
 
-Function names can make stack traces easier to read. Here's what happens when a **named** callback throws an exception.
+Anonymous functions come with their downsides though. Stack traces are easier to read when the functions have names. For example:
 
 <CodeBlock
   code={`
@@ -59,9 +60,7 @@ Function names can make stack traces easier to read. Here's what happens when a 
   outputType="error"
 />
 
-Notice how the function name `doSomething` appears in the error output.
-
-The anonymous version isn't so clear. The output will vary depending on your environment, but you'll probably see something like this:
+Note that the function name `doSomething` helpfully appears in the error output. Without a name, you'd have to rely on other clues, like the filename.
 
 <CodeBlock
   code={`
@@ -77,40 +76,30 @@ The anonymous version isn't so clear. The output will vary depending on your env
   outputType="error"
 />
 
-If you write a lot of your code in `index.js` files, and you run into a more generic error, you can end up with a stack trace that gives you little to go on.
+Things get especially hairy when lots of your code lives in files with the same name. Errors can becomes way harder to track down than they have to be: this example could be line 12 of any `index.js` file.
 
 <CodeBlock
   output={`
-    SyntaxError: invalid assignment left-hand side
-        at index.js:2
+    RangeError: invalid array length
+        at index.js:12
   `}
   outputType="error"
 />
 
-Admittedly, there's usually a way to track the offending code down from a stack trace, function name or no. The error message itself often gives useful clues. Maybe you can narrow your search down to recently changed lines of code.
-
-But sometimes there aren't many clues, and a function name can be the thing that points you in the right direction. In any case, it's a lot easier to scan for "my code" in a long stack trace when familiar names jump out at you.
+Faced with any of these stack traces, you'd surely be able to track down the offending code with enough time and patience. But the more clues you leave for yourself, the less stressful that process has to be.
 
 ## Anonymous React components
 
-I often see React code where components are written as anonymous default exports.
+Here's another anonymous code pattern you might have seen if you use React.
 
 ```jsx
 import React from "react";
 export default () => <p>Hello world</p>;
 ```
 
-Components like this are pretty awkward to find in React Dev Tools. They get named something like `_default` or `Anonymous`. That means you can't really search for them. Too many of them and reading through the tree becomes hard too.
+This may look "clean", but components declared this way show up as `Anonymous` in React Dev Tools (I've also seen `_default`). That means you can't search for them, and making sense of the tree becomes tricky. Your component tree ends up looking like this...
 
 ```
-// React Dev Tools with named components...
-Stack
-  Box
-    Card
-      Avatar
-        ...
-
-// ...vs with anonymous components.
 _default
   _default
     _default
@@ -118,11 +107,23 @@ _default
         ...
 ```
 
+...instead of the much more understandable alternative.
+
+```
+Stack
+  Box
+    Card
+      Avatar
+        ...
+```
+
+Keep your component tree looking more like the second example by naming your components, and React Dev Tools will be your friend rather than another enemy.
+
 ## Are anonymous functions always bad then?
 
-Not really. I use them a lot. In the very first example, I'd pick the anonymous version. It's easier to read, and not much can go wrong with `map(x => x * 2)`.
+Not necessarily. I wouldn't argue against the example up at the top of this post. It's easier to read, and in all likelihood, not much will go wrong with `map(x => x * 2)`. The downsides to that particular tradeoff aren't that compelling.
 
-This style of test code encouraged my many JS testing frameworks also uses anonymous callbacks.
+Sometimes functions are labelled in another way too. For example, many JS testing frameworks encourage code like this:
 
 ```js
 test("should return true", () => {
@@ -130,8 +131,8 @@ test("should return true", () => {
 });
 ```
 
-That's also fine: in practice the `"should return true"` name gets printed in the error output along with the filename. You won't have any trouble locating a failing test.
+The function itself is anonymous, but the test still has a label that will show up if there's an error. So there's no need to fret over this either.
 
-## Conclusions
+## The bottom line
 
-Naming your functions means that your tools can help you more.
+Anonymous functions are everywhere, and they have their place, for better or worse. But be aware of their costs too. We're human, and all but the most trivial functions we write are subject to bugs. So lean towards using named functions instead when in doubt, and maybe you'll help your future self out.

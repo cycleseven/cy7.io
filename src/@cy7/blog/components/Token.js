@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 function getTokenColor(token, theme) {
   if (arraysHaveIntersect(token.types, ["keyword"])) {
-    return theme.colors.candyflossXX;
+    return theme.palette.candyflossXX;
   } else if (
     arraysHaveIntersect(token.types, [
       "boolean",
@@ -50,7 +50,7 @@ function getTokenColor(token, theme) {
       saturation: 0.18
     });
   } else if (arraysHaveIntersect(token.types, ["plain"])) {
-    return theme.palette.candyflossLite;
+    return theme.colors.bg;
   }
 
   return null;
