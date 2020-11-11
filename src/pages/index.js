@@ -27,7 +27,7 @@ const Main = styled(MaxWidth).attrs({ as: "main" })`
 
 const Intro = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 0;
 
   > * + * {
@@ -53,9 +53,9 @@ const IntroText = styled.h1`
   font-family: ${fontStack("body")};
   font-size: 0.95rem; // Should be a theme value
   font-weight: 400;
-  line-height: 1.6;
-  margin-bottom: 0;
-  max-width: 30ch;
+  line-height: 1.65;
+  margin-bottom: ${rhythm(0.8)};
+  max-width: 36ch;
   text-transform: none;
 `;
 
@@ -131,7 +131,6 @@ const ShowcaseDate = styled.p`
 function HomePage({ data }) {
   const blogPosts = data.blogPosts.nodes;
   const photoOfMe = data.photoOfMe.childImageSharp.fixed;
-  const { siteIntro } = data.site.siteMetadata;
 
   return (
     <Page>
@@ -151,9 +150,25 @@ function HomePage({ data }) {
             <Stack space={3}>
               <Intro>
                 <MeImage>
-                  <Img fadeIn={false} fixed={photoOfMe} />
+                  <Img
+                    fadeIn={false}
+                    fixed={photoOfMe}
+                    height={48}
+                    width={48}
+                  />
                 </MeImage>
-                <IntroText>{siteIntro}</IntroText>
+                <div>
+                  <IntroText>
+                    I&apos;m Owen, a software engineer from Edinburgh, Scotland{" "}
+                    <span aria-label="wave" role="img">
+                      👋
+                    </span>
+                  </IntroText>
+                  <IntroText>
+                    This is my wee website. I write about web development and
+                    other personal interests.
+                  </IntroText>
+                </div>
               </Intro>
               <section>
                 <SectionHeading>Blog</SectionHeading>
@@ -189,12 +204,6 @@ function HomePage({ data }) {
 
 export const query = graphql`
   query homePage {
-    site {
-      siteMetadata {
-        siteIntro
-      }
-    }
-
     blogPosts: allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
         fields {

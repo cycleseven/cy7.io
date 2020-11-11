@@ -3,7 +3,6 @@ module.exports = {
     title: "cy7.io",
     description: "My cool website!!",
     author: "@instructio5",
-    siteIntro: "I'm Owen, a web developer from Edinburgh, Scotland.",
     socialLinks: {
       name: "Me",
       links: [
