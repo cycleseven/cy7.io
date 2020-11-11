@@ -51,7 +51,7 @@ const Intro = styled.div`
 //       their own whitespace)
 const IntroText = styled.h1`
   font-family: ${fontStack("body")};
-  font-size: 1rem;
+  font-size: 0.95rem; // Should be a theme value
   font-weight: 400;
   line-height: 1.6;
   margin-bottom: 0;
@@ -61,7 +61,7 @@ const IntroText = styled.h1`
 
 const HeroImage = styled(Hero)`
   width: 100%;
-  max-width: 460px;
+  max-width: 420px;
 `;
 
 const MeImage = styled.div`
@@ -143,12 +143,12 @@ function HomePage({ data }) {
           title="cy7.io — owen's wee website"
         />
 
-        <Stack space={5}>
+        <Stack space={3}>
           <Header>
             <HeroImage />
           </Header>
           <Main>
-            <Stack space={5}>
+            <Stack space={3}>
               <Intro>
                 <MeImage>
                   <Img fadeIn={false} fixed={photoOfMe} />

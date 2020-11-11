@@ -11,7 +11,7 @@ function Hero(props) {
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeMiterlimit={1.5}
-      strokeWidth={1.25}
+      strokeWidth={1.35}
       viewBox="0 0 542 470"
       {...props}
     >

@@ -3,7 +3,7 @@ import { palette } from "@cy7/designSystem/primitives/palette";
 
 const typography = new Typography({
   baseFontSize: "17px",
-  baseLineHeight: 1.68,
+  baseLineHeight: 1.65,
   blockMarginBottom: 0.8,
   bodyColor: palette.glasgow,
   bodyFontFamily: [
