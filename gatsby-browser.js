@@ -4,13 +4,12 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
+import { Cy7ThemeProvider } from "@cy7/designSystem";
 import React from "react";
 
-import { Cy7ThemeProvider } from "./src/designPrimitives";
-
 /* eslint-disable-next-line react/prop-types */
-function wrapRootElement({ element }) {
+function wrapPageElement({ element }) {
   return <Cy7ThemeProvider>{element}</Cy7ThemeProvider>;
 }
 
-export { wrapRootElement };
+export { wrapPageElement };

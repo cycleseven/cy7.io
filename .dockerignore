@@ -1,0 +1,6 @@
+.cache
+.git
+deploy
+node_modules
+public
+storybook-static
