@@ -1,7 +1,6 @@
-import { Meta as Cy7Meta } from "@cy7/designSystem";
 import { Meta, Props } from "@storybook/addon-docs/blocks";
 
-<Meta title="Components | Meta" />
+<Meta title="Gatsby | Meta" />
 
 # Meta
 
@@ -14,28 +13,17 @@ Under the hood, the `<Meta />` component uses [react-helmet](https://github.com/
 ## Usage
 
 ```jsx
-import { Meta } from "components";
+import { Meta } from "@cy7/gatsby";
 
 // Then use the component in your page like this
-<Meta title="Blog" />
+<Meta title="My blog post" description="Description for search engines." />
 ```
 
-If the `title` prop isn't provided, a plain title is rendered by default.
+Titles are auto-suffixed with `— cy7.io`.
 
 ```html
 <title>
-  cy7.io
+  My blog post — cy7.io
 </title>
+<meta name="description" content="Description for search engines." />
 ```
-
-Otherwise, the title uses `| cy7.io` as a suffix.
-
-```html
-<title>
-  Blog | cy7.io
-</title>
-```
-
-## Props
-
-<Props of={Cy7Meta} />

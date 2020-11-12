@@ -5,7 +5,6 @@ import { Helmet } from "react-helmet";
 function Meta({ description, noTitleTemplate, title }) {
   return (
     <Helmet
-      defaultTitle="cy7.io"
       title={title}
       titleTemplate={noTitleTemplate ? null : "%s — cy7.io"}
     >
@@ -21,12 +20,11 @@ function Meta({ description, noTitleTemplate, title }) {
 Meta.propTypes = {
   description: PropTypes.string.isRequired,
   noTitleTemplate: PropTypes.bool,
-  title: PropTypes.string
+  title: PropTypes.string.isRequired
 };
 
 Meta.defaultProps = {
-  noTitleTemplate: false,
-  title: null
+  noTitleTemplate: false
 };
 
 export { Meta };

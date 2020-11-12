@@ -1,37 +1,7 @@
-import { ColorSwatch, SwatchGroup } from "@cy7/designSystem/docComponents";
-import { Meta, Preview, Story } from "@storybook/addon-docs/blocks";
-import { palette } from "@cy7/designSystem/primitives/palette";
+import { Meta } from "@storybook/addon-docs/blocks";
 
 <Meta title="Primitives | Colors" />
 
 # Colors
 
-All these colors are available via [the `theme` prop in Styled Components](https://www.styled-components.com/docs/advanced#theming).
-
-> If the `theme` isn't available, make sure the component tree is wrapped `<Cy7ThemeProvider />`.
-
-```
-const ComponentUsingColors = styled.div`
-  background-color: ${props => props.theme.colors.paper()};
-  color: ${props => props.theme.colors.obsidian()};
-`;
-```
-
-For use outside of Styled Components, import the colors directly.
-
-```js
-import { colors } from "designPrimitives";
-const { paper, candyfloss } = colors;
-```
-
-## Palette
-
-<Preview>
-  <Story name="Palette">
-    <SwatchGroup>
-      {Object.keys(palette).map(color => (
-        <ColorSwatch color={palette[color]} name={color} />
-      ))}
-    </SwatchGroup>
-  </Story>
-</Preview>
+TODO: update docs since refactoring to usage-based names (like "bg" and "bodyText") to enable color modes.

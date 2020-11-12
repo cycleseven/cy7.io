@@ -131,13 +131,13 @@ const ShowcaseDate = styled.p`
 function HomePage({ data }) {
   const blogPosts = data.blogPosts.nodes;
   const photoOfMe = data.photoOfMe.childImageSharp.fixed;
+  const { description } = data.site.siteMetadata;
 
   return (
     <Page>
       <GutterBox>
-        {/* TODO: make this description more compelling when I have a few posts under the belt */}
         <Meta
-          description="I'm Owen. This is my wee web development blog."
+          description={description}
           noTitleTemplate
           title="cy7.io — owen's wee website"
         />
@@ -165,8 +165,8 @@ function HomePage({ data }) {
                     </span>
                   </IntroText>
                   <IntroText>
-                    This is my wee website. I write about web development and
-                    other personal interests.
+                    This is my wee website where I write about web development
+                    and other personal interests.
                   </IntroText>
                 </div>
               </Intro>
@@ -204,6 +204,12 @@ function HomePage({ data }) {
 
 export const query = graphql`
   query homePage {
+    site {
+      siteMetadata {
+        description
+      }
+    }
+
     blogPosts: allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
         fields {
