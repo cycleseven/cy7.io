@@ -59,7 +59,7 @@ const OutputPre = styled(Pre)`
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;
-  padding-top: ${rhythm(0.5)};
+  padding-top: ${rhythm(0.25)};
 `;
 
 const OutputWell = styled.div`
