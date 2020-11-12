@@ -1,7 +1,7 @@
 import { hslAdjust } from "@cy7/css";
 
 const basePalette = {
-  angrypeach: "hsl(2, 100%, 75%)",
+  angrypeach: "hsl(2, 100%, 80%)",
   candyfloss: "hsl(320, 85%, 87%)",
   paper: "hsl(35, 100%, 99%)",
   obsidian: "hsl(213, 64%, 14%)",
@@ -15,8 +15,8 @@ const shades = {
     lightness: 0.85
   }),
   candyflossLite: hslAdjust(basePalette.candyfloss, {
-    lightness: 0.93,
-    saturation: 0.4
+    lightness: 0.88,
+    saturation: 1
   })
 };
 

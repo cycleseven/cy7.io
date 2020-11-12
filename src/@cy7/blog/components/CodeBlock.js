@@ -44,40 +44,45 @@ const Code = styled.code`
 `;
 
 const OutputContainer = styled.div`
-  position: relative;
+  margin: ${rhythm(0.5)};
 
   ${Pre} + & {
-    margin-top: ${rhythm(0.5)};
+    margin-top: 0;
   }
 `;
 
 const OutputPre = styled(Pre)`
-  background-color: ${color("contrast")};
-  border-bottom-left-radius: ${borderRadius()};
-  border-bottom-right-radius: ${borderRadius()};
   color: ${({ theme, outputType }) =>
     outputType === "error"
       ? theme.palette.angrypeach
-      : theme.palette.candyflossXX};
-  padding-top: ${rhythm(1)};
-  padding-left: ${rhythm(1)};
+      : theme.palette.candyflossLite};
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: ${rhythm(0.5)};
+`;
+
+const OutputWell = styled.div`
+  border: solid 2px
+    ${({ theme, outputType }) =>
+      outputType === "error"
+        ? theme.palette.angrypeach
+        : theme.palette.candyflossLite};
+  border-radius: ${borderRadius()};
+  color: ${color("contrast")};
+  padding: ${rhythm(0.5)};
 `;
 
 const Tag = styled.div`
-  background-color: ${({ theme, outputType }) =>
+  color: ${({ theme, outputType }) =>
     outputType === "error"
       ? theme.palette.angrypeach
-      : theme.palette.candyflossXX};
-  color: ${color("contrast")};
-  font-size: 0.5rem;
+      : theme.palette.candyflossLite};
+  font-size: 0.45rem;
   font-weight: 700;
   letter-spacing: 0.13em;
-  left: 0;
-  padding: 2px ${rhythm(1 / 2)} 2px ${rhythm(1)};
-  position: absolute;
   text-transform: uppercase;
-  transform: translateY(-50%);
-  top: 0;
+  user-select: none;
 `;
 
 function CodeBlock({ code, language, output, outputType }) {
@@ -119,11 +124,12 @@ function CodeBlock({ code, language, output, outputType }) {
 
       {output && (
         <OutputContainer>
-          <OutputPre outputType={outputType}>
-            <Code>{trimmedOutput}</Code>
-          </OutputPre>
-
-          {code && <Tag outputType={outputType}>Output</Tag>}
+          <OutputWell outputType={outputType}>
+            <Tag outputType={outputType}>Output</Tag>
+            <OutputPre outputType={outputType}>
+              <Code>{trimmedOutput}</Code>
+            </OutputPre>
+          </OutputWell>
         </OutputContainer>
       )}
     </CodeContainer>
