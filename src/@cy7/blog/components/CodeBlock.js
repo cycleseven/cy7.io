@@ -13,8 +13,6 @@ import Highlight, { Prism } from "prism-react-renderer";
  * <Token /> component in particular).
  *
  * https://github.com/PrismJS/prism/blob/master/themes/prism-okaidia.css
- *
- * TODO: check cross-browser rendering of fonts, provide if needed
  */
 
 const CodeContainer = styled.div`
