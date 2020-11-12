@@ -1,6 +1,5 @@
-import { color, palette } from "@cy7/designSystem";
+import { color } from "@cy7/designSystem";
 import styled from "styled-components";
-import { hslAdjust } from "@cy7/css";
 
 const MdxInlineCode = styled.code`
   background-color: ${color("bodyText")};
