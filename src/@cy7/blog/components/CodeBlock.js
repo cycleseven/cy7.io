@@ -68,6 +68,9 @@ const OutputWell = styled.div`
         : theme.palette.candyflossLite};
   border-radius: ${borderRadius()};
   color: ${color("contrast")};
+  display: inline-block;
+  margin-right: ${rhythm(1)};
+  min-width: 100%;
   padding: ${rhythm(0.5)};
 `;
 
