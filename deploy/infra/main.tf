@@ -22,7 +22,11 @@ module "website" {
   edge_lambdas = [
     {
       event_type = "viewer-request"
-      lambda_arn = jsondecode(file("${path.root}/../redirect-lambda/outputs.json")).RedirectLambdaFunctionQualifiedArn
+      lambda_arn = jsondecode(file("${path.root}/../lambda/outputs.json")).RedirectLambdaFunctionQualifiedArn
+    },
+    {
+      event_type = "origin-request"
+      lambda_arn = jsondecode(file("${path.root}/../lambda/outputs.json")).SubdirectoryIndexLambdaFunctionQualifiedArn
     }
   ]
   full_domain = "cy7.io"

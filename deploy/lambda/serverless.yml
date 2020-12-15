@@ -22,6 +22,8 @@ custom:
 functions:
   redirect:
     handler: handlers.redirect
+  subdirectoryIndex:
+    handler: handlers.subdirectoryIndex
 
 resources:
   Resources:
