@@ -30,6 +30,16 @@ module.exports.subdirectoryIndex = async event => {
 
   let uri = request.uri;
 
+  // eslint-disable-next-line
+  console.log(`Incoming URI: ${uri}`);
+
+  // If the URI already directly references a file, don't mess with it
+  if (uri.indexOf(".") > -1) {
+    // eslint-disable-next-line
+    console.log("URI not modified");
+    return request;
+  }
+
   // Heavily inspired by https://www.barelyknown.com/posts/add-trailing-slash-to-cloudfront-request
   if (uri.slice(-1) !== "/") {
     uri = `${uri}/`;
@@ -39,5 +49,7 @@ module.exports.subdirectoryIndex = async event => {
   // Replace it with a default index.
   request.uri = uri.replace(/\/$/, "/index.html");
 
+  // eslint-disable-next-line
+  console.log(`Modified URI: ${uri}`);
   return request;
 };
