@@ -154,6 +154,7 @@ function HomePage({ data }) {
                     fadeIn={false}
                     fixed={photoOfMe}
                     height={48}
+                    loading="eager"
                     width={48}
                   />
                 </MeImage>
@@ -225,7 +226,7 @@ export const query = graphql`
 
     photoOfMe: file(relativePath: { eq: "goat.jpg" }) {
       childImageSharp {
-        fixed(width: 72, quality: 70) {
+        fixed(width: 72, quality: 50) {
           ...GatsbyImageSharpFixed_withWebp
         }
       }
