@@ -9,9 +9,8 @@ import {
   fontStack
 } from "@cy7/designSystem";
 import Hero from "@cy7/home/Hero";
-import { Meta, Page } from "@cy7/gatsby";
+import { Img, Meta, Page } from "@cy7/gatsby";
 import { graphql, Link as GatsbyLink } from "gatsby";
-import Img from "gatsby-image";
 import React from "react";
 import styled from "styled-components";
 
@@ -151,7 +150,6 @@ function HomePage({ data }) {
               <Intro>
                 <MeImage>
                   <Img
-                    fadeIn={false}
                     fixed={photoOfMe}
                     height={48}
                     loading="eager"
@@ -227,7 +225,7 @@ export const query = graphql`
     photoOfMe: file(relativePath: { eq: "goat.jpg" }) {
       childImageSharp {
         fixed(width: 72, quality: 50) {
-          ...GatsbyImageSharpFixed_withWebp
+          ...GatsbyImageSharpFixed_withWebp_noBase64
         }
       }
     }
