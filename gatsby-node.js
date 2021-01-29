@@ -13,8 +13,8 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
   actions.setWebpackConfig({
     resolve: {
       ...getConfig().resolve,
-      modules: [path.join(getConfig().context, "src"), "node_modules"]
-    }
+      modules: [path.join(getConfig().context, "src"), "node_modules"],
+    },
   });
 };
 
@@ -51,8 +51,8 @@ exports.createPages = async ({ graphql, actions }) => {
       path: node.frontmatter.slug,
       component: path.resolve(`./src/templates/BlogPost.js`),
       context: {
-        slug: node.frontmatter.slug
-      }
+        slug: node.frontmatter.slug,
+      },
     });
   });
 };

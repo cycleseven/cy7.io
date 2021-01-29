@@ -1,4 +1,4 @@
-module.exports.redirect = async event => {
+module.exports.redirect = async (event) => {
   const request = event.Records[0].cf.request;
 
   if (request.headers.host[0].value === "www.cy7.io") {
@@ -9,10 +9,10 @@ module.exports.redirect = async event => {
         location: [
           {
             key: "Location",
-            value: `https://cy7.io${request.uri}`
-          }
-        ]
-      }
+            value: `https://cy7.io${request.uri}`,
+          },
+        ],
+      },
     };
   }
 
@@ -25,7 +25,7 @@ module.exports.redirect = async event => {
 //
 // Implementation based on an example from the AWS docs:
 // https://aws.amazon.com/blogs/compute/implementing-default-directory-indexes-in-amazon-s3-backed-amazon-cloudfront-origins-using-lambdaedge/
-module.exports.subdirectoryIndex = async event => {
+module.exports.subdirectoryIndex = async (event) => {
   const request = event.Records[0].cf.request;
 
   let uri = request.uri;

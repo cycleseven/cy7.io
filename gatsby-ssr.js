@@ -7,7 +7,7 @@
 function onRenderBody({ setHtmlAttributes }) {
   // Set lang="en" attribute in root <html> element
   setHtmlAttributes({
-    lang: "en"
+    lang: "en",
   });
 }
 
