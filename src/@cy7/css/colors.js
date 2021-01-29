@@ -20,7 +20,7 @@ function hslParse(hslColor) {
     // (Actually, parseInt will throw away the % symbol anyway, but seems
     // confusing to depend on that...)
     saturation: parseInt(s.slice(0, -1), 10) * 0.01,
-    lightness: parseInt(l.slice(0, -1), 10) * 0.01
+    lightness: parseInt(l.slice(0, -1), 10) * 0.01,
   };
 }
 

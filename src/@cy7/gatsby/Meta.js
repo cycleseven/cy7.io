@@ -20,11 +20,11 @@ function Meta({ description, noTitleTemplate, title }) {
 Meta.propTypes = {
   description: PropTypes.string.isRequired,
   noTitleTemplate: PropTypes.bool,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 };
 
 Meta.defaultProps = {
-  noTitleTemplate: false
+  noTitleTemplate: false,
 };
 
 export { Meta };

@@ -37,11 +37,11 @@ function MdxHeading({ as, children, ...props }) {
 
 MdxHeading.propTypes = {
   as: PropTypes.oneOf(["h1", "h2", "h3", "h4", "h5", "h6"]),
-  children: PropTypes.string.isRequired
+  children: PropTypes.string.isRequired,
 };
 
 MdxHeading.defaultProps = {
-  as: "h1"
+  as: "h1",
 };
 
 function createMdxHeading(as) {

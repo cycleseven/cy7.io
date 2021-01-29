@@ -49,10 +49,10 @@ function trimCodeSnippet(snippet) {
   const lines = snippet.split(/\r?\n/);
   const significantLines = trimEmptyLines(lines);
   const nonEmptyLines = significantLines.filter(
-    line => !isWhitespaceOnly(line)
+    (line) => !isWhitespaceOnly(line)
   );
   const minimumIndentSize = nonEmptyLines.reduce((minSoFar, line) => {
-    const indentSize = Array.from(line).findIndex(char => char !== " ");
+    const indentSize = Array.from(line).findIndex((char) => char !== " ");
 
     if (indentSize < minSoFar) {
       return indentSize;
@@ -62,7 +62,7 @@ function trimCodeSnippet(snippet) {
   }, Number.MAX_SAFE_INTEGER);
 
   return significantLines
-    .map(line => line.slice(minimumIndentSize).replace(/\s+$/, ""))
+    .map((line) => line.slice(minimumIndentSize).replace(/\s+$/, ""))
     .join("\n");
 }
 

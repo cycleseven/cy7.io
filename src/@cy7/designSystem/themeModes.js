@@ -7,22 +7,22 @@ const darkTheme = {
   colors: {
     bg: hslAdjust(theme.palette.obsidian, {
       saturation: 0.5,
-      lightness: 0.12
+      lightness: 0.12,
     }),
     bodyText: "white",
     headerText: "white",
     linkBorder: hslAdjust(theme.palette.obsidian, {
       saturation: 0.4,
-      lightness: 0.25
+      lightness: 0.25,
     }),
     linkBorderHover: hslAdjust(theme.palette.obsidian, {
       saturation: 0.4,
-      lightness: 0.38
+      lightness: 0.38,
     }),
     linkText: hslAdjust(theme.palette.obsidian, { lightness: 0.92 }),
     linkFocusBg: theme.palette.dijon,
-    linkFocusText: "inherit"
-  }
+    linkFocusText: "inherit",
+  },
 };
 
 const warningTheme = {
@@ -36,8 +36,8 @@ const warningTheme = {
     linkBorderHover: hslAdjust(theme.palette.glasgow, { lightness: 0.75 }),
     linkText: theme.palette.glasgow,
     linkFocusBg: theme.palette.dijon,
-    linkFocusText: theme.palette.obsidian
-  }
+    linkFocusText: theme.palette.obsidian,
+  },
 };
 
 export { darkTheme, warningTheme };

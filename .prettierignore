@@ -1,5 +1,9 @@
+# Prettier is liable to mess up custom code formatting on blog posts
+src/@cy7/blog/**/*.mdx
+src/@cy7/blog/**/*.md
+
 .cache
 package.json
 package-lock.json
 public
-blogPosts/**/*.md
+

@@ -5,7 +5,7 @@ import { darkTheme, warningTheme } from "@cy7/designSystem/themeModes";
 
 const themes = {
   dark: darkTheme,
-  warning: warningTheme
+  warning: warningTheme,
 };
 
 function ColorModeProvider({ mode, ...props }) {
@@ -14,7 +14,7 @@ function ColorModeProvider({ mode, ...props }) {
 }
 
 ColorModeProvider.propTypes = {
-  mode: PropTypes.oneOf(["dark", "warning"]).isRequired
+  mode: PropTypes.oneOf(["dark", "warning"]).isRequired,
 };
 
 export { ColorModeProvider };

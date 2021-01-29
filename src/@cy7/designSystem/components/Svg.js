@@ -34,11 +34,11 @@ Svg.propTypes = {
   children: PropTypes.node.isRequired,
 
   // It's OK not to provide <title> tag for decorative images
-  title: PropTypes.string
+  title: PropTypes.string,
 };
 
 Svg.defaultProps = {
-  title: null
+  title: null,
 };
 
 export { Svg };

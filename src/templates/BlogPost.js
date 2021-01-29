@@ -6,7 +6,7 @@ import {
   MdxH4,
   MdxH5,
   MdxH6,
-  MdxInlineCode
+  MdxInlineCode,
 } from "@cy7/blog";
 import { rhythm, GutterBox, color, MaxWidth } from "@cy7/designSystem";
 import { Meta, Link, Page, WarpTotem } from "@cy7/gatsby";
@@ -52,7 +52,7 @@ const mdxComponents = {
   h3: MdxH3,
   h4: MdxH4,
   h5: MdxH5,
-  h6: MdxH6
+  h6: MdxH6,
 };
 
 // There's not much gain to be had from maintaining prop type definitions for

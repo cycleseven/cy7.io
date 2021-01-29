@@ -17,20 +17,20 @@ const theme = {
     linkText: "inherit",
     linkFocusBg: palette.dijon,
     linkFocusBorder: palette.obsidian,
-    linkFocusText: "inherit"
+    linkFocusText: "inherit",
   },
   palette,
   maxWidths: {
     bestForText: "37rem",
-    regular: "56rem"
+    regular: "56rem",
   },
   scales,
-  typography
+  typography,
 };
 
 // https://styled-system.com/theme-specification#media-queries
 theme.mediaQueries = {
-  desktop: `@media screen and (min-width: ${theme.breakpoints[0]})`
+  desktop: `@media screen and (min-width: ${theme.breakpoints[0]})`,
 };
 
 export default theme;

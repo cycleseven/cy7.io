@@ -9,21 +9,21 @@ function getWidth({ theme, width }) {
 const MaxWidth = styled.div.withConfig({
   shouldForwardProp(prop, defaultValidatorFn) {
     return prop !== "width" && defaultValidatorFn(prop);
-  }
+  },
 })`
   max-width: ${getWidth};
 
   ${css({
-    marginX: "auto"
+    marginX: "auto",
   })}
 `;
 
 MaxWidth.propTypes = {
-  width: PropTypes.oneOf(["regular", "bestForText"])
+  width: PropTypes.oneOf(["regular", "bestForText"]),
 };
 
 MaxWidth.defaultProps = {
-  width: "regular"
+  width: "regular",
 };
 
 export { MaxWidth };

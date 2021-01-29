@@ -61,11 +61,11 @@ function Link({ appearance, ...props }) {
 }
 
 Link.propTypes = {
-  appearance: PropTypes.oneOf(["default", "plain", "borderless"])
+  appearance: PropTypes.oneOf(["default", "plain", "borderless"]),
 };
 
 Link.defaultProps = {
-  appearance: "default"
+  appearance: "default",
 };
 
 export { Link };
