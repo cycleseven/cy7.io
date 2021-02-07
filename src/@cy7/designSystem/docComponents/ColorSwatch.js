@@ -5,7 +5,7 @@ import styled from "styled-components";
 const swatchSize = 50;
 
 const ColorPreview = styled.div`
-  background-color: ${props => props.color};
+  background-color: ${(props) => props.color};
   box-shadow: 4px 4px 0 0 black;
   border: solid 4px black;
   height: ${swatchSize}px;
@@ -52,7 +52,7 @@ function ColorSwatch({ color, name }) {
 
 ColorSwatch.propTypes = {
   color: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
 };
 
 export { ColorSwatch, SwatchGroup };

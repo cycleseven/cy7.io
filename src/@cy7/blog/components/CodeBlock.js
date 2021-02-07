@@ -105,7 +105,7 @@ function CodeBlock({ code, language, output, outputType }) {
                       {line.map((token, j) => {
                         const { children, key: tokenKey } = getTokenProps({
                           token,
-                          key: j
+                          key: j,
                         });
 
                         return (
@@ -141,14 +141,14 @@ CodeBlock.propTypes = {
   code: PropTypes.string,
   language: PropTypes.oneOf(["js", "jsx"]),
   output: PropTypes.string,
-  outputType: PropTypes.oneOf(["error", "output"])
+  outputType: PropTypes.oneOf(["error", "output"]),
 };
 
 CodeBlock.defaultProps = {
   code: null,
   language: null,
   output: null,
-  outputType: "output"
+  outputType: "output",
 };
 
 export { CodeBlock };

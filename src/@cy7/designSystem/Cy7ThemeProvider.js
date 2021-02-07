@@ -14,7 +14,7 @@ function Cy7ThemeProvider({ children, ...props }) {
 }
 
 Cy7ThemeProvider.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export { Cy7ThemeProvider };

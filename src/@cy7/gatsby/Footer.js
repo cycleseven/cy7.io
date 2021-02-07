@@ -7,7 +7,7 @@ import {
   Stack,
   color,
   rhythm,
-  fontStack
+  fontStack,
 } from "@cy7/designSystem";
 import { Link } from "@cy7/gatsby";
 import { hslAdjust } from "@cy7/css";
@@ -79,7 +79,7 @@ const FOOTER_QUERY = graphql`
 
 function renderLinks(links) {
   // The wrapping <div> is to lay out each <a> on a new line
-  return links.map(link => (
+  return links.map((link) => (
     <div key={link.name}>
       <FooterLink to={link.url} type={link.type}>
         {link.name}

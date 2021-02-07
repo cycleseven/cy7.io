@@ -6,7 +6,7 @@ import {
   Stack,
   color,
   rhythm,
-  fontStack
+  fontStack,
 } from "@cy7/designSystem";
 import Hero from "@cy7/home/Hero";
 import { Img, Meta, Page } from "@cy7/gatsby";
@@ -172,7 +172,7 @@ function HomePage({ data }) {
               <section>
                 <SectionHeading>Blog</SectionHeading>
                 <Grid>
-                  {blogPosts.map(blogPost => (
+                  {blogPosts.map((blogPost) => (
                     <div key={blogPost.frontmatter.slug}>
                       <ShowcaseHeading>
                         <Link

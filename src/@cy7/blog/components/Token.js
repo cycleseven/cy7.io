@@ -17,7 +17,7 @@ function getTokenColor(token, theme) {
       "builtin",
       "inserted",
       "regex",
-      "important"
+      "important",
     ])
   ) {
     return hslAdjust(theme.colors.bg, { lightness: 0.7, saturation: 0.9 });
@@ -30,24 +30,24 @@ function getTokenColor(token, theme) {
       "attr-value",
       "function",
       "class-name",
-      "tag"
+      "tag",
     ])
   ) {
     return hslAdjust(theme.colors.bg, { lightness: 0.84, saturation: 1 });
   } else if (arraysHaveIntersect(token.types, ["comment", "doctype"])) {
     return hslAdjust(theme.colors.bodyText, {
       lightness: 0.6,
-      saturation: 0.2
+      saturation: 0.2,
     });
   } else if (arraysHaveIntersect(token.types, ["operator"])) {
     return hslAdjust(theme.colors.bodyText, {
       lightness: 0.8,
-      saturation: 0.5
+      saturation: 0.5,
     });
   } else if (arraysHaveIntersect(token.types, ["punctuation"])) {
     return hslAdjust(theme.colors.bodyText, {
       lightness: 0.55,
-      saturation: 0.18
+      saturation: 0.18,
     });
   } else if (arraysHaveIntersect(token.types, ["plain"])) {
     return theme.colors.bg;
@@ -69,7 +69,7 @@ const StyledToken = styled.span.attrs(({ token }) => {
   // assigned by Prism
   if (process.env.NODE_ENV === "development") {
     return {
-      "data-token-types": token.types.join(" ")
+      "data-token-types": token.types.join(" "),
     };
   }
 

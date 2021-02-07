@@ -6,23 +6,23 @@ const basePalette = {
   paper: "hsl(35, 100%, 99%)",
   obsidian: "hsl(213, 64%, 14%)",
   glasgow: "hsl(213, 89%, 20%)",
-  dijon: "hsl(51, 100%, 50%)"
+  dijon: "hsl(51, 100%, 50%)",
 };
 
 const shades = {
   candyflossXX: hslAdjust(basePalette.candyfloss, {
     saturation: 1,
-    lightness: 0.85
+    lightness: 0.85,
   }),
   candyflossLite: hslAdjust(basePalette.candyfloss, {
     lightness: 0.88,
-    saturation: 1
-  })
+    saturation: 1,
+  }),
 };
 
 const palette = {
   ...basePalette,
-  ...shades
+  ...shades,
 };
 
 export { palette };

@@ -26,11 +26,11 @@ function Logo({ size, ...otherProps }) {
 }
 
 Logo.propTypes = {
-  size: PropTypes.number
+  size: PropTypes.number,
 };
 
 Logo.defaultProps = {
-  size: 48
+  size: 48,
 };
 
 export { Logo };

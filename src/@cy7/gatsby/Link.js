@@ -23,11 +23,11 @@ function Link({ type, to, ...props }) {
 
 Link.propTypes = {
   to: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(["internal", "external", "email"])
+  type: PropTypes.oneOf(["internal", "external", "email"]),
 };
 
 Link.defaultProps = {
-  type: "internal"
+  type: "internal",
 };
 
 export { Link };

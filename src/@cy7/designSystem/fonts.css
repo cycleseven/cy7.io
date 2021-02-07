@@ -1,5 +1,5 @@
 @font-face {
-  font-display: swap;
+  font-display: block;
   font-family: Oswald;
   font-style: normal;
   font-weight: 700;
@@ -7,7 +7,7 @@
 }
 
 @font-face {
-  font-display: swap;
+  font-display: block;
   font-family: Inter;
   font-style: normal;
   font-weight: 400;
@@ -15,7 +15,7 @@
 }
 
 @font-face {
-  font-display: swap;
+  font-display: block;
   font-family: Inter;
   font-style: italic;
   font-weight: 400;
@@ -23,7 +23,7 @@
 }
 
 @font-face {
-  font-display: swap;
+  font-display: block;
   font-family: Inter;
   font-style: normal;
   font-weight: 700;

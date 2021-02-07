@@ -8,11 +8,11 @@ const Stack = styled.div`
 `;
 
 Stack.propTypes = {
-  space: PropTypes.number
+  space: PropTypes.number,
 };
 
 Stack.defaultProps = {
-  space: 1
+  space: 1,
 };
 
 export { Stack };

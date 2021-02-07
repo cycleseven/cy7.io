@@ -11,19 +11,19 @@ module.exports = {
         {
           name: "Github",
           type: "external",
-          url: "https://github.com/cycleseven"
+          url: "https://github.com/cycleseven",
         },
         {
           name: "Linkedin",
           type: "external",
-          url: "https://www.linkedin.com/in/cycleseven/"
+          url: "https://www.linkedin.com/in/cycleseven/",
         },
         {
           name: "Email me",
           type: "email",
-          url: "hello@cy7.io"
-        }
-      ]
+          url: "hello@cy7.io",
+        },
+      ],
     },
     metaLinks: {
       name: "About this site",
@@ -36,53 +36,53 @@ module.exports = {
         {
           name: "Source code (Gitlab)",
           type: "external",
-          url: "https://gitlab.com/cycleseven/cy7"
-        }
-      ]
+          url: "https://gitlab.com/cycleseven/cy7",
+        },
+      ],
     },
     favouriteBitsOfTheInternet: [
       {
         name: "astronaut.io",
         description: "",
-        url: "http://astronaut.io"
+        url: "http://astronaut.io",
       },
       {
         name: "it is as if you were doing work",
         description: "",
-        url: "https://pippinbarr.github.io/itisasifyouweredoingwork"
+        url: "https://pippinbarr.github.io/itisasifyouweredoingwork",
       },
       {
         name: "Ben Halpern's personal site",
         description: "No words necessary",
-        url: "https://benhalpern.com"
+        url: "https://benhalpern.com",
       },
       {
         name: "Old CSS, New CSS",
         description:
           '"The answer, as every web dev now knows, is XMLHttpRequest — named for the fact that nobody has ever once used it to request XML."',
-        url: "https://eev.ee/blog/2020/02/01/old-css-new-css"
+        url: "https://eev.ee/blog/2020/02/01/old-css-new-css",
       },
       {
         name: "Me reviewing pull requests",
-        url: "https://twitter.com/rickhanlonii/status/1195738341301522432"
+        url: "https://twitter.com/rickhanlonii/status/1195738341301522432",
       },
       {
         name:
           "It's fascinating to imagine the amazing things people will do with their computer in 30 years",
-        url: "https://twitter.com/dubenko_/status/1218268093669048326"
+        url: "https://twitter.com/dubenko_/status/1218268093669048326",
       },
       {
         name: "Unrelated vs orthogonal",
-        url: "https://twitter.com/markdalgleish/status/1201610777372721152"
+        url: "https://twitter.com/markdalgleish/status/1201610777372721152",
       },
       {
         name: "HTMLMediaElement.canPlayType()",
         description:
           "The greatest API of all time. The return value will SHOCK you",
         url:
-          "https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/canPlayType"
-      }
-    ]
+          "https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/canPlayType",
+      },
+    ],
   },
   plugins: [
     "gatsby-plugin-react-helmet",
@@ -90,15 +90,15 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: `${__dirname}/src/images`
-      }
+        path: `${__dirname}/src/images`,
+      },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "blogPosts",
-        path: `${__dirname}/src/@cy7/blog/posts`
-      }
+        path: `${__dirname}/src/@cy7/blog/posts`,
+      },
     },
     "gatsby-plugin-mdx",
     "gatsby-transformer-sharp",
@@ -112,18 +112,18 @@ module.exports = {
         background_color: "#000000",
         theme_color: "#000000",
         display: "minimal-ui",
-        icon: "src/images/favicon.png"
-      }
+        icon: "src/images/favicon.png",
+      },
     },
 
     // Manages the Babel plugin + SSR for styled-components
     "gatsby-plugin-styled-components",
 
     // Output a schema.json on running Gatsby dev server
-    "gatsby-plugin-extract-schema"
+    "gatsby-plugin-extract-schema",
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`
-  ]
+  ],
 };

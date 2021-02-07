@@ -11,7 +11,7 @@ const typography = new Typography({
     "Helvetica Neue",
     "Helvetica",
     "Arial",
-    "sans-serif"
+    "sans-serif",
   ],
   bodyWeight: 400,
   headerColor: palette.glasgow,
@@ -20,21 +20,20 @@ const typography = new Typography({
   scaleRatio: 2.5,
   overrideStyles: ({ rhythm }) => ({
     "h1,h2,h3": {
-      textTransform: "uppercase"
+      textTransform: "uppercase",
     },
     h1: {
       letterSpacing: "-0.015em",
-      marginBottom: rhythm(1.5)
+      marginBottom: rhythm(1.5),
     },
     h2: {
       marginBottom: rhythm(1),
-      marginTop: rhythm(2)
-    }
-  })
+      marginTop: rhythm(2),
+    },
+  }),
 });
 
-typography.getHeaderFontFamily = () => {
-  return typography.options.headerFontFamily.join(", ");
-};
+typography.getHeaderFontFamily = () =>
+  typography.options.headerFontFamily.join(", ");
 
 export { typography };
