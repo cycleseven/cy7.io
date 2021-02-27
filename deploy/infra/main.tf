@@ -1,13 +1,21 @@
 provider "aws" {
-  region  = "us-east-1"
-  version = "~> 2.29"
+  region = "us-east-1"
 }
 
 terraform {
+  required_version = "0.14.7"
+
   backend "s3" {
     bucket = "tfstate.cy7.io"
     key    = "website"
     region = "us-east-1"
+  }
+
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "3.30"
+    }
   }
 }
 

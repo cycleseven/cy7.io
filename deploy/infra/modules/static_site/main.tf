@@ -3,10 +3,6 @@ locals {
   all_domains  = concat([var.full_domain], var.alias_domains)
 }
 
-data "aws_acm_certificate" "root" {
-  domain = var.root_domain
-}
-
 data "terraform_remote_state" "core" {
   backend = "s3"
 
@@ -15,6 +11,10 @@ data "terraform_remote_state" "core" {
     key    = "core"
     region = "us-east-1"
   }
+}
+
+data "aws_acm_certificate" "root" {
+  domain = var.root_domain
 }
 
 # Policy granting the origin access identity permission to read from the S3 origin bucket.
