@@ -124,6 +124,12 @@ module.exports = {
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`
+    // `gatsby-plugin-offline`,
+
+    // Custom plugin for Stitches (CSS-in-JS). This will replace Styled
+    // Components.
+    {
+      resolve: require.resolve("./src/@cy7/gatsby-plugin-stitches"),
+    },
   ],
 };
