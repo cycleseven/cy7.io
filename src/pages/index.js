@@ -10,6 +10,7 @@ import {
 } from "@cy7/designSystem";
 import Hero from "@cy7/home/Hero";
 import { Img, Meta, Page } from "@cy7/gatsby";
+import { Stack as StitchesStack } from "@cy7/design-system";
 import { graphql, Link as GatsbyLink } from "gatsby";
 import React from "react";
 import styled from "styled-components";
@@ -146,7 +147,7 @@ function HomePage({ data }) {
             <HeroImage />
           </Header>
           <Main>
-            <Stack space={3}>
+            <StitchesStack space={3}>
               <Intro>
                 <MeImage>
                   <Img
@@ -192,7 +193,7 @@ function HomePage({ data }) {
                   ))}
                 </Grid>
               </section>
-            </Stack>
+            </StitchesStack>
           </Main>
         </Stack>
       </GutterBox>
