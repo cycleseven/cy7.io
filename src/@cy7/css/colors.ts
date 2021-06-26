@@ -1,7 +1,14 @@
+type HslColor = string;
+type HslAdjustments = {
+  hue?: number;
+  saturation?: number;
+  lightness?: number;
+};
+
 /**
  * Return color as a { hue, saturation, lightness } object.
  */
-function hslParse(hslColor) {
+function hslParse(hslColor: HslColor) {
   const [h, s, l] = hslColor
     .replace("hsl(", "") // Strip "hsl(" prefix
     .slice(0, -1) // Strip the final ")" too
@@ -39,7 +46,7 @@ function hslParse(hslColor) {
  *                      It's only necessary to provide the { hue, saturation, lightness }
  *                      values that you want to adjust: the object can be partial.
  */
-function hslAdjust(color, adjustments) {
+function hslAdjust(color: HslColor, adjustments: HslAdjustments) {
   const hslColor = hslParse(color);
   const adjustedColor = { ...hslColor, ...adjustments };
 

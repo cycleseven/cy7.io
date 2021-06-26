@@ -3,15 +3,15 @@ import {
   GutterBox,
   Link,
   MaxWidth,
-  Stack,
   color,
   rhythm,
   fontStack,
 } from "@cy7/designSystem";
-import Hero from "@cy7/home/Hero";
 import { Img, Meta, Page } from "@cy7/gatsby";
-import { Stack as StitchesStack } from "@cy7/design-system";
+import Hero from "@cy7/home/Hero";
+import { Stack } from "@cy7/design-system";
 import { graphql, Link as GatsbyLink } from "gatsby";
+import { FixedObject } from "gatsby-image";
 import React from "react";
 import styled from "styled-components";
 
@@ -127,8 +127,44 @@ const ShowcaseDate = styled.p`
   }
 `;
 
-/* eslint-disable react/prop-types */
-function HomePage({ data }) {
+// TODO: Not sure that these types buy me much. I'm just re-declaring what I
+//       assume the types Gatsby gives me are. If I declare them incorrectly,
+//       TypeScript won't know any better.
+//
+//       Look into GraphQL codegen.
+interface BlogPostNode {
+  fields: {
+    friendlyDate: string;
+  };
+
+  frontmatter: {
+    description: string;
+    title: string;
+    slug: string;
+  };
+}
+
+interface Props {
+  data: {
+    blogPosts: {
+      nodes: Array<BlogPostNode>;
+    };
+
+    photoOfMe: {
+      childImageSharp: {
+        fixed: FixedObject;
+      };
+    };
+
+    site: {
+      siteMetadata: {
+        description: string;
+      };
+    };
+  };
+}
+
+function HomePage({ data }: Props) {
   const blogPosts = data.blogPosts.nodes;
   const photoOfMe = data.photoOfMe.childImageSharp.fixed;
   const { description } = data.site.siteMetadata;
@@ -142,12 +178,12 @@ function HomePage({ data }) {
           title="cy7.io — owen's wee website"
         />
 
-        <Stack space={3}>
+        <Stack space="3">
           <Header>
             <HeroImage />
           </Header>
           <Main>
-            <StitchesStack space={3}>
+            <Stack space="3">
               <Intro>
                 <MeImage>
                   <Img
@@ -164,7 +200,7 @@ function HomePage({ data }) {
                       👋
                     </span>
                   </IntroText>
-                  <IntroText>
+                  <IntroText as="p">
                     This is my wee website where I write about web development
                     and other personal interests.
                   </IntroText>
@@ -193,7 +229,7 @@ function HomePage({ data }) {
                   ))}
                 </Grid>
               </section>
-            </StitchesStack>
+            </Stack>
           </Main>
         </Stack>
       </GutterBox>

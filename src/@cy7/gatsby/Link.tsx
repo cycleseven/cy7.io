@@ -1,9 +1,15 @@
 import { Link as Cy7Link } from "@cy7/designSystem";
 import { Link as GatsbyLink } from "gatsby";
-import PropTypes from "prop-types";
 import React from "react";
 
-function Link({ type, to, ...props }) {
+type LinkType =  "internal" | "external" | "email";
+
+interface LinkProps {
+  to: string;
+  type?: LinkType;
+}
+
+function Link({ type = "internal", to, ...props }: LinkProps): JSX.Element {
   switch (type) {
     case "external":
       return (
@@ -21,13 +27,5 @@ function Link({ type, to, ...props }) {
   }
 }
 
-Link.propTypes = {
-  to: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(["internal", "external", "email"]),
-};
-
-Link.defaultProps = {
-  type: "internal",
-};
-
+export type { LinkType, LinkProps };
 export { Link };

@@ -1,12 +1,14 @@
 import React from "react";
 import { useTheme } from "@cy7/designSystem";
-import GatsbyImage from "gatsby-image";
+import GatsbyImage, { GatsbyImageProps } from "gatsby-image";
+
+export type ImgProps = GatsbyImageProps & React.ComponentPropsWithoutRef<"img">;
 
 /**
  * Wrapped version of gatsby-image's <Img /> component that applies
  * placeholders with a consistent style.
  */
-function Img(props) {
+function Img(props: ImgProps): JSX.Element {
   const theme = useTheme();
   return (
     <GatsbyImage

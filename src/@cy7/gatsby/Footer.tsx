@@ -4,16 +4,22 @@ import {
   GutterBox,
   Logo,
   MaxWidth,
-  Stack,
   color,
   rhythm,
   fontStack,
 } from "@cy7/designSystem";
-import { Link } from "@cy7/gatsby";
+import { Stack } from "@cy7/design-system";
+import { Link, LinkType } from "@cy7/gatsby";
 import { hslAdjust } from "@cy7/css";
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import styled from "styled-components";
+
+interface Link {
+  name: string;
+  type: LinkType;
+  url: string;
+}
 
 const FooterBlock = styled.footer`
   background-color: ${color("bg")};
@@ -77,7 +83,7 @@ const FOOTER_QUERY = graphql`
   }
 `;
 
-function renderLinks(links) {
+function renderLinks(links: Link[]) {
   // The wrapping <div> is to lay out each <a> on a new line
   return links.map((link) => (
     <div key={link.name}>
@@ -88,7 +94,7 @@ function renderLinks(links) {
   ));
 }
 
-function Footer() {
+function Footer(): JSX.Element {
   const data = useStaticQuery(FOOTER_QUERY);
   const { metaLinks, socialLinks } = data.site.siteMetadata;
 
@@ -106,7 +112,7 @@ function Footer() {
 
               <div>
                 <Heading>{socialLinks.name}</Heading>
-                <Stack space={0.15}>{renderLinks(socialLinks.links)}</Stack>
+                <Stack space="0.15">{renderLinks(socialLinks.links)}</Stack>
               </div>
 
               <div>

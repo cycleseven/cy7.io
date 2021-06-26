@@ -1,7 +1,7 @@
 import { Svg, useTheme } from "@cy7/designSystem";
 import React from "react";
 
-function Hero(props) {
+function Hero(props: React.ComponentPropsWithoutRef<"svg">): JSX.Element {
   const theme = useTheme();
 
   return (

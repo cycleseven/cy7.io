@@ -25,7 +25,11 @@ const MainContent = styled.div`
   flex-grow: 1;
 `;
 
-function Page({ children }) {
+interface PageProps {
+  children: JSX.Element;
+}
+
+function Page({ children }: PageProps) {
   return (
     <Cy7ThemeProvider>
       <OldBrowserWarning />
