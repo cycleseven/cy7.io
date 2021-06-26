@@ -1,6 +1,5 @@
 import { Cy7ThemeProvider } from "@cy7/designSystem";
 import { Footer } from "@cy7/gatsby/Footer";
-import { FullHeightPage } from "@cy7/gatsby/FullHeightPage";
 import { OldBrowserWarning } from "@cy7/gatsby/OldBrowserWarning";
 import PropTypes from "prop-types";
 import React from "react";
@@ -30,10 +29,8 @@ function Page({ children }) {
   return (
     <Cy7ThemeProvider>
       <OldBrowserWarning />
-      <FullHeightPage>
-        <MainContent>{children}</MainContent>
-        <Footer />
-      </FullHeightPage>
+      <MainContent>{children}</MainContent>
+      <Footer />
     </Cy7ThemeProvider>
   );
 }
