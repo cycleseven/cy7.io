@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import { Link, LinkIcon } from "@cy7/designSystem";
+import { LinkIcon } from "@cy7/designSystem";
+import { Link } from "@cy7/design-system";
 import { slugify } from "@cy7/utils/slugify";
 
-const Anchor = styled(Link).attrs({ appearance: "plain" })`
+const Anchor = styled(Link).attrs({ variant: "plain" })`
   display: inline-block;
   margin: -5px 0 0 -24px;
   padding: 5px 4px;
@@ -23,7 +24,7 @@ const Heading = styled.h1`
 
 function MdxHeading({ as, children, ...props }) {
   const slug = slugify(children);
-  const label = `Link to "${children}" heading`;
+  const label = children;
 
   return (
     <Heading as={as} id={slug} {...props}>

@@ -8,7 +8,7 @@ import {
   rhythm,
   fontStack,
 } from "@cy7/designSystem";
-import { Stack } from "@cy7/design-system";
+import { darkSection, Stack } from "@cy7/design-system";
 import { Link, LinkType } from "@cy7/gatsby";
 import { hslAdjust } from "@cy7/css";
 import { graphql, useStaticQuery } from "gatsby";
@@ -41,7 +41,7 @@ const FooterLink = styled(Link)`
   }
 `;
 
-const LogoLink = styled(Link).attrs({ appearance: "borderless" })`
+const LogoLink = styled(Link).attrs({ variant: "borderless" })`
   display: inline-block;
 
   &:focus path {
@@ -100,7 +100,7 @@ function Footer(): JSX.Element {
 
   return (
     <ColorModeProvider mode="dark">
-      <FooterBlock>
+      <FooterBlock className={darkSection}>
         <GutterBox>
           <MaxWidth>
             <Grid>

@@ -1,13 +1,28 @@
-import { Link as Cy7Link } from "@cy7/designSystem";
-import { Link as GatsbyLink } from "gatsby";
+import { Link as Cy7Link } from "@cy7/design-system";
+import { GatsbyLinkProps, Link as GatsbyLink } from "gatsby";
 import React from "react";
 
-type LinkType =  "internal" | "external" | "email";
+type LinkType = "internal" | "external" | "email";
 
-interface LinkProps {
-  to: string;
-  type?: LinkType;
-}
+type BaseProps = typeof Cy7Link & { children?: React.ReactNode };
+
+type InternalLinkProps = {
+  type: "internal";
+} & BaseProps & Omit<GatsbyLinkProps<object>, "ref">;
+
+type ExternalLinkProps = {
+  type: "external";
+} & BaseProps;
+
+type EmailLinkProps = {
+  type: "email";
+} & BaseProps;
+
+type LinkProps = { to: string } & (
+  | InternalLinkProps
+  | ExternalLinkProps
+  | EmailLinkProps
+);
 
 function Link({ type = "internal", to, ...props }: LinkProps): JSX.Element {
   switch (type) {
@@ -23,7 +38,9 @@ function Link({ type = "internal", to, ...props }: LinkProps): JSX.Element {
     case "email":
       return <Cy7Link href={`mailto:${to}`} {...props} />;
     default:
-      return <Cy7Link as={GatsbyLink} to={to} {...props} />;
+      // TODO: remove `any` type assertion when Stitches improves type errors
+      //       https://github.com/modulz/stitches/issues/427
+      return <Cy7Link as={GatsbyLink as any} to={to} {...props} />;
   }
 }
 

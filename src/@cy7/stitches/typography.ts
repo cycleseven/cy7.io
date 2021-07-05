@@ -1,5 +1,5 @@
 import Typography from "typography";
-import { palette } from "@cy7/stitches/palette";
+import { palette } from "@cy7/stitches/legacyPalette";
 
 interface ICy7Typography extends Typography {
   getHeaderFontFamily: () => string | undefined;

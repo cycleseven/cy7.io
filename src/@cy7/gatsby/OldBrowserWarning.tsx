@@ -2,6 +2,7 @@ import React from "react";
 import { GutterBox, color, ColorModeProvider } from "@cy7/designSystem";
 import { Link } from "@cy7/gatsby";
 import styled from "styled-components";
+import { warningSection } from "@cy7/stitches";
 
 const Container = styled(GutterBox)`
   background-color: ${color("bg")};
@@ -23,7 +24,7 @@ const Text = styled.p`
 function OldBrowserWarning() {
   return (
     <ColorModeProvider mode="warning">
-      <Container>
+      <Container className={warningSection}>
         <Text>
           Your web browser is outdated, and isn&apos;t supported by this
           website. Things might look a little broken.{" "}

@@ -1,7 +1,6 @@
 import {
   Grid,
   GutterBox,
-  Link,
   MaxWidth,
   color,
   rhythm,
@@ -9,7 +8,7 @@ import {
 } from "@cy7/designSystem";
 import { Img, Meta, Page } from "@cy7/gatsby";
 import Hero from "@cy7/home/Hero";
-import { Stack } from "@cy7/design-system";
+import { Stack, Link } from "@cy7/design-system";
 import { graphql, Link as GatsbyLink } from "gatsby";
 import { FixedObject } from "gatsby-image";
 import React from "react";

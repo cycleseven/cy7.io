@@ -18,10 +18,10 @@ function WarpTotem(props) {
   return (
     <Container>
       <Link
-        appearance="borderless"
         aria-label="Return to home"
         title="Return to home"
         to="/"
+        variant="borderless"
       >
         <Svg
           clipRule="evenodd"
