@@ -1,3 +1,12 @@
 export * from "@cy7/stitches";
-export { default as Link } from "@cy7/design-system/components/Link";
+
+// Primitives
+export { default as Link } from "@cy7/design-system/primitives/Link";
+export { default as Svg } from "@cy7/design-system/primitives/Svg";
+
+// Primitive types
+import { SvgProps } from "@cy7/design-system/primitives/Svg";
+export type { SvgProps };
+
+// Layout
 export { default as Stack } from "@cy7/design-system/layout/Stack";

@@ -1,14 +1,19 @@
 import { Link as Cy7Link } from "@cy7/design-system";
+import { StitchesVariants } from "@stitches/react";
 import { GatsbyLinkProps, Link as GatsbyLink } from "gatsby";
-import React from "react";
+import React, { ComponentProps } from "react";
 
 type LinkType = "internal" | "external" | "email";
 
-type BaseProps = typeof Cy7Link & { children?: React.ReactNode };
+type BaseProps = { children?: React.ReactNode } & ComponentProps<
+  typeof Cy7Link
+> &
+  StitchesVariants<typeof Cy7Link>;
 
 type InternalLinkProps = {
-  type: "internal";
-} & BaseProps & Omit<GatsbyLinkProps<object>, "ref">;
+  type?: "internal";
+} & BaseProps &
+  Omit<GatsbyLinkProps<object>, "ref">;
 
 type ExternalLinkProps = {
   type: "external";
