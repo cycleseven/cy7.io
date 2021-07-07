@@ -7,9 +7,10 @@ import {
   MdxH5,
   MdxH6,
   MdxInlineCode,
+  MdxLink,
 } from "@cy7/blog";
 import { rhythm, GutterBox, color, MaxWidth } from "@cy7/designSystem";
-import { Meta, Link, Page, WarpTotem } from "@cy7/gatsby";
+import { Meta, Page, WarpTotem } from "@cy7/gatsby";
 import { MDXProvider } from "@mdx-js/react";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
@@ -46,7 +47,7 @@ const BlogDate = styled.p`
 const mdxComponents = {
   inlineCode: MdxInlineCode,
   pre: MdxCodeBlock,
-  a: Link,
+  a: MdxLink,
   h1: MdxH1,
   h2: MdxH2,
   h3: MdxH3,

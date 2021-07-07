@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 
 export interface MetaProps {
   description: string;
-  noTitleTemplate: boolean;
+  noTitleTemplate?: boolean;
   title: string;
 }
 
