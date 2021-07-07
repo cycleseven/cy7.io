@@ -7,5 +7,4 @@ export { Stack } from "./layout/Stack";
 
 export { Link } from "./Link";
 export { Logo } from "./Logo";
-export { PlainLink } from "./PlainLink";
 export { Svg } from "./Svg";
