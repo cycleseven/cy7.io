@@ -10,4 +10,5 @@ export type { SvgProps };
 
 // Layout
 export { default as Grid } from "@cy7/design-system/layout/Grid";
+export { default as GutterBox } from "@cy7/design-system/layout/GutterBox";
 export { default as Stack } from "@cy7/design-system/layout/Stack";

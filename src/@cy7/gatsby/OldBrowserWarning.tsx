@@ -1,8 +1,9 @@
-import React from "react";
-import { GutterBox, color, ColorModeProvider } from "@cy7/designSystem";
+import { color, ColorModeProvider } from "@cy7/designSystem";
+import { GutterBox } from "@cy7/design-system";
 import { Link } from "@cy7/gatsby";
-import styled from "styled-components";
 import { warningSection } from "@cy7/stitches";
+import React from "react";
+import styled from "styled-components";
 
 const Container = styled(GutterBox)`
   background-color: ${color("bg")};

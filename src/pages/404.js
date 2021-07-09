@@ -1,7 +1,8 @@
 import { Link, Meta, Page, WarpTotem } from "@cy7/gatsby";
 import React from "react";
 import styled from "styled-components";
-import { GutterBox, MaxWidth, rhythm } from "@cy7/designSystem";
+import { MaxWidth, rhythm } from "@cy7/designSystem";
+import { GutterBox } from "@cy7/design-system";
 
 const Article = styled(MaxWidth).attrs({ as: "article", width: "bestForText" })`
   margin-bottom: ${rhythm(3)};

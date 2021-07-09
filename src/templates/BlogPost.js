@@ -9,7 +9,8 @@ import {
   MdxInlineCode,
   MdxLink,
 } from "@cy7/blog";
-import { rhythm, GutterBox, color, MaxWidth } from "@cy7/designSystem";
+import { rhythm, color, MaxWidth } from "@cy7/designSystem";
+import { GutterBox } from "@cy7/design-system";
 import { Meta, Page, WarpTotem } from "@cy7/gatsby";
 import { MDXProvider } from "@mdx-js/react";
 import { graphql } from "gatsby";

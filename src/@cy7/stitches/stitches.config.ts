@@ -29,8 +29,20 @@ const { styled, css, global, keyframes, getCssString, theme } = createCss({
     space,
   },
   media: {
-    bp1: "(min-width: 900px)"
-  }
+    bp1: "(min-width: 900px)",
+  },
+  utils: {
+    paddingX(config) {
+      return function resolvePaddingX(
+        value: `$${keyof typeof config["theme"]["space"]}` | (string & {})
+      ) {
+        return {
+          paddingLeft: value,
+          paddingRight: value,
+        };
+      };
+    },
+  },
 });
 
 const darkSection = theme({
