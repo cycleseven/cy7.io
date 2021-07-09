@@ -9,8 +9,12 @@ import {
   MdxInlineCode,
   MdxLink,
 } from "@cy7/blog";
-import { rhythm, color, MaxWidth } from "@cy7/designSystem";
-import { GutterBox } from "@cy7/design-system";
+import { rhythm, color } from "@cy7/designSystem";
+import {
+  styled as stitchesStyled,
+  GutterBox,
+  MaxWidth,
+} from "@cy7/design-system";
 import { Meta, Page, WarpTotem } from "@cy7/gatsby";
 import { MDXProvider } from "@mdx-js/react";
 import { graphql } from "gatsby";
@@ -18,9 +22,9 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
 import styled from "styled-components";
 
-const Article = styled(MaxWidth).attrs({ as: "article", width: "bestForText" })`
-  padding-bottom: ${rhythm(3)};
-`;
+const Root = stitchesStyled(MaxWidth, {
+  paddingBottom: "$3",
+});
 
 const BlogHeader = styled.div`
   display: flex;
@@ -68,31 +72,33 @@ const BlogPost = ({ data }) => {
   return (
     <Page>
       <GutterBox>
-        <Article>
-          <Meta
-            description={blogPost.frontmatter.description}
-            title={blogPost.frontmatter.title}
-          />
-
-          <nav>
-            <WarpTotem />
-          </nav>
-
+        <Root width="bestForText">
           <main>
-            <BlogHeader>
-              <Heading>{blogPost.frontmatter.title}</Heading>
-              <BlogDate>
-                <time dateTime={blogPost.frontmatter.date}>
-                  {blogPost.fields.friendlyDate}
-                </time>
-              </BlogDate>
-            </BlogHeader>
+            <Meta
+              description={blogPost.frontmatter.description}
+              title={blogPost.frontmatter.title}
+            />
 
-            <MDXProvider components={mdxComponents}>
-              <MDXRenderer>{blogPost.body}</MDXRenderer>
-            </MDXProvider>
+            <nav>
+              <WarpTotem />
+            </nav>
+
+            <article>
+              <BlogHeader>
+                <Heading>{blogPost.frontmatter.title}</Heading>
+                <BlogDate>
+                  <time dateTime={blogPost.frontmatter.date}>
+                    {blogPost.fields.friendlyDate}
+                  </time>
+                </BlogDate>
+              </BlogHeader>
+
+              <MDXProvider components={mdxComponents}>
+                <MDXRenderer>{blogPost.body}</MDXRenderer>
+              </MDXProvider>
+            </article>
           </main>
-        </Article>
+        </Root>
       </GutterBox>
     </Page>
   );

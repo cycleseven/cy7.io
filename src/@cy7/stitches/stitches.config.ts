@@ -26,12 +26,38 @@ const { styled, css, global, keyframes, getCssString, theme } = createCss({
       linkFocusBorder: "$obsidian",
       linkFocusText: "inherit",
     },
+    sizes: {
+      maxWidthBestForText: "37rem",
+      maxWidthRegular: "56rem",
+    },
     space,
   },
   media: {
     bp1: "(min-width: 900px)",
   },
   utils: {
+    marginX(config) {
+      return function resolveMarginX(
+        value: `$${keyof typeof config["theme"]["space"]}` | (string & {})
+      ) {
+        return {
+          marginLeft: value,
+          marginRight: value,
+        };
+      };
+    },
+
+    marginY(config) {
+      return function resolveMarginY(
+        value: `$${keyof typeof config["theme"]["space"]}` | (string & {})
+      ) {
+        return {
+          marginBottom: value,
+          marginTop: value,
+        };
+      };
+    },
+
     paddingX(config) {
       return function resolvePaddingX(
         value: `$${keyof typeof config["theme"]["space"]}` | (string & {})

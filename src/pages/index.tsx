@@ -1,12 +1,14 @@
-import {
-  MaxWidth,
-  color,
-  rhythm,
-  fontStack,
-} from "@cy7/designSystem";
+import { color, rhythm, fontStack } from "@cy7/designSystem";
 import { Img, Meta, Page } from "@cy7/gatsby";
 import Hero from "@cy7/home/Hero";
-import { Grid, GutterBox, Stack, Link } from "@cy7/design-system";
+import {
+  styled as stitchesStyled,
+  Grid,
+  GutterBox,
+  MaxWidth,
+  Stack,
+  Link,
+} from "@cy7/design-system";
 import { graphql, Link as GatsbyLink } from "gatsby";
 import { FixedObject } from "gatsby-image";
 import React from "react";
@@ -18,9 +20,9 @@ const Header = styled.header`
   flex-direction: column;
 `;
 
-const Main = styled(MaxWidth).attrs({ as: "main" })`
-  padding-bottom: ${rhythm(4)};
-`;
+const Main = stitchesStyled(MaxWidth, {
+  paddingBottom: "$4"
+});
 
 const Intro = styled.div`
   display: flex;

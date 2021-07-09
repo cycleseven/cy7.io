@@ -1,13 +1,10 @@
 import { Link, Meta, Page, WarpTotem } from "@cy7/gatsby";
+import { GutterBox, MaxWidth, styled } from "@cy7/design-system";
 import React from "react";
-import styled from "styled-components";
-import { MaxWidth, rhythm } from "@cy7/designSystem";
-import { GutterBox } from "@cy7/design-system";
 
-const Article = styled(MaxWidth).attrs({ as: "article", width: "bestForText" })`
-  margin-bottom: ${rhythm(3)};
-  margin-top: ${rhythm(3)};
-`;
+const Article = styled(MaxWidth, {
+  marginY: "$3",
+});
 
 function NotFoundPage() {
   return (
@@ -18,7 +15,7 @@ function NotFoundPage() {
           <WarpTotem />
         </nav>
         <main>
-          <Article>
+          <Article as="article" width="bestForText">
             <h1>
               Oh no{" "}
               <span aria-label="sad face" role="img">
