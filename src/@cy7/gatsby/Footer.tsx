@@ -1,6 +1,5 @@
 import {
   ColorModeProvider,
-  Grid,
   GutterBox,
   Logo,
   MaxWidth,
@@ -8,7 +7,7 @@ import {
   rhythm,
   fontStack,
 } from "@cy7/designSystem";
-import { darkSection, Stack } from "@cy7/design-system";
+import { darkSection, Grid, Stack } from "@cy7/design-system";
 import { Link, LinkType } from "@cy7/gatsby";
 import { hslAdjust } from "@cy7/css";
 import { graphql, useStaticQuery } from "gatsby";
@@ -112,7 +111,7 @@ function Footer(): JSX.Element {
 
               <div>
                 <Heading>{socialLinks.name}</Heading>
-                <Stack space="0.15">{renderLinks(socialLinks.links)}</Stack>
+                <Stack space="0-15">{renderLinks(socialLinks.links)}</Stack>
               </div>
 
               <div>

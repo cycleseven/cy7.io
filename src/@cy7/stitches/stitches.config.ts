@@ -28,6 +28,9 @@ const { styled, css, global, keyframes, getCssString, theme } = createCss({
     },
     space,
   },
+  media: {
+    bp1: "(min-width: 900px)"
+  }
 });
 
 const darkSection = theme({

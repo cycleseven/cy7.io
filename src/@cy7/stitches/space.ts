@@ -1,33 +1,32 @@
 import { typography } from "@cy7/stitches/typography";
 
-const scale = [
-  0,
-  0.15,
-  0.25,
-  0.33,
-  0.5,
-  0.75,
-  1,
-  1.5,
-  2,
-  3,
-  4,
-  6,
-  8,
-  10,
-  15,
-  20,
-  30,
-] as const;
+const scale = {
+  "0": 0,
+  "0-15": 0.15,
+  "0-25": 0.25,
+  "0-33": 0.33,
+  "0-5": 0.5,
+  "0-75": 0.75,
+  "1": 1,
+  "1-5": 1.5,
+  "2": 2,
+  "3": 3,
+  "4": 4,
+  "6": 6,
+  "8": 8,
+  "10": 10,
+  "15": 15,
+  "20": 20,
+  "30": 30,
+} as const;
 
-type ScaleKey = typeof scale[number];
+type ScaleKey = keyof typeof scale;
 
-const space = scale.reduce(
-  (prev, size) => ({
+const space = Object.entries(scale).reduce((prev, [ident, size]) => {
+  return {
     ...prev,
-    [size]: typography.rhythm(size),
-  }),
-  {}
-) as { [n in ScaleKey]: string };
+    [ident]: typography.rhythm(size),
+  };
+}, {}) as { [n in ScaleKey]: string };
 
 export { space };

@@ -9,4 +9,5 @@ import { SvgProps } from "@cy7/design-system/primitives/Svg";
 export type { SvgProps };
 
 // Layout
+export { default as Grid } from "@cy7/design-system/layout/Grid";
 export { default as Stack } from "@cy7/design-system/layout/Stack";
