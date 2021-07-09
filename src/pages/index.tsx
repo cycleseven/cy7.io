@@ -21,7 +21,7 @@ const Header = styled.header`
 `;
 
 const Main = stitchesStyled(MaxWidth, {
-  paddingBottom: "$4"
+  paddingBottom: "$4",
 });
 
 const Intro = styled.div`
@@ -181,6 +181,7 @@ function HomePage({ data }: Props) {
           <Header>
             <HeroImage />
           </Header>
+
           <Main>
             <Stack space="3">
               <Intro>

@@ -1,11 +1,12 @@
+import { ColorModeProvider, color, rhythm, fontStack } from "@cy7/designSystem";
 import {
-  ColorModeProvider,
+  darkSection,
+  Grid,
+  GutterBox,
   Logo,
-  color,
-  rhythm,
-  fontStack,
-} from "@cy7/designSystem";
-import { darkSection, Grid, GutterBox, MaxWidth, Stack } from "@cy7/design-system";
+  MaxWidth,
+  Stack,
+} from "@cy7/design-system";
 import { Link, LinkType } from "@cy7/gatsby";
 import { hslAdjust } from "@cy7/css";
 import { graphql, useStaticQuery } from "gatsby";

@@ -2,6 +2,7 @@ export * from "@cy7/stitches";
 
 // Components
 export { default as Link } from "@cy7/design-system/components/Link";
+export { default as Logo } from "@cy7/design-system/components/Logo";
 export { default as Svg } from "@cy7/design-system/components/Svg";
 
 // Layout

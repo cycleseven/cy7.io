@@ -9,7 +9,7 @@ const path = require("path");
 
 exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
   // Enable src-relative imports via Webpack
-  // eg. import { Logo } from "@cy7/designSystem"
+  // eg. import { Logo } from "@cy7/design-system"
   actions.setWebpackConfig({
     resolve: {
       ...getConfig().resolve,
