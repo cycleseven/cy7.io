@@ -1,4 +1,8 @@
 import { global } from "@cy7/stitches";
+import inter400 from "./fonts/inter-400.woff2";
+import inter400Italic from "./fonts/inter-400-italic.woff2";
+import inter700 from "./fonts/inter-700.woff2";
+import oswald700 from "./fonts/oswald-700.woff2";
 
 /*
  * Global styles adapted and extended from Eric Meyer's reset stylesheet.
@@ -9,8 +13,39 @@ import { global } from "@cy7/stitches";
  * See: http://meyerweb.com/eric/tools/css/reset/
  * v2.0 | 20110126
  * License: none (public domain)
-*/
+ */
 const applyGlobalStyles = global({
+  "@font-face": [
+    {
+      fontDisplay: "block",
+      fontFamily: "Inter",
+      fontStyle: "normal",
+      fontWeight: "400",
+      src: `local(""), url(${inter400}) format("woff2")`,
+    },
+    {
+      fontDisplay: "block",
+      fontFamily: "Inter",
+      fontStyle: "italic",
+      fontWeight: "400",
+      src: `local(""), url(${inter400Italic}) format("woff2")`,
+    },
+    {
+      fontDisplay: "block",
+      fontFamily: "Inter",
+      fontStyle: "normal",
+      fontWeight: "700",
+      src: `local(""), url(${inter700}) format("woff2")`,
+    },
+    {
+      fontDisplay: "block",
+      fontFamily: "Oswald",
+      fontStyle: "normal",
+      fontWeight: "700",
+      src: `local(""), url(${oswald700}) format("woff2")`,
+    },
+  ],
+
   [`
     html,
     body,
@@ -79,12 +114,12 @@ const applyGlobalStyles = global({
   },
 
   table: {
-    borderSpacing: 0
+    borderSpacing: 0,
   },
 
   html: {
-    backgroundColor: "$bg"
-  }
+    backgroundColor: "$bg",
+  },
 });
 
 export { applyGlobalStyles };

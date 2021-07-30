@@ -86,7 +86,7 @@ const darkSection = theme({
       saturation: 0.4,
       lightness: 0.38,
     }),
-    linkText: hslAdjust(theme.colors.obsidian.value, { lightness: 0.92 }),
+    linkText: hslAdjust(theme.colors.obsidian.value, { lightness: 0.96 }),
   },
 });
 
