@@ -1,5 +1,8 @@
 export * from "@cy7/stitches";
 
+// Global styles
+export { applyGlobalStyles } from "@cy7/design-system/GlobalStyles";
+
 // Components
 export { default as Link } from "@cy7/design-system/components/Link";
 export { default as Logo } from "@cy7/design-system/components/Logo";

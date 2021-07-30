@@ -52,6 +52,7 @@ const IntroText = styled.h1`
   font-family: ${fontStack("body")};
   font-size: 0.95rem; // Should be a theme value
   font-weight: 400;
+  letter-spacing: 0;
   line-height: 1.65;
   margin-bottom: ${rhythm(0.8)};
   max-width: 36ch;

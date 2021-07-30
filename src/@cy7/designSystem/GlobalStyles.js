@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import { typography } from "./primitives/typography";
 
 const GlobalStyles = createGlobalStyle`
   /*
@@ -79,11 +78,6 @@ const GlobalStyles = createGlobalStyle`
   table {
     border-spacing: 0;
   }
-
-  /**
-   * Styles from typography.js, including more resets etc
-   */
-  ${typography.toString()}
 
   /**
    * Other global styles

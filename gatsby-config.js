@@ -116,6 +116,13 @@ module.exports = {
       },
     },
 
+    {
+      resolve: "gatsby-plugin-typography",
+      options: {
+        pathToConfigModule: "src/@cy7/typography/index.ts",
+      },
+    },
+
     // Manages the Babel plugin + SSR for styled-components
     "gatsby-plugin-styled-components",
 

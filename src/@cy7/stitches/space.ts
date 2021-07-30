@@ -1,4 +1,4 @@
-import { typography } from "@cy7/stitches/typography";
+import typography from "@cy7/typography";
 
 const scale = {
   "0": 0,
