@@ -36,10 +36,13 @@ const Link = styled("a", {
           color: "$linkText",
         },
 
+        [`.${darkSection} &`]: {
+          fontWeight: "$regular",
+        },
+
         [`.${darkSection} &:focus`]: {
           borderBottom: 0,
-          boxShadow: "none",
-          outline: "none",
+          outline: "solid 4px $colors$linkFocusBg",
         },
       },
       plain: {

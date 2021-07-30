@@ -1,6 +1,6 @@
-import { ColorModeProvider, color, rhythm, fontStack } from "@cy7/designSystem";
 import {
   darkSection,
+  styled,
   Grid,
   GutterBox,
   Logo,
@@ -8,10 +8,8 @@ import {
   Stack,
 } from "@cy7/design-system";
 import { Link, LinkType } from "@cy7/gatsby";
-import { hslAdjust } from "@cy7/css";
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
-import styled from "styled-components";
 
 interface Link {
   name: string;
@@ -19,42 +17,31 @@ interface Link {
   url: string;
 }
 
-const FooterBlock = styled.footer`
-  background-color: ${color("bg")};
-  padding: ${rhythm(2)} 0;
-`;
+const FooterBlock = styled("footer", {
+  backgroundColor: "$bg",
+  padding: "$2 0",
+});
 
-const FooterLink = styled(Link)`
-  font-size: 0.9rem;
-  font-weight: 500;
+const FooterLink = styled(Link, {
+  fontSize: "0.9rem",
+});
 
-  &:focus {
-    border: none;
-    outline: ${({ theme }) => `solid 4px ${theme.colors.linkFocusBg}`};
-  }
+const LogoLink = styled(Link, {
+  display: "inline-block",
 
-  &:hover:not(:focus) {
-    color: ${({ theme }) =>
-      hslAdjust(theme.palette.obsidian, { lightness: 0.92 })};
-  }
-`;
+  "&:focus path": {
+    fill: "$obsidian",
+  },
+});
 
-const LogoLink = styled(Link).attrs({ variant: "borderless" })`
-  display: inline-block;
-
-  &:focus path {
-    fill: ${({ theme }) => theme.palette.obsidian};
-  }
-`;
-
-const Heading = styled.h2`
-  color: white;
-  font-family: ${fontStack("body")};
-  font-size: 0.8rem;
-  letter-spacing: 0.12ch;
-  margin-bottom: ${rhythm(0.75)};
-  margin-top: 0;
-`;
+const Heading = styled("h2", {
+  color: "white",
+  fontFamily: "$body",
+  fontSize: "0.8rem",
+  letterSpacing: "0.12ch",
+  marginBottom: "$0-75",
+  marginTop: 0,
+});
 
 const FOOTER_QUERY = graphql`
   query footer {
@@ -97,31 +84,29 @@ function Footer(): JSX.Element {
   const { metaLinks, socialLinks } = data.site.siteMetadata;
 
   return (
-    <ColorModeProvider mode="dark">
-      <FooterBlock className={darkSection}>
-        <GutterBox>
-          <MaxWidth>
-            <Grid>
-              <div>
-                <LogoLink aria-label="Return to home" to="/">
-                  <Logo />
-                </LogoLink>
-              </div>
+    <FooterBlock className={darkSection}>
+      <GutterBox>
+        <MaxWidth>
+          <Grid>
+            <div>
+              <LogoLink aria-label="Return to home" to="/" variant="borderless">
+                <Logo />
+              </LogoLink>
+            </div>
 
-              <div>
-                <Heading>{socialLinks.name}</Heading>
-                <Stack space="0-15">{renderLinks(socialLinks.links)}</Stack>
-              </div>
+            <div>
+              <Heading>{socialLinks.name}</Heading>
+              <Stack space="0-15">{renderLinks(socialLinks.links)}</Stack>
+            </div>
 
-              <div>
-                <Heading>{metaLinks.name}</Heading>
-                {renderLinks(metaLinks.links)}
-              </div>
-            </Grid>
-          </MaxWidth>
-        </GutterBox>
-      </FooterBlock>
-    </ColorModeProvider>
+            <div>
+              <Heading>{metaLinks.name}</Heading>
+              {renderLinks(metaLinks.links)}
+            </div>
+          </Grid>
+        </MaxWidth>
+      </GutterBox>
+    </FooterBlock>
   );
 }
 

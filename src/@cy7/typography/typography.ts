@@ -1,6 +1,13 @@
 import Typography from "typography";
 import { palette } from "@cy7/stitches/legacyPalette";
 
+type Cy7TypographyType = Typography & {
+  options: Typography["options"] & {
+    bodyFontFamily: string[];
+    headerFontFamily: string[];
+  }
+};
+
 interface ICy7Typography extends Typography {
   getHeaderFontFamily: () => string | undefined;
 }
@@ -45,6 +52,6 @@ const typography = new Cy7Typography({
       marginTop: rhythm(2),
     },
   }),
-});
+}) as Cy7TypographyType;
 
 export { typography };

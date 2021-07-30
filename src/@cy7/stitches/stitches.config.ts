@@ -1,6 +1,7 @@
-import { space } from "@cy7/stitches/space";
-import { createCss } from "@stitches/react";
 import { hslAdjust } from "@cy7/css";
+import { space } from "@cy7/stitches/space";
+import typography from "@cy7/typography";
+import { createCss } from "@stitches/react";
 
 const { styled, css, global, keyframes, getCssString, theme } = createCss({
   theme: {
@@ -19,12 +20,21 @@ const { styled, css, global, keyframes, getCssString, theme } = createCss({
       bg: "$paper",
       bodyText: "$glasgow",
       headerText: "$glasgow",
-      linkBorder: "hsl(320, 85%, 92%)",
+      linkBorder: "hsl(320, 85%, 94%)",
       linkBorderHover: "$candyfloss",
       linkText: "inherit",
+      linkHoverText: "inherit",
       linkFocusBg: "$dijon",
       linkFocusBorder: "$obsidian",
       linkFocusText: "inherit",
+    },
+    fonts: {
+      body: typography.options.bodyFontFamily.join(","),
+      header: typography.options.headerFontFamily.join(","),
+    },
+    fontWeights: {
+      regular: "400",
+      bold: "700",
     },
     sizes: {
       maxWidthBestForText: "37rem",
@@ -83,10 +93,11 @@ const darkSection = theme({
       lightness: 0.25,
     }),
     linkBorderHover: hslAdjust(theme.colors.obsidian.value, {
-      saturation: 0.4,
-      lightness: 0.38,
+      saturation: 0.66,
+      lightness: 0.4,
     }),
     linkText: hslAdjust(theme.colors.obsidian.value, { lightness: 0.96 }),
+    linkHoverText: hslAdjust(theme.colors.obsidian.value, { lightness: 0.92 }),
   },
 });
 
@@ -102,6 +113,7 @@ const warningSection = theme({
       lightness: 0.75,
     }),
     linkText: "$glasgow",
+    linkHoverText: "$glasgow",
     linkFocusBg: "white",
     linkFocusText: "$obsidian",
   },
