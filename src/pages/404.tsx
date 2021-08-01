@@ -10,7 +10,7 @@ function NotFoundPage() {
   return (
     <Page>
       <GutterBox>
-        <Meta title="Not found" />
+        <Meta title="Not found" noIndex />
         <nav>
           <WarpTotem />
         </nav>
