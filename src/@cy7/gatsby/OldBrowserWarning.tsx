@@ -1,34 +1,35 @@
-import { color, ColorModeProvider } from "@cy7/designSystem";
-import { GutterBox } from "@cy7/design-system";
+import { GutterBox, Stack, styled } from "@cy7/design-system";
 import { Link } from "@cy7/gatsby";
 import { warningSection } from "@cy7/stitches";
 import React from "react";
-import styled from "styled-components";
 
-const Container = styled(GutterBox)`
-  background-color: ${color("bg")};
-  color: ${color("bodyText")};
-  padding-bottom: 18px;
-  padding-top: 18px;
-  text-align: center;
+const Container = styled(GutterBox, {
+  backgroundColor: "$bg",
+  color: "$bodyText",
+  paddingBottom: "$1",
+  paddingTop: "$1",
+  textAlign: "center",
 
-  @supports (display: grid) {
-    display: none;
-  }
-`;
+  "@supports (display: grid)": {
+    display: "none",
+  },
+});
 
-const Text = styled.p`
-  margin: auto;
-  max-width: 77ch;
-`;
+const Text = styled("p", {
+  fontSize: "15px",
+  margin: "auto",
+  maxWidth: "$maxWidthRegular",
+});
 
 function OldBrowserWarning() {
   return (
-    <ColorModeProvider mode="warning">
-      <Container className={warningSection}>
+    <Container className={warningSection}>
+      <Stack space="0-25">
         <Text>
           Your web browser is outdated, and isn&apos;t supported by this
-          website. Things might look a little broken.{" "}
+          website. Things might look a little broken.
+        </Text>
+        <Text>
           <strong>
             Read more about upgrading to a modern browser at{" "}
             <Link to="https://browsehappy.com/" type="external">
@@ -37,8 +38,8 @@ function OldBrowserWarning() {
             .
           </strong>
         </Text>
-      </Container>
-    </ColorModeProvider>
+      </Stack>
+    </Container>
   );
 }
 

@@ -107,6 +107,7 @@ const warningSection = theme({
     bodyText: "$glasgow",
     headerText: "$glasgow",
     linkBorder: hslAdjust(theme.colors.glasgow.value, {
+      saturation: 0.15,
       lightness: 0.8,
     }),
     linkBorderHover: hslAdjust(theme.colors.glasgow.value, {
