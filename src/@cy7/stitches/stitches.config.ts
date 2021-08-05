@@ -17,6 +17,7 @@ const { styled, css, global, keyframes, getCssString, theme } = createCss({
       paper: "hsl(35, 100%, 99%)",
 
       // Semantic colors and aliases
+      accent: "$candyfloss",
       bg: "$paper",
       bodyText: "$glasgow",
       headerText: "$glasgow",
@@ -78,6 +79,17 @@ const { styled, css, global, keyframes, getCssString, theme } = createCss({
         };
       };
     },
+
+    size(config) {
+      return function resolveSize(
+        value: `$${keyof typeof config["theme"]["space"]}` | (string & {})
+      ) {
+        return {
+          height: value,
+          width: value,
+        }
+      }
+    }
   },
 });
 
