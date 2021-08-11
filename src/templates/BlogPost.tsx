@@ -9,45 +9,39 @@ import {
   MdxInlineCode,
   MdxLink,
 } from "@cy7/blog";
-import { rhythm, color } from "@cy7/designSystem";
-import {
-  styled as stitchesStyled,
-  GutterBox,
-  MaxWidth,
-} from "@cy7/design-system";
+import { styled, GutterBox, MaxWidth } from "@cy7/design-system";
 import { Meta, Page, WarpTotem } from "@cy7/gatsby";
 import { MDXProvider } from "@mdx-js/react";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
-import styled from "styled-components";
 
-const Root = stitchesStyled(MaxWidth, {
+const Root = styled(MaxWidth, {
   paddingBottom: "$3",
 });
 
-const BlogHeader = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: ${rhythm(1.5)};
-  margin-top: ${rhythm(3)};
-`;
+const BlogHeader = styled("div", {
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  marginBottom: "$1-5",
+  marginTop: "$3",
+});
 
-const Heading = styled.h1`
-  margin: 0;
-`;
+const Heading = styled("h1", {
+  margin: "$0",
+});
 
-const BlogDate = styled.p`
-  color: ${color("bodyText")};
-  opacity: 0.8;
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.11em;
-  line-height: ${rhythm(1)};
-  margin: ${rhythm(1 / 4)} 0 0 0;
-  text-transform: uppercase;
-`;
+const BlogDate = styled("p", {
+  color: "$bodyText",
+  opacity: 0.8,
+  fontSize: "0.6rem",
+  fontWeight: "$bold",
+  letterSpacing: "0.11em",
+  lineHeight: 1,
+  margin: "$0-25 0 0 0",
+  textTransform: "uppercase",
+});
 
 const mdxComponents = {
   inlineCode: MdxInlineCode,
@@ -61,12 +55,25 @@ const mdxComponents = {
   h6: MdxH6,
 };
 
-// There's not much gain to be had from maintaining prop type definitions for
-// this component, because they're passed from Gatsby, it's not an interface
-// defined by us. The component will break in an obvious way if the data prop
-// is read incorrectly anyway.
-/* eslint-disable react/prop-types */
-const BlogPost = ({ data }) => {
+interface BlogPostProps {
+  data: {
+    blogPost: {
+      body: string & React.ReactNode;
+
+      fields: {
+        friendlyDate: string;
+      };
+
+      frontmatter: {
+        date: string;
+        description: string;
+        title: string;
+      };
+    };
+  };
+}
+
+function BlogPost({ data }: BlogPostProps): React.ReactElement {
   const blogPost = data.blogPost;
 
   return (
@@ -102,8 +109,7 @@ const BlogPost = ({ data }) => {
       </GutterBox>
     </Page>
   );
-};
-/* eslint-enable */
+}
 
 export const query = graphql`
   query blogPostPage($slug: String!) {
