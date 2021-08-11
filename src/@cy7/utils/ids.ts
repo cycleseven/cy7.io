@@ -5,8 +5,8 @@
  * IDs don't clash when there are multiple instances of the component on
  * the page.
  */
-function createIdPrefixer(prefix) {
-  return function prefixId(id) {
+function createIdPrefixer(prefix: string) {
+  return function prefixId(id: string): string {
     return `${prefix}--${id}`;
   };
 }
