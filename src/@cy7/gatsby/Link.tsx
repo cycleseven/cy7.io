@@ -29,7 +29,7 @@ type LinkProps = { to: string } & (
   | EmailLinkProps
 );
 
-function Link({ type = "internal", to, ...props }: LinkProps): JSX.Element {
+function Link({ type = "internal", to, ...props }: LinkProps): React.ReactElement {
   switch (type) {
     case "external":
       return (

@@ -79,7 +79,7 @@ function renderLinks(links: Link[]) {
   ));
 }
 
-function Footer(): JSX.Element {
+function Footer(): React.ReactElement {
   const data = useStaticQuery(FOOTER_QUERY);
   const { metaLinks, socialLinks } = data.site.siteMetadata;
 

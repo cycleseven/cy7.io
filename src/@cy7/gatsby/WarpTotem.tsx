@@ -11,7 +11,7 @@ const Container = styled("div", {
 /**
  * Header image that takes you home (named as a wee homage to Stardew Valley).
  */
-function WarpTotem(props: SvgProps): JSX.Element {
+function WarpTotem(props: SvgProps): React.ReactElement {
   return (
     <Container>
       <Link

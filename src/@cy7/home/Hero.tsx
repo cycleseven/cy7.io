@@ -1,7 +1,7 @@
 import { theme, Svg, SvgProps } from "@cy7/design-system";
 import React from "react";
 
-function Hero(props: SvgProps): JSX.Element {
+function Hero(props: SvgProps): React.ReactElement {
   return (
     <Svg
       clipRule="evenodd"

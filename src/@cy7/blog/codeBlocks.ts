@@ -1,7 +1,7 @@
 /**
  * Return true if the string is whitespace-only.
  */
-function isWhitespaceOnly(string) {
+function isWhitespaceOnly(string: string) {
   return string.match(/^\s*$/);
 }
 
@@ -9,7 +9,7 @@ function isWhitespaceOnly(string) {
  * Given an array of strings, trim the whitespace-only ones from the start and
  * end.
  */
-function trimEmptyLines(lines) {
+function trimEmptyLines(lines: string[]) {
   if (lines.length === 0) {
     return [];
   }
@@ -45,7 +45,7 @@ function trimEmptyLines(lines) {
  * Loads of edge cases this won't handle, eg. if the snippet uses the tab
  * character for indentation. But it's good enough for my use case (so far!).
  */
-function trimCodeSnippet(snippet) {
+function trimCodeSnippet(snippet: string) {
   const lines = snippet.split(/\r?\n/);
   const significantLines = trimEmptyLines(lines);
   const nonEmptyLines = significantLines.filter(

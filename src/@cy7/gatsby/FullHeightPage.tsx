@@ -24,7 +24,7 @@ const applyGlobalStyles = global({
 
 type FullHeightPageProps = ComponentProps<typeof FullHeightContainer>;
 
-function FullHeightPage(props: FullHeightPageProps): JSX.Element {
+function FullHeightPage(props: FullHeightPageProps): React.ReactElement {
   useLayoutEffect(() => {
     applyGlobalStyles();
   }, []);

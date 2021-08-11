@@ -8,7 +8,7 @@ export type ImgProps = GatsbyImageProps & React.ComponentPropsWithoutRef<"img">;
  * Wrapped version of gatsby-image's <Img /> component that applies
  * placeholders with a consistent style.
  */
-function Img(props: ImgProps): JSX.Element {
+function Img(props: ImgProps): React.ReactElement {
   const theme = useTheme();
   return (
     <GatsbyImage

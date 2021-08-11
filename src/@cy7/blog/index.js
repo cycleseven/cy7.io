@@ -1,1 +1,1 @@
-export * from "./components";
+export * from "@cy7/blog/components";

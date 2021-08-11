@@ -15,5 +15,6 @@ export { default as MaxWidth } from "@cy7/design-system/layout/MaxWidth";
 export { default as Stack } from "@cy7/design-system/layout/Stack";
 
 // Types
+export type { StitchesVariants } from "@cy7/stitches";
 import { SvgProps } from "@cy7/design-system/components/Svg";
 export type { SvgProps };

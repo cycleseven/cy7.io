@@ -10,8 +10,8 @@ const MainContent = styled("div", {
   flexGrow: 1
 });
 
-interface PageProps {
-  children: JSX.Element;
+type PageProps = {
+  children: React.ReactNode;
 }
 
 function Page({ children }: PageProps) {

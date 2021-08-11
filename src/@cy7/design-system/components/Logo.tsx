@@ -9,7 +9,7 @@ const Path = styled("path", {
   fill: "$bodyText",
 });
 
-function Logo({ size = 48, ...props }: LogoProps): JSX.Element {
+function Logo({ size = 48, ...props }: LogoProps): React.ReactElement {
   const originalWidth = 238;
   const originalHeight = 265;
   const scaledWidth = (size * originalWidth) / originalHeight;

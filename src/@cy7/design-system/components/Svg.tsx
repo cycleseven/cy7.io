@@ -26,7 +26,7 @@ type SvgProps = {
  * title is provided, the SVG is assumed to be purely decorative and aria-hidden
  * is set instead.
  */
-function Svg({ title, children, ...props }: SvgProps): JSX.Element {
+function Svg({ title, children, ...props }: SvgProps): React.ReactElement {
   const hasTitle = typeof title === "string";
 
   return (

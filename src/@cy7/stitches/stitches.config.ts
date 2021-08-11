@@ -1,25 +1,41 @@
 import { hslAdjust } from "@cy7/css";
 import { space } from "@cy7/stitches/space";
 import typography from "@cy7/typography";
-import { createCss } from "@stitches/react";
+import { StitchesVariants, createCss } from "@stitches/react";
 
 const { styled, css, global, keyframes, getCssString, theme } = createCss({
   theme: {
+    radii: {
+      "2": "2px",
+    },
     borderWidths: {
       linkFocus: "3px",
     },
     colors: {
       // Base tones
+      angrypeach: "hsl(2, 100%, 80%)",
       candyfloss: "hsl(320, 85%, 87%)",
       dijon: "hsl(51, 100%, 50%)",
       obsidian: "hsl(213, 64%, 14%)",
       glasgow: "hsl(213, 89%, 20%)",
       paper: "hsl(35, 100%, 99%)",
 
+      // Shades
+      candyflossLite: "hsl(320, 100%, 88%)",
+
       // Semantic colors and aliases
       accent: "$candyfloss",
       bg: "$paper",
       bodyText: "$glasgow",
+      codeComment: "hsl(213, 20%, 60%)",
+      codeError: "$angrypeach",
+      codeKeyword: "hsl(320, 100%, 85%)",
+      codeLiteral: "hsl(35, 90%, 70%)",
+      codeName: "hsl(35, 100%, 84%)",
+      codeOperator: "hsl(213, 50%, 80%)",
+      codePlain: "$paper",
+      codePunctuation: "hsl(213, 18%, 55%)",
+      contrast: "$obsidian",
       headerText: "$glasgow",
       linkBorder: "hsl(320, 85%, 94%)",
       linkBorderHover: "$candyfloss",
@@ -31,6 +47,7 @@ const { styled, css, global, keyframes, getCssString, theme } = createCss({
     },
     fonts: {
       body: typography.options.bodyFontFamily.join(","),
+      code: 'Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace',
       header: typography.options.headerFontFamily.join(","),
     },
     fontWeights: {
@@ -87,9 +104,9 @@ const { styled, css, global, keyframes, getCssString, theme } = createCss({
         return {
           height: value,
           width: value,
-        }
-      }
-    }
+        };
+      };
+    },
   },
 });
 
@@ -142,3 +159,5 @@ export {
   darkSection,
   warningSection,
 };
+
+export type { StitchesVariants };

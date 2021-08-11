@@ -16,7 +16,7 @@ interface MetaPropsWithNoIndex extends BaseMetaProps {
 
 type MetaProps = MetaPropsWithDescription | MetaPropsWithNoIndex;
 
-function Meta(props: MetaProps): JSX.Element {
+function Meta(props: MetaProps): React.ReactElement {
   const { noTitleTemplate = false, title } = props;
 
   return (
