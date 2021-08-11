@@ -11,7 +11,7 @@ import React from "react";
 
 interface RegularCodeBlockProps {
   code: string;
-  language: SupportedCodeBlockLanguages;
+  language?: SupportedCodeBlockLanguages | null;
   output?: string | null;
   outputType?: "error" | "regular";
 }
