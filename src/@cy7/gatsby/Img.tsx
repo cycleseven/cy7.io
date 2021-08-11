@@ -1,5 +1,5 @@
+import { theme } from "@cy7/design-system";
 import React from "react";
-import { useTheme } from "@cy7/designSystem";
 import GatsbyImage, { GatsbyImageProps } from "gatsby-image";
 
 export type ImgProps = GatsbyImageProps & React.ComponentPropsWithoutRef<"img">;
@@ -9,7 +9,6 @@ export type ImgProps = GatsbyImageProps & React.ComponentPropsWithoutRef<"img">;
  * placeholders with a consistent style.
  */
 function Img(props: ImgProps): React.ReactElement {
-  const theme = useTheme();
   return (
     <GatsbyImage
       backgroundColor={theme.colors.accent}

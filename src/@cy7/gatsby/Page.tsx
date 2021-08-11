@@ -1,4 +1,3 @@
-import { Cy7ThemeProvider } from "@cy7/designSystem";
 import { applyGlobalStyles, styled } from "@cy7/design-system";
 import { Footer } from "@cy7/gatsby/Footer";
 import { FullHeightPage } from "@cy7/gatsby/FullHeightPage";
@@ -20,13 +19,13 @@ function Page({ children }: PageProps) {
   });
 
   return (
-    <Cy7ThemeProvider>
+    <React.Fragment>
       <OldBrowserWarning />
       <FullHeightPage>
         <MainContent>{children}</MainContent>
         <Footer />
       </FullHeightPage>
-    </Cy7ThemeProvider>
+    </React.Fragment>
   );
 }
 

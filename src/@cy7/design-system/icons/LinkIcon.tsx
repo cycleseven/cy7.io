@@ -17,4 +17,4 @@ function LinkIcon(props: SvgProps) {
   );
 }
 
-export { LinkIcon };
+export default LinkIcon;

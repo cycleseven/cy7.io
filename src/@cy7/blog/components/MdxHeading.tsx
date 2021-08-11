@@ -1,5 +1,4 @@
-import { LinkIcon } from "@cy7/designSystem";
-import { Link, styled } from "@cy7/design-system";
+import { Link, LinkIcon, styled } from "@cy7/design-system";
 import { slugify } from "@cy7/utils/slugify";
 import React from "react";
 
