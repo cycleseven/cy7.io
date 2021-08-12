@@ -17,6 +17,7 @@ const Caption = styled.figcaption``;
 const Figure = styled.figure`
   align-items: center;
   display: flex;
+  margin: 0;
 
   & > ${Caption} {
     margin-left: 20px;
