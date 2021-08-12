@@ -1,5 +1,4 @@
 import Typography from "typography";
-import { palette } from "@cy7/stitches/legacyPalette";
 
 type Cy7TypographyType = Typography & {
   options: Typography["options"] & {
@@ -26,7 +25,7 @@ const typography = new Cy7Typography({
   baseFontSize: "17px",
   baseLineHeight: 1.65,
   blockMarginBottom: 0.8,
-  bodyColor: palette.glasgow,
+  bodyColor: "hsl(213, 89%, 20%)", // TODO: get from theme instead
   bodyFontFamily: [
     "Inter",
     "Helvetica Neue",
@@ -35,7 +34,7 @@ const typography = new Cy7Typography({
     "sans-serif",
   ],
   bodyWeight: 400,
-  headerColor: palette.glasgow,
+  headerColor: "hsl(213, 89%, 20%)", // TODO: get from theme instead
   headerFontFamily: ["Oswald", "Open Sans Condensed", "Impact", "sans-serif"],
   headerWeight: 700,
   scaleRatio: 2.5,

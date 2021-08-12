@@ -11,7 +11,7 @@ export type ImgProps = GatsbyImageProps & React.ComponentPropsWithoutRef<"img">;
 function Img(props: ImgProps): React.ReactElement {
   return (
     <GatsbyImage
-      backgroundColor={theme.colors.accent}
+      backgroundColor={theme.colors.accent.value}
       fadeIn={false}
       {...props}
     />
