@@ -123,8 +123,10 @@ module.exports = {
       },
     },
 
-    // Manages the Babel plugin + SSR for styled-components
-    "gatsby-plugin-styled-components",
+    // Stitches (CSS-in-JS), set up via a custom plugin
+    {
+      resolve: require.resolve("./src/@cy7/gatsby-plugin-stitches"),
+    },
 
     // Output a schema.json on running Gatsby dev server
     "gatsby-plugin-extract-schema",
@@ -132,11 +134,5 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
-
-    // Custom plugin for Stitches (CSS-in-JS). This will replace Styled
-    // Components.
-    {
-      resolve: require.resolve("./src/@cy7/gatsby-plugin-stitches"),
-    },
   ],
 };
