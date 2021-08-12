@@ -1,13 +1,11 @@
 /* eslint-disable global-require */
 
-import React from "react";
 import { addDecorator, configure } from "@storybook/react";
-import { Cy7ThemeProvider } from "@cy7/designSystem";
 
 /**
  * Wrap all stories with cy7 default styles.
  */
-addDecorator((storyFn) => <Cy7ThemeProvider>{storyFn()}</Cy7ThemeProvider>);
+addDecorator((storyFn) => storyFn());
 
 /**
  * Note: the return value defines the ordering of the stories.
