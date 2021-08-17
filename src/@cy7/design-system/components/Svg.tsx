@@ -1,6 +1,6 @@
 import React, { ComponentProps } from "react";
 import { styled } from "@cy7/stitches";
-import { StitchesVariants } from "@stitches/react";
+import { VariantProps } from "@stitches/react";
 
 const BlockSvg = styled("svg", {
   display: "block",
@@ -9,7 +9,7 @@ const BlockSvg = styled("svg", {
 type SvgProps = {
   title?: string;
 } & ComponentProps<typeof BlockSvg> &
-  StitchesVariants<typeof BlockSvg>;
+  VariantProps<typeof BlockSvg>;
 
 /**
  * SVGs are inline by default, but usually it's better to treat them as block

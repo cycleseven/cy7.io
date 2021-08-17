@@ -3,7 +3,7 @@ import {
   getTokenWeightVariant,
 } from "@cy7/blog/components/codeBlock/tokenVariants";
 import { Token as TokenType } from "@cy7/blog/types";
-import { StitchesVariants, styled } from "@cy7/design-system";
+import { VariantProps, styled } from "@cy7/design-system";
 import React, { ComponentProps } from "react";
 
 const StyledToken = styled("span", {
@@ -45,7 +45,7 @@ const StyledToken = styled("span", {
   },
 });
 
-type TokenVariants = StitchesVariants<typeof StyledToken>;
+type TokenVariants = VariantProps<typeof StyledToken>;
 
 type TokenProps = {
   token: TokenType;

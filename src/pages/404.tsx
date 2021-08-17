@@ -15,7 +15,7 @@ function NotFoundPage() {
           <WarpTotem />
         </nav>
         <main>
-          <Article as="article" width="bestForText">
+          <Article as={"article" as any} width="bestForText">
             <h1>
               Oh no{" "}
               <span aria-label="sad face" role="img">

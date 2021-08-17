@@ -37,10 +37,13 @@ const BlogDate = styled("p", {
   opacity: 0.8,
   fontSize: "0.6rem",
   fontWeight: "$bold",
-  letterSpacing: "0.11em",
   lineHeight: 1,
   margin: "$0-25 0 0 0",
   textTransform: "uppercase",
+
+  // TODO: undo ts-ignore when Stitches types stabilise
+  // @ts-ignore
+  letterSpacing: "0.11em",
 });
 
 const mdxComponents = {

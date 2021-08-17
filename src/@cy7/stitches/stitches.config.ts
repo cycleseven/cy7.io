@@ -1,9 +1,17 @@
 import { hslAdjust } from "@cy7/css";
 import { space } from "@cy7/stitches/space";
 import typography from "@cy7/typography";
-import { StitchesVariants, createCss } from "@stitches/react";
+import { VariantProps, createStitches, PropertyValue } from "@stitches/react";
 
-const { styled, css, global, keyframes, getCssString, theme } = createCss({
+const {
+  styled,
+  createTheme,
+  css,
+  globalCss,
+  keyframes,
+  getCssText,
+  theme,
+} = createStitches({
   theme: {
     radii: {
       "2": "2px",
@@ -64,53 +72,37 @@ const { styled, css, global, keyframes, getCssString, theme } = createCss({
     bp1: "(min-width: 900px)",
   },
   utils: {
-    marginX(config) {
-      return function resolveMarginX(
-        value: `$${keyof typeof config["theme"]["space"]}` | (string & {})
-      ) {
-        return {
-          marginLeft: value,
-          marginRight: value,
-        };
+    marginX(value: PropertyValue<"margin">) {
+      return {
+        marginLeft: value,
+        marginRight: value,
       };
     },
 
-    marginY(config) {
-      return function resolveMarginY(
-        value: `$${keyof typeof config["theme"]["space"]}` | (string & {})
-      ) {
-        return {
-          marginBottom: value,
-          marginTop: value,
-        };
+    marginY(value: PropertyValue<"margin">) {
+      return {
+        marginBottom: value,
+        marginTop: value,
       };
     },
 
-    paddingX(config) {
-      return function resolvePaddingX(
-        value: `$${keyof typeof config["theme"]["space"]}` | (string & {})
-      ) {
-        return {
-          paddingLeft: value,
-          paddingRight: value,
-        };
+    paddingX(value: PropertyValue<"padding">) {
+      return {
+        paddingLeft: value,
+        paddingRight: value,
       };
     },
 
-    size(config) {
-      return function resolveSize(
-        value: `$${keyof typeof config["theme"]["space"]}` | (string & {})
-      ) {
-        return {
-          height: value,
-          width: value,
-        };
+    size(value: PropertyValue<"width">) {
+      return {
+        height: value,
+        width: value,
       };
     },
   },
 });
 
-const darkSection = theme({
+const darkSection = createTheme({
   colors: {
     bg: hslAdjust(theme.colors.obsidian.value, {
       saturation: 0.5,
@@ -130,7 +122,7 @@ const darkSection = theme({
   },
 });
 
-const warningSection = theme({
+const warningSection = createTheme({
   colors: {
     bg: "$dijon",
     bodyText: "$glasgow",
@@ -152,12 +144,12 @@ const warningSection = theme({
 export {
   styled,
   css,
-  global,
+  globalCss,
   keyframes,
-  getCssString,
+  getCssText,
   theme,
   darkSection,
   warningSection,
 };
 
-export type { StitchesVariants };
+export type { VariantProps };

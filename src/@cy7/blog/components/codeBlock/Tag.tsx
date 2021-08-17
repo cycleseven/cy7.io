@@ -3,9 +3,12 @@ import { styled } from "@cy7/stitches";
 const Tag = styled("div", {
   fontSize: "0.45rem",
   fontWeight: "$bold",
-  letterSpacing: "0.13em",
   textTransform: "uppercase",
   userSelect: "none",
+
+  // TODO: undo ts-ignore when Stitches types stabilise
+  // @ts-ignore
+  letterSpacing: "0.13em",
 
   defaultVariants: {
     color: "regular"

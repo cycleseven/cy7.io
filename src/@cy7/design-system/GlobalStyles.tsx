@@ -1,4 +1,4 @@
-import { global } from "@cy7/stitches";
+import { globalCss } from "@cy7/stitches";
 import inter400 from "./fonts/inter-400.woff2";
 import inter400Italic from "./fonts/inter-400-italic.woff2";
 import inter700 from "./fonts/inter-700.woff2";
@@ -14,35 +14,37 @@ import oswald700 from "./fonts/oswald-700.woff2";
  * v2.0 | 20110126
  * License: none (public domain)
  */
-const applyGlobalStyles = global({
+const applyGlobalStyles = globalCss({
+  // TODO: undo ts-ignore when Stitches types stabilise
+  // @ts-ignore
   "@font-face": [
     {
       fontDisplay: "block",
       fontFamily: "Inter",
       fontStyle: "normal",
       fontWeight: "400",
-      src: `local(""), url(${inter400}) format("woff2")`,
+      src: [`local("")`, `url(${inter400}) format("woff2")`],
     },
     {
       fontDisplay: "block",
       fontFamily: "Inter",
       fontStyle: "italic",
       fontWeight: "400",
-      src: `local(""), url(${inter400Italic}) format("woff2")`,
+      src: [`local("")`, `url(${inter400Italic}) format("woff2")`],
     },
     {
       fontDisplay: "block",
       fontFamily: "Inter",
       fontStyle: "normal",
       fontWeight: "700",
-      src: `local(""), url(${inter700}) format("woff2")`,
+      src: [`local("")`, `url(${inter700}) format("woff2")`],
     },
     {
       fontDisplay: "block",
       fontFamily: "Oswald",
       fontStyle: "normal",
       fontWeight: "700",
-      src: `local(""), url(${oswald700}) format("woff2")`,
+      src: [`local("")`, `url(${oswald700}) format("woff2")`],
     },
   ],
 

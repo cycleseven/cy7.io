@@ -38,9 +38,12 @@ const Heading = styled("h2", {
   color: "white",
   fontFamily: "$body",
   fontSize: "0.8rem",
-  letterSpacing: "0.12ch",
   marginBottom: "$0-75",
   marginTop: 0,
+
+  // TODO: undo ts-ignore when Stitches types stabilise
+  // @ts-ignore
+  letterSpacing: "0.12ch",
 });
 
 const FOOTER_QUERY = graphql`

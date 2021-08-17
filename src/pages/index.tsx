@@ -5,7 +5,6 @@ import {
   GutterBox,
   MaxWidth,
   Stack,
-  Link,
   styled,
 } from "@cy7/design-system";
 import { graphql, Link as GatsbyLink } from "gatsby";
@@ -109,10 +108,13 @@ const ShowcaseDate = styled("p", {
   opacity: 0.7,
   fontSize: "0.54rem",
   fontWeight: "$bold",
-  letterSpacing: "0.11em",
   lineHeight: "$space$1",
   margin: "$0-1 0 $0-2 0",
   textTransform: "uppercase",
+
+  // TODO: undo ts-ignore when Stitches types stabilise
+  // @ts-ignore
+  letterSpacing: "0.11em",
 
   "@bp1": {
     marginBottom: "$0-33"
@@ -205,12 +207,11 @@ function HomePage({ data }: Props) {
                   {blogPosts.map((blogPost) => (
                     <div key={blogPost.frontmatter.slug}>
                       <ShowcaseHeading>
-                        <Link
-                          as={GatsbyLink}
+                        <GatsbyLink
                           to={`/${blogPost.frontmatter.slug}`}
                         >
                           {blogPost.frontmatter.title}
-                        </Link>
+                        </GatsbyLink>
                       </ShowcaseHeading>
                       <ShowcaseDate>
                         {blogPost.fields.friendlyDate}

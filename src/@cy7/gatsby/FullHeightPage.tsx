@@ -1,5 +1,5 @@
 import React, { ComponentProps, useLayoutEffect } from "react";
-import { global, styled } from "@cy7/design-system";
+import { globalCss, styled } from "@cy7/design-system";
 
 const FullHeightContainer = styled("div", {
   display: "flex",
@@ -8,7 +8,7 @@ const FullHeightContainer = styled("div", {
   minWidth: "300px",
 });
 
-const applyGlobalStyles = global({
+const applyGlobalStyles = globalCss({
   "html.cy7-full-height-page": {
     display: "flex",
     flexDirection: "column",
