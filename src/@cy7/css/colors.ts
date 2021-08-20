@@ -46,7 +46,7 @@ function hslParse(hslColor: HslColor) {
  *                      It's only necessary to provide the { hue, saturation, lightness }
  *                      values that you want to adjust: the object can be partial.
  */
-function hslAdjust(color: HslColor, adjustments: HslAdjustments) {
+function hslAdjust(color: HslColor, adjustments: HslAdjustments): string {
   const hslColor = hslParse(color);
   const adjustedColor = { ...hslColor, ...adjustments };
 

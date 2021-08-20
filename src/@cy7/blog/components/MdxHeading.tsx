@@ -26,7 +26,11 @@ type MdxHeadingProps = {
   children: string;
 } & React.ComponentProps<typeof Heading>;
 
-function MdxHeading({ as, children, ...props }: MdxHeadingProps) {
+function MdxHeading({
+  as,
+  children,
+  ...props
+}: MdxHeadingProps): React.ReactElement {
   const slug = slugify(children);
   const label = children;
 

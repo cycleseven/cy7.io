@@ -1,21 +1,21 @@
-import { styled, theme } from "@cy7/stitches"
+import { CSS } from "@stitches/react";
+import { styled, theme } from "@cy7/stitches";
 
 type SpaceKey = keyof typeof theme.space;
 
 const spaceVariants = Object.entries(theme.space).reduce(
-  (prev, [key, value]) => {
-    return {
-      ...prev,
-      [key]: {
-        "& > * + *": {
-          marginTop: value,
-        },
+  (prev, [key, value]) => ({
+    ...prev,
+    [key]: {
+      "& > * + *": {
+        marginTop: value,
       },
-    };
-  },
+    },
+  }),
   {}
-) as { [n in SpaceKey]: any };
+) as { [n in SpaceKey]: CSS };
 
+// @ts-ignore
 const Stack = styled("div", {
   variants: {
     space: spaceVariants,

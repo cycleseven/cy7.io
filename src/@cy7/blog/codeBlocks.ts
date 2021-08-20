@@ -45,7 +45,7 @@ function trimEmptyLines(lines: string[]) {
  * Loads of edge cases this won't handle, eg. if the snippet uses the tab
  * character for indentation. But it's good enough for my use case (so far!).
  */
-function trimCodeSnippet(snippet: string) {
+function trimCodeSnippet(snippet: string): string {
   const lines = snippet.split(/\r?\n/);
   const significantLines = trimEmptyLines(lines);
   const nonEmptyLines = significantLines.filter(

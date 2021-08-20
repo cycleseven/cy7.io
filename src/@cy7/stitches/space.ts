@@ -24,11 +24,12 @@ const scale = {
 
 type ScaleKey = keyof typeof scale;
 
-const space = Object.entries(scale).reduce((prev, [ident, size]) => {
-  return {
+const space = Object.entries(scale).reduce(
+  (prev, [ident, size]) => ({
     ...prev,
     [ident]: typography.rhythm(size),
-  };
-}, {}) as { [n in ScaleKey]: string };
+  }),
+  {}
+) as { [n in ScaleKey]: string };
 
 export { space };

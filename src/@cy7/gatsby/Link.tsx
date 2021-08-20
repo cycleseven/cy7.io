@@ -13,7 +13,7 @@ type BaseProps = { children?: React.ReactNode } & ComponentProps<
 type InternalLinkProps = {
   type?: "internal";
 } & BaseProps &
-  Omit<GatsbyLinkProps<object>, "ref">;
+  Omit<GatsbyLinkProps<unknown>, "ref">;
 
 type ExternalLinkProps = {
   type: "external";

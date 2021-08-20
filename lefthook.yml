@@ -9,6 +9,8 @@ pre-push:
       files: git diff --name-only HEAD @{push}
       glob: "*.{js,css,yml,yaml,json,md}"
       run: yarn prettier --check {files}
+    typescript-check:
+      run: yarn tsc --noEmit
 
 pre-commit:
   parallel: true

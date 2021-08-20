@@ -158,7 +158,7 @@ interface Props {
   };
 }
 
-function HomePage({ data }: Props) {
+function HomePage({ data }: Props): React.ReactElement {
   const blogPosts = data.blogPosts.nodes;
   const photoOfMe = data.photoOfMe.childImageSharp.fixed;
   const { description } = data.site.siteMetadata;

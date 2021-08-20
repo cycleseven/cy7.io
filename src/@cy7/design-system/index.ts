@@ -1,3 +1,5 @@
+import { SvgProps } from "@cy7/design-system/components/Svg";
+
 export * from "@cy7/stitches";
 
 // Global styles
@@ -17,5 +19,4 @@ export { default as Stack } from "@cy7/design-system/layout/Stack";
 
 // Types
 export type { VariantProps } from "@cy7/stitches";
-import { SvgProps } from "@cy7/design-system/components/Svg";
 export type { SvgProps };

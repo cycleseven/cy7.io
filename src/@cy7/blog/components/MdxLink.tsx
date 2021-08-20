@@ -5,7 +5,7 @@ type MdxLinkProps = {
   href: string;
 } & typeof Link;
 
-function MdxLink({ href, ...props }: MdxLinkProps) {
+function MdxLink({ href, ...props }: MdxLinkProps): React.ReactElement {
   if (href.startsWith("/")) {
     return <Link to={href} {...props} type="internal" />;
   }

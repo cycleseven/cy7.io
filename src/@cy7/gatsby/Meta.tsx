@@ -27,7 +27,7 @@ function Meta(props: MetaProps): React.ReactElement {
       {"description" in props && (
         <meta content={props.description} name="description" />
       )}
-      {"noIndex" in props && <meta name="robots" content="noindex" />}
+      {"noIndex" in props && <meta content="noindex" name="robots" />}
       {/* Render a custom meta tag displaying git sha for the latest build */}
       {process.env.GATSBY_BUILD_SHA && (
         <meta content={process.env.GATSBY_BUILD_SHA} name="build-sha" />

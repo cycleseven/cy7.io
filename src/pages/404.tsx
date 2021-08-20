@@ -6,16 +6,17 @@ const Article = styled(MaxWidth, {
   marginY: "$3",
 });
 
-function NotFoundPage() {
+function NotFoundPage(): React.ReactElement {
   return (
     <Page>
       <GutterBox>
-        <Meta title="Not found" noIndex />
+        <Meta noIndex title="Not found" />
         <nav>
           <WarpTotem />
         </nav>
         <main>
-          <Article as={"article" as any} width="bestForText">
+          {/* @ts-ignore */}
+          <Article as="article" width="bestForText">
             <h1>
               Oh no{" "}
               <span aria-label="sad face" role="img">

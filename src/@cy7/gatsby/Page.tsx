@@ -13,7 +13,7 @@ type PageProps = {
   children: React.ReactNode;
 }
 
-function Page({ children }: PageProps) {
+function Page({ children }: PageProps): React.ReactElement {
   useLayoutEffect(() => {
     applyGlobalStyles();
   });

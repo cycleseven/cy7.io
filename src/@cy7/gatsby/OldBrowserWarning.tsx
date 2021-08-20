@@ -21,7 +21,7 @@ const Text = styled("p", {
   maxWidth: "$maxWidthRegular",
 });
 
-function OldBrowserWarning() {
+function OldBrowserWarning(): React.ReactElement {
   return (
     <Container className={warningSection}>
       <Stack space="0-25">

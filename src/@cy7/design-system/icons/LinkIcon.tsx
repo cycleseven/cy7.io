@@ -5,7 +5,7 @@ import { theme } from "@cy7/stitches";
 // SVG path stolen from the open source library gatsby-remark-autolink-headers
 // (MIT licensed)
 // https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-remark-autolink-headers/src/index.js#L14
-function LinkIcon(props: SvgProps) {
+function LinkIcon(props: SvgProps): React.ReactElement {
   return (
     <Svg height={16} viewBox="0 0 16 16" width={16} {...props}>
       <path
