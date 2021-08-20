@@ -125,17 +125,6 @@
           "newlines-between": "always"
         }
       ],
-      "import/no-restricted-paths": [
-        "warn",
-        {
-          "zones": [
-            {
-              "target": "./src/@cy7/design-system",
-              "from": "./src/@cy7/stitches"
-            }
-          ]
-        }
-      ],
       "import/no-unresolved": "off",
       "react/prop-types": "off",
       "react/require-default-props": "off"
