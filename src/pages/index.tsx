@@ -1,4 +1,4 @@
-import { Img, Meta, Page } from "@cy7/gatsby";
+import { Img, Link, Meta, Page } from "@cy7/gatsby";
 import Hero from "@cy7/home/Hero";
 import {
   Grid,
@@ -7,7 +7,7 @@ import {
   Stack,
   styled,
 } from "@cy7/design-system";
-import { graphql, Link as GatsbyLink } from "gatsby";
+import { graphql } from "gatsby";
 import { FixedObject } from "gatsby-image";
 import React from "react";
 
@@ -207,11 +207,11 @@ function HomePage({ data }: Props): React.ReactElement {
                   {blogPosts.map((blogPost) => (
                     <div key={blogPost.frontmatter.slug}>
                       <ShowcaseHeading>
-                        <GatsbyLink
+                        <Link
                           to={`/${blogPost.frontmatter.slug}`}
                         >
                           {blogPost.frontmatter.title}
-                        </GatsbyLink>
+                        </Link>
                       </ShowcaseHeading>
                       <ShowcaseDate>
                         {blogPost.fields.friendlyDate}
