@@ -109,7 +109,7 @@ const ShowcaseDate = styled("p", {
   fontSize: "0.54rem",
   fontWeight: "$bold",
   lineHeight: "$space$1",
-  margin: "$0-1 0 $0-2 0",
+  margin: "$0 0 $0-2 0",
   textTransform: "uppercase",
 
   // TODO: undo ts-ignore when Stitches types stabilise

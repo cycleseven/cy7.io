@@ -24,7 +24,7 @@ const BlogHeader = styled("div", {
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
-  marginBottom: "$1-5",
+  marginBottom: "$2",
   marginTop: "$3",
 });
 
@@ -38,7 +38,7 @@ const BlogDate = styled("p", {
   fontSize: "0.6rem",
   fontWeight: "$bold",
   lineHeight: 1,
-  margin: "$0-25 0 0 0",
+  margin: "$0-5 0 0 0",
   textTransform: "uppercase",
 
   // TODO: undo ts-ignore when Stitches types stabilise
