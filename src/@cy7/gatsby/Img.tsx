@@ -2,7 +2,7 @@ import { theme } from "@cy7/design-system";
 import React from "react";
 import GatsbyImage, { GatsbyImageProps } from "gatsby-image";
 
-export type ImgProps = GatsbyImageProps & React.ComponentPropsWithoutRef<"img">;
+type ImgProps = GatsbyImageProps & React.ComponentPropsWithoutRef<"img">;
 
 /**
  * Wrapped version of gatsby-image's <Img /> component that applies
@@ -18,4 +18,5 @@ function Img(props: ImgProps): React.ReactElement {
   );
 }
 
+export type { ImgProps };
 export { Img };

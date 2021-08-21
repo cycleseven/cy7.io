@@ -109,6 +109,7 @@
         "ts": "never",
         "tsx": "never"
       }],
+      "import/exports-last": "warn",
       "import/order": [
         "warn",
         {
