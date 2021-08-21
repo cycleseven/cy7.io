@@ -1,4 +1,7 @@
 module.exports = {
+  flags: {
+    PRESERVE_WEBPACK_CACHE: true,
+  },
   siteMetadata: {
     title: "cy7.io",
     // TODO: make this description more compelling when I have a few posts under the belt
