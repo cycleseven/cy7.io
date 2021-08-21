@@ -79,4 +79,4 @@ yarn-error.log
 storybook-static
 
 # Exported GraphQL schema from gatsby-plugin-extract-schema
-schema.json
+schema.graphql

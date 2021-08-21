@@ -1,21 +1,15 @@
 import { Img, Link, Meta, Page } from "@cy7/gatsby";
 import Hero from "@cy7/home/Hero";
-import {
-  Grid,
-  GutterBox,
-  MaxWidth,
-  Stack,
-  styled,
-} from "@cy7/design-system";
+import { Grid, GutterBox, MaxWidth, Stack, styled } from "@cy7/design-system";
 import { graphql } from "gatsby";
-import { FixedObject } from "gatsby-image";
+import { IGatsbyImageData } from "gatsby-plugin-image";
 import React from "react";
 
 const Header = styled("header", {
   alignItems: "center",
   display: "flex",
-  flexDirection: "column"
-})
+  flexDirection: "column",
+});
 
 const Main = styled(MaxWidth, {
   paddingBottom: "$4",
@@ -27,15 +21,15 @@ const Intro = styled("div", {
   marginBottom: 0,
 
   "& > * + *": {
-    marginLeft: "$0-75"
+    marginLeft: "$0-75",
   },
 
   "@bp1": {
     "& > * + *": {
-      marginLeft: "$1"
+      marginLeft: "$1",
     },
-  }
-})
+  },
+});
 
 // TODO: this is an example of why directly styling h1/p/etc actually has
 //       downsides. I want the intro sentence to appear like a <p> but actually
@@ -53,12 +47,12 @@ const IntroText = styled("h1", {
   lineHeight: 1.65,
   marginBottom: "$0-75",
   maxWidth: "36ch",
-  textTransform: "none"
-})
+  textTransform: "none",
+});
 
 const HeroImage = styled(Hero, {
   width: "100%",
-  maxWidth: "420px"
+  maxWidth: "420px",
 });
 
 const MeImage = styled("div", {
@@ -117,7 +111,7 @@ const ShowcaseDate = styled("p", {
   letterSpacing: "0.11em",
 
   "@bp1": {
-    marginBottom: "$0-33"
+    marginBottom: "$0-33",
   },
 });
 
@@ -146,7 +140,7 @@ interface Props {
 
     photoOfMe: {
       childImageSharp: {
-        fixed: FixedObject;
+        gatsbyImageData: IGatsbyImageData;
       };
     };
 
@@ -160,7 +154,7 @@ interface Props {
 
 function HomePage({ data }: Props): React.ReactElement {
   const blogPosts = data.blogPosts.nodes;
-  const photoOfMe = data.photoOfMe.childImageSharp.fixed;
+  const photoOfMe = data.photoOfMe.childImageSharp.gatsbyImageData;
   const { description } = data.site.siteMetadata;
 
   return (
@@ -182,8 +176,9 @@ function HomePage({ data }: Props): React.ReactElement {
               <Intro>
                 <MeImage>
                   <Img
-                    fixed={photoOfMe}
+                    alt="owen's face"
                     height={48}
+                    image={photoOfMe}
                     loading="eager"
                     width={48}
                   />
@@ -207,9 +202,7 @@ function HomePage({ data }: Props): React.ReactElement {
                   {blogPosts.map((blogPost) => (
                     <div key={blogPost.frontmatter.slug}>
                       <ShowcaseHeading>
-                        <Link
-                          to={`/${blogPost.frontmatter.slug}`}
-                        >
+                        <Link to={`/${blogPost.frontmatter.slug}`}>
                           {blogPost.frontmatter.title}
                         </Link>
                       </ShowcaseHeading>
@@ -255,9 +248,7 @@ export const query = graphql`
 
     photoOfMe: file(relativePath: { eq: "goat.jpg" }) {
       childImageSharp {
-        fixed(width: 72, quality: 50) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
-        }
+        gatsbyImageData(width: 72, placeholder: NONE, quality: 50)
       }
     }
   }

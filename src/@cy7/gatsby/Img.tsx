@@ -1,8 +1,15 @@
-import { theme } from "@cy7/design-system";
+import { styled, theme } from "@cy7/design-system";
 import React from "react";
-import GatsbyImage, { GatsbyImageProps } from "gatsby-image";
+import { GatsbyImage, GatsbyImageProps } from "gatsby-plugin-image";
 
 type ImgProps = GatsbyImageProps & React.ComponentPropsWithoutRef<"img">;
+
+const StyledImage = styled(GatsbyImage, {
+  "[data-main-image]": {
+    opacity: 1,
+    transition: "none"
+  }
+});
 
 /**
  * Wrapped version of gatsby-image's <Img /> component that applies
@@ -10,9 +17,8 @@ type ImgProps = GatsbyImageProps & React.ComponentPropsWithoutRef<"img">;
  */
 function Img(props: ImgProps): React.ReactElement {
   return (
-    <GatsbyImage
+    <StyledImage
       backgroundColor={theme.colors.accent.value}
-      fadeIn={false}
       {...props}
     />
   );
