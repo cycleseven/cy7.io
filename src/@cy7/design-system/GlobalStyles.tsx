@@ -15,8 +15,6 @@ import oswald700 from "./fonts/oswald-700.woff2";
  * License: none (public domain)
  */
 const applyGlobalStyles = globalCss({
-  // TODO: undo ts-ignore when Stitches types stabilise
-  // @ts-ignore
   "@font-face": [
     {
       fontDisplay: "block",

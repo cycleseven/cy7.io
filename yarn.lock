@@ -3843,10 +3843,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@stitches/react@1.0.0-canary.10":
-  version "1.0.0-canary.10"
-  resolved "https://registry.yarnpkg.com/@stitches/react/-/react-1.0.0-canary.10.tgz#12bad93880218872795cb7ac2bc35521f9d17698"
-  integrity sha512-uVmwBcYF7CccxqqDGpvz3wVyWkh3Qyb1m19XNl9Z7ZFVQP/RwkUeCqk4VZqLCHrBHml3Xr+vwPwiXFuPsydbJw==
+"@stitches/react@1.0.0-canary.14":
+  version "1.0.0-canary.14"
+  resolved "https://registry.yarnpkg.com/@stitches/react/-/react-1.0.0-canary.14.tgz#cb151fc25393663a81ef7f637a8a3348cab90c11"
+  integrity sha512-BIo74vBrq6EDLa98PtsZkdZ0ez+JK5tUvHblZOUCVkpUfpdxEv8JBg9C+yxP/za78TWOe/yJG6IXv/ZFRUok+A==
 
 "@storybook/addon-actions@6.3.7":
   version "6.3.7"
