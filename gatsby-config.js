@@ -132,6 +132,14 @@ module.exports = {
     // Output a schema.json on running Gatsby dev server
     "gatsby-plugin-extract-schema",
 
+    // Generate type defs for GraphQL queries
+    {
+      resolve: "gatsby-plugin-graphql-codegen",
+      options: {
+        fileName: "./generated/@cy7/gql-types/index.ts",
+      },
+    },
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

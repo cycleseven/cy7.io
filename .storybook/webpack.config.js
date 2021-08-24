@@ -4,6 +4,10 @@ module.exports = async ({ config }) => ({
   ...config,
   resolve: {
     ...config.resolve,
-    modules: [path.resolve(__dirname, "../src"), "node_modules"],
+    modules: [
+      path.resolve(__dirname, "../src"),
+      path.resolve(__dirname, "../types"),
+      "node_modules",
+    ],
   },
 });

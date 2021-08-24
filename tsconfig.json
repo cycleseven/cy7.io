@@ -10,6 +10,9 @@
     "moduleResolution": "node",
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "*": ["*", "../generated/*"]
+    },
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true

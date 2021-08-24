@@ -2,7 +2,7 @@ import { Link, Meta, Page, WarpTotem } from "@cy7/gatsby";
 import { GutterBox, MaxWidth, styled } from "@cy7/design-system";
 import React from "react";
 
-const Article = styled(MaxWidth, {
+const Article = styled("article", MaxWidth, {
   marginY: "$3",
 });
 
@@ -15,8 +15,7 @@ function NotFoundPage(): React.ReactElement {
           <WarpTotem />
         </nav>
         <main>
-          {/* @ts-ignore */}
-          <Article as="article" width="bestForText">
+          <Article width="bestForText">
             <h1>
               Oh no{" "}
               <span aria-label="sad face" role="img">

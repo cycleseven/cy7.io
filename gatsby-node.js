@@ -13,7 +13,11 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
   actions.setWebpackConfig({
     resolve: {
       ...getConfig().resolve,
-      modules: [path.join(getConfig().context, "src"), "node_modules"],
+      modules: [
+        path.join(getConfig().context, "src"),
+        path.join(getConfig().context, "types"),
+        "node_modules",
+      ],
     },
   });
 };

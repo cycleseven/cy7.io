@@ -1,4 +1,4 @@
-import { Link as Cy7Link } from "@cy7/design-system";
+import { Link as Cy7Link, styled } from "@cy7/design-system";
 import { VariantProps } from "@stitches/react";
 import { GatsbyLinkProps, Link as GatsbyLink } from "gatsby";
 import React, { ComponentProps } from "react";
@@ -29,6 +29,8 @@ type LinkProps = { to: string } & (
   | EmailLinkProps
 );
 
+const StyledGatsbyLink = styled(GatsbyLink, Cy7Link);
+
 function Link({
   type = "internal",
   to,
@@ -47,7 +49,9 @@ function Link({
     case "email":
       return <Cy7Link href={`mailto:${to}`} {...props} />;
     default:
-      return <Cy7Link as={GatsbyLink} to={to} {...props} />;
+      // TODO: figure out error
+      // @ts-ignore
+      return <StyledGatsbyLink to={to} {...props} />;
   }
 }
 

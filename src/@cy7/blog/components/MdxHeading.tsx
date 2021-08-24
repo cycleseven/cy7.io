@@ -35,8 +35,6 @@ function MdxHeading({
   const label = children;
 
   return (
-    // TODO: undo ts-ignore when Stitches types stabilise
-    // @ts-ignore
     <Heading as={as} id={slug} {...props}>
       <Anchor
         aria-label={label}

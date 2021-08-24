@@ -5,9 +5,6 @@ const Tag = styled("div", {
   fontWeight: "$bold",
   textTransform: "uppercase",
   userSelect: "none",
-
-  // TODO: undo ts-ignore when Stitches types stabilise
-  // @ts-ignore
   letterSpacing: "0.13em",
 
   defaultVariants: {

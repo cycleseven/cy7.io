@@ -15,6 +15,8 @@ const spaceVariants = Object.entries(theme.space).reduce(
   {}
 ) as { [n in SpaceKey]: CSS };
 
+// TODO: "Expression produces a union type that is too complex to represent"
+//       Remove ts-ignore when stitches fixes this for good
 // @ts-ignore
 const Stack = styled("div", {
   variants: {

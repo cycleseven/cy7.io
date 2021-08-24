@@ -1,8 +1,8 @@
 import { Img, Link, Meta, Page } from "@cy7/gatsby";
-import Hero from "@cy7/home/Hero";
+import { Hero } from "@cy7/home";
 import { Grid, GutterBox, MaxWidth, Stack, styled } from "@cy7/design-system";
+import { HomePageQuery } from "@cy7/gql-types";
 import { graphql } from "gatsby";
-import { IGatsbyImageData } from "gatsby-plugin-image";
 import React from "react";
 
 const Header = styled("header", {
@@ -39,7 +39,7 @@ const Intro = styled("div", {
 //       Even without that, having margins on text elements by default undermines
 //       the approach to spacing used elsewhere (ie. components don't bring
 //       their own whitespace)
-const IntroText = styled("h1", {
+const IntroText = styled("p", {
   fontFamily: "$body",
   fontSize: "0.95rem", // Should be a theme value
   fontWeight: "$regular",
@@ -49,6 +49,8 @@ const IntroText = styled("h1", {
   maxWidth: "36ch",
   textTransform: "none",
 });
+
+const IntroHeading = styled("h1", IntroText);
 
 const HeroImage = styled(Hero, {
   width: "100%",
@@ -105,9 +107,6 @@ const ShowcaseDate = styled("p", {
   lineHeight: "$space$1",
   margin: "$0 0 $0-2 0",
   textTransform: "uppercase",
-
-  // TODO: undo ts-ignore when Stitches types stabilise
-  // @ts-ignore
   letterSpacing: "0.11em",
 
   "@bp1": {
@@ -115,47 +114,18 @@ const ShowcaseDate = styled("p", {
   },
 });
 
-// TODO: Not sure that these types buy me much. I'm just re-declaring what I
-//       assume the types Gatsby gives me are. If I declare them incorrectly,
-//       TypeScript won't know any better.
-//
-//       Look into GraphQL codegen.
-interface BlogPostNode {
-  fields: {
-    friendlyDate: string;
-  };
-
-  frontmatter: {
-    description: string;
-    title: string;
-    slug: string;
-  };
+interface HomePageProps {
+  data: HomePageQuery;
 }
 
-interface Props {
-  data: {
-    blogPosts: {
-      nodes: Array<BlogPostNode>;
-    };
+function HomePage({ data }: HomePageProps): React.ReactElement {
+  const blogPosts = data?.blogPosts?.nodes;
+  const photoOfMe = data?.photoOfMe?.childImageSharp?.gatsbyImageData;
+  const description = data?.site?.siteMetadata?.description;
 
-    photoOfMe: {
-      childImageSharp: {
-        gatsbyImageData: IGatsbyImageData;
-      };
-    };
-
-    site: {
-      siteMetadata: {
-        description: string;
-      };
-    };
-  };
-}
-
-function HomePage({ data }: Props): React.ReactElement {
-  const blogPosts = data.blogPosts.nodes;
-  const photoOfMe = data.photoOfMe.childImageSharp.gatsbyImageData;
-  const { description } = data.site.siteMetadata;
+  if (description === undefined || description === null) {
+    throw new Error("Description must be provided in Gatsby site metadata");
+  }
 
   return (
     <Page>
@@ -184,13 +154,13 @@ function HomePage({ data }: Props): React.ReactElement {
                   />
                 </MeImage>
                 <div>
-                  <IntroText>
+                  <IntroHeading>
                     I&apos;m Owen, a software engineer from Edinburgh, Scotland{" "}
                     <span aria-label="wave" role="img">
                       👋
                     </span>
-                  </IntroText>
-                  <IntroText as="p">
+                  </IntroHeading>
+                  <IntroText>
                     This is my wee website where I write about web development
                     and other personal interests.
                   </IntroText>
@@ -199,21 +169,34 @@ function HomePage({ data }: Props): React.ReactElement {
               <section>
                 <SectionHeading>Blog</SectionHeading>
                 <Grid>
-                  {blogPosts.map((blogPost) => (
-                    <div key={blogPost.frontmatter.slug}>
-                      <ShowcaseHeading>
-                        <Link to={`/${blogPost.frontmatter.slug}`}>
-                          {blogPost.frontmatter.title}
-                        </Link>
-                      </ShowcaseHeading>
-                      <ShowcaseDate>
-                        {blogPost.fields.friendlyDate}
-                      </ShowcaseDate>
-                      <ShowcaseDescription>
-                        {blogPost.frontmatter.description}
-                      </ShowcaseDescription>
-                    </div>
-                  ))}
+                  {blogPosts.map((blogPost) => {
+                    if (
+                      blogPost?.fields === null ||
+                      blogPost?.fields === undefined ||
+                      blogPost?.frontmatter === null ||
+                      blogPost?.frontmatter === undefined
+                    ) {
+                      throw new Error(
+                        `Invalid blog post data: ${JSON.stringify(blogPost)}`
+                      );
+                    }
+
+                    return (
+                      <div key={blogPost.frontmatter.slug}>
+                        <ShowcaseHeading>
+                          <Link to={`/${blogPost.frontmatter.slug}`}>
+                            {blogPost.frontmatter.title}
+                          </Link>
+                        </ShowcaseHeading>
+                        <ShowcaseDate>
+                          {blogPost.fields.friendlyDate}
+                        </ShowcaseDate>
+                        <ShowcaseDescription>
+                          {blogPost.frontmatter.description}
+                        </ShowcaseDescription>
+                      </div>
+                    );
+                  })}
                 </Grid>
               </section>
             </Stack>

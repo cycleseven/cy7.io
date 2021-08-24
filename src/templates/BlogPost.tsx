@@ -11,6 +11,7 @@ import {
 } from "@cy7/blog";
 import { styled, GutterBox, MaxWidth } from "@cy7/design-system";
 import { Meta, Page, WarpTotem } from "@cy7/gatsby";
+import { BlogPostPageQuery } from "@cy7/gql-types";
 import { MDXProvider } from "@mdx-js/react";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
@@ -40,9 +41,6 @@ const BlogDate = styled("p", {
   lineHeight: 1,
   margin: "$0-5 0 0 0",
   textTransform: "uppercase",
-
-  // TODO: undo ts-ignore when Stitches types stabilise
-  // @ts-ignore
   letterSpacing: "0.11em",
 });
 
@@ -59,25 +57,22 @@ const mdxComponents = {
 };
 
 interface BlogPostProps {
-  data: {
-    blogPost: {
-      body: string & React.ReactNode;
-
-      fields: {
-        friendlyDate: string;
-      };
-
-      frontmatter: {
-        date: string;
-        description: string;
-        title: string;
-      };
-    };
-  };
+  data: BlogPostPageQuery;
 }
 
 function BlogPost({ data }: BlogPostProps): React.ReactElement {
   const blogPost = data.blogPost;
+
+  if (
+    blogPost?.fields === null ||
+    blogPost?.fields === undefined ||
+    blogPost?.frontmatter === null ||
+    blogPost?.frontmatter === undefined ||
+    blogPost?.frontmatter?.description === null ||
+    blogPost?.frontmatter?.description === undefined
+  ) {
+    throw new Error(`Invalid blog post data: ${JSON.stringify(blogPost)}`);
+  }
 
   return (
     <Page>
@@ -123,6 +118,7 @@ export const query = graphql`
       }
       frontmatter {
         date
+        description
         title
       }
     }

@@ -40,9 +40,6 @@ const Heading = styled("h2", {
   fontSize: "0.8rem",
   marginBottom: "$0-75",
   marginTop: 0,
-
-  // TODO: undo ts-ignore when Stitches types stabilise
-  // @ts-ignore
   letterSpacing: "0.12ch",
 });
 
