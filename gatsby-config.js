@@ -98,7 +98,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "blogPosts",
-        path: `${__dirname}/src/@cy7/blog/posts`,
+        path: `${__dirname}/src/@cy7/website/blog/posts`,
       },
     },
     "gatsby-plugin-mdx",

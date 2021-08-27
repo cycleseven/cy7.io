@@ -1,5 +1,5 @@
-import { Img, Link, Meta, Page } from "@cy7/gatsby";
-import { Hero } from "@cy7/home";
+import { Img, Link, Meta, Page } from "@cy7/website/common";
+import { Hero } from "@cy7/website/home";
 import { Grid, GutterBox, MaxWidth, Stack, styled } from "@cy7/design-system";
 import { HomePageQuery } from "@cy7/gql-types";
 import { graphql } from "gatsby";

@@ -1,4 +1,4 @@
-import { Link, Meta, Page, WarpTotem } from "@cy7/gatsby";
+import { Link, Meta, Page, WarpTotem } from "@cy7/website/common";
 import { GutterBox, MaxWidth, styled } from "@cy7/design-system";
 import React from "react";
 

@@ -8,9 +8,9 @@ import {
   MdxH6,
   MdxInlineCode,
   MdxLink,
-} from "@cy7/blog";
+} from "@cy7/website/blog";
 import { styled, GutterBox, MaxWidth } from "@cy7/design-system";
-import { Meta, Page, WarpTotem } from "@cy7/gatsby";
+import { Meta, Page, WarpTotem } from "@cy7/website/common";
 import { BlogPostPageQuery } from "@cy7/gql-types";
 import { MDXProvider } from "@mdx-js/react";
 import { graphql } from "gatsby";
