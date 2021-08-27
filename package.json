@@ -52,6 +52,7 @@
     "gatsby-plugin-react-helmet": "4.12.0",
     "gatsby-plugin-sharp": "3.12.0",
     "gatsby-plugin-typography": "3.12.0",
+    "gatsby-plugin-webpack-bundle-analyser-v2": "1.1.24",
     "gatsby-remark-prismjs": "5.9.0",
     "gatsby-source-filesystem": "3.12.0",
     "gatsby-transformer-remark": "4.9.0",
