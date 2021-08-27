@@ -4,6 +4,7 @@
   "description": "My cool website!!",
   "version": "0.1.0",
   "author": "Owen Gillespie <owen@cy7.io>",
+  "sideEffects": false,
   "dependencies": {
     "@arkweid/lefthook": "0.7.2",
     "@babel/core": "7.12.13",
