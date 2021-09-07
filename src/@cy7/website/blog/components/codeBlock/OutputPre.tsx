@@ -5,19 +5,19 @@ const OutputPre = styled(Pre, {
   padding: "$0-25 0 0 0",
 
   defaultVariants: {
-    color: "regular"
+    color: "regular",
   },
 
   variants: {
     color: {
       error: {
-        color: "$codeError"
+        color: "$codeError",
       },
       regular: {
-        color: "$codeKeyword"
-      }
-    }
-  }
+        color: "$codeKeyword",
+      },
+    },
+  },
 });
 
 export default OutputPre;

@@ -5,7 +5,7 @@ const CodeContainer = styled("div", {
   borderRadius: "$2",
   boxShadow: "5px 5px 0 0 $colors$accent",
   marginBottom: "$1",
-  overflow: "auto"
+  overflow: "auto",
 });
 
 export default CodeContainer;

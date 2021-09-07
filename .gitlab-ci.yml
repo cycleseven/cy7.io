@@ -4,12 +4,12 @@ cache:
   paths:
     - node_modules/
 
-lint:
+code_quality:
   stage: test
   image: registry.gitlab.com/cycleseven/cy7/ci-lint-job:0.4.0
   script:
     - yarn
-    - yarn lefthook run full-lint
+    - yarn lefthook run check-all
 
 deploy:
   stage: deploy

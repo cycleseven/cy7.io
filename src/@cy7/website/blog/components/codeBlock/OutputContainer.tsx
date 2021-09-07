@@ -5,8 +5,8 @@ const OutputContainer = styled("div", {
   margin: "$0-5",
 
   [`${Pre} + &`]: {
-    marginTop: "$0"
-  }
+    marginTop: "$0",
+  },
 });
 
 export default OutputContainer;

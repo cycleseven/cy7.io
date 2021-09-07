@@ -7,8 +7,8 @@ type ImgProps = GatsbyImageProps & React.ComponentPropsWithoutRef<"img">;
 const StyledImage = styled(GatsbyImage, {
   "[data-main-image]": {
     opacity: 1,
-    transition: "none"
-  }
+    transition: "none",
+  },
 });
 
 /**
@@ -16,12 +16,7 @@ const StyledImage = styled(GatsbyImage, {
  * placeholders with a consistent style.
  */
 function Img(props: ImgProps): React.ReactElement {
-  return (
-    <StyledImage
-      backgroundColor={theme.colors.accent.value}
-      {...props}
-    />
-  );
+  return <StyledImage backgroundColor={theme.colors.accent.value} {...props} />;
 }
 
 export type { ImgProps };

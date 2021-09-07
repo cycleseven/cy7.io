@@ -4,7 +4,6 @@ import { LinkProps, LinkType } from "@cy7/website/common/components/Link";
 export { Img } from "@cy7/website/common/components/Img";
 export { Link } from "@cy7/website/common/components/Link";
 export { Meta } from "@cy7/website/common/components/Meta";
-export { OldBrowserWarning } from "@cy7/website/common/components/OldBrowserWarning";
 export { Page } from "@cy7/website/common/components/Page";
 export { WarpTotem } from "@cy7/website/common/components/WarpTotem";
 

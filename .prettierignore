@@ -1,9 +1,17 @@
-# Prettier is liable to mess up custom code formatting on blog posts
-src/@cy7/blog/**/*.mdx
-src/@cy7/blog/**/*.md
+# Prettier likes to mess with formatting of code in code blocks.
+# That can interfere with intentional code style choices in blog articles and docs.
+src/@cy7/website/blog/**/*.mdx
+src/@cy7/website/blog/**/*.md
+src/@cy7/docs/**/*.mdx
 
 .cache
+.terraform
+.serverless
 package.json
 package-lock.json
+schema.graphql
+generated
+node_modules
 public
-
+storybook-static
+deploy/lambda/outputs.json

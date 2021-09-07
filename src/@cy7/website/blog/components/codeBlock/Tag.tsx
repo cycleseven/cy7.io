@@ -8,19 +8,19 @@ const Tag = styled("div", {
   letterSpacing: "0.13em",
 
   defaultVariants: {
-    color: "regular"
+    color: "regular",
   },
 
   variants: {
     color: {
       error: {
-        color: "$codeError"
+        color: "$codeError",
       },
       regular: {
-        color: "$codeKeyword"
-      }
-    }
-  }
+        color: "$codeKeyword",
+      },
+    },
+  },
 });
 
 export default Tag;

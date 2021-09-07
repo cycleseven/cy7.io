@@ -6,12 +6,12 @@ import PropTypes from "prop-types";
 import React from "react";
 
 const MainContent = styled("div", {
-  flexGrow: 1
+  flexGrow: 1,
 });
 
 type PageProps = {
   children: React.ReactNode;
-}
+};
 
 function Page({ children }: PageProps): React.ReactElement {
   applyGlobalStyles();

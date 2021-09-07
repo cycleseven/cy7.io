@@ -3,34 +3,45 @@ pre-push:
   commands:
     eslint:
       files: git diff --name-only HEAD @{push}
-      glob: "*.js"
+      glob: "*.{js,ts,tsx}"
       run: yarn eslint {files} --max-warnings 0
     prettier-check:
       files: git diff --name-only HEAD @{push}
-      glob: "*.{js,css,yml,yaml,json,md}"
+      glob: "*.{js,ts,tsx,css,yml,yaml,json,md}"
       run: yarn prettier --check {files}
     typescript-check:
       run: yarn tsc --noEmit
+    terraform-format-check:
+      glob: "*.{tf,tfvars}"
+      run: terraform fmt -check {all_files}
+    jest:
+      run: yarn test
 
 pre-commit:
   parallel: true
   commands:
     prettier-js:
-      glob: "*.js"
+      glob: "*.{js,ts,tsx}"
       run: yarn prettier --write {staged_files} && git add {staged_files}
     prettier-non-js:
       glob: "*.{css,yml,yaml,json,md}"
       run: yarn prettier --write --no-bracket-spacing {staged_files} && git add {staged_files}
-    format-terraform:
+    terraform-format:
       glob: "*.{tf,tfvars}"
       run: "echo {staged_files} | xargs -n1 -I[] sh -c 'terraform fmt [] && git add []'"
 
-full-lint:
+check-all:
   parallel: true
   commands:
     eslint:
-      glob: "*.js"
+      glob: "*.{js,ts,tsx}"
       run: yarn eslint {all_files} --max-warnings 0
     prettier-check:
-      glob: "*.{js,css,yml,yaml,json,md}"
+      glob: "*.{js,ts,tsx,css,yml,yaml,json,md}"
       run: yarn prettier --check {all_files}
+    terraform-format-check:
+      run: terraform fmt -check deploy/infra
+    typescript-check:
+      run: yarn tsc --noEmit
+    jest:
+      run: yarn test

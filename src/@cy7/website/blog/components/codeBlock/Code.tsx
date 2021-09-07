@@ -6,7 +6,7 @@ const Code = styled("code", {
   whiteSpace: "pre",
   wordSpacing: "normal",
   wordBreak: "normal",
-  wordWrap: "normal"
+  wordWrap: "normal",
 });
 
 export default Code;

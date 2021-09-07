@@ -19,7 +19,7 @@ const applyGlobalStyles = globalCss({
     display: "flex",
     flexDirection: "column",
     flexGrow: 1,
-  }
+  },
 });
 
 type FullHeightPageProps = ComponentProps<typeof FullHeightContainer>;

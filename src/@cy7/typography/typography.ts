@@ -4,7 +4,7 @@ type Cy7TypographyType = Typography & {
   options: Typography["options"] & {
     bodyFontFamily: string[];
     headerFontFamily: string[];
-  }
+  };
 };
 
 interface ICy7Typography extends Typography {

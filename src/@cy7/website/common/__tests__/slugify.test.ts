@@ -2,7 +2,7 @@ import assert from "assert";
 import { slugify } from "@cy7/website/common/utils/slugify";
 
 describe("@cy7/utils/slugify/slugify", () => {
-  it("should convert a typical h2 in a blog post to a URL-friendly format", () => {
+  it("should convert a typical heading to a URL-friendly format", () => {
     assert.equal(
       slugify("The truth about stack traces"),
       "the-truth-about-stack-traces"

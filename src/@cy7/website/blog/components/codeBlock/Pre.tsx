@@ -6,7 +6,7 @@ const Pre = styled("pre", {
   hyphens: "none",
   padding: "$1",
   margin: "$0",
-  minWidth: "100%"
+  minWidth: "100%",
 });
 
 export default Pre;

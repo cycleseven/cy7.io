@@ -17,7 +17,7 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
       ...getConfig().resolve,
       modules: [
         path.join(getConfig().context, "src"),
-        path.join(getConfig().context, "types"),
+        path.join(getConfig().context, "generated"),
         "node_modules",
       ],
     },

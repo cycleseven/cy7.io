@@ -1,4 +1,10 @@
-import { hslAdjust } from "@cy7/css";
+import {
+  angrypeach,
+  candyfloss,
+  dijon,
+  obsidian,
+  paper,
+} from "@cy7/stitches/hues";
 import { space } from "@cy7/stitches/space";
 import typography from "@cy7/typography";
 import { VariantProps, createStitches, PropertyValue } from "@stitches/react";
@@ -21,31 +27,31 @@ const {
     },
     colors: {
       // Base tones
-      angrypeach: "hsl(2, 100%, 80%)",
-      candyfloss: "hsl(320, 85%, 87%)",
-      dijon: "hsl(51, 100%, 50%)",
-      obsidian: "hsl(213, 64%, 14%)",
-      glasgow: "hsl(213, 89%, 20%)",
-      paper: "hsl(35, 100%, 99%)",
+      angrypeach: `hsl(${angrypeach}, 100%, 80%)`,
+      candyfloss: `hsl(${candyfloss}, 85%, 87%)`,
+      dijon: `hsl(${dijon}, 100%, 50%)`,
+      obsidian: `hsl(${obsidian}, 64%, 6%)`,
+      glasgow: `hsl(${obsidian}, 95%, 18%)`,
+      paper: `hsl(${paper}, 100%, 99%)`,
 
       // Shades
-      candyflossLite: "hsl(320, 100%, 88%)",
+      candyflossLite: `hsl(${candyfloss}, 100%, 88%)`,
 
       // Semantic colors and aliases
       accent: "$candyfloss",
       bg: "$paper",
       bodyText: "$glasgow",
-      codeComment: "hsl(213, 20%, 60%)",
+      codeComment: `hsl(${obsidian}, 20%, 60%)`,
       codeError: "$angrypeach",
-      codeKeyword: "hsl(320, 100%, 85%)",
-      codeLiteral: "hsl(35, 90%, 70%)",
-      codeName: "hsl(35, 100%, 84%)",
-      codeOperator: "hsl(213, 50%, 80%)",
+      codeKeyword: `hsl(${candyfloss}, 100%, 85%)`,
+      codeLiteral: `hsl(${paper}, 90%, 70%)`,
+      codeName: `hsl(${paper}, 100%, 84%)`,
+      codeOperator: `hsl(${obsidian}, 50%, 80%)`,
       codePlain: "$paper",
-      codePunctuation: "hsl(213, 18%, 55%)",
+      codePunctuation: `hsl(${obsidian}, 18%, 55%)`,
       contrast: "$obsidian",
       headerText: "$glasgow",
-      linkBorder: "hsl(320, 85%, 94%)",
+      linkBorder: `hsl(${candyfloss}, 85%, 94%)`,
       linkBorderHover: "$candyfloss",
       linkText: "inherit",
       linkHoverText: "inherit",
@@ -104,21 +110,12 @@ const {
 
 const darkSection = createTheme({
   colors: {
-    bg: hslAdjust(theme.colors.obsidian.value, {
-      saturation: 0.5,
-      lightness: 0.12,
-    }),
+    bg: `hsl(${obsidian}, 50%, 12%)`,
     bodyText: "white",
-    linkBorder: hslAdjust(theme.colors.obsidian.value, {
-      saturation: 0.4,
-      lightness: 0.25,
-    }),
-    linkBorderHover: hslAdjust(theme.colors.obsidian.value, {
-      saturation: 0.66,
-      lightness: 0.4,
-    }),
-    linkText: hslAdjust(theme.colors.obsidian.value, { lightness: 0.96 }),
-    linkHoverText: hslAdjust(theme.colors.obsidian.value, { lightness: 0.92 }),
+    linkBorder: `hsl(${obsidian}, 40%, 25%)`,
+    linkBorderHover: `hsl(${obsidian}, 30%, 40%)`,
+    linkText: `hsl(${obsidian}, 64%, 96%)`,
+    linkHoverText: `hsl(${obsidian}, 64%, 96%)`,
   },
 });
 
@@ -127,13 +124,8 @@ const warningSection = createTheme({
     bg: "$dijon",
     bodyText: "$glasgow",
     headerText: "$glasgow",
-    linkBorder: hslAdjust(theme.colors.glasgow.value, {
-      saturation: 0.15,
-      lightness: 0.8,
-    }),
-    linkBorderHover: hslAdjust(theme.colors.glasgow.value, {
-      lightness: 0.75,
-    }),
+    linkBorder: `hsl(${dijon}, 100%, 46%)`,
+    linkBorderHover: `hsl(${dijon}, 95%, 43%)`,
     linkText: "$glasgow",
     linkHoverText: "$glasgow",
     linkFocusBg: "white",

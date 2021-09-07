@@ -4,7 +4,4 @@ interface Token {
 
 type SupportedCodeBlockLanguages = "jsx" | "javascript";
 
-export type {
-  Token,
-  SupportedCodeBlockLanguages,
-};
+export type { Token, SupportedCodeBlockLanguages };

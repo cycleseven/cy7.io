@@ -10,19 +10,19 @@ const OutputWell = styled("div", {
   padding: "$0-5",
 
   defaultVariants: {
-    color: "regular"
+    color: "regular",
   },
 
   variants: {
     color: {
       error: {
-        borderColor: "$codeError"
+        borderColor: "$codeError",
       },
       regular: {
-        borderColor: "$codeKeyword"
-      }
-    }
-  }
+        borderColor: "$codeKeyword",
+      },
+    },
+  },
 });
 
 export default OutputWell;
