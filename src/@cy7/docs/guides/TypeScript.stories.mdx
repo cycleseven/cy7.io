@@ -1,0 +1,40 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Guides / TypeScript" />
+
+# TypeScript
+
+This project is written with Typescript, using the out of the box support provided by Gatsby.
+
+> Note that this means Typescript support is achieved using Babel transpilation: type errors will not actually prevent the project from running, as the Typescript compiler is not actually invoked when running Gatsby's development server or build process. [See the caveats section of `gatsby-plugin-typescript` for more info](https://www.gatsbyjs.com/plugins/gatsby-plugin-typescript/#caveats). However, Typescript errors and autocomplete suggestions will still be surfaced in your editor.
+
+You can perform a type check across the codebase by running `yarn tsc --noEmit` at the command line.
+
+Type checking is also performed automatically on pre-push via Git hooks: it's expected that deployed code is always free from type errors. In future, CI will also verify that code is free from type errors.
+
+## GraphQL
+
+GraphQL has its own static type system. However, it's useful to be able to access those types from Typescript code to get autocompletion and type checking when dealing with Gatsby's data sourcing system.
+
+To achieve this, types for GraphQL queries are automatically generated using [gatsby-plugin-graphql-codegen](https://github.com/d4rekanguok/gatsby-typescript/tree/master/packages/gatsby-plugin-graphql-codegen). The best way to understand how to use these types is to refer to existing examples such as the site's home page component (`<HomePage />`). Note how the `data` prop that Gatsby populates is fully typed.
+
+The generated GraphQL types live in `generated/@cy7/gql-types`. Imports are set up such that `generated` acts as a "root", just like `src`. That means you can import generated types like this:
+
+```tsx
+// This import assumes a GraphQL query with the name `homePage` exists.
+import { HomePageQuery } from "@cy7/gql-types";
+
+interface HomePageProps {
+  data: HomePageQuery;
+}
+
+function HomePage({ data }: HomePageProps): React.ReactElement {
+  // Static type information is available on `data` in here
+}
+
+export const query = graphql`
+  query homePage {
+    // ....
+  }
+`;
+```

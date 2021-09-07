@@ -1,0 +1,15 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Guides / Blogging" />
+
+# Blogging
+
+Blog posts are written in [MDX](https://www.gatsbyjs.com/docs/how-to/routing/mdx/), and live in `@cy7/website/blog/posts`.
+
+A [frontmatter](https://www.gatsbyjs.com/docs/how-to/routing/mdx/#using-frontmatter-in-mdx) block is required for each article, and you **must** provide a `title`, `description`, `slug` and `date`.
+
+Note that the `description` is also used to populate the `<meta name="description">` tag for SEO purposes.
+
+The `slug` defines the URL of the blog post, so ensure it's unique. The URL structure aims to be flat: blog post URLs are simply formed as `https://cy7.io/<slug>`.
+
+Rather than auto-generating a date based on file creation or modification time, it's left up to the author to manually provide a `date`. This is the simplest way to support use cases such as writing an article one day and publishing it later down the line, or editing an error after publishing, etc.

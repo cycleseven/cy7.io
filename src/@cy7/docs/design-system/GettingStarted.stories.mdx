@@ -1,0 +1,139 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Design system / Getting started" />
+
+# Design system
+
+The `@cy7/design-system` internal package provides the base theme and core components for the website.
+
+Import React components and use them like this:
+
+```tsx
+import { Stack } from "@cy7/design-system";
+
+function MyPage(): React.ReactElement {
+  return (
+    <Stack space="3">
+      {/* ... */}
+    </Stack>
+  )
+}
+```
+
+## Using the theme
+
+The design system is not only a component library. It also enables consumers to easily create new components with the same design language via **theme tokens**.
+
+Make use of the theme via the [Stitches APIs](https://stitches.dev/docs/api) that are re-exported from the design system package.
+
+```tsx
+import { Link, styled } from "@cy7/design-system";
+
+// Create new styled components using the styled()
+// API provided by Stitches.
+const MyButton = styled("button", {
+  textTransform: "uppercase"
+});
+
+const MyCustomLink = styled(Link, {
+  // Theme tokens are available inside styled(), and
+  // TypeScript can even suggest them to you.
+  color: "$angrypeach"
+});
+```
+
+Refer to `stitches.config.ts` for all available theme tokens.
+
+## Philosophy
+
+When styling new components, consider iterating on the theme and adding new components to the design system instead of writing new unique styles. Don't fear sweeping changes, especially while the project is young.
+
+By centralising design patterns, the design system becomes more helpful over time, and visual consistency becomes the path of least resistance.
+
+
+## Color modes
+
+The design system also provides alternate color modes. Components adapt to their environment when rendered inside a section with an alternative color mode active.
+
+`TODO: example`
+
+The available color modes are:
+
+- `darkSection`
+- `warningSection`
+
+## Layout
+
+A key principle in cy7.io's approach to styling is that components don't make assumptions about the context in which they'll be rendered. That means design system components don't ship with built-in margins, and layout is left up to the consumer.
+
+To help avoid repetitive layout code on the consumer side, you can make use of **layout components** provided by the design system. For example, the `<Stack>` component spaces its children vertically.
+
+`TODO: example`
+
+For more complex layouts, components can be nested.
+
+`TODO: example`
+
+If you're not familiar with the concept of layout components, the guides at Seek's [Braid design system](https://seek-oss.github.io/braid-design-system/foundations/layout/) and [everylayout.dev](https://every-layout.dev/rudiments/composition/) that inspired this approach are highly recommended reading.
+
+## Global styles
+
+The design system provides a `applyGlobalStyles()` function. This inserts global CSS rules that apply:
+
+- Font loading (using `@font-face`).
+- Global resets based on [Eric Meyer's reset stylesheet](http://meyerweb.com/eric/tools/css/reset/).
+- Baseline typography styles for elements like `<p>` and `<h1>`. (See **Typography** below)
+
+Consumers of the design system should call this function following the example in the Stitches docs. Ideally this should be in a top-level component like `<App>`, or a Gatsby layout component.
+
+In the [cy7.io](http://cy7.io) Gatsby project, the `<Page />` component applies global styles for you. Since all pages should render this component anyway, you don't need to apply them directly.
+
+## Colors
+
+These base colors are available via the Stitches theme.
+
+`TODO: example`
+
+Alternative shades are also available.
+
+`TODO: example`
+
+The following semantic color tokens make it possible to build design system components that adapt under alternative color modes, simply by having the color mode themes point the names to different underlying values. Typically you should use these in practice, and you should feel free to add more aliases as required to support new components.
+
+`TODO: example`
+
+The design system also exports the hue values for the base colors. You can use these together with HSL values in CSS to create custom shades.
+
+## Typography
+
+The approach used for typography is under review and likely to change soon.
+
+The global styles applied to tags like `<p>` and `<h1>` break layout composability by including their own margins. Reuse of design system typography elements is also difficult in contexts other than [cy7.io](http://cy7.io) itself. For example, in this Storybook, cy7.io's global typography rules can end up clashing with Storybook's own styles.
+
+Typography.js is used to generate global styles for HTML text elements like `<p>` and `<h1>`.
+
+## Responsiveness
+
+The site's design is intentionally kept simple, with elements mostly stacked vertically regardless of viewport size. This means that mobile and desktop viewport configurations are typically well-supported by a single design already.
+
+However, a single breakpoint at `(min-width: 900px)` is provided for situations where mobile and desktop variations are required.
+
+The current goal is to try to minimise the number of breakpoints required at the design level. But more might be added in future, if the need arises.
+
+## Utils
+
+The design system provides some shortcuts for common CSS patterns. These behave like their counterparts in Tailwind or Styled System.
+
+- `marginX`
+- `marginY`
+- `paddingX`
+- `paddingY`
+- `size`
+
+Stitches makes these utils available whenever styles are applied through its APIs.
+
+`<storybook usage example>`
+
+## Components
+
+Check out the sidebar over on the left of the page for usage examples and reference docs for each component provided by the design system.
