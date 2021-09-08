@@ -1,0 +1,12 @@
+<!-- Workaround for a Storybook bug where Storybook's styles can be overridden
+     by global styles from cy7.io's design system.
+
+     https://github.com/storybookjs/storybook/issues/12573
+-->
+<style data-preview-head="true">
+  .sbdocs-h1,
+  .sbdocs-h2,
+  .sbdocs-h3 {
+    text-transform: initial;
+  }
+</style>

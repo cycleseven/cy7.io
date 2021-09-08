@@ -1,4 +1,4 @@
-import { Meta, Preview, Story, Props } from "@storybook/addon-docs/blocks";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { Logo } from "@cy7/design-system";
 
 <Meta title="Design System / Components / Logo" component={Logo} />
@@ -7,22 +7,24 @@ import { Logo } from "@cy7/design-system";
 
 Renders an inline SVG of the cy7 logo.
 
-## Props
+```tsx
+import { Logo } from "@cy7/design-system";
+```
 
-<Props of={Logo} />
-
-## Default size
-
-<Preview withSource="open">
-  <Story name="default size">
+<Canvas withSource="open">
+  <Story name="Default size">
     <Logo />
   </Story>
-</Preview>
+</Canvas>
 
-## custom size
+## With custom size
 
-<Preview withSource="open">
-  <Story name="Custom size">
+<Canvas withSource="open">
+  <Story name="With custom size">
     <Logo size={200} />
   </Story>
-</Preview>
+</Canvas>
+
+## Props
+
+<ArgsTable exclude={["css", "ref"]} of={Logo} />

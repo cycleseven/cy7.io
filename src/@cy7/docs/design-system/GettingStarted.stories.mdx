@@ -1,4 +1,4 @@
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Meta } from "@storybook/addon-docs";
 
 <Meta title="Design system / Getting started" />
 
@@ -19,6 +19,18 @@ function MyPage(): React.ReactElement {
   )
 }
 ```
+
+## Components
+
+All design system components support the standard `styled()` props provided by Stitches:
+
+- [the `css` prop for style overrides](https://stitches.dev/docs/overriding-styles#the-css-prop).
+- [the polymorphic `as` prop](https://stitches.dev/docs/api#as-prop).
+
+Refs are always forwarded to the underlying component.
+
+Check out the sidebar over on the left of the page for usage examples and reference docs for each individual component.
+
 
 ## Using the theme
 
@@ -133,7 +145,3 @@ The design system provides some shortcuts for common CSS patterns. These behave 
 Stitches makes these utils available whenever styles are applied through its APIs.
 
 `<storybook usage example>`
-
-## Components
-
-Check out the sidebar over on the left of the page for usage examples and reference docs for each component provided by the design system.

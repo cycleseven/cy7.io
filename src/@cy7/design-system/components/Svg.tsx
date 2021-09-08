@@ -7,6 +7,12 @@ const BlockSvg = styled("svg", {
 });
 
 type SvgProps = {
+  /**
+   * Sets an image label for screen readers.
+   *
+   * If no title is provided, the SVG is assumed to be purely decorative, and
+   * `aria-hidden` is set instead.
+   */
   title?: string;
 } & ComponentProps<typeof BlockSvg> &
   VariantProps<typeof BlockSvg>;

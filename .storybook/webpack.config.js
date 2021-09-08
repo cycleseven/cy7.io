@@ -8,7 +8,7 @@ module.exports = async ({ config }) => ({
     ...config.resolve,
     modules: [
       path.resolve(__dirname, "../src"),
-      path.resolve(__dirname, "../types"),
+      path.resolve(__dirname, "../generated"),
       "node_modules",
     ],
   },

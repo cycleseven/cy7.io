@@ -63,3 +63,5 @@ You can read more about this project's code quality policy in the developer guid
 - **Check for Prettier violations:** `yarn prettier --check .`.
 - **Format all code with Prettier:** `yarn prettier --write .`.
 - **Run all code quality checks at once:** `yarn lefthook run check-all`. Lints all code, checks formatting, detects TS errors, runs the test suite.
+- **Run Storybook:** `yarn storybook`
+- **Build Storybook:** `yarn build-storybook --docs`

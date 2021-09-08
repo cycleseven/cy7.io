@@ -2,6 +2,9 @@ import { styled, Svg, SvgProps } from "@cy7/design-system";
 import React from "react";
 
 type LogoProps = {
+  /**
+   * Override the default size. Value is interpreted as `px`.
+   */
   size?: number;
 } & SvgProps;
 
@@ -9,6 +12,9 @@ const Path = styled("path", {
   fill: "$bodyText",
 });
 
+/**
+ * Renders an inline SVG of the cy7.io logo.
+ */
 function Logo({ size = 48, ...props }: LogoProps): React.ReactElement {
   const originalWidth = 238;
   const originalHeight = 265;
