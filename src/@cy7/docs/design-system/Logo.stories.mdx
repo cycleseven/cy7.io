@@ -1,5 +1,5 @@
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { Logo } from "@cy7/design-system";
+import { Box, Logo, darkSection, warningSection } from "@cy7/design-system";
 
 <Meta title="Design System / Components / Logo" component={Logo} />
 
@@ -24,6 +24,27 @@ import { Logo } from "@cy7/design-system";
     <Logo size={200} />
   </Story>
 </Canvas>
+
+## Color modes
+
+`<Logo />` visually adapts to the active color mode.
+
+<Canvas withSource="open">
+  <Story name="Dark mode">
+    <Box className={darkSection} css={{ background: "$bg", padding: "$1" }}>
+      <Logo />
+    </Box>
+  </Story>
+</Canvas>
+
+<Canvas withSource="open">
+  <Story name="Warning mode">
+    <Box className={warningSection} css={{ background: "$bg", padding: "$1" }}>
+      <Logo />
+    </Box>
+  </Story>
+</Canvas>
+
 
 ## Props
 
