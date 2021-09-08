@@ -1,0 +1,24 @@
+import { Box, GutterBox } from "@cy7/design-system";
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Design system / Layout / GutterBox" component={GutterBox} />
+
+# GutterBox
+
+Used to apply consistent gutter padding across pages in the app.
+
+<Canvas withSource="open">
+  <Story name="Default">
+    <Box css={{ border: "dashed 2px $candyfloss" }}>
+      <p>I'm outside the GutterBox. That dotted edge is a bit too close for comfort, right?</p>
+    <GutterBox>
+        <p>This content is nested inside a GutterBox. It doesn't jam up against the edges of its container thanks to the horizontal padding the gutters provide.</p>
+        <p>Try resizing the window. Note how the gutters shrink on mobile viewports to create a little more space for the content.</p>
+    </GutterBox>
+    </Box>
+  </Story>
+</Canvas>
+
+## Props
+
+This component doesn't take any special props other than the default ones provided by Stitches: just pass some children through.
