@@ -1,0 +1,35 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Website / Components / Page" />
+
+# Page
+
+The root layout component that all pages are expected to render.
+
+* Renders the page footer.
+* Applies global CSS.
+* Ensures short pages fill the available viewport height.
+* Renders a warning about lack of support for old browsers on browsers that don't support CSS grid.
+
+```tsx
+import { Page } from "@cy7/website/common";
+import React from "react";
+
+function MyCoolPage(): React.ReactElement {
+  return (
+    <Page>
+      <p>Page content goes here</p>
+    </Page>
+  );
+}
+
+export default MyCoolPage;
+```
+
+In order to maximise flexibility, `<Page />` is intentionally unopinionated about how to lay out its children: no padding/centering/etc is provided out-of-the-box.
+
+Consistent page margins and centering of content are instead achieved with the `<Gutters />` and `<MaxWidth />` layout components from the design system. Check them out: they're likely to come in handy for new pages and templates.
+
+## Props
+
+Page doesn't accept any props other than `children`.

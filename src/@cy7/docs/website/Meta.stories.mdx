@@ -1,6 +1,7 @@
-import { Meta } from "@storybook/addon-docs";
+import { Meta as Cy7Meta } from "@cy7/website/common";
+import { ArgsTable, Meta } from "@storybook/addon-docs";
 
-<Meta title="Website / Meta" />
+<Meta title="Website / Components / Meta" />
 
 # Meta
 
@@ -12,8 +13,8 @@ Under the hood, the `<Meta />` component uses [react-helmet](https://github.com/
 
 ## Usage
 
-```jsx
-import { Meta } from "@cy7/website";
+```tsx
+import { Meta } from "@cy7/website/common";
 
 // Then use the component in your page like this
 <Meta title="My blog post" description="Description for search engines." />
@@ -25,3 +26,33 @@ Titles are auto-suffixed with `— cy7.io`. The resulting HTML for the example a
 <title>My blog post — cy7.io</title>
 <meta name="description" content="Description for search engines." />
 ```
+
+## Opting out of search engine indexing
+
+In general, both `title` and `description` are required props.
+
+Some pages shouldn't be indexed by search engines (for example, the 404 page): a `noIndex` prop is provided to help with this.
+
+When `noIndex` is used, a `<meta content="noindex" name="robots" />` tag is rendered in the document head. A `description` should not be provided.
+
+```tsx
+import { Meta } from "@cy7/website/common";
+
+<Meta title="Not found" noIndex />
+```
+
+## Opting out of the `— cy7.io` title suffix
+
+In case you'd prefer not to auto-suffix the page title, use the `noTitleTemplate` prop.
+
+```tsx
+import { Meta } from "@cy7/website/common";
+
+<Meta title="cy7.io — owen's wee website" noTitleTemplate />
+```
+
+In this case, the resulting title tag is used unmodified: `<title>cy7.io — owen's wee website/title>`
+
+## Props
+
+<ArgsTable of={Cy7Meta} />

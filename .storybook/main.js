@@ -21,6 +21,7 @@ module.exports = {
     "../src/@cy7/docs/design-system/**/*.stories.{mdx,tsx}",
 
     // Website
+    "../src/@cy7/docs/website/Overview.stories.mdx",
     "../src/@cy7/docs/website/**/*.stories.{mdx,tsx}",
   ],
 };

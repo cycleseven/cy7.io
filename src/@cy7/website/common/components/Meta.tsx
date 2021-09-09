@@ -2,15 +2,32 @@ import React from "react";
 import { Helmet } from "react-helmet";
 
 interface BaseMetaProps {
+  /**
+   * Set to true to disable auto-formatting the `<title>` with the suffix `- cy7.io`
+   */
   noTitleTemplate?: boolean;
+
+  /**
+   * Defines the page's `<title>` tag (ie. it's name in the tab bar).
+   */
   title: string;
 }
 
 interface MetaPropsWithDescription extends BaseMetaProps {
+  /**
+   * Defines the content of the page's `<meta name="description">` tag.
+   *
+   * Must be provided, unless `noIndex` is true.
+   */
   description: string;
 }
 
 interface MetaPropsWithNoIndex extends BaseMetaProps {
+  /**
+   * Use the `noIndex` prop to exclude the page from search engine indexing using the `<meta content="noindex" name="robots" />` tag.
+   *
+   * A description should not be provided when using `noIndex`.
+   */
   noIndex: true;
 }
 
