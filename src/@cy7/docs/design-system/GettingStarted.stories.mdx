@@ -1,4 +1,7 @@
-import { Meta } from "@storybook/addon-docs";
+import { Box, MaxWidth, Stack, theme } from "@cy7/design-system";
+import { ColorSwatch } from "@cy7/docs/doc-components/ColorSwatch";
+import Placeholder from "@cy7/docs/doc-components/Placeholder";
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
 
 <Meta title="Design system / Getting started" />
 
@@ -11,7 +14,7 @@ Import React components and use them like this:
 ```tsx
 import { Stack } from "@cy7/design-system";
 
-function MyPage(): React.ReactElement {
+function MyPage() {
   return (
     <Stack space="3">
       {/* ... */}
@@ -62,29 +65,143 @@ When styling new components, consider iterating on the theme and adding new comp
 
 By centralising design patterns, the design system becomes more helpful over time, and visual consistency becomes the path of least resistance.
 
+## Colors
+
+These base colors are available via the Stitches theme.
+
+<Canvas>
+  <Story name="Base color palette">
+    <ColorSwatch color={theme.colors.angrypeach.value} name="angrypeach" />
+    <ColorSwatch color={theme.colors.candyfloss.value} name="candyfloss" />
+    <ColorSwatch color={theme.colors.dijon.value} name="dijon" />
+    <ColorSwatch color={theme.colors.obsidian.value} name="obsidian" />
+    <ColorSwatch color={theme.colors.glasgow.value} name="glasgow" />
+    <ColorSwatch color={theme.colors.paper.value} name="paper" />
+  </Story>
+</Canvas>
+
+Semantic color tokens make it possible to build design system components that adapt under alternative color modes, simply by having the color mode themes point the names to different underlying values. Typically you should use these in practice instead of referring to base colors directly, and you should feel free to add more aliases as required to support new components.
+
+<Canvas>
+  <Story name="Semantic color names">
+    <ColorSwatch color={theme.colors.accent.value} name="accent" />
+    <ColorSwatch color={theme.colors.bg.value} name="bg" />
+    <ColorSwatch color={theme.colors.contrast.value} name="contrast" />
+    <ColorSwatch color={theme.colors.bodyText.value} name="bodyText" />
+  </Story>
+</Canvas>
+
+Refer to `stitches.config.ts` for the full list of semantic color names.
+
+The design system also exports the raw hue numbers for the base colors. You can use these in HSL values to create custom shades.
+
+```tsx
+import { hues } from "@cy7/design-system";
+
+const { candyfloss } = hues;
+const candyflossLite = `hsl(${candyfloss}, 100%, 88%)`;
+```
+
+## Typography
+
+Typography.js is used to generate global styles for HTML text elements like `<p>` and `<h1>`.
+
+Simply render those components for styled text. Consider wrapping typographic elements in a `<MaxWidth width="bestForText">` component for a nice readable maximum line length.
+
+<Canvas withSource="open">
+  <Story name="Typography example">
+    <MaxWidth width="bestForText">
+      <h1>Hello, world</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna sit amet purus gravida.</p>
+      <p>
+        At urna condimentum mattis pellentesque id nibh tortor id. Magna sit amet purus gravida quis.
+      </p>
+      <h2>
+        A subheading
+      </h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna sit amet purus gravida.</p>
+    </MaxWidth>
+  </Story>
+</Canvas>
+
+> ⚠️ The approach used for typography is under review and likely to change soon.
+>
+> The global styles applied to tags like `<p>` and `<h1>` break layout composability by including their own margins. Reuse of design system typography elements is also difficult in contexts other than [cy7.io](http://cy7.io) itself. For example, workarounds are needed to prevent cy7.io's global typography rules from clashing with Storybook's own styles in these docs.
 
 ## Color modes
 
-The design system also provides alternate color modes. Components adapt to their environment when rendered inside a section with an alternative color mode active.
-
-`TODO: example`
+The design system also provides alternate color modes. Components adapt to their environment when rendered inside a section with an alternative color mode active. [See the `<Link />` docs for an example.](/docs/design-system-components-link--default-story#color-modes)
 
 The available color modes are:
 
 - `darkSection`
 - `warningSection`
 
+To use a color mode, simply import it from import { ColorSwatch } from "@cy7/docs/doc-components/ColorSwatch"; the design system and pass it into the `className` of a container element.
+
+```tsx
+import { darkSection } from "@cy7/design-system";
+
+<div className={darkSection}>
+  {/* In this section, colors are overridden by the dark theme */}
+</div>
+```
+
+In general, you'll probably want to apply the theme background color too.
+
+```tsx
+import { Box, darkSection } from "@cy7/design-system";
+
+<Box className={darkSection} css={{ background: "$bg" }}>
+  {/* In this section, colors are overridden by the dark theme */}
+</Box>
+```
+
+> TODO: consider capturing this pattern as a `<ColorMode>` component.
+
 ## Layout
 
 A key principle in cy7.io's approach to styling is that components don't make assumptions about the context in which they'll be rendered. That means design system components don't ship with built-in margins, and layout is left up to the consumer.
 
+<Canvas withSource="open">
+  <Story name="No margins by default">
+    <div>
+      <Placeholder />
+      <Placeholder />
+      <Placeholder />
+    </div>
+  </Story>
+</Canvas>
+
 To help avoid repetitive layout code on the consumer side, you can make use of **layout components** provided by the design system. For example, the `<Stack>` component spaces its children vertically.
 
-`TODO: example`
+<Canvas withSource="open">
+  <Story name="Stack example">
+    <Stack space="1">
+      <Placeholder />
+      <Placeholder />
+      <Placeholder />
+    </Stack>
+  </Story>
+</Canvas>
+
 
 For more complex layouts, components can be nested.
 
-`TODO: example`
+<Canvas withSource="open">
+  <Story name="Complex layout example">
+    <MaxWidth width="bestForText">
+      <Stack space="2">
+        <h1>Hello world</h1>
+        <Stack>
+          <Placeholder />
+          <Placeholder />
+          <Placeholder />
+        </Stack>
+      </Stack>
+    </MaxWidth>
+  </Story>
+</Canvas>
 
 If you're not familiar with the concept of layout components, the guides at Seek's [Braid design system](https://seek-oss.github.io/braid-design-system/foundations/layout/) and [everylayout.dev](https://every-layout.dev/rudiments/composition/) that inspired this approach are highly recommended reading.
 
@@ -100,30 +217,6 @@ Consumers of the design system should call this function following the example i
 
 In the [cy7.io](http://cy7.io) Gatsby project, the `<Page />` component applies global styles for you. Since all pages should render this component anyway, you don't need to apply them directly.
 
-## Colors
-
-These base colors are available via the Stitches theme.
-
-`TODO: example`
-
-Alternative shades are also available.
-
-`TODO: example`
-
-The following semantic color tokens make it possible to build design system components that adapt under alternative color modes, simply by having the color mode themes point the names to different underlying values. Typically you should use these in practice, and you should feel free to add more aliases as required to support new components.
-
-`TODO: example`
-
-The design system also exports the hue values for the base colors. You can use these together with HSL values in CSS to create custom shades.
-
-## Typography
-
-The approach used for typography is under review and likely to change soon.
-
-The global styles applied to tags like `<p>` and `<h1>` break layout composability by including their own margins. Reuse of design system typography elements is also difficult in contexts other than [cy7.io](http://cy7.io) itself. For example, in this Storybook, cy7.io's global typography rules can end up clashing with Storybook's own styles.
-
-Typography.js is used to generate global styles for HTML text elements like `<p>` and `<h1>`.
-
 ## Responsiveness
 
 The site's design is intentionally kept simple, with elements mostly stacked vertically regardless of viewport size. This means that mobile and desktop viewport configurations are typically well-supported by a single design already.
@@ -134,14 +227,23 @@ The current goal is to try to minimise the number of breakpoints required at the
 
 ## Utils
 
-The design system provides some shortcuts for common CSS patterns. These behave like their counterparts in Tailwind or Styled System.
+When using Stitches APIs such as `styled()` or the `css` prop, some shortcuts for common CSS patterns are available. Similar patterns can be found in libraries like Tailwind and Styled System.
 
-- `marginX`
-- `marginY`
-- `paddingX`
-- `paddingY`
-- `size`
+- `marginX`: bundles `marginLeft` and `marginRight` together.
+- `marginY`: bundles `marginTop` and `marginBottom` together.
+- `paddingX`: bundles `paddingLeft` and `paddingRight` together.
+- `paddingY`: bundles `paddingTop` and `paddingBottom` together.
+- `size`: bundles `width` and `height` together.
 
-Stitches makes these utils available whenever styles are applied through its APIs.
+<Canvas withSource="open">
+  <Story name="Utils example">
+    <Box css={{
+      background: "$contrast",
+      // Note how `size` is available as if it were a standard CSS property.
+      // This sets `width` and `height` in one go.
+      size: 50
+    }} />
+  </Story>
+</Canvas>
 
-`<storybook usage example>`
+Refer to `stitches.config.ts` for the full set of available utils.
