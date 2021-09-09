@@ -1,0 +1,28 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Website / Components / Img" />
+
+# Img
+
+Wrapped version of [`<GatsbyImage />`](https://www.gatsbyjs.com/plugins/gatsby-plugin-image/) that defines how placeholders look during the loading phase. Images are rendered as a solid shape using the `candyfloss` color from the palette.
+
+Use this instead of using Gatsby's component directly for better visual consistency across images in the site.
+
+
+## Usage
+
+```tsx
+import { Img } from "@cy7/website/common";
+
+function MyComponent({ data }) {
+  const coolImage = data.coolImage.childImageSharp.gatsbyImageData;
+  return (
+    <Img alt="A cool image" image={coolImage} />
+  )
+}
+```
+
+
+## Props
+
+All props are forwards to the underlying component: [any prop accepted by GatsbyImage is accepted](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image/#gatsbyimage).

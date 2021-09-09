@@ -12,8 +12,11 @@ const StyledImage = styled(GatsbyImage, {
 });
 
 /**
- * Wrapped version of gatsby-image's <Img /> component that applies
- * placeholders with a consistent style.
+ * Wrapped version of `<GatsbyImage />` that defines how placeholders look
+ * during the loading phase.
+ *
+ * Use this instead of using `<GatsbyImage />` directly for better visual
+ * consistency across images in the site.
  */
 function Img(props: ImgProps): React.ReactElement {
   return <StyledImage backgroundColor={theme.colors.accent.value} {...props} />;
