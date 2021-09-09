@@ -65,6 +65,76 @@ When styling new components, consider iterating on the theme and adding new comp
 
 By centralising design patterns, the design system becomes more helpful over time, and visual consistency becomes the path of least resistance.
 
+## Global styles
+
+Some global styles are required for use with cy7.io's design system. These can be applied with the `applyGlobalStyles()` function exported from the design system package.
+
+Consumers of the design system should call this function as described in [the globalCss example in the Stitches docs](https://stitches.dev/docs/api#globalcss). Ideally this should be in a top-level component like `<App>`, or a Gatsby layout component.
+
+```tsx
+import { applyGlobalStyles } from "@cy7/design-system";
+
+function MyComponent() {
+  applyGlobalStyles();
+  return <div />;
+}
+```
+
+This inserts the following global CSS rules:
+
+- Font loading (using `@font-face`).
+- Global resets based on [Eric Meyer's reset stylesheet](http://meyerweb.com/eric/tools/css/reset/).
+- Baseline typography styles for elements like `<p>` and `<h1>`. (See **Typography** below)
+
+
+> 👉 In the Gatsby project, the `<Page />` component applies global styles for you. Since all pages should render this component anyway, you won't need to apply global styles directly in practice when working on cy7.io.
+
+
+## Layout
+
+A key principle in cy7.io's approach to styling is that components don't make assumptions about the context in which they'll be rendered. That means design system components don't ship with built-in margins, and layout is left up to the consumer.
+
+<Canvas withSource="open">
+  <Story name="No margins by default">
+    <div>
+      <Placeholder />
+      <Placeholder />
+      <Placeholder />
+    </div>
+  </Story>
+</Canvas>
+
+To help avoid repetitive layout code on the consumer side, you can make use of **layout components** provided by the design system. For example, the `<Stack>` component spaces its children vertically.
+
+<Canvas withSource="open">
+  <Story name="Stack example">
+    <Stack space="1">
+      <Placeholder />
+      <Placeholder />
+      <Placeholder />
+    </Stack>
+  </Story>
+</Canvas>
+
+For more complex layouts, components can be nested.
+
+<Canvas withSource="open">
+  <Story name="Complex layout example">
+    <MaxWidth width="bestForText">
+      <Stack space="3">
+        <h1>Hello world</h1>
+        <Stack>
+          <Placeholder />
+          <Placeholder />
+          <Placeholder />
+        </Stack>
+      </Stack>
+    </MaxWidth>
+  </Story>
+</Canvas>
+
+If you're not familiar with the concept of layout components, the guides at Seek's [Braid design system](https://seek-oss.github.io/braid-design-system/foundations/layout/) and [everylayout.dev](https://every-layout.dev/rudiments/composition/) that inspired this approach are highly recommended reading.
+
 ## Colors
 
 These base colors are available via the Stitches theme.
@@ -158,64 +228,6 @@ import { Box, darkSection } from "@cy7/design-system";
 ```
 
 > TODO: consider capturing this pattern as a `<ColorMode>` component.
-
-## Layout
-
-A key principle in cy7.io's approach to styling is that components don't make assumptions about the context in which they'll be rendered. That means design system components don't ship with built-in margins, and layout is left up to the consumer.
-
-<Canvas withSource="open">
-  <Story name="No margins by default">
-    <div>
-      <Placeholder />
-      <Placeholder />
-      <Placeholder />
-    </div>
-  </Story>
-</Canvas>
-
-To help avoid repetitive layout code on the consumer side, you can make use of **layout components** provided by the design system. For example, the `<Stack>` component spaces its children vertically.
-
-<Canvas withSource="open">
-  <Story name="Stack example">
-    <Stack space="1">
-      <Placeholder />
-      <Placeholder />
-      <Placeholder />
-    </Stack>
-  </Story>
-</Canvas>
-
-
-For more complex layouts, components can be nested.
-
-<Canvas withSource="open">
-  <Story name="Complex layout example">
-    <MaxWidth width="bestForText">
-      <Stack space="2">
-        <h1>Hello world</h1>
-        <Stack>
-          <Placeholder />
-          <Placeholder />
-          <Placeholder />
-        </Stack>
-      </Stack>
-    </MaxWidth>
-  </Story>
-</Canvas>
-
-If you're not familiar with the concept of layout components, the guides at Seek's [Braid design system](https://seek-oss.github.io/braid-design-system/foundations/layout/) and [everylayout.dev](https://every-layout.dev/rudiments/composition/) that inspired this approach are highly recommended reading.
-
-## Global styles
-
-The design system provides a `applyGlobalStyles()` function. This inserts global CSS rules that apply:
-
-- Font loading (using `@font-face`).
-- Global resets based on [Eric Meyer's reset stylesheet](http://meyerweb.com/eric/tools/css/reset/).
-- Baseline typography styles for elements like `<p>` and `<h1>`. (See **Typography** below)
-
-Consumers of the design system should call this function following the example in the Stitches docs. Ideally this should be in a top-level component like `<App>`, or a Gatsby layout component.
-
-In the [cy7.io](http://cy7.io) Gatsby project, the `<Page />` component applies global styles for you. Since all pages should render this component anyway, you don't need to apply them directly.
 
 ## Responsiveness
 
