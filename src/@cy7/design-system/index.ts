@@ -14,7 +14,7 @@ export { default as Svg } from "@cy7/design-system/components/Svg";
 // Layout
 export { default as Box } from "@cy7/design-system/layout/Box";
 export { default as Grid } from "@cy7/design-system/layout/Grid";
-export { default as GutterBox } from "@cy7/design-system/layout/GutterBox";
+export { default as Gutters } from "@cy7/design-system/layout/Gutters";
 export { default as MaxWidth } from "@cy7/design-system/layout/MaxWidth";
 export { default as Stack } from "@cy7/design-system/layout/Stack";
 

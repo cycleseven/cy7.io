@@ -9,7 +9,7 @@ import {
   MdxInlineCode,
   MdxLink,
 } from "@cy7/website/blog";
-import { styled, GutterBox, MaxWidth } from "@cy7/design-system";
+import { styled, Gutters, MaxWidth } from "@cy7/design-system";
 import { Meta, Page, WarpTotem } from "@cy7/website/common";
 import { BlogPostPageQuery } from "@cy7/gql-types";
 import { MDXProvider } from "@mdx-js/react";
@@ -76,7 +76,7 @@ function BlogPost({ data }: BlogPostProps): React.ReactElement {
 
   return (
     <Page>
-      <GutterBox>
+      <Gutters>
         <Root width="bestForText">
           <main>
             <Meta
@@ -104,7 +104,7 @@ function BlogPost({ data }: BlogPostProps): React.ReactElement {
             </article>
           </main>
         </Root>
-      </GutterBox>
+      </Gutters>
     </Page>
   );
 }

@@ -1,5 +1,5 @@
 import { Link, Meta, Page, WarpTotem } from "@cy7/website/common";
-import { GutterBox, MaxWidth, styled } from "@cy7/design-system";
+import { Gutters, MaxWidth, styled } from "@cy7/design-system";
 import React from "react";
 
 const Article = styled("article", MaxWidth, {
@@ -9,7 +9,7 @@ const Article = styled("article", MaxWidth, {
 function NotFoundPage(): React.ReactElement {
   return (
     <Page>
-      <GutterBox>
+      <Gutters>
         <Meta noIndex title="Not found" />
         <nav>
           <WarpTotem />
@@ -27,7 +27,7 @@ function NotFoundPage(): React.ReactElement {
             </p>
           </Article>
         </main>
-      </GutterBox>
+      </Gutters>
     </Page>
   );
 }

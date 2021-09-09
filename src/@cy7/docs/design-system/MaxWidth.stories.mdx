@@ -1,0 +1,45 @@
+import { MaxWidth } from "@cy7/design-system";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Design system / Layout / MaxWidth" component={MaxWidth} />
+
+# MaxWidth
+
+A layout component that centers and restricts the max width of its children.
+
+```tsx
+import { MaxWidth } from "@cy7/design-system";
+```
+
+<Canvas withSource="open">
+  <Story name="Default">
+    <MaxWidth>
+      <p>This box is restricted from growing too wide, and is centered within the viewport on wider screens. You can't really tell in Storybook though, so you'll have to make a leap of faith here 😅</p>
+    </MaxWidth>
+  </Story>
+</Canvas>
+
+`<MaxWidth />` is often used together with `<Gutters />`: see [the example in the docs for `<Gutters />`](/docs/design-system-layout-gutters--default-story#laying-out-a-page).
+
+## Width variants
+
+There are two width variants available.
+
+The default variant is `regular`, as demonstrated above. This variant provides a nice maximum width for arbitrary content. If a `width` prop isn't provided, `regular` is used.
+
+For text sections and articles, a narrower variant `bestForText` is provided. This optimises for readable line length and is the variant you should use for paragraphs and longform text.
+
+<Canvas withSource="open">
+  <Story name="Best for text">
+    <MaxWidth width="bestForText">
+      <p>Note how this text wraps at a narrower width. Easier on the eyes than the example above, hopefully. And easier to see what effect the MaxWidth component is having too!</p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum facilisis leo vel. Scelerisque fermentum dui faucibus in ornare quam viverra orci. Laoreet sit amet cursus sit amet dictum sit amet.
+      </p>
+    </MaxWidth>
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable exclude={["as", "css", "ref"]} of={MaxWidth} />

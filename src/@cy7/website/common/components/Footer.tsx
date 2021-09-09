@@ -2,7 +2,7 @@ import {
   darkSection,
   styled,
   Grid,
-  GutterBox,
+  Gutters,
   Logo,
   MaxWidth,
   Stack,
@@ -85,7 +85,7 @@ function Footer(): React.ReactElement {
 
   return (
     <FooterBlock className={darkSection}>
-      <GutterBox>
+      <Gutters>
         <MaxWidth>
           <Grid>
             <div>
@@ -105,7 +105,7 @@ function Footer(): React.ReactElement {
             </div>
           </Grid>
         </MaxWidth>
-      </GutterBox>
+      </Gutters>
     </FooterBlock>
   );
 }

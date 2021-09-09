@@ -1,6 +1,6 @@
 import { styled } from "@cy7/stitches";
 
-const GutterBox = styled("div", {
+const Gutters = styled("div", {
   paddingX: "20px",
 
   "@bp1": {
@@ -8,4 +8,4 @@ const GutterBox = styled("div", {
   },
 });
 
-export default GutterBox;
+export default Gutters;

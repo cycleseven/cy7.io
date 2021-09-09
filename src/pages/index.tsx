@@ -1,6 +1,6 @@
 import { Img, Link, Meta, Page } from "@cy7/website/common";
 import { Hero } from "@cy7/website/home";
-import { Grid, GutterBox, MaxWidth, Stack, styled } from "@cy7/design-system";
+import { Grid, Gutters, MaxWidth, Stack, styled } from "@cy7/design-system";
 import { HomePageQuery } from "@cy7/gql-types";
 import { graphql } from "gatsby";
 import React from "react";
@@ -129,7 +129,7 @@ function HomePage({ data }: HomePageProps): React.ReactElement {
 
   return (
     <Page>
-      <GutterBox>
+      <Gutters>
         <Meta
           description={description}
           noTitleTemplate
@@ -202,7 +202,7 @@ function HomePage({ data }: HomePageProps): React.ReactElement {
             </Stack>
           </Main>
         </Stack>
-      </GutterBox>
+      </Gutters>
     </Page>
   );
 }

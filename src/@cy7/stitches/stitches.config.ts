@@ -99,6 +99,13 @@ const {
       };
     },
 
+    paddingY(value: PropertyValue<"padding">) {
+      return {
+        paddingBottom: value,
+        paddingTop: value,
+      };
+    },
+
     size(value: PropertyValue<"width">) {
       return {
         height: value,

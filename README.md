@@ -54,14 +54,14 @@ You can read more about this project's code quality policy in the developer guid
 
 ## Other useful commands
 
-- **Build a production bundle:** `yarn gatsby build` (or `yarn build`).
-- **Serve that built production bundle locally:** `yarn gatsby serve`.
-- **Run Jest test suite:** `yarn jest` (or `yarn test`).
-- **Check for ESLint violations:** `yarn eslint src`.
-- **Attempt to fix lint violations automatically:** `yarn eslint --fix src`.
-- **Check for TypeScript errors:** `yarn tsc --noEmit`.
-- **Check for Prettier violations:** `yarn prettier --check .`.
-- **Format all code with Prettier:** `yarn prettier --write .`.
-- **Run all code quality checks at once:** `yarn lefthook run check-all`. Lints all code, checks formatting, detects TS errors, runs the test suite.
+- **Build a production bundle:** `yarn gatsby build` (or `yarn build`)
+- **Serve that built production bundle locally:** `yarn gatsby serve`
+- **Run Jest test suite:** `yarn jest` (or `yarn test`)
+- **Check for ESLint violations:** `yarn eslint src`
+- **Attempt to fix lint violations automatically:** `yarn eslint --fix src`
+- **Check for TypeScript errors:** `yarn tsc --noEmit`
+- **Check for Prettier violations:** `yarn prettier --check .`
+- **Format all code with Prettier:** `yarn prettier --write .`
+- **Run all code quality checks at once:** `yarn lefthook run check-all`
 - **Run Storybook:** `yarn storybook`
 - **Build Storybook:** `yarn build-storybook --docs`
