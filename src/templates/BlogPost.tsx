@@ -34,8 +34,7 @@ const Heading = styled("h1", {
 });
 
 const BlogDate = styled("p", {
-  color: "$bodyText",
-  opacity: 0.8,
+  color: "$dateText",
   fontSize: "0.6rem",
   fontWeight: "$bold",
   lineHeight: 1,

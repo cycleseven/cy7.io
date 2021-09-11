@@ -50,6 +50,7 @@ const {
       codePlain: "$paper",
       codePunctuation: `hsl(${obsidian}, 18%, 55%)`,
       contrast: "$glasgow",
+      dateText: `hsl(${obsidian}, 30%, 46%)`,
       headerText: "$obsidian",
       linkBorder: `hsl(${candyfloss}, 85%, 94%)`,
       linkBorderHover: "$candyfloss",

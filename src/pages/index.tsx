@@ -4,6 +4,7 @@ import { Grid, Gutters, MaxWidth, Stack, styled } from "@cy7/design-system";
 import { HomePageQuery } from "@cy7/gql-types";
 import { graphql } from "gatsby";
 import React from "react";
+import { obsidian } from "@cy7/design-system/theme/hues";
 
 const Header = styled("header", {
   alignItems: "center",
@@ -104,8 +105,7 @@ const ShowcaseDescription = styled("p", {
 });
 
 const ShowcaseDate = styled("p", {
-  color: "$bodyText",
-  opacity: 0.7,
+  color: "$dateText",
   fontSize: "0.54rem",
   fontWeight: "$bold",
   lineHeight: "$space$1",
