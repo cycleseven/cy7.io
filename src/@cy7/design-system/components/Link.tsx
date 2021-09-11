@@ -1,4 +1,4 @@
-import { styled, darkSection } from "@cy7/stitches";
+import { styled, darkSection } from "@cy7/design-system/stitches.config";
 
 const Link = styled("a", {
   outlineOffset: 0,

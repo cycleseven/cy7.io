@@ -1,5 +1,5 @@
 import { CSS } from "@stitches/react";
-import { styled, theme } from "@cy7/stitches";
+import { styled, theme } from "@cy7/design-system/stitches.config";
 
 type SpaceKey = keyof typeof theme.space;
 

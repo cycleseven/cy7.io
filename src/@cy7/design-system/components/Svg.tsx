@@ -1,5 +1,5 @@
 import React, { ComponentProps } from "react";
-import { styled } from "@cy7/stitches";
+import { styled } from "@cy7/design-system/stitches.config";
 import { VariantProps } from "@stitches/react";
 
 const BlockSvg = styled("svg", {

@@ -1,4 +1,4 @@
-import { styled } from "@cy7/stitches";
+import { styled } from "@cy7/design-system";
 
 const Code = styled("code", {
   fontFamily: "$code",

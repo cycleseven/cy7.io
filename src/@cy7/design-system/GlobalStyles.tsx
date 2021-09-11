@@ -1,4 +1,4 @@
-import { globalCss } from "@cy7/stitches";
+import { globalCss } from "@cy7/design-system/stitches.config";
 import inter400 from "./fonts/inter-400.woff2";
 import inter400Italic from "./fonts/inter-400-italic.woff2";
 import inter700 from "./fonts/inter-700.woff2";

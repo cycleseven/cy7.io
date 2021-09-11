@@ -1,6 +1,5 @@
-import { Gutters, MaxWidth, styled } from "@cy7/design-system";
+import { Gutters, MaxWidth, styled, warningSection } from "@cy7/design-system";
 import { Link } from "@cy7/website/common";
-import { warningSection } from "@cy7/stitches";
 import React from "react";
 
 const Container = styled(Gutters, {

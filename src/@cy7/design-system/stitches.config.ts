@@ -4,8 +4,8 @@ import {
   dijon,
   obsidian,
   paper,
-} from "@cy7/stitches/hues";
-import { space } from "@cy7/stitches/space";
+} from "@cy7/design-system/theme/hues";
+import { space } from "@cy7/design-system/theme/space";
 import typography from "@cy7/typography";
 import { VariantProps, createStitches, PropertyValue } from "@stitches/react";
 

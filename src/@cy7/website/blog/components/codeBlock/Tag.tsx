@@ -1,4 +1,4 @@
-import { styled } from "@cy7/stitches";
+import { styled } from "@cy7/design-system";
 
 const Tag = styled("div", {
   fontSize: "0.45rem",

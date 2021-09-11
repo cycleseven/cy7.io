@@ -1,4 +1,4 @@
-import { styled } from "@cy7/stitches";
+import { styled } from "@cy7/design-system/stitches.config";
 
 const Grid = styled("div", {
   // Provide a margin-based fallback for IE11

@@ -1,6 +1,6 @@
 import { SvgProps } from "@cy7/design-system/components/Svg";
 
-export * from "@cy7/stitches";
+export * from "@cy7/design-system/stitches.config";
 
 // Global styles
 export { applyGlobalStyles } from "@cy7/design-system/GlobalStyles";
@@ -19,5 +19,5 @@ export { default as MaxWidth } from "@cy7/design-system/layout/MaxWidth";
 export { default as Stack } from "@cy7/design-system/layout/Stack";
 
 // Types
-export type { VariantProps } from "@cy7/stitches";
+export type { VariantProps } from "@cy7/design-system/stitches.config";
 export type { SvgProps };

@@ -1,4 +1,4 @@
-import { styled } from "@cy7/stitches";
+import { styled } from "@cy7/design-system";
 import Pre from "@cy7/website/blog/components/codeBlock/Pre";
 
 const OutputContainer = styled("div", {

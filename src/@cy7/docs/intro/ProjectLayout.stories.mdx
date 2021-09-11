@@ -23,7 +23,6 @@ Let's take a bird's eye view of the code. Directories marked with (*) are genera
     - design-system/
     - docs/
     - gatsby-plugin-stitches/
-    - stitches/
     - typography/
     - website/
       - blog/
@@ -73,10 +72,9 @@ The source code for the frontend site itself. Sub-directories `pages/` and `temp
 
 The `@cy7` directory hosts the majority of the frontend code. You can think of this directory as a set of mini-packages.
 
-- **`@cy7/design-system`:** reusable visual building blocks for pages on cy7.io.
+- **`@cy7/design-system`:** reusable visual building blocks for pages on cy7.io, including the [Stitches config](https://stitches.dev/docs/installation#configure-stitches).
 - **`@cy7/docs`:** code for the Storybook docs site (that's this one!).
-- **`@cy7/gatsby-plugin-stitches`:** a minimal Gatsby plugin for integrating Stitches SSR with Gatsby, based on [this tutorial](https://stitches.dev/blog/using-gatsby-with-stitches).
-- **`@cy7/stitches`:** the [Stitches config](https://stitches.dev/docs/installation#configure-stitches) for cy7.io.
+- **`@cy7/gatsby-plugin-stitches`:** a minimal Gatsby plugin that integrates Stitches SSR with Gatsby, based on [this tutorial](https://stitches.dev/blog/using-gatsby-with-stitches).
 - **`@cy7/typography`:** configures [Typography.js](https://github.com/KyleAMathews/typography.js), which defines global base styles for text elements. (⚠️ **Note:** a future migration away from Typography.js is planned.)
 - **`@cy7/website`:** code that's specific to the [cy7.io](http://cy7.io) Gatsby site. Gatsby layout components live here, and so do utility functions to help bridge data sources to UI: see `@cy7/website/common`. Page-specific components live here too: the `@cy7/website/blog` and `@cy7/website/home` directories provide a home to extract components to when `pages` and `templates` start to get out of hand.
 

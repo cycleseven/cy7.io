@@ -1,6 +1,6 @@
 import React from "react";
 import { Svg, SvgProps } from "@cy7/design-system";
-import { theme } from "@cy7/stitches";
+import { theme } from "@cy7/design-system/stitches.config";
 
 // SVG path stolen from the open source library gatsby-remark-autolink-headers
 // (MIT licensed)
