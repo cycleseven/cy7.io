@@ -12,8 +12,7 @@ pre-push:
     typescript-check:
       run: yarn tsc --noEmit
     terraform-format-check:
-      glob: "*.{tf,tfvars}"
-      run: terraform fmt -check {all_files}
+      run: terraform fmt -check deploy/infra
     jest:
       run: yarn test
 
