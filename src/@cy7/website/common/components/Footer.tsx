@@ -110,4 +110,4 @@ function Footer(): React.ReactElement {
   );
 }
 
-export { Footer };
+export default Footer;

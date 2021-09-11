@@ -56,4 +56,4 @@ function Link({
 }
 
 export type { LinkType, LinkProps };
-export { Link };
+export default Link;

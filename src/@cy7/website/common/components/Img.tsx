@@ -23,4 +23,4 @@ function Img(props: ImgProps): React.ReactElement {
 }
 
 export type { ImgProps };
-export { Img };
+export default Img;

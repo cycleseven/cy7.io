@@ -44,4 +44,4 @@ function FullHeightPage(props: FullHeightPageProps): React.ReactElement {
   );
 }
 
-export { FullHeightPage };
+export default FullHeightPage;

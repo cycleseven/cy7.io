@@ -38,4 +38,4 @@ function OldBrowserWarning(): React.ReactElement {
   );
 }
 
-export { OldBrowserWarning };
+export default OldBrowserWarning;

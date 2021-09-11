@@ -53,4 +53,4 @@ function Meta(props: MetaProps): React.ReactElement {
   );
 }
 
-export { Meta };
+export default Meta;

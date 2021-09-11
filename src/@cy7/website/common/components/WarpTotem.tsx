@@ -1,5 +1,5 @@
 import { theme, styled, Svg, SvgProps } from "@cy7/design-system";
-import { Link } from "@cy7/website/common";
+import Link from "@cy7/website/common/components/Link";
 import React from "react";
 
 const Container = styled("div", {
@@ -1523,4 +1523,4 @@ function WarpTotem(props: SvgProps): React.ReactElement {
   );
 }
 
-export { WarpTotem };
+export default WarpTotem;
