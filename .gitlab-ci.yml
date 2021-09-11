@@ -6,7 +6,7 @@ cache:
 
 code_quality:
   stage: test
-  image: registry.gitlab.com/cycleseven/cy7/ci-lint-job:0.4.0
+  image: registry.gitlab.com/cycleseven/cy7/ci-lint-job:0.5.0
   script:
     - yarn
     - yarn lefthook run check-all
@@ -15,7 +15,7 @@ deploy:
   stage: deploy
   only:
     - master
-  image: registry.gitlab.com/cycleseven/cy7/ci-deploy-job:0.4.0
+  image: registry.gitlab.com/cycleseven/cy7/ci-deploy-job:0.5.0
   variables:
     GATSBY_BUILD_SHA: $CI_COMMIT_SHORT_SHA
   script:
