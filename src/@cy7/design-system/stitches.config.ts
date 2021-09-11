@@ -30,9 +30,9 @@ const {
       angrypeach: `hsl(${angrypeach}, 100%, 80%)`,
       candyfloss: `hsl(${candyfloss}, 85%, 87%)`,
       dijon: `hsl(${dijon}, 100%, 50%)`,
-      obsidian: `hsl(${obsidian}, 64%, 6%)`,
-      glasgow: `hsl(${obsidian}, 95%, 18%)`,
-      paper: `hsl(${paper}, 100%, 99%)`,
+      obsidian: `hsl(${obsidian}, 75%, 9%)`,
+      glasgow: `hsl(${obsidian}, 95%, 16%)`,
+      paper: `hsl(${paper}, 100%, 99.5%)`,
 
       // Shades
       candyflossLite: `hsl(${candyfloss}, 100%, 88%)`,
@@ -40,7 +40,7 @@ const {
       // Semantic colors and aliases
       accent: "$candyfloss",
       bg: "$paper",
-      bodyText: "$glasgow",
+      bodyText: "$obsidian",
       codeComment: `hsl(${obsidian}, 20%, 60%)`,
       codeError: "$angrypeach",
       codeKeyword: `hsl(${candyfloss}, 100%, 85%)`,
@@ -49,8 +49,8 @@ const {
       codeOperator: `hsl(${obsidian}, 50%, 80%)`,
       codePlain: "$paper",
       codePunctuation: `hsl(${obsidian}, 18%, 55%)`,
-      contrast: "$obsidian",
-      headerText: "$glasgow",
+      contrast: "$glasgow",
+      headerText: "$obsidian",
       linkBorder: `hsl(${candyfloss}, 85%, 94%)`,
       linkBorderHover: "$candyfloss",
       linkText: "inherit",
@@ -117,7 +117,7 @@ const {
 
 const darkSection = createTheme({
   colors: {
-    bg: `hsl(${obsidian}, 50%, 12%)`,
+    bg: "$obsidian",
     bodyText: "white",
     linkBorder: `hsl(${obsidian}, 40%, 25%)`,
     linkBorderHover: `hsl(${obsidian}, 30%, 40%)`,

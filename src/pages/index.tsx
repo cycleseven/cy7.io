@@ -63,6 +63,10 @@ const MeImage = styled("div", {
   flexShrink: 0,
   size: "72px",
   overflow: "hidden",
+
+  // A hack to make the border-radius work in Safari
+  // https://stackoverflow.com/questions/49066011/overflow-hidden-with-border-radius-not-working-on-safari
+  willChange: "transform",
 });
 
 const SectionHeading = styled("h2", {

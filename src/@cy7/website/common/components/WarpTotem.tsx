@@ -12,6 +12,9 @@ const Container = styled("div", {
  * Header image that takes you home (named as a wee homage to Stardew Valley).
  */
 function WarpTotem(props: SvgProps): React.ReactElement {
+  const outlineColor = theme.colors.glasgow.value;
+  const accentColor = theme.colors.accent.value;
+
   return (
     <Container>
       <Link
@@ -36,136 +39,136 @@ function WarpTotem(props: SvgProps): React.ReactElement {
               d="M587.385 199.375L562.487 185M555.992 181.25l-18.134-10.47"
               fill="none"
               id="reuse-21"
-              stroke={theme.colors.glasgow.value}
+              stroke={outlineColor}
             />
             <path
               d="M555.992 167.5v11.25"
               fill="none"
               id="reuse-20"
-              stroke={theme.colors.glasgow.value}
+              stroke={outlineColor}
             />
             <path
               d="M560.322 165l2.165 1.25v16.25"
               fill="none"
               id="reuse-19"
-              stroke={theme.colors.glasgow.value}
+              stroke={outlineColor}
             />
             <path
               d="M555.992 167.5l4.33-2.5v16.25"
               fill="none"
               id="reuse-18"
-              stroke={theme.colors.glasgow.value}
+              stroke={outlineColor}
             />
             <path
               d="M519.186 166.875v-5l-3.497-2.019"
               fill="none"
               id="reuse-17"
-              stroke={theme.colors.glasgow.value}
+              stroke={outlineColor}
             />
             <path
               d="M535.424 156.25v7.5"
               fill="none"
               id="reuse-16"
-              stroke={theme.colors.glasgow.value}
+              stroke={outlineColor}
             />
             <path
               d="M555.992 181.25l-18.134-10.47"
               fill="none"
               id="reuse-15"
-              stroke={theme.colors.glasgow.value}
+              stroke={outlineColor}
             />
             <path
               d="M587.385 199.375L562.487 185"
               fill="none"
               id="reuse-14"
-              stroke={theme.colors.glasgow.value}
+              stroke={outlineColor}
             />
             <path
               d="M555.992 167.5l4.33-2.5v16.25M560.322 165l2.165 1.25v16.25M555.992 167.5v11.25"
               fill="none"
               id="reuse-13"
-              stroke={theme.colors.glasgow.value}
+              stroke={outlineColor}
             />
             <path
               d="M519.186 166.875v-5l-5.413-3.125"
               fill="none"
               id="reuse-12"
-              stroke={theme.colors.glasgow.value}
+              stroke={outlineColor}
             />
             <path
               d="M535.424 156.25v20"
               fill="none"
               id="reuse-11"
-              stroke={theme.colors.glasgow.value}
+              stroke={outlineColor}
             />
             <path
               d="M587.385 199.375L562.487 185M555.992 181.25l-20.568-11.875"
               fill="none"
               id="reuse-10"
-              stroke={theme.colors.glasgow.value}
+              stroke={outlineColor}
             />
             <path
               d="M594.963 201.25v2.5l-59.539-34.375v-2.5"
               fill="none"
               id="reuse-9"
-              stroke={theme.colors.glasgow.value}
+              stroke={outlineColor}
             />
             <path
               d="M519.186 166.875v-5l-7.578-4.375v5"
               fill="none"
               id="reuse-8"
-              stroke={theme.colors.glasgow.value}
+              stroke={outlineColor}
             />
             <path
               d="M594.963 190.625L587.385 195v11.25"
               fill="none"
               id="reuse-7"
-              stroke={theme.colors.glasgow.value}
+              stroke={outlineColor}
             />
             <path
               d="M535.525 104.317l59.539 34.375v20l-59.539-34.375"
               fill="none"
               id="reuse-6"
-              stroke={theme.colors.glasgow.value}
+              stroke={outlineColor}
             />
             <path
               d="M519.186 166.875v-5l-7.578-4.375"
               fill="none"
               id="reuse-5"
-              stroke={theme.colors.glasgow.value}
+              stroke={outlineColor}
             />
             <path
               d="M340.998 178.056l-.027 7.509M337.726 179.945v3.747"
               fill="none"
               id="reuse-4"
-              stroke={theme.colors.glasgow.value}
+              stroke={outlineColor}
             />
             <path
               d="M340.971 178.072l-3.245 1.873-25.957-14.986M311.769 161.25V165M311.769 164.959l3.245-1.873M311.769 161.212l1.85-1.068"
               fill="none"
               id="reuse-3"
-              stroke={theme.colors.glasgow.value}
+              stroke={outlineColor}
               strokeWidth={1.05}
             />
             <path
               d="M315.014 163.086c4.586-2.646 3.244-9.367 3.244-9.367l25.957 14.986s1.562 6.581-3.277 9.386M318.258 153.719l-3.244 1.873s.156 3.582-1.395 4.552M315.014 163.086l25.924 15.005"
               fill="none"
               id="reuse-2"
-              stroke={theme.colors.glasgow.value}
+              stroke={outlineColor}
               strokeWidth={1.05}
             />
             <path
               d="M536.506 425c0 4.393 5.488 4.393 5.488 0v-42.769c0-4.642-5.488-4.642-5.488 0V425z"
               fill="none"
               id="reuse-1"
-              stroke={theme.colors.glasgow.value}
+              stroke={outlineColor}
               strokeWidth={2.6}
             />
             <path
               d="M536.506 417.581c0 10.49 5.488 10.49 5.488 0v-23.952c0-10.723-5.488-10.723-5.488 0v23.952z"
               fill="none"
               id="reuse-0"
-              stroke={theme.colors.glasgow.value}
+              stroke={outlineColor}
               strokeWidth={2.9}
             />
           </defs>
@@ -178,7 +181,7 @@ function WarpTotem(props: SvgProps): React.ReactElement {
               <circle
                 cx={499.389}
                 cy={170}
-                fill={theme.colors.glasgow.value}
+                fill={outlineColor}
                 r={67.36}
                 transform="matrix(1.26227 0 0 2.20152 -160.577 -59.928)"
               />
@@ -189,12 +192,12 @@ function WarpTotem(props: SvgProps): React.ReactElement {
                 <g clipPath="url(#prefix__b)">
                   <path
                     d="M350.206 0v513.458l129.358 149.226 4.466-5.152 26.904 31.036v40.863l8.974 10.353 35.575-41.038.146-61.654 9.228-10.645 8.4 9.689 35.948-40.6V0H350.206z"
-                    fill={theme.colors.candyfloss.value}
+                    fill={accentColor}
                   />
                   <path
                     d="M554.109 435l-9 5.196V470l-34.583 20-8.661-5v-20l-25.98-15-4.331 2.5L345.981 380V0M510.526 490V0"
                     fill="none"
-                    stroke={theme.colors.glasgow.value}
+                    stroke={outlineColor}
                     transform="matrix(1.03134 0 0 2.06069 -6.618 -269.949)"
                   />
                   <use
@@ -316,25 +319,25 @@ function WarpTotem(props: SvgProps): React.ReactElement {
                   <path
                     d="M549.439 437.696V-2.5"
                     fill="none"
-                    stroke={theme.colors.glasgow.value}
+                    stroke={outlineColor}
                     transform="matrix(1.03134 0 0 2.06069 -11.084 -264.797)"
                   />
                   <path
                     d="M554.109 435l8 5 35-20V2"
                     fill="none"
-                    stroke={theme.colors.glasgow.value}
+                    stroke={outlineColor}
                     transform="matrix(1.03134 0 0 2.06069 -6.618 -269.949)"
                   />
                   <path
                     d="M554.109 436.88v-437"
                     fill="none"
-                    stroke={theme.colors.glasgow.value}
+                    stroke={outlineColor}
                     transform="matrix(1.03134 0 0 2.06069 -6.618 -273.823)"
                   />
                   <path
                     d="M562.109 440V0"
                     fill="none"
-                    stroke={theme.colors.glasgow.value}
+                    stroke={outlineColor}
                     transform="matrix(1.03134 0 0 2.06069 -6.618 -269.949)"
                   />
                   <use
@@ -484,19 +487,19 @@ function WarpTotem(props: SvgProps): React.ReactElement {
                   <path
                     d="M315.014 163.086c4.586-2.646 3.244-9.367 3.244-9.367l25.957 14.986s1.562 6.581-3.277 9.386M318.258 153.719l-3.244 1.873s.156 3.582-1.395 4.552M311.769 161.25V165M311.769 161.212l1.85-1.068"
                     fill="none"
-                    stroke={theme.colors.glasgow.value}
+                    stroke={outlineColor}
                     transform="matrix(-1.37637 0 0 -2.7501 949.02 441.289)"
                   />
                   <path
                     d="M475.885 425v25"
                     fill="none"
-                    stroke={theme.colors.glasgow.value}
+                    stroke={outlineColor}
                     transform="matrix(1.03134 0 0 2.06069 -6.618 -269.949)"
                   />
                   <path
                     d="M471.554 422.5v30"
                     fill="none"
-                    stroke={theme.colors.glasgow.value}
+                    stroke={outlineColor}
                     transform="matrix(1.03134 0 0 2.06069 -6.618 -269.949)"
                   />
                   <use
@@ -1426,7 +1429,7 @@ function WarpTotem(props: SvgProps): React.ReactElement {
                   <path
                     d="M555.992 181.25l-20.568-11.875"
                     fill="none"
-                    stroke={theme.colors.glasgow.value}
+                    stroke={outlineColor}
                     transform="matrix(-1.03134 0 0 -2.06069 966.048 355.986)"
                   />
                   <use
@@ -1513,7 +1516,7 @@ function WarpTotem(props: SvgProps): React.ReactElement {
               </g>
               <path
                 d="M449.992 242.836c-11.056 0-19.096 13.072-19.096 31.024 0 18.214 7.84 31.548 18.644 31.548 5.427 0 11.408-4.793 15.327-12.2l-6.734-12.463c-2.311 4.27-5.477 6.972-7.99 6.972-4.221 0-7.287-5.926-7.287-14.118 0-8.105 3.066-13.943 7.287-13.943 2.714 0 5.88 3.224 7.99 8.191l6.734-13.856c-3.618-6.798-9.498-11.155-14.875-11.155zM463.28 342.724v-14.325H432.8v25.508h10.74v-9.058h6.316l-12.16 48.336h12.897l12.687-50.461zM496.172 285.186l12.509-42.35h-11.512l-6.778 23.674-7.027-23.674h-11.512l12.758 42.789V304.3h11.562v-19.114zM489.125 371.59c-3.624 0-6.16 4.424-6.16 10.745 0 6.426 2.536 10.85 6.16 10.85 3.685 0 6.221-4.424 6.221-10.85 0-6.321-2.536-10.745-6.22-10.745z"
-                fill={theme.colors.candyfloss.value}
+                fill={accentColor}
               />
             </g>
           </g>

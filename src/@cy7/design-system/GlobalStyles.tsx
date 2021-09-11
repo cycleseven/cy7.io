@@ -118,6 +118,10 @@ const applyGlobalStyles = globalCss({
   },
 
   html: {
+    backgroundColor: "$obsidian",
+  },
+
+  body: {
     backgroundColor: "$bg",
   },
 });
