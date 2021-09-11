@@ -4,7 +4,6 @@ import { Grid, Gutters, MaxWidth, Stack, styled } from "@cy7/design-system";
 import { HomePageQuery } from "@cy7/gql-types";
 import { graphql } from "gatsby";
 import React from "react";
-import { obsidian } from "@cy7/design-system/theme/hues";
 
 const Header = styled("header", {
   alignItems: "center",
