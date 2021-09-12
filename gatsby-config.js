@@ -137,6 +137,7 @@ module.exports = {
       resolve: "gatsby-plugin-graphql-codegen",
       options: {
         fileName: "./generated/@cy7/gql-types/index.ts",
+        documentPaths: ["./src/**/*.{ts,tsx}"],
       },
     },
 
