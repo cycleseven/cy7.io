@@ -9,6 +9,16 @@ code_quality:
   image: registry.gitlab.com/cycleseven/cy7/ci-lint-job:0.5.0
   script:
     - yarn
+
+    # Check build works. This is executed before running code quality
+    # checks: GraphQL types are generated with gatsby-plugin-graphql-codegen,
+    # as a build side effect, and `tsc` typechecking will fail when those
+    # typedefs aren't present.
+    - yarn build
+
+    # Run all code quality checks: see lefthook.yml for the definition
+    # of this script. The short story is that ESLint, Jest and friends
+    # are executed here.
     - yarn lefthook run check-all
 
 deploy:
@@ -20,7 +30,6 @@ deploy:
     GATSBY_BUILD_SHA: $CI_COMMIT_SHORT_SHA
   script:
     - yarn
-    - yarn build
     - aws s3 sync public s3://cy7.io
 
 deploy_storybook:
