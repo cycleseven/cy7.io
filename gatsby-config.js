@@ -28,11 +28,11 @@ module.exports = {
     metaLinks: {
       name: "About this site",
       links: [
-        // {
-        //   name: "Developer docs (Storybook)",
-        //   type: "external",
-        //   url: "https://storybook.cy7.io"
-        // },
+        {
+          name: "Developer docs (Storybook)",
+          type: "external",
+          url: "https://storybook.cy7.io",
+        },
         {
           name: "Source code (Gitlab)",
           type: "external",
