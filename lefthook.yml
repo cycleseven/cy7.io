@@ -2,11 +2,9 @@ pre-push:
   parallel: true
   commands:
     eslint:
-      glob: "*.{js,ts,tsx}"
-      run: yarn eslint {all_files} --max-warnings 0
+      run: yarn eslint src --max-warnings 0
     prettier-check:
-      glob: "*.{js,ts,tsx,css,yml,yaml,json,md}"
-      run: yarn prettier --check {all_files}
+      run: yarn prettier --check "**/*.{js,ts,tsx,css,yml,yaml,json,md}"
     typescript-check:
       run: yarn tsc --noEmit
     terraform-format-check:
@@ -31,14 +29,17 @@ check-all:
   parallel: true
   commands:
     eslint:
-      glob: "*.{js,ts,tsx}"
-      run: yarn eslint {all_files} --max-warnings 0
+      tags: frontend
+      run: yarn eslint src --max-warnings 0
     prettier-check:
-      glob: "*.{js,ts,tsx,css,yml,yaml,json,md}"
-      run: yarn prettier --check {all_files}
-    terraform-format-check:
-      run: terraform fmt -check deploy/infra
+      tags: frontend
+      run: yarn prettier --check "**/*.{js,ts,tsx,css,yml,yaml,json,md}"
     typescript-check:
+      tags: frontend
       run: yarn tsc --noEmit
+    terraform-format-check:
+      tags: infra
+      run: terraform fmt -check deploy/infra
     jest:
+      tags: frontend
       run: yarn test

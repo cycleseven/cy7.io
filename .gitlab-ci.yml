@@ -26,12 +26,18 @@ build_storybook:
     - yarn install --frozen-lockfile
     - yarn build-storybook --docs
 
-code_quality:
+frontend_code_quality:
   stage: test
   image: node:16.7.0
   script:
     - yarn install --frozen-lockfile
-    - yarn lefthook run check-all
+    - LEFTHOOK_EXCLUDE=infra yarn lefthook run check-all
+
+terraform_code_quality:
+  stage: test
+  image: hashicorp/terraform:0.14.7
+  script:
+    - terraform fmt -check deploy/infra
 
 deploy:
   stage: deploy
