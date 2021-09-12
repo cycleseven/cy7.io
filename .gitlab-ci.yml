@@ -4,40 +4,49 @@ cache:
   paths:
     - node_modules/
 
-code_quality:
-  stage: test
-  image: registry.gitlab.com/cycleseven/cy7/ci-lint-job:0.5.0
+build:
+  stage: build
+  image: node:16.7.0
+  artifacts:
+    paths:
+      - .cache
+      - generated
+      - public
   script:
     - yarn
-
-    # Check build works. This is executed before running code quality
-    # checks: GraphQL types are generated with gatsby-plugin-graphql-codegen,
-    # as a build side effect, and `tsc` typechecking will fail when those
-    # typedefs aren't present.
     - yarn build
 
-    # Run all code quality checks: see lefthook.yml for the definition
-    # of this script. The short story is that ESLint, Jest and friends
-    # are executed here.
+build_storybook:
+  stage: build
+  image: node:16.7.0
+  artifacts:
+    paths:
+      - storybook-static
+  script:
+    - yarn
+    - yarn build-storybook --docs
+
+code_quality:
+  stage: test
+  image: node:16.7.0
+  script:
+    - yarn
     - yarn lefthook run check-all
 
 deploy:
   stage: deploy
   only:
     - master
-  image: registry.gitlab.com/cycleseven/cy7/ci-deploy-job:0.5.0
+  image: amazon/aws-cli:2.2.37
   variables:
     GATSBY_BUILD_SHA: $CI_COMMIT_SHORT_SHA
   script:
-    - yarn
     - aws s3 sync public s3://cy7.io
 
 deploy_storybook:
   stage: deploy
   only:
     - master
-  image: registry.gitlab.com/cycleseven/cy7/ci-deploy-job:0.3.0
+  image: amazon/aws-cli:2.2.37
   script:
-    - yarn
-    - yarn build-storybook --docs
     - aws s3 sync storybook-static s3://storybook.cy7.io

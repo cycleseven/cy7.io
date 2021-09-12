@@ -9,8 +9,6 @@ Let's take a bird's eye view of the code. Directories marked with (*) are genera
 ```
 - .storybook/
 - deploy/
-  - ci-deploy-image/
-  - ci-lint-image/
   - infra/
   - lambda/
 - generated/ (*)
@@ -43,8 +41,6 @@ This directory configures Storybook. [See their docs.](https://storybook.js.org/
 
 This directory holds code related to hosting and deployment of cy7.io. The site is hosted on AWS (S3 + CloudFront) and is generally deployed via a CI pipeline in Gitlab.
 
-- `ci-deploy-image`: defines a Docker image used in CI to build + deploy the website.
-- `ci-lint-image`: likewise for the lint job in CI.
 - `infra`: a Terraform config defining the AWS infrastructure used to host the site.
 - `lambda`: a mini [Serverless Framework](http://serverless.com) project that defines AWS Lambda functions used via Lambda@Edge. These define custom server logic executed when handling requests in CloudFront.
 
