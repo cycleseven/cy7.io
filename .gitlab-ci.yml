@@ -13,7 +13,7 @@ build:
       - generated
       - public
   script:
-    - yarn
+    - yarn install --frozen-lockfile
     - yarn build
 
 build_storybook:
@@ -23,14 +23,14 @@ build_storybook:
     paths:
       - storybook-static
   script:
-    - yarn
+    - yarn install --frozen-lockfile
     - yarn build-storybook --docs
 
 code_quality:
   stage: test
   image: node:16.7.0
   script:
-    - yarn
+    - yarn install --frozen-lockfile
     - yarn lefthook run check-all
 
 deploy:
