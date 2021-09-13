@@ -39,10 +39,10 @@ This directory configures Storybook. [See their docs.](https://storybook.js.org/
 
 **`deploy`**
 
-This directory holds code related to hosting and deployment of cy7.io. The site is hosted on AWS (S3 + CloudFront) and is generally deployed via a CI pipeline in Gitlab.
+This directory holds code related to hosting and deployment of cy7.io. The site is hosted on AWS (S3 + CloudFront) and is usually deployed via a CI pipeline in Gitlab.
 
-- `infra`: a Terraform config defining the AWS infrastructure used to host the site.
-- `lambda`: a mini [Serverless Framework](http://serverless.com) project that defines AWS Lambda functions used via Lambda@Edge. These define custom server logic executed when handling requests in CloudFront.
+- `deploy/infra` holds the Terraform config defining the AWS infrastructure used to host the site.
+- `deploy/lambda` contains a mini [Serverless Framework](http://serverless.com) project that defines AWS Lambda functions used via Lambda@Edge (for custom server logic executed when handling requests in CloudFront).
 
 The [Deployment](/docs/guides-deployment--page) guide explores this part of the codebase further.
 
@@ -76,7 +76,7 @@ The `@cy7` directory hosts the majority of the frontend code. You can think of t
 
 The [design system](/docs/design-system-getting-started--page) is documented here in Storybook.
 
-Reusable components from the `@cy7/website/common` internal package are documented here too. Refer to the **Website** section.
+Reusable components from the `@cy7/website/common` internal package are documented here in Storybook: refer to the **Website** section in the sidebar.
 
 ## Imports
 
@@ -89,7 +89,7 @@ import { Page } from "@cy7/website/common";
 
 The experimental file structure of the project allows code under `src/@cy7` to be treated as a set of internal "packages", while avoiding the overhead of managing separate dependencies or repositories for each package.
 
-**The above import style is recommended over importing individual files.** The project's build process will tree-shake internal imports: you don't have to worry about accidentally importing the entire design system. On the consumer side, this style keeps imports compact. It also makes it possible to tweak the internal file structure of a package without having to update consumer code.
+**The above import style is recommended over importing individual files** when importing from a sibling internal package. The project's build process tree-shakes internal imports: you don't have to worry about accidentally importing the entire design system with this import style, and it can help keep imports more compact. It also makes it possible to change the file structure inside a package without having to update consumer code.
 
 ## Where your code should live
 
@@ -99,10 +99,11 @@ Some tips for how to structure new code:
 - Code intended for reuse across to the Gatsby project belongs in `@cy7/website/common`.
 - Fundamental visual components form part of the design system, and live in `@cy7/design-system`.
 
-Don't worry about "polluting" `@cy7` with new packages for code that is even more generic, or that simply doesn't fit any of the above categories. There's no overhead to creating new internal packages, and a flat code structure can often be easier to reason about than a highly nested one.
+Don't worry about "polluting" `@cy7` with new packages for code that doesn't fit any of the above categories. There's no overhead to creating new internal packages, and a flat code structure can often be easier to reason about than a highly nested one.
 
-**Deciding whether your reusable component belongs in `@cy7/website/common` or `@cy7/design-system` can be tricky.**
+### Does my component belong in the design system?
 
-Components named after generic UI elements like `<Button />`, `<Dialog />` or `<Stack />` are usually good candidates for the design system. Check out some design systems and component libraries like [Braid](https://seek-oss.github.io/braid-design-system/) or [Material UI](https://material-ui.com/) for inspiration.
+Deciding whether your reusable component belongs in `@cy7/website/common` or `@cy7/design-system` can be tricky. These pointers may help:
 
-Components that "know about" Gatsby don't belong in the design system. In particular, this means components with `useStaticQuery()`, components that make use of Gatsby APIs like `gatsby-plugin-image` or `<Link />`, and components that render to the site's `<head>` element with `react-helmet`.
+- Components named after generic UI elements like `<Button />`, `<Dialog />` or `<Stack />` are usually good candidates for the design system. Check out some design systems and component libraries like [Braid](https://seek-oss.github.io/braid-design-system/) or [Material UI](https://material-ui.com/) for inspiration.
+- Components that "know about" Gatsby _don't_ belong in the design system. In particular, this means components with `useStaticQuery()`, components that make use of Gatsby APIs like `gatsby-plugin-image` or `<Link />`, and components that render to the site's `<head>` element with `react-helmet`.

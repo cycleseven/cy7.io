@@ -40,7 +40,7 @@ This loose approach allows the test suite to focus on the areas where it provide
 
 For example, when writing a pure function that processes some data, it's natural to want to try it against a couple of examples and edge cases to make sure it's correct. Adopting a TDD style for writing this type of function tends to speed up the process if anything, and the resulting style of test executes quickly and is cheap to rewrite or delete if code is rewritten.
 
-Tests could definitely do a lot more for us in future. The current approach is a tradeoff based on the nature of the project: there's very little in the way of custom runtime behaviour on [cy7.io](http://cy7.io) so far. And many categories of problems that are worth worrying about can be detected through type checking, linting, automated accessibility checking, or simply by running `gatsby build`.
+Tests could definitely provide a stronger pillar of confidence in future. The current approach is a tradeoff based on the nature of the project: there's very little in the way of custom runtime behaviour on [cy7.io](http://cy7.io) so far. And many categories of problems that are worth worrying about can be detected through type checking, linting, automated accessibility checking, or simply by running `gatsby build`.
 
 ## Future testing ideas
 
