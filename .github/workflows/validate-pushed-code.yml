@@ -36,5 +36,9 @@ jobs:
         with:
           node-version: 16.7.0
           cache: "yarn"
+      - name: Download generated GraphQL types
+        uses: actions/download-artifact@v2
+        with:
+          name: generated-gql-types
       - run: yarn install --frozen-lockfile
       - run: LEFTHOOK_EXCLUDE=infra yarn lefthook run check-all
