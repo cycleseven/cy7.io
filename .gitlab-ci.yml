@@ -12,6 +12,7 @@ build:
       - .cache
       - generated
       - public
+  interruptible: true
   script:
     - yarn install --frozen-lockfile
     - yarn build
@@ -22,6 +23,7 @@ build_storybook:
   artifacts:
     paths:
       - storybook-static
+  interruptible: true
   script:
     - yarn install --frozen-lockfile
     - yarn build-storybook --docs --quiet
@@ -29,6 +31,7 @@ build_storybook:
 frontend_code_quality:
   stage: test
   image: node:16.7.0
+  interruptible: true
   script:
     - yarn install --frozen-lockfile
     - LEFTHOOK_EXCLUDE=infra yarn lefthook run check-all
@@ -36,6 +39,7 @@ frontend_code_quality:
 terraform_code_quality:
   stage: test
   image: hashicorp/terraform:0.14.7
+  interruptible: true
   script: "terraform fmt -check deploy/infra"
 
 deploy:
