@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     env:
-      GATSBY_BUILD_SHA: $GITHUB_SHA
+      GATSBY_BUILD_SHA: ${{ github.sha }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
