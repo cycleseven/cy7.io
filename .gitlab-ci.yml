@@ -36,8 +36,7 @@ frontend_code_quality:
 terraform_code_quality:
   stage: test
   image: hashicorp/terraform:0.14.7
-  script:
-    - terraform fmt -check deploy/infra
+  script: "terraform fmt -check deploy/infra"
 
 deploy:
   stage: deploy
