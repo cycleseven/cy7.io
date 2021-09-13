@@ -1,4 +1,4 @@
-export { default as CodeBlock } from "@cy7/website/blog/components/codeBlock/CodeBlock";
+export { default as CodeBlock } from "@cy7/website/blog/components/CodeBlock";
 export { default as MdxCodeBlock } from "@cy7/website/blog/components/MdxCodeBlock";
 export { default as MdxHeading } from "@cy7/website/blog/components/MdxHeading";
 export * from "@cy7/website/blog/components/MdxHeading";

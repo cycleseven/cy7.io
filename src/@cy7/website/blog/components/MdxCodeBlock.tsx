@@ -1,6 +1,6 @@
 import React from "react";
-import { CodeBlock } from "@cy7/website/blog";
 import { SupportedCodeBlockLanguages } from "@cy7/website/blog/types";
+import CodeBlock from "@cy7/website/blog/components/CodeBlock";
 
 interface MdxCodeBlockProps {
   children: {
