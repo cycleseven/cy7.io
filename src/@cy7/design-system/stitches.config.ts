@@ -40,7 +40,7 @@ const {
       // Semantic colors and aliases
       accent: "$candyfloss",
       bg: "$paper",
-      bodyText: "$obsidian",
+      bodyText: `hsl(${obsidian}, 95%, 19%)`,
       codeComment: `hsl(${obsidian}, 20%, 60%)`,
       codeError: "$angrypeach",
       codeKeyword: `hsl(${candyfloss}, 100%, 85%)`,
@@ -51,7 +51,7 @@ const {
       codePunctuation: `hsl(${obsidian}, 18%, 55%)`,
       contrast: "$glasgow",
       dateText: `hsl(${obsidian}, 30%, 46%)`,
-      headerText: "$obsidian",
+      headerText: `hsl(${obsidian}, 95%, 19%)`,
       linkBorder: `hsl(${candyfloss}, 85%, 94%)`,
       linkBorderHover: "$candyfloss",
       linkText: "inherit",

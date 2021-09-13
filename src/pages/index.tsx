@@ -70,10 +70,10 @@ const MeImage = styled("div", {
 });
 
 const SectionHeading = styled("h2", {
-  borderBottom: "solid 4px $colors$bodyText",
+  borderBottom: "solid 4px $colors$headerText",
   marginBottom: "$2",
   marginTop: 0,
-  paddingBottom: "$0-5",
+  paddingBottom: "$0-33",
   textTransform: "uppercase",
 });
 
