@@ -48,7 +48,7 @@ jobs:
       - name: Download generated GraphQL types
         uses: actions/download-artifact@v2
         with:
-          name: generated-gql-types
+          name: generated
           path: generated
       - run: yarn install --frozen-lockfile
       - run: LEFTHOOK_EXCLUDE=infra yarn lefthook run check-all
@@ -61,7 +61,10 @@ jobs:
           terraform_version: 0.14.7
       - run: terraform fmt -check deploy/infra
   deploy:
-    needs: build
+    needs:
+      - build
+      - check-frontend-code-quality
+      - check-terraform-code-quality
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -74,9 +77,13 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
       - run: aws s3 sync public s3://cy7.io
   deploy-storybook:
-    needs: build-storybook
+    needs:
+      - build-storybook
+      - check-frontend-code-quality
+      - check-terraform-code-quality
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -88,4 +95,5 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
       - run: aws s3 sync storybook-static s3://storybook.cy7.io
