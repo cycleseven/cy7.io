@@ -4,31 +4,63 @@ cache:
   paths:
     - node_modules/
 
-lint:
-  stage: test
-  image: registry.gitlab.com/cycleseven/cy7/ci-lint-job:0.4.0
+build:
+  stage: build
+  image: node:16.7.0
+  artifacts:
+    paths:
+      - .cache
+      - generated
+      - public
+  interruptible: true
   script:
-    - yarn
-    - yarn lefthook run full-lint
+    - yarn install --frozen-lockfile
+    - yarn build
+
+build_storybook:
+  stage: build
+  image: node:16.7.0
+  artifacts:
+    paths:
+      - storybook-static
+  interruptible: true
+  script:
+    - yarn install --frozen-lockfile
+    - yarn build-storybook --docs --quiet
+
+frontend_code_quality:
+  stage: test
+  image: node:16.7.0
+  interruptible: true
+  script:
+    - yarn install --frozen-lockfile
+    - LEFTHOOK_EXCLUDE=infra yarn lefthook run check-all
+
+# TODO: Gitlab CI doesn't seem to execute the script.
+#       I must be configuring something wrong but can't see it.
+#       Plan is to migrate to Github + Github Actions soon, so
+#       going to be cheeky and just skip it for now...
+#
+# terraform_code_quality:
+#   stage: test
+#   image: hashicorp/terraform:0.14.7
+#   interruptible: true
+#   script: "terraform fmt -check deploy/infra"
 
 deploy:
   stage: deploy
   only:
     - master
-  image: registry.gitlab.com/cycleseven/cy7/ci-deploy-job:0.4.0
+  image: amazon/aws-cli:2.2.37
   variables:
     GATSBY_BUILD_SHA: $CI_COMMIT_SHORT_SHA
   script:
-    - yarn
-    - yarn build
     - aws s3 sync public s3://cy7.io
 
 deploy_storybook:
   stage: deploy
   only:
     - master
-  image: registry.gitlab.com/cycleseven/cy7/ci-deploy-job:0.3.0
+  image: amazon/aws-cli:2.2.37
   script:
-    - yarn
-    - yarn build-storybook --docs
     - aws s3 sync storybook-static s3://storybook.cy7.io

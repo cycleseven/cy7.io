@@ -1,0 +1,55 @@
+import { Box, Gutters, MaxWidth, Stack } from "@cy7/design-system";
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Design system / Layout / Gutters" component={Gutters} />
+
+# Gutters
+
+Wrap content with `<Gutters />` to apply horizontal margins to it.
+
+Typically you'll want to render one of these at the top level of a page, so that content doesn't jam up directly against the viewport edge.
+
+
+```tsx
+import { Gutters } from "@cy7/design-system";
+```
+
+<Canvas withSource="open">
+  <Story name="Default">
+    <Box css={{ border: "dashed 2px $candyfloss", paddingTop: "$1" }}>
+      <p style={{ color: "grey" }}>I'm outside of Gutters. Bit too close to the container edge for comfort, right?</p>
+    <Gutters>
+      <p>This content is nested inside the Gutters component.</p>
+      <p>Try resizing the window. Note how the gutters shrink on mobile viewports, freeing up a little more space for the content.</p>
+    </Gutters>
+    </Box>
+  </Story>
+</Canvas>
+
+## Laying out a page
+
+Consider using `<Gutters />` in conjunction with [the `<MaxWidth />` component](/design-system-layout-maxwidth--page) for a standard centred page layout.
+
+<Canvas withSource="open">
+  <Story name="With MaxWidth">
+    <Box css={{ background: "$bg", border: "dashed 2px $candyfloss", paddingY: "$1" }}>
+      <Gutters>
+        <Stack space="2">
+          <MaxWidth>
+            <Box css={{ border: "dashed 2px $candyfloss", height: "120px"}} />
+          </MaxWidth>
+          <MaxWidth width="bestForText">
+            <h1>Lorem ipsum dolor sit amet</h1>
+            <p>
+              Nulla at volutpat diam ut venenatis tellus in. Vel elit scelerisque mauris pellentesque pulvinar. Pharetra vel turpis nunc eget lorem dolor sed viverra ipsum. Nunc sed augue lacus viverra vitae congue eu consequat ac. Massa tincidunt dui ut ornare lectus sit.
+            </p>
+          </MaxWidth>
+        </Stack>
+      </Gutters>
+    </Box>
+  </Story>
+</Canvas>
+
+## Props
+
+This component doesn't take any special props other than the default ones provided by Stitches: just pass some children through.

@@ -28,11 +28,11 @@ module.exports = {
     metaLinks: {
       name: "About this site",
       links: [
-        // {
-        //   name: "Developer docs (Storybook)",
-        //   type: "external",
-        //   url: "https://storybook.cy7.io"
-        // },
+        {
+          name: "Developer docs (Storybook)",
+          type: "external",
+          url: "https://storybook.cy7.io",
+        },
         {
           name: "Source code (Gitlab)",
           type: "external",
@@ -85,6 +85,7 @@ module.exports = {
     ],
   },
   plugins: [
+    "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-source-filesystem",
@@ -97,7 +98,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "blogPosts",
-        path: `${__dirname}/src/@cy7/blog/posts`,
+        path: `${__dirname}/src/@cy7/website/blog/posts`,
       },
     },
     "gatsby-plugin-mdx",
@@ -116,14 +117,35 @@ module.exports = {
       },
     },
 
-    // Manages the Babel plugin + SSR for styled-components
-    "gatsby-plugin-styled-components",
+    {
+      resolve: "gatsby-plugin-typography",
+      options: {
+        pathToConfigModule: "src/@cy7/typography/index.ts",
+      },
+    },
+
+    // Stitches (CSS-in-JS), set up via a custom plugin
+    {
+      resolve: require.resolve("./src/@cy7/gatsby-plugin-stitches"),
+    },
 
     // Output a schema.json on running Gatsby dev server
     "gatsby-plugin-extract-schema",
 
+    // Generate type defs for GraphQL queries
+    {
+      resolve: "gatsby-plugin-graphql-codegen",
+      options: {
+        fileName: "./generated/@cy7/gql-types/index.ts",
+        documentPaths: ["./src/**/*.{ts,tsx}"],
+      },
+    },
+
+    // Enable to open bundle treemap on build
+    // "gatsby-plugin-webpack-bundle-analyser-v2"
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`
+    // `gatsby-plugin-offline`,
   ],
 };

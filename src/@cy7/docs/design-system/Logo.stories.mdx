@@ -1,0 +1,51 @@
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import { Box, Logo, darkSection, warningSection } from "@cy7/design-system";
+
+<Meta title="Design System / Components / Logo" component={Logo} />
+
+# Logo
+
+Renders an inline SVG of the cy7 logo.
+
+```tsx
+import { Logo } from "@cy7/design-system";
+```
+
+<Canvas withSource="open">
+  <Story name="Default size">
+    <Logo />
+  </Story>
+</Canvas>
+
+## With custom size
+
+<Canvas withSource="open">
+  <Story name="With custom size">
+    <Logo size={200} />
+  </Story>
+</Canvas>
+
+## Color modes
+
+`<Logo />` visually adapts to the active color mode.
+
+<Canvas withSource="open">
+  <Story name="Dark mode">
+    <Box className={darkSection} css={{ background: "$bg", padding: "$1" }}>
+      <Logo />
+    </Box>
+  </Story>
+</Canvas>
+
+<Canvas withSource="open">
+  <Story name="Warning mode">
+    <Box className={warningSection} css={{ background: "$bg", padding: "$1" }}>
+      <Logo />
+    </Box>
+  </Story>
+</Canvas>
+
+
+## Props
+
+<ArgsTable exclude={["css", "ref"]} of={Logo} />

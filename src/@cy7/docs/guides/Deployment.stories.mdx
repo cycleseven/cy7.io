@@ -1,0 +1,33 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Guides / Deployment" />
+
+# Deployment
+
+The production site is automatically deployed when pushing to `master`. The same goes for this site (ie. Storybook).
+
+The same set of code quality checks that run on pre-push are run against every push, regardless of branch. Failing code quality checks on `master` will block deployment.
+
+Automated builds are managed via Gitlab CI, configured via `.gitlab-ci.yml` in the codebase.
+
+## Infrastructure
+
+The site is hosted on AWS using CloudFront and S3.
+
+Infrastructure is defined as code that lives in the main repository, using Terraform. See the `deploy/infra` directory.
+
+The Terraform config can come in pretty handy when trying to remember how everything was wired up when deploying the site months or years in the past, and it also paves the way for adding future deployment targets (eg. a staging/preview site), or reusing the infrastructure for other static website projects.
+
+> Don't expect to be able to easily run the Terraform config without modifications on an arbitrary AWS account for a new static website.
+>
+> For example, the config depends on a pre-existing S3 bucket used to store Terraform remote state, with a name that's pretty specific to the AWS account that hosts cy7.io.
+>
+> Nonetheless, the config is open source. It might be interesting to someone out there 🌝
+
+## Lambda@Edge
+
+[cy7.io](http://cy7.io) uses custom redirection logic to route traffic from [www.cy7.io](http://www.cy7.io) to the canonical URL [cy7.io](http://cy7.io), and to correctly resolve subpaths to the appropriate `index.html` file (eg. so users can visit [cy7.io/anonymous-functions](http://cy7.io/anonymous-functions/index.html) instead of `cy7.io/anonymous-functions/index.html`).
+
+This custom logic is implemented using Lambda@Edge.
+
+The Lambda functions themselves target a Node runtime, and are managed by a mini Serverless Framework project in `deploy/lambda`. Check out the `README` in that directory for more info on how to deploy those functions, and guidance on how to hook them up to the CloudFront instance provisioned by Terraform.

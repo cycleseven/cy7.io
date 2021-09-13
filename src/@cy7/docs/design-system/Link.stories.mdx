@@ -1,0 +1,70 @@
+import { Box, Link, LinkIcon, darkSection, warningSection } from "@cy7/design-system";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Design system / Components / Link" component={Link} />
+
+# Link
+
+A styled anchor element. Typically should be used in place of `<a>`.
+
+```tsx
+import { Link } from "@cy7/design-system";
+```
+
+<Canvas withSource="open">
+  <Story name="Default">
+    <Link href="https://google.com/">Google</Link>
+  </Story>
+</Canvas>
+
+## Color modes
+
+`<Link />` visually adapts to the active color mode.
+
+<Canvas withSource="open">
+  <Story name="Dark mode">
+    <Box className={darkSection} css={{ background: "$bg", padding: "$1" }}>
+      <Link href="https://google.com/">Dark mode</Link>
+    </Box>
+  </Story>
+</Canvas>
+
+<Canvas withSource="open">
+  <Story name="Warning mode">
+    <Box className={warningSection} css={{ background: "$bg", padding: "$1" }}>
+      <Link href="https://google.com/">Warning mode</Link>
+    </Box>
+  </Story>
+</Canvas>
+
+## Plain and borderless variants
+
+The `plain` and `borderless` variants are useful for building non-text links, such as icons and images.
+
+The general recommendation is to use `borderless`. This variant uses a focus style that's slightly bigger than the click target. This provides extra visual clarity, especially for rectangular images.
+
+<Canvas withSource="open">
+  <Story name="Borderless variant">
+    <Link aria-label="Go to google.com" css={{ display: "inline-block" }} href="https://google.com/" variant="borderless">
+      <LinkIcon />
+    </Link>
+  </Story>
+</Canvas>
+
+When space is constrained, you can use `plain`. This variant is similar, except the focus highlight is constrained to the click target area.
+
+<Canvas withSource="open">
+  <Story name="Plain variant">
+    <Link aria-label="Go to google.com" css={{ display: "inline-block" }} href="https://google.com/" variant="plain">
+      <LinkIcon />
+    </Link>
+  </Story>
+</Canvas>
+
+## Props
+
+All props for the underlying component are valid (that's `<a>` by default).
+
+When no `variant` is passed, the `default` variant is used.
+
+<ArgsTable exclude={["as", "css", "ref"]} of={Link} />

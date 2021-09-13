@@ -1,0 +1,58 @@
+import Cy7Meta from "@cy7/website/common/components/Meta";
+import { ArgsTable, Meta } from "@storybook/addon-docs";
+
+<Meta title="Website / Components / Meta" />
+
+# Meta
+
+> **Note:** the `<Meta />` component doesn't render any visible elements.
+
+Manages `<meta>` tags for the page, similar to the [SEO component](https://www.gatsbyjs.org/docs/add-seo-component/) suggested in Gatsby's docs. **Every page in the website should include a `<Meta />` component**.
+
+Under the hood, the `<Meta />` component uses [react-helmet](https://github.com/nfl/react-helmet), so it doesn't matter where the component lives in the tree. By convention, it's usually placed near the root of a page component.
+
+## Usage
+
+```tsx
+import { Meta } from "@cy7/website/common";
+
+// Then use the component in your page like this
+<Meta title="My blog post" description="Description for search engines." />
+```
+
+Titles are auto-suffixed with `— cy7.io`. The resulting HTML for the example above looks like this:
+
+```html
+<title>My blog post — cy7.io</title>
+<meta name="description" content="Description for search engines." />
+```
+
+## Opting out of search engine indexing
+
+In general, both `title` and `description` are required props.
+
+Some pages shouldn't be indexed by search engines (for example, the 404 page): a `noIndex` prop is provided to help with this.
+
+When `noIndex` is used, a `<meta content="noindex" name="robots" />` tag is rendered in the document head. A `description` should not be provided.
+
+```tsx
+import { Meta } from "@cy7/website/common";
+
+<Meta title="Not found" noIndex />
+```
+
+## Opting out of the `— cy7.io` title suffix
+
+In case you'd prefer not to auto-suffix the page title, use the `noTitleTemplate` prop.
+
+```tsx
+import { Meta } from "@cy7/website/common";
+
+<Meta title="cy7.io — owen's wee website" noTitleTemplate />
+```
+
+In this case, the resulting title tag is used unmodified: `<title>cy7.io — owen's wee website/title>`
+
+## Props
+
+<ArgsTable of={Cy7Meta} />

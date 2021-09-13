@@ -1,0 +1,51 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Guides / Testing" />
+
+# Testing
+
+The codebase comes equipped with Jest. You can write tests by creating a new `*.test.ts` file anywhere. By convention, tests live in a `__tests__` directory colocated with the code under test.
+
+Run the test suite with `yarn test`, which invokes the Jest CLI under-the-hood.
+
+## Philosophy (for now)
+
+Tests in the current codebase usually just invoke pure functions rather than rendering UI components. There's no expectation that the codebase has a high level of testing coverage.
+
+Instead, tests tend to narrow in on smaller chunks of logic that are extracted out from React components. Here's a typical example.
+
+```tsx
+import assert from "assert";
+import { slugify } from "@cy7/website/common/utils/slugify";
+
+describe("@cy7/utils/slugify/slugify", () => {
+  it("should convert a typical heading to a URL-friendly format", () => {
+    assert.equal(
+      slugify("The truth about stack traces"),
+      "the-truth-about-stack-traces"
+    );
+  });
+
+  it("should dedupe hyphens", () => {
+    assert.equal(slugify("Stack traces - the truth"), "stack-traces-the-truth");
+  });
+
+  it("should strip punctuation", () => {
+    assert.equal(slugify("Wow!!!"), "wow");
+  });
+});
+```
+
+This loose approach allows the test suite to focus on the areas where it provides a good return on investment.
+
+For example, when writing a pure function that processes some data, it's natural to want to try it against a couple of examples and edge cases to make sure it's correct. Adopting a TDD style for writing this type of function tends to speed up the process if anything, and the resulting style of test executes quickly and is cheap to rewrite or delete if code is rewritten.
+
+Tests could definitely provide a stronger pillar of confidence in future. The current approach is a tradeoff based on the nature of the project: there's very little in the way of custom runtime behaviour on [cy7.io](http://cy7.io) so far. And many categories of problems that are worth worrying about can be detected through type checking, linting, automated accessibility checking, or simply by running `gatsby build`.
+
+## Future testing ideas
+
+Right now, manually testing the site before going ahead with a deployment isn't demanding, but might become impractical if the site grows larger.
+
+The main form of manual testing performed against [cy7.io](http://cy7.io) right now is simply to browse the site and check each page looks as expected. **Visual regression testing** might therefore be pretty useful if the site grows in future.
+
+Another frequent manual process is ensuring all navigation still works by clicking links and tabbing through them to ensure keyboard accessibility remains intact. Or, clicking to a heading in a blog post and making sure the browser URL updates to a link with the correct anchor. Automatically driving these kinds of user interactions (eg. with **Cypress**) may be a good avenue to explore too.

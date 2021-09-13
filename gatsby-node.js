@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -9,11 +11,15 @@ const path = require("path");
 
 exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
   // Enable src-relative imports via Webpack
-  // eg. import { Logo } from "@cy7/designSystem"
+  // eg. import { Logo } from "@cy7/design-system"
   actions.setWebpackConfig({
     resolve: {
       ...getConfig().resolve,
-      modules: [path.join(getConfig().context, "src"), "node_modules"],
+      modules: [
+        path.join(getConfig().context, "src"),
+        path.join(getConfig().context, "generated"),
+        "node_modules",
+      ],
     },
   });
 };
@@ -49,7 +55,7 @@ exports.createPages = async ({ graphql, actions }) => {
   result.data.allMdx.edges.forEach(({ node }) => {
     createPage({
       path: node.frontmatter.slug,
-      component: path.resolve(`./src/templates/BlogPost.js`),
+      component: path.resolve(`./src/templates/BlogPost.tsx`),
       context: {
         slug: node.frontmatter.slug,
       },

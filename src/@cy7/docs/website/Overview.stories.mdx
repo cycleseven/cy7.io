@@ -1,0 +1,20 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Website / Overview" />
+
+# Overview
+
+The `@cy7/website/common` package provides components for use in the Gatsby project (ie. pages and templates).
+
+Developers should be particularly aware of:
+
+- `<Page />`: the root layout component that applies global CSS and renders the site footer.
+- `<Meta />`: the SEO tag manager component.
+
+All pages and templates are expected to render these.
+
+Components are imported like this:
+
+```tsx
+import { Page, Meta } from "@cy7/website/common";
+```

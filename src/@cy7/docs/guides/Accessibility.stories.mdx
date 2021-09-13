@@ -1,0 +1,20 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Guides / Accessibility" />
+
+# Accessibility
+
+Before deploying changes to cy7.io, consider the variety of ways users may interact with the site. [This presentation on becoming an accessibility-focused developer](https://noti.st/aitchiss/feJCV3) is a great overview of common accessibility pitfalls that crop up especially often when working with React. Keep these issues in mind when working on frontend changes.
+
+## Tips
+
+- Users may need to navigate the site via keyboard rather than mouse. Or that might simply be their preference. Cultivate a habit of checking interactive elements are always navigable using the keyboard, and make sure it's always clear which element is focused.
+- Always bear in mind that browsers aren't the only potential consumers of the site's HTML: screen readers and crawlers may need to make sense of it too.
+- Read the actual HTML being generated using the Elements/DOM inspector in your browser's dev tools. Consider whether there's a better element than `<div>` for the job. Make sure the correct semantic elements are used for lists and landmarks, and that the heading structure makes sense.
+- Browser dev tools such as aXe and Lighthouse can automatically flag many accessibility issues: using them is strongly recommended.
+
+## Automated checks
+
+The project is configured with lint rules from `eslint-plugin-jsx-a11y` to detect common issues such as missing `alt` text on images.
+
+In future, accessibility issues may be automatically flagged in CI using a tool like Lighthouse or aXe.

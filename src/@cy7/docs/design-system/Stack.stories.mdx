@@ -1,0 +1,54 @@
+import { Box, Stack } from "@cy7/design-system";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Design system / Layout / Stack" component={Stack} />
+
+# Stack
+
+Spaces children vertically. See [Every Layout's guide to the stack layout](https://every-layout.dev/layouts/stack/).
+
+```tsx
+import { Stack } from "@cy7/design-system";
+```
+
+<Canvas withSource="open">
+  <Story name="Default">
+    <Stack>
+      <Box css={{ background: "$obsidian", size: "50px" }} />
+      <Box css={{ background: "$obsidian", size: "50px" }} />
+      <Box css={{ background: "$obsidian", size: "50px" }} />
+    </Stack>
+  </Story>
+</Canvas>
+
+The default spacing is equivalent to 1x the standard line height used for text.
+
+Use the `space` prop to adjust the amount of spacing. Any space value from the Stitches theme is valid.
+
+## With double the default spacing
+
+<Canvas withSource="open">
+  <Story name="With double spacing">
+    <Stack space="2">
+      <Box css={{ background: "$obsidian", size: "50px" }} />
+      <Box css={{ background: "$obsidian", size: "50px" }} />
+      <Box css={{ background: "$obsidian", size: "50px" }} />
+    </Stack>
+  </Story>
+</Canvas>
+
+## With half the default spacing
+
+<Canvas withSource="open">
+  <Story name="With half spacing">
+    <Stack space="0-5">
+      <Box css={{ background: "$obsidian", size: "50px" }} />
+      <Box css={{ background: "$obsidian", size: "50px" }} />
+      <Box css={{ background: "$obsidian", size: "50px" }} />
+    </Stack>
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable exclude={["as", "css", "ref"]} of={Stack} />

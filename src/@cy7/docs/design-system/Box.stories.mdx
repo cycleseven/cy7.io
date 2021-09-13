@@ -1,0 +1,59 @@
+import { Box } from "@cy7/design-system";
+import { Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Design system / Layout / Box" component={Box} />
+
+# Box
+
+Box is a utility component that provides access to the Stitches theme.
+
+```tsx
+import { Box } from "@cy7/design-system";
+```
+
+It's useful for styling simple one-off components with the `css` prop provided by Stitches. It renders a `<div>` by default, but can render any element using the polymorphic `as` prop.
+
+<Canvas withSource="open">
+  <Story name="Default">
+    <Box css={{
+      background: "$candyfloss",
+      display: "inline-block",
+      padding: "$1",
+      "& > p": { background: "$paper" }
+    }}>
+      <Box
+        as="p"
+        css={{
+          fontWeight: "$bold",
+          margin: 0,
+          "&:hover": {
+            color: "forestgreen"
+          }
+        }}>
+        I'm a box!
+      </Box>
+    </Box>
+  </Story>
+</Canvas>
+
+Note that theme tokens are available, as are CSS combinators and psuedo-classes.
+
+Before reaching for `<Box />`, first consider:
+
+- using another design system component that's more tailored to your use case. Don't reinvent the wheel.
+- creating a component with the `styled()` API instead. Overusing `<Box />` components can result in noisy markup.
+
+## Prior art
+
+`<Box />` components crop up in many design systems.
+
+* [Material UI's `<Box />`](https://material-ui.com/components/box/)
+* [Braid's `<Box />`](https://seek-oss.github.io/braid-design-system/components/Box)
+* Theme UI's `<Box />`(https://theme-ui.com/components/box)
+
+They were (I think!) popularised by Styled System in the React world. With Stitches, the implementation of `<Box />` is a one-liner.
+
+```tsx
+import { styled } from "@cy7/design-system";
+const Box = styled("div");
+```

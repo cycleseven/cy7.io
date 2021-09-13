@@ -1,0 +1,55 @@
+import { Svg } from "@cy7/design-system";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+
+<Meta title="Design system / Components / Svg" component={Svg} />
+
+# Svg
+
+Renders an `<svg>` element, with some useful defaults to aid visual consistency and accessibility when dealing with inline SVGs.
+
+- The `<svg>` is styled as a `block` element (instead of the default `inline`). This removes unexpected empty whitespace that can occur at the bottom of the SVG element. See [this Stack Overflow question](https://stackoverflow.com/questions/22337292/spurious-margin-on-svg-element). Using `display: block` also provides a more reliable click target area when using inline SVGs inside links.
+- The `role="img"` attribute is set by default, which ensures screen readers don't attempt to traverse inline SVG code.
+- If a `title` prop is provided, it's rendered as a `<title>` tag inside the SVG tree. If not, the SVG is considered decorative and `aria-hidden` is applied to hide the image from screen readers.
+
+> See [this CSS Tricks article](https://css-tricks.com/accessible-svgs/#2-inline-svg) on accessible SVGs for some background info.
+
+```tsx
+import { Svg } from "@cy7/design-system";
+```
+
+<Canvas withSource="open">
+  <Story name="Default">
+    <Svg
+      height={32}
+      title="A red rectangle"
+      viewBox="0 0 32 32"
+      width={32}
+    >
+      <rect height={32} width={32} fill="red" />
+    </Svg>
+  </Story>
+</Canvas>
+
+## Decorative images (`aria-hidden`)
+
+Inspect this story in your browser's dev tools to see how `aria-hidden` is applied when no `title` is provided.
+
+> ⚠️ Make sure this is really what you want! Usually you should provide a `title` rather than hiding content from screen readers.
+>
+> In future, the props API will likely change to make titles opt-out rather than opt-in.
+
+<Canvas withSource="open">
+  <Story name="Without title">
+    <Svg
+      height={32}
+      viewBox="0 0 32 32"
+      width={32}
+    >
+      <rect height={32} width={32} fill="red" />
+    </Svg>
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable exclude={["css", "ref"]} of={Svg} />

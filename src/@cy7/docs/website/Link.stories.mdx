@@ -1,0 +1,73 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Website / Components / Link" />
+
+# Link
+
+Combines the look of the `<Link />` component from cy7.io's design system with the behaviour of Gatsby's `<Link />` component.
+
+Three types of link are supported:
+
+* `internal`
+* `external`
+* `email`
+
+The link destination is always controlled by a `to` prop, regardless of the link type.
+
+> TODO: reconsider if that is really the best API 🤔
+
+## Internal links
+
+Internal links are the default. These mirror Gatsby's `<Link />` API directly and should feel familiar.
+
+```tsx
+import { Link } from "@cy7/website/common";
+
+<Link to="/another-page">
+  Go to another page
+</Link>
+```
+
+## External links
+
+Links to external sites don't use Gatsby's `<Link />` component. Instead, a standard `<a>` tag is rendered.
+
+External links always open in a new tab.
+
+```tsx
+import { Link } from "@cy7/website/common";
+
+<Link to="https://google.com" type="external">
+  Go to google.com
+</Link>
+
+// A plain anchor tag is rendered in the DOM:
+// <a href="https://google.com" rel="noreferrer noopener" target="_blank">
+//   Go to google.com
+// </a>
+```
+
+## Email links
+
+The `<Link />` component can render `mailto` links too. Use the `email` type.
+
+```tsx
+import { Link } from "@cy7/website/common";
+
+<Link to="hello@cy7.io" type="email">
+  Email me
+</Link>
+
+// DOM output:
+// <a href="mailto:hello@cy7.io">
+//   Email me
+// </a>
+```
+
+## Props
+
+All props are forwarded to the underlying component.
+
+In the case of `internal` links, this means you can pass any prop supported by Gatsby's `<Link />` component.
+
+For other types of link, it's any prop accepted by the `<a>` element.

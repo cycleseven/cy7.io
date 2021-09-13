@@ -1,0 +1,58 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Guides / Code quality" />
+
+# Code quality
+
+This project uses automated tools to promote code quality. These tools are configured in a way that aims to automatically catch mistakes early without encumbering the workflow of individual developers.
+
+The following lines of defence are in place:
+
+- [Prettier](https://prettier.io/) to format code.
+- [ESLint](https://eslint.org/) to detect potential bad patterns.
+- [Typescript compilation](https://www.typescriptlang.org/) to catch type errors.
+- [Jest](https://jestjs.io/) to run automated tests.
+- [Terraform's `terraform fmt`](https://www.terraform.io/docs/cli/commands/fmt.html): just like Prettier, but for Terraform config files.
+
+## Git hooks
+
+To make it as easy as possible to stick to the project's conventions, Git hooks are automatically configured for you when installing dependencies with `yarn`. This is managed by [Lefthook](https://evilmartians.com/chronicles/lefthook-knock-your-teams-code-back-into-shape).
+
+Out of the box, the following checks run automatically as part of your `git` workflow. These are configured via `lefthook.yml`.
+
+### On pre-commit
+
+- Code is automatically formatted (using `prettier` or `terraform fmt` where appropriate).
+
+### On pre-push
+
+- **Code is checked against the standard formatting enforced by Prettier (or by Terraform, where relevant).** All files need to match the expected style.
+- **Type errors are flagged.** There shouldn't be any.
+- **Code is linted.** Zero warnings should be detected.
+- **The full test suite is executed.** All tests should pass.
+
+If any check fails, your code won't be pushed.
+
+> If you don't see any code quality checks running on `git commit` or `git push`, try running `yarn lefthook install` to manually re-install the hooks to your `.git/hooks` directory.
+
+## Why not lint + test on commit too?
+
+It's true that problems can be caught earlier that way.
+
+However, slow-to-execute checks and frequent failures can also discourage developers from making local commits as often as they otherwise would. To avoid adding too much friction to local development workflows, we therefore default to only running pre-commit tasks that execute quickly and that essentially never fail.
+
+That being said, a lint error or a failing test can become a shared problem once code is pushed, and that's definitely worth avoiding. Running all automated checks before push is therefore strongly recommended. A stricter set of pre-push checks reflects that.
+
+The hope is that these hooks strike the right balance between helping to catch potential issues before code is shared with others, without defaulting to excessive constraints on each developer's local workflow. But if the balance isn't the right one for you...
+
+## Customising Git hooks
+
+You might prefer a stricter approach that automatically runs the tests on each commit, leaning on `git commit --no-verify` for the rare occasion when you'd rather not.
+
+Or, maybe it's the opposite, and even auto-formatting on commit is too invasive for your tastes.
+
+In that case, you can create [a local Lefthook config](https://github.com/evilmartians/lefthook/blob/master/docs/full_guide.md#local-config) to override the default Git hooks described above.
+
+## CI
+
+The same code quality checks performed on Git pre-push take place in a CI pipeline on any branch that's pushed to the Gitlab repository. You won't be able to deploy via CI until code quality checks pass.
