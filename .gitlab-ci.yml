@@ -24,7 +24,7 @@ build_storybook:
       - storybook-static
   script:
     - yarn install --frozen-lockfile
-    - yarn build-storybook --docs
+    - yarn build-storybook --docs --quiet
 
 frontend_code_quality:
   stage: test
