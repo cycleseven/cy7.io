@@ -13,6 +13,8 @@ build:
       - generated
       - public
   interruptible: true
+  variables:
+    GATSBY_BUILD_SHA: $CI_COMMIT_SHORT_SHA
   script:
     - yarn install --frozen-lockfile
     - yarn build
@@ -52,8 +54,6 @@ deploy:
   only:
     - master
   image: amazon/aws-cli:2.2.37
-  variables:
-    GATSBY_BUILD_SHA: $CI_COMMIT_SHORT_SHA
   script:
     - echo "what"
     - aws s3 sync public s3://cy7.io
