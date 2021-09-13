@@ -1,8 +1,11 @@
 name: validate-pushed-code
-on: [push]
+on:
+  push:
+    branches-ignore:
+      - main
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -10,14 +13,13 @@ jobs:
           node-version: 16.7.0
       - run: yarn install --frozen-lockfile
       - run: yarn build
-      - name: Store generated GraphQL types
+      - name: Store generated code
         uses: actions/upload-artifact@v2
         with:
-          name: generated-gql-types
-          path: |
-            generated
+          name: generated
+          path: generated
   build-storybook:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -27,16 +29,24 @@ jobs:
       - run: yarn build-storybook --docs --quiet
   check-frontend-code-quality:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: 16.7.0
-      - name: Download generated GraphQL types
+      - name: Download generated code
         uses: actions/download-artifact@v2
         with:
-          name: generated-gql-types
+          name: generated
           path: generated
       - run: yarn install --frozen-lockfile
       - run: LEFTHOOK_EXCLUDE=infra yarn lefthook run check-all
+  check-terraform-code-quality:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 0.14.7
+      - run: terraform fmt -check deploy/infra

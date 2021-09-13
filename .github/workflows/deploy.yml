@@ -1,0 +1,91 @@
+name: deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16.7.0
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
+      - name: Store generated code
+        uses: actions/upload-artifact@v2
+        with:
+          name: generated
+          path: generated
+      - name: Store Gatsby build output
+        uses: actions/upload-artifact@v2
+        with:
+          name: bundle
+          path: public
+  build-storybook:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16.7.0
+      - run: yarn install --frozen-lockfile
+      - run: yarn build-storybook --docs --quiet
+      - name: Store Storybook build output
+        uses: actions/upload-artifact@v2
+        with:
+          name: storybook-bundle
+          path: storybook-static
+  check-frontend-code-quality:
+    needs: build
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16.7.0
+      - name: Download generated GraphQL types
+        uses: actions/download-artifact@v2
+        with:
+          name: generated-gql-types
+          path: generated
+      - run: yarn install --frozen-lockfile
+      - run: LEFTHOOK_EXCLUDE=infra yarn lefthook run check-all
+  check-terraform-code-quality:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 0.14.7
+      - run: terraform fmt -check deploy/infra
+  deploy:
+    needs: build
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download bundle
+        uses: actions/download-artifact@v2
+        with:
+          name: bundle
+          path: public
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - run: aws s3 sync public s3://cy7.io
+  deploy-storybook:
+    needs: build-storybook
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: storybook-bundle
+          path: storybook-static
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - run: aws s3 sync storybook-static s3://storybook.cy7.io
