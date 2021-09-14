@@ -28,7 +28,7 @@ const {
     colors: {
       // Base tones
       angrypeach: `hsl(${angrypeach}, 100%, 80%)`,
-      candyfloss: `hsl(${candyfloss}, 85%, 87%)`,
+      candyfloss: `hsl(${candyfloss}, 98%, 89%)`,
       dijon: `hsl(${dijon}, 100%, 50%)`,
       obsidian: `hsl(${obsidian}, 75%, 9%)`,
       glasgow: `hsl(${obsidian}, 95%, 16%)`,
