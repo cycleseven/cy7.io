@@ -94,7 +94,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/cycleseven/cy7"
+    "url": "https://github.com/cycleseven/cy7.io"
   },
   "eslintConfig": {
     "extends": [

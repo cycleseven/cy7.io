@@ -34,9 +34,9 @@ module.exports = {
           url: "https://storybook.cy7.io",
         },
         {
-          name: "Source code (Gitlab)",
+          name: "Source code (Github)",
           type: "external",
-          url: "https://gitlab.com/cycleseven/cy7",
+          url: "https://github.com/cycleseven/cy7.io",
         },
       ],
     },

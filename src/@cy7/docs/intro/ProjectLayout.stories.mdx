@@ -7,6 +7,8 @@ import { Meta } from "@storybook/addon-docs";
 Let's take a bird's eye view of the code. Directories marked with (*) are generated.
 
 ```
+- .github/
+  - workflows/
 - .storybook/
 - deploy/
   - infra/
@@ -33,13 +35,17 @@ Let's take a bird's eye view of the code. Directories marked with (*) are genera
 - [top-level files like package.json, gatsby-config.js, etc]
 ```
 
+**`.github/workflows`**
+
+Configures Github Actions (ie. CI/automated builds).
+
 **`.storybook`**
 
 This directory configures Storybook. [See their docs.](https://storybook.js.org/docs/react/configure/overview)
 
 **`deploy`**
 
-This directory holds code related to hosting and deployment of cy7.io. The site is hosted on AWS (S3 + CloudFront) and is usually deployed via a CI pipeline in Gitlab.
+This directory holds code related to hosting and deployment of cy7.io. The site is hosted on AWS (S3 + CloudFront) and is usually deployed automatically (via Github Actions).
 
 - `deploy/infra` holds the Terraform config defining the AWS infrastructure used to host the site.
 - `deploy/lambda` contains a mini [Serverless Framework](http://serverless.com) project that defines AWS Lambda functions used via Lambda@Edge (for custom server logic executed when handling requests in CloudFront).
