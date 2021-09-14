@@ -101,7 +101,7 @@ function Footer(): React.ReactElement {
 
             <div>
               <Heading>{metaLinks.name}</Heading>
-              {renderLinks(metaLinks.links)}
+              <Stack space="0-15">{renderLinks(metaLinks.links)}</Stack>
             </div>
           </Grid>
         </MaxWidth>
