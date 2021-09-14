@@ -26,7 +26,7 @@ const typography = new Cy7Typography({
   baseFontSize: "17px",
   baseLineHeight: 1.65,
   blockMarginBottom: 0.8,
-  bodyColor: `hsl(${obsidian}, 95%, 19%)`, // TODO: get from theme instead
+  bodyColor: `hsl(${obsidian}, 85%, 17%)`, // TODO: get from theme instead
   bodyFontFamily: [
     "Inter",
     "Helvetica Neue",
@@ -35,7 +35,7 @@ const typography = new Cy7Typography({
     "sans-serif",
   ],
   bodyWeight: 400,
-  headerColor: `hsl(${obsidian}, 95%, 19%)`, // TODO: get from theme instead
+  headerColor: `hsl(${obsidian}, 85%, 17%)`, // TODO: get from theme instead
   headerFontFamily: ["Oswald", "Open Sans Condensed", "Impact", "sans-serif"],
   headerWeight: 700,
   scaleRatio: 2.5,

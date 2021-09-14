@@ -70,7 +70,7 @@ const MeImage = styled("div", {
 });
 
 const SectionHeading = styled("h2", {
-  borderBottom: "solid 4px $colors$headerText",
+  borderBottom: "solid 4px $colors$headerBorder",
   marginBottom: "$2",
   marginTop: 0,
   paddingBottom: "$0-33",
@@ -78,6 +78,7 @@ const SectionHeading = styled("h2", {
 });
 
 const ShowcaseHeading = styled("h3", {
+  color: "$headerText",
   fontSize: "1.2rem",
   lineHeight: 1.3,
   margin: 0,
