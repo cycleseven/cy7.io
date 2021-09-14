@@ -43,7 +43,7 @@ const IntroText = styled("p", {
   fontFamily: "$body",
   fontSize: "0.95rem", // Should be a theme value
   fontWeight: "$regular",
-  letterSpacing: 0,
+  letterSpacing: "-0.01ch",
   lineHeight: 1.65,
   marginBottom: "$0-75",
   maxWidth: "36ch",

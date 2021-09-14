@@ -51,6 +51,9 @@ const typography = new Cy7Typography({
       marginBottom: rhythm(1),
       marginTop: rhythm(2),
     },
+    p: {
+      letterSpacing: "-0.01ch",
+    },
   }),
 }) as Cy7TypographyType;
 
