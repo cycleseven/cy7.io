@@ -1,6 +1,7 @@
 import { Link, LinkIcon, styled } from "@cy7/design-system";
 import { slugify } from "@cy7/website/common/utils/slugify";
 import React from "react";
+import innerText from "react-innertext";
 
 const Anchor = styled(Link, {
   display: "inline-block",
@@ -23,7 +24,7 @@ type HeadingElement = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
 type MdxHeadingProps = {
   as: HeadingElement;
-  children: string;
+  children: React.ReactNode;
 } & React.ComponentProps<typeof Heading>;
 
 function MdxHeading({
@@ -31,8 +32,8 @@ function MdxHeading({
   children,
   ...props
 }: MdxHeadingProps): React.ReactElement {
-  const slug = slugify(children);
-  const label = children;
+  const slug = slugify(innerText(children));
+  const label = innerText(children);
 
   return (
     <Heading as={as} id={slug} {...props}>

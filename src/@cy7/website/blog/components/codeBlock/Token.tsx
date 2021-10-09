@@ -7,9 +7,12 @@ import { VariantProps, styled } from "@cy7/design-system";
 import React, { ComponentProps } from "react";
 
 const StyledToken = styled("span", {
+  display: "inline-block",
+
   defaultVariants: {
     color: "plain",
   },
+
   variants: {
     color: {
       comment: {

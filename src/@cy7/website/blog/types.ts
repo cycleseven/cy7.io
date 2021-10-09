@@ -2,6 +2,6 @@ interface Token {
   types: string[];
 }
 
-type SupportedCodeBlockLanguages = "jsx" | "javascript";
+type SupportedCodeBlockLanguages = "graphql" | "jsx" | "javascript";
 
 export type { Token, SupportedCodeBlockLanguages };

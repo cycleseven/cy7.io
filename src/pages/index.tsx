@@ -235,7 +235,7 @@ export const query = graphql`
 
     photoOfMe: file(relativePath: { eq: "goat.jpg" }) {
       childImageSharp {
-        gatsbyImageData(width: 72, placeholder: NONE, quality: 50)
+        gatsbyImageData(width: 72, quality: 50)
       }
     }
   }
