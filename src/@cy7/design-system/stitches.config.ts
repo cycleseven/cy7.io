@@ -32,28 +32,40 @@ const {
       dijon: `hsl(${dijon}, 100%, 50%)`,
       obsidian: `hsl(${obsidian}, 75%, 9%)`,
       glasgow: `hsl(${obsidian}, 95%, 16%)`,
-      paper: `hsl(${paper}, 100%, 99.5%)`,
+      paper: `hsl(${paper}, 100%, 99%)`,
+      parchment: `hsl(${paper}, 88%, 95%)`,
 
       // Shades
+      // TODO: 'parchment' is a shade of 'paper', and 'glasgow' is a shade
+      //       of 'obsidian'. Come up with a more consistent approach to
+      //       defining shades.
       candyflossLite: `hsl(${candyfloss}, 100%, 88%)`,
 
-      // Semantic colors and aliases
+      // Semantic aliases
       accent: "$candyfloss",
       bg: "$paper",
+      altBg: "$parchment",
+      contrastBg: "$obsidian",
+      contrastText: "$paper",
+      contrast: "$glasgow",
+
+      // Components
+      blockquoteBg: `$altBg`,
       bodyText: `hsl(${obsidian}, 85%, 17%)`,
       codeComment: `hsl(${obsidian}, 20%, 60%)`,
       codeError: "$angrypeach",
       codeKeyword: `hsl(${candyfloss}, 100%, 85%)`,
+      codeInlineBg: `$altBg`,
+      codeInlineBorder: `hsl(${paper}, 84%, 91%)`,
       codeLiteral: `hsl(${paper}, 90%, 70%)`,
       codeName: `hsl(${paper}, 100%, 84%)`,
       codeOperator: `hsl(${obsidian}, 50%, 80%)`,
-      codePlain: "$paper",
+      codePlain: "$contrastText",
       codePunctuation: `hsl(${obsidian}, 18%, 55%)`,
-      contrast: "$glasgow",
       dateText: `hsl(${obsidian}, 30%, 46%)`,
       headerBorder: `hsl(${obsidian}, 85%, 20%)`,
       headerText: `hsl(${obsidian}, 85%, 17%)`,
-      linkBorder: `hsl(${candyfloss}, 85%, 94%)`,
+      linkBorder: `hsl(${candyfloss}, 92%, 92%)`,
       linkBorderHover: "$candyfloss",
       linkText: "$bodyText",
       linkHoverText: "inherit",

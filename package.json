@@ -65,6 +65,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-helmet": "6.1.0",
+    "react-innertext": "1.1.5",
     "react-typography": "0.16.19",
     "typescript": "4.4.2",
     "typography": "0.16.19",
@@ -88,7 +89,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "start": "gatsby develop",
+    "start": "GATSBY_GRAPHQL_IDE=playground gatsby develop",
     "test": "jest",
     "storybook": "start-storybook -p 8001 --docs"
   },

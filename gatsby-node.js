@@ -62,3 +62,14 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 };
+
+exports.createSchemaCustomization = ({ actions }) => {
+  actions.createTypes(`
+    type MdxFrontmatter {
+      title: String!
+      description: String!
+      slug: String!
+      images: [File] @fileByRelativePath
+    }
+  `);
+};

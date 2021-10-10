@@ -1,4 +1,5 @@
 import {
+  MdxBlockquote,
   MdxCodeBlock,
   MdxH1,
   MdxH2,
@@ -12,7 +13,7 @@ import {
 import { styled, Gutters, MaxWidth } from "@cy7/design-system";
 import { Meta, Page, WarpTotem } from "@cy7/website/common";
 import { BlogPostPageQuery } from "@cy7/gql-types";
-import { MDXProvider } from "@mdx-js/react";
+import { MDXProvider, MDXProviderComponents } from "@mdx-js/react";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
@@ -25,7 +26,7 @@ const BlogHeader = styled("div", {
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
-  marginBottom: "$2",
+  marginBottom: "$1-5",
   marginTop: "$3",
 });
 
@@ -43,7 +44,7 @@ const BlogDate = styled("p", {
   letterSpacing: "0.11em",
 });
 
-const mdxComponents = {
+const mdxComponents: MDXProviderComponents = {
   inlineCode: MdxInlineCode,
   pre: MdxCodeBlock,
   a: MdxLink,
@@ -53,6 +54,7 @@ const mdxComponents = {
   h4: MdxH4,
   h5: MdxH5,
   h6: MdxH6,
+  blockquote: MdxBlockquote,
 };
 
 interface BlogPostProps {
@@ -98,7 +100,9 @@ function BlogPost({ data }: BlogPostProps): React.ReactElement {
               </BlogHeader>
 
               <MDXProvider components={mdxComponents}>
-                <MDXRenderer>{blogPost.body}</MDXRenderer>
+                <MDXRenderer images={blogPost.frontmatter.images}>
+                  {blogPost.body}
+                </MDXRenderer>
               </MDXProvider>
             </article>
           </main>
@@ -119,6 +123,11 @@ export const query = graphql`
         date
         description
         title
+        images {
+          childImageSharp {
+            gatsbyImageData(layout: CONSTRAINED)
+          }
+        }
       }
     }
   }

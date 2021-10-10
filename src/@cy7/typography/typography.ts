@@ -23,9 +23,9 @@ class Cy7Typography extends Typography implements ICy7Typography {
 }
 
 const typography = new Cy7Typography({
-  baseFontSize: "17px",
+  baseFontSize: "16px",
   baseLineHeight: 1.65,
-  blockMarginBottom: 0.8,
+  blockMarginBottom: 0.7,
   bodyColor: `hsl(${obsidian}, 85%, 17%)`, // TODO: get from theme instead
   bodyFontFamily: [
     "Inter",
@@ -49,7 +49,7 @@ const typography = new Cy7Typography({
     },
     h2: {
       marginBottom: rhythm(1),
-      marginTop: rhythm(2),
+      marginTop: rhythm(1.75),
     },
     p: {
       letterSpacing: "-0.01ch",
