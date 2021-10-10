@@ -9,6 +9,7 @@ const Header = styled("header", {
   alignItems: "center",
   display: "flex",
   flexDirection: "column",
+  margin: "0 $1",
 });
 
 const Main = styled(MaxWidth, {
