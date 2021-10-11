@@ -12,7 +12,7 @@ const Header = styled("header", {
   margin: "0 $1",
 });
 
-const Main = styled(MaxWidth, {
+const Main = styled("main", MaxWidth, {
   paddingBottom: "$4",
 });
 
