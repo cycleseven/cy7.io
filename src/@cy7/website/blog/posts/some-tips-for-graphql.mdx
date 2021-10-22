@@ -186,7 +186,7 @@ query myCoolQuery {
 
 > This particular pagination pattern is one I'd recommend, as a side note.
 >
-> If you haven't seen connections before, they might look convoluted at first glance. But it's a widely used standard, so it should be familiar to other developers with GraphQL experience. You'll also be making life much nicer for clients using [Relay](https://relay.dev/) by implementing this spec.
+> If you haven't seen connections before, they might look convoluted at first glance. But it's a widely used standard, so it should be familiar to other developers with GraphQL experience. You'll also be paving the way for proper [Relay](https://relay.dev/) support by choosing this pagination style.
 
 You'll almost certainly have to add pagination at some point. And if you don't ship it upfront, all consumers are going to have to change the shape of every query involving a list when you do get there. It goes without saying that lists are a pretty common data shape in APIs. So that churn has a significant cost. For that reason, you're typically much better off building with pagination in mind upfront.
 
