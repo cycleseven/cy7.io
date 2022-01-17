@@ -6,8 +6,8 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-const { format } = require("date-fns");
 const path = require("path");
+const { formatFriendlyDate } = require("./gatsby/utils/dates");
 
 exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
   // Enable src-relative imports via Webpack
@@ -28,10 +28,11 @@ exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === "Mdx") {
-    // Format the date for blog posts
-    // TODO: seems quite unit testable actually...
-    const date = format(new Date(node.frontmatter.date), "do MMMM yyyy");
-    createNodeField({ node, name: "friendlyDate", value: date });
+    createNodeField({
+      node,
+      name: "friendlyDate",
+      value: formatFriendlyDate(node.frontmatter.date),
+    });
   }
 };
 
