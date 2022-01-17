@@ -183,11 +183,19 @@
     "testPathIgnorePatterns": [
       "/node_modules/",
       "\\.cache",
-      "/public/"
+      "/public/",
+      "/storybook-static/"
     ],
     "moduleDirectories": [
       "node_modules",
       "src"
+    ],
+    "watchPathIgnorePatterns": [
+      "/.cache/",
+      "/public/",
+      "/generated/",
+      "/storybook-static/",
+      "schema.graphql"
     ]
   },
   "prettier": {
