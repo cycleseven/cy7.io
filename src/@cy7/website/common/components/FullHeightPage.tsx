@@ -1,4 +1,5 @@
-import React, { ComponentProps, useLayoutEffect } from "react";
+import React, { ComponentProps } from "react";
+import { Helmet } from "react-helmet";
 import { globalCss, styled } from "@cy7/design-system";
 
 const FullHeightContainer = styled("div", {
@@ -25,20 +26,17 @@ const applyGlobalStyles = globalCss({
 type FullHeightPageProps = ComponentProps<typeof FullHeightContainer>;
 
 function FullHeightPage(props: FullHeightPageProps): React.ReactElement {
-  useLayoutEffect(() => {
-    applyGlobalStyles();
-  }, []);
-
-  useLayoutEffect(() => {
-    document.documentElement.classList.add("cy7-full-height-page");
-
-    return function onFullHeightPageUnmount() {
-      document.documentElement.classList.remove("cy7-full-height-page");
-    };
-  }, []);
+  applyGlobalStyles();
 
   return (
     <React.Fragment>
+      <Helmet>
+        {/* The lang="en" attribute is set via gatsby-ssr APIs, so this warning
+            is a false positive here.
+        */}
+        {/* eslint-disable-next-line jsx-a11y/html-has-lang */}
+        <html className="cy7-full-height-page" />
+      </Helmet>
       <FullHeightContainer {...props} />
     </React.Fragment>
   );
