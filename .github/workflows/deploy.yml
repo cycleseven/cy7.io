@@ -73,7 +73,7 @@ jobs:
           terraform_version: 0.14.7
       - run: cd deploy/infra
       - id: read-website-cloudfront-distribution-id
-        run: echo "::set-output name=id:$(terraform output -json | jq -r '.website_cloudfront_distribution_id.value')"
+        run: echo "::set-output name=id::$(terraform output -json | jq -r '.website_cloudfront_distribution_id.value')"
   deploy:
     needs:
       - build
