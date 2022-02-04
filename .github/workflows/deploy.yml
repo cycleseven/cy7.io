@@ -66,6 +66,9 @@ jobs:
     runs-on: ubuntu-20.04
     outputs:
       website-cloudfront-distribution-id: ${{ steps.read-website-cloudfront-distribution-id.outputs.id }}
+    defaults:
+      run:
+        working-directory: deploy/infra
     steps:
       - uses: actions/checkout@v2
       - uses: hashicorp/setup-terraform@v1
@@ -76,7 +79,6 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
-      - run: cd deploy/infra
       - name: Terraform init
         run: terraform init
       - id: read-website-cloudfront-distribution-id
