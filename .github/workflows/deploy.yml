@@ -65,7 +65,7 @@ jobs:
   query-existing-infrastructure:
     runs-on: ubuntu-20.04
     outputs:
-      website-cloudfront-distribution-id: ${{ steps.read-website-cloudfront-distribution-id.outputs.id }}
+      website-cloudfront-distribution-id: ${{ steps.read-website-cloudfront-distribution-id.outputs.stdout }}
     defaults:
       run:
         working-directory: deploy/infra
@@ -82,15 +82,8 @@ jobs:
       - name: Terraform init
         run: terraform init
       - name: Terraform output
-        run: terraform output -json
-      - name: jq version
-        run: jq --version
-      - run: terraform output -json | jq
-      - run: terraform output -json | jq -r
-      - run: terraform output -json | jq -r '.'
-      - run: terraform output -json | jq -r '.website_cloudfront_distribution_id.value'
-      - id: read-website-cloudfront-distribution-id
-        run: echo "::set-output name=id::$(terraform output -json | jq -r '.website_cloudfront_distribution_id.value')"
+        id: read-website-cloudfront-distribution-id
+        run: terraform output -raw website_cloudfront_distribution_id
   deploy:
     needs:
       - build
