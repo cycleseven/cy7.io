@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16.7.0
-      - run: yarn install --frozen-lockfile
+      - uses: bahmutov/npm-install@v1
       - run: yarn build
       - name: Store generated code
         uses: actions/upload-artifact@v2
@@ -32,7 +32,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16.7.0
-      - run: yarn install --frozen-lockfile
+      - uses: bahmutov/npm-install@v1
       - run: yarn build-storybook --docs --quiet
       - name: Store Storybook build output
         uses: actions/upload-artifact@v2
@@ -52,7 +52,7 @@ jobs:
         with:
           name: generated
           path: generated
-      - run: yarn install --frozen-lockfile
+      - uses: bahmutov/npm-install@v1
       - run: LEFTHOOK_EXCLUDE=infra yarn lefthook run check-all
   check-terraform-code-quality:
     runs-on: ubuntu-20.04
