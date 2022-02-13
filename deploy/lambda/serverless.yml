@@ -2,10 +2,14 @@ service: cy7-redirect-lambda
 
 provider:
   name: aws
-  runtime: nodejs10.x
+  runtime: nodejs14.x
   region: us-east-1
   timeout: 5
   memorySize: 128
+  tags:
+    project: website
+  stackTags:
+    project: website
 
 package:
   exclude:

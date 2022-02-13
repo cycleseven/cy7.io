@@ -6,5 +6,9 @@
   "dependencies": {
     "serverless": "1.54.0",
     "serverless-stack-output": "0.2.3"
+  },
+  "engines": {
+    "node": "14.16.0",
+    "yarn": ">=1.17.3 <2.0.0"
   }
 }
