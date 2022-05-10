@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 terraform {
-  required_version = "0.14.7"
+  required_version = "~> 1.1.0"
 
   backend "s3" {
     bucket = "tfstate.cy7.io"
