@@ -1,10 +1,11 @@
-name: deploy
+name: Push to main
 on:
   push:
     branches:
       - main
 jobs:
   build:
+    name: Build cy7.io
     runs-on: ubuntu-20.04
     env:
       GATSBY_BUILD_SHA: ${{ github.sha }}
@@ -26,6 +27,7 @@ jobs:
           name: bundle
           path: public
   build-storybook:
+    name: Build Storybook
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -40,39 +42,15 @@ jobs:
           name: storybook-bundle
           path: storybook-static
   check-frontend-code-quality:
+    name: Check frontend code quality
     needs: build
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 16.7.0
-      - name: Download generated GraphQL types
-        uses: actions/download-artifact@v2
-        with:
-          name: generated
-          path: generated
-      - uses: bahmutov/npm-install@v1
-      - run: LEFTHOOK_EXCLUDE=infra yarn lefthook run check-all
+    uses: ./.github/workflows/check-frontend-code-quality.yml
   check-terraform-code-quality:
-    runs-on: ubuntu-20.04
-    defaults:
-      run:
-        working-directory: deploy/infra
-    steps:
-      - uses: actions/checkout@v2
-      - uses: hashicorp/setup-terraform@v1
-        with:
-          terraform_version: 1.1.9
-      - uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
-      - run: terraform fmt -check
-      - run: terraform init
-      - run: terraform validate
+    name: Check Terraform code quality
+    uses: ./.github/workflows/check-terraform-code-quality.yml
+    secrets: inherit
   query-existing-infrastructure:
+    name: Query existing infrastructure
     runs-on: ubuntu-20.04
     outputs:
       website-cloudfront-distribution-id: ${{ steps.read-website-cloudfront-distribution-id.outputs.stdout }}
@@ -95,6 +73,7 @@ jobs:
         id: read-website-cloudfront-distribution-id
         run: terraform output -raw website_cloudfront_distribution_id
   deploy:
+    name: Deploy cy7.io
     needs:
       - build
       - check-frontend-code-quality
@@ -118,6 +97,7 @@ jobs:
       - name: Invalidate CloudFront caches
         run: aws cloudfront create-invalidation --distribution-id ${{ needs.query-existing-infrastructure.outputs.website-cloudfront-distribution-id }} --paths "/*"
   deploy-storybook:
+    name: Deploy Storybook
     needs:
       - build-storybook
       - check-frontend-code-quality
