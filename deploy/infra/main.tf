@@ -23,6 +23,15 @@ locals {
   root_domain = "cy7.io"
 }
 
+data "aws_cloudformation_export" "subdirectory_index_lambda_arn" {
+  name = "cy7-subdirectory-index-lambda-arn"
+}
+
+data "aws_cloudformation_export" "redirect_lambda_arn" {
+  name = "cy7-redirect-lambda-arn"
+}
+
+
 module "website" {
   source = "./modules/static_site"
 
@@ -30,11 +39,11 @@ module "website" {
   edge_lambdas = [
     {
       event_type = "viewer-request"
-      lambda_arn = jsondecode(file("${path.root}/../lambda/outputs.json")).RedirectLambdaFunctionQualifiedArn
+      lambda_arn = data.aws_cloudformation_export.redirect_lambda_arn.value
     },
     {
       event_type = "origin-request"
-      lambda_arn = jsondecode(file("${path.root}/../lambda/outputs.json")).SubdirectoryIndexLambdaFunctionQualifiedArn
+      lambda_arn = data.aws_cloudformation_export.subdirectory_index_lambda_arn.value
     }
   ]
   full_domain = "cy7.io"

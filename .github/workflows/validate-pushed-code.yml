@@ -46,9 +46,19 @@ jobs:
       - run: LEFTHOOK_EXCLUDE=infra yarn lefthook run check-all
   check-terraform-code-quality:
     runs-on: ubuntu-20.04
+    defaults:
+      run:
+        working-directory: deploy/infra
     steps:
       - uses: actions/checkout@v2
       - uses: hashicorp/setup-terraform@v1
         with:
-          terraform_version: 0.14.7
-      - run: terraform fmt -check deploy/infra
+          terraform_version: 1.1.9
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - run: terraform fmt -check
+      - run: terraform init
+      - run: terraform validate

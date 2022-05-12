@@ -6,8 +6,11 @@ Check `handlers.js` for the logic itself. Run `yarn sls deploy` to deploy update
 
 ## Integration with Terraform
 
-The Cloudfront distribution is provisioned in Terraform. So typically you'd first deploy the updated lambda functions, then run `terraform apply` (from the `deploy/infra` directory of this repo).
+The CloudFront distribution for [cy7.io](https://cy7.io) is provisioned in Terraform. That CloudFront distribution references the Lambda@Edge functions created by this project by ARN.
 
-Terraform can read info about the deployed Lambda functions (such as their ARNs) via the `outputs.json` file generated during `sls deploy` by the [`serverless-stack-output`](https://www.serverless.com/plugins/serverless-stack-output) plugin.
+That means deployment of changes to the Lambda@Edge functions must happen in two steps:
 
-(To read `outputs.json`, you can string together Terraform's [`jsondecode`](https://www.terraform.io/docs/configuration/functions/jsondecode.html) and [`file`](https://www.terraform.io/docs/configuration/functions/file.html) functions!)
+1. Deploy the updated Lambda functions via `yarn sls deploy`.
+1. Run `terraform apply` (from the `deploy/infra` directory of this repo).
+
+> 💡 **How it works:** the CloudFormation stack created by Serverless Framework exposes the qualified Lambda ARNs via **CloudFormation Exports**. The Terraform config reads these via the [`aws_cloudformation_export`](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/cloudformation_export) data provider.
