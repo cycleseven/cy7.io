@@ -44,6 +44,7 @@ jobs:
     uses: ./.github/workflows/check-frontend-code-quality.yml
   check-terraform-code-quality:
     uses: ./.github/workflows/check-terraform-code-quality.yml
+    secrets: inherit
   query-existing-infrastructure:
     runs-on: ubuntu-20.04
     outputs:
