@@ -42,9 +42,11 @@ jobs:
           name: storybook-bundle
           path: storybook-static
   check-frontend-code-quality:
+    name: Check frontend code quality
     needs: build
     uses: ./.github/workflows/check-frontend-code-quality.yml
   check-terraform-code-quality:
+    name: Check Terraform code quality
     uses: ./.github/workflows/check-terraform-code-quality.yml
     secrets: inherit
   query-existing-infrastructure:

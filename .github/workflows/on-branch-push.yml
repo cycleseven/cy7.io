@@ -32,8 +32,10 @@ jobs:
       - uses: bahmutov/npm-install@v1
       - run: yarn build-storybook --docs --quiet
   check-frontend-code-quality:
+    name: Check frontend code quality
     needs: build
     uses: ./.github/workflows/check-frontend-code-quality.yml
   check-terraform-code-quality:
+    name: Check Terraform code quality
     uses: ./.github/workflows/check-terraform-code-quality.yml
     secrets: inherit
