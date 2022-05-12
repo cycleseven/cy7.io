@@ -1,10 +1,11 @@
-name: on-mainline-push
+name: Push to main
 on:
   push:
     branches:
       - main
 jobs:
   build:
+    name: Build cy7.io
     runs-on: ubuntu-20.04
     env:
       GATSBY_BUILD_SHA: ${{ github.sha }}
@@ -26,6 +27,7 @@ jobs:
           name: bundle
           path: public
   build-storybook:
+    name: Build Storybook
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -46,6 +48,7 @@ jobs:
     uses: ./.github/workflows/check-terraform-code-quality.yml
     secrets: inherit
   query-existing-infrastructure:
+    name: Query existing infrastructure
     runs-on: ubuntu-20.04
     outputs:
       website-cloudfront-distribution-id: ${{ steps.read-website-cloudfront-distribution-id.outputs.stdout }}
@@ -68,6 +71,7 @@ jobs:
         id: read-website-cloudfront-distribution-id
         run: terraform output -raw website_cloudfront_distribution_id
   deploy:
+    name: Deploy cy7.io
     needs:
       - build
       - check-frontend-code-quality
@@ -91,6 +95,7 @@ jobs:
       - name: Invalidate CloudFront caches
         run: aws cloudfront create-invalidation --distribution-id ${{ needs.query-existing-infrastructure.outputs.website-cloudfront-distribution-id }} --paths "/*"
   deploy-storybook:
+    name: Deploy Storybook
     needs:
       - build-storybook
       - check-frontend-code-quality

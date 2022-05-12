@@ -1,8 +1,9 @@
-name: check-frontend-code-quality
+name: Check frontend code quality
 on:
   workflow_call:
 jobs:
   check-frontend-code-quality:
+    name: Check frontend code quality
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2

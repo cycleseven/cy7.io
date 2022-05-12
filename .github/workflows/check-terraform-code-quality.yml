@@ -1,8 +1,9 @@
-name: check-terraform-code-quality
+name: Check Terraform code quality
 on:
   workflow_call:
 jobs:
   check-terraform-code-quality:
+    name: Check Terraform code quality
     runs-on: ubuntu-20.04
     defaults:
       run:
