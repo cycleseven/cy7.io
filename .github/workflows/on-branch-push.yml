@@ -1,0 +1,36 @@
+name: on-branch-push
+on:
+  push:
+    branches-ignore:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    env:
+      GATSBY_BUILD_SHA: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16.7.0
+      - uses: bahmutov/npm-install@v1
+      - run: yarn build
+      - name: Store generated code
+        uses: actions/upload-artifact@v2
+        with:
+          name: generated
+          path: generated
+  build-storybook:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16.7.0
+      - uses: bahmutov/npm-install@v1
+      - run: yarn build-storybook --docs --quiet
+  check-frontend-code-quality:
+    needs: build
+    uses: ./.github/workflows/check-frontend-code-quality.yml
+  check-terraform-code-quality:
+    uses: ./.github/workflows/check-terraform-code-quality.yml
