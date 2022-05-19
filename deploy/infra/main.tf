@@ -2,6 +2,11 @@ provider "aws" {
   region = "us-east-1"
 }
 
+provider "aws" {
+  alias  = "ireland"
+  region = "eu-west-1"
+}
+
 terraform {
   required_version = "~> 1.1.0"
 
@@ -35,6 +40,11 @@ data "aws_cloudformation_export" "redirect_lambda_arn" {
 module "website" {
   source = "./modules/static_site"
 
+  providers = {
+    aws         = aws
+    aws.ireland = aws.ireland
+  }
+
   alias_domains = ["www.cy7.io"]
   edge_lambdas = [
     {
@@ -52,6 +62,11 @@ module "website" {
 
 module "storybook" {
   source = "./modules/static_site"
+
+  providers = {
+    aws         = aws
+    aws.ireland = aws.ireland
+  }
 
   full_domain = "storybook.cy7.io"
   root_domain = local.root_domain

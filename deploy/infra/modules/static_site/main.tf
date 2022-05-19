@@ -1,3 +1,13 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "3.30"
+      configuration_aliases = [ aws.ireland ]
+    }
+  }
+}
+
 locals {
   s3_origin_id = "S3-${var.full_domain}"
   all_domains  = concat([var.full_domain], var.alias_domains)
@@ -51,6 +61,17 @@ resource "aws_cloudfront_origin_access_identity" "main" {
 resource "aws_s3_bucket" "root" {
   acl    = "private"
   bucket = var.full_domain
+
+  tags = {
+    project = "website"
+  }
+}
+
+resource "aws_s3_bucket" "mirror_a" {
+  provider = aws.ireland
+
+  acl    = "private"
+  bucket = "a.mirrors.${var.full_domain}"
 
   tags = {
     project = "website"
