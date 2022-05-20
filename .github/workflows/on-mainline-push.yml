@@ -119,4 +119,4 @@ jobs:
       - name: Upload bundle to S3
         run: aws s3 sync storybook-static s3://storybook.cy7.io
       - name: Upload bundle to eu-west-1 S3 mirror
-        run: aws s3 sync public s3://a.mirrors.storybook.cy7.io
+        run: aws s3 sync storybook-static s3://a.mirrors.storybook.cy7.io
