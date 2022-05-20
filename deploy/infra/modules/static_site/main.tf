@@ -27,11 +27,13 @@ data "aws_acm_certificate" "root" {
   domain = var.root_domain
 }
 
-# Policy granting the origin access identity permission to read from the S3 origin bucket.
+# Policy granting the Origin Access Identity permission to read from the S3 origin bucket.
 data "aws_iam_policy_document" "s3_policy" {
   statement {
     actions   = ["s3:GetObject"]
-    resources = ["${aws_s3_bucket.root.arn}/*"]
+    resources = [
+      "${aws_s3_bucket.mirror_a.arn}/*"
+    ]
 
     principals {
       type        = "AWS"
@@ -41,7 +43,7 @@ data "aws_iam_policy_document" "s3_policy" {
 
   statement {
     actions   = ["s3:ListBucket"]
-    resources = [aws_s3_bucket.root.arn]
+    resources = [aws_s3_bucket.mirror_a.arn]
 
     principals {
       type        = "AWS"
@@ -58,15 +60,6 @@ resource "aws_cloudfront_origin_access_identity" "main" {
 
 # The origin bucket that holds the static files for the website. Note the bucket is private: that's because the contents
 # are exposed via CloudFront only.
-resource "aws_s3_bucket" "root" {
-  acl    = "private"
-  bucket = var.full_domain
-
-  tags = {
-    project = "website"
-  }
-}
-
 resource "aws_s3_bucket" "mirror_a" {
   provider = aws.ireland
 
@@ -81,7 +74,9 @@ resource "aws_s3_bucket" "mirror_a" {
 # Applies the policy (see aws_iam_policy_document.s3_policy above) to the bucket, granting CloudFront read access to
 # the private origin bucket.
 resource "aws_s3_bucket_policy" "root" {
-  bucket = aws_s3_bucket.root.id
+  provider = aws.ireland
+
+  bucket = aws_s3_bucket.mirror_a.id
   policy = data.aws_iam_policy_document.s3_policy.json
 }
 
@@ -121,7 +116,7 @@ resource "aws_cloudfront_distribution" "web" {
   }
 
   origin {
-    domain_name = aws_s3_bucket.root.bucket_regional_domain_name
+    domain_name = aws_s3_bucket.mirror_a.bucket_regional_domain_name
     origin_id   = local.s3_origin_id
 
     s3_origin_config {
