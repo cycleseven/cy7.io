@@ -27,12 +27,11 @@ data "aws_acm_certificate" "root" {
   domain = var.root_domain
 }
 
-# Policy granting the Origin Access Identity permission to read from the S3 origin bucket.
-data "aws_iam_policy_document" "s3_policy" {
+data "aws_iam_policy_document" "s3_root_policy" {
   statement {
     actions   = ["s3:GetObject"]
     resources = [
-      "${aws_s3_bucket.mirror_a.arn}/*"
+      "${aws_s3_bucket.root.arn}/*"
     ]
 
     principals {
@@ -43,7 +42,7 @@ data "aws_iam_policy_document" "s3_policy" {
 
   statement {
     actions   = ["s3:ListBucket"]
-    resources = [aws_s3_bucket.mirror_a.arn]
+    resources = [aws_s3_bucket.root.arn]
 
     principals {
       type        = "AWS"
@@ -52,25 +51,8 @@ data "aws_iam_policy_document" "s3_policy" {
   }
 }
 
-# A special type of user that allows us to expose the origin bucket only via CloudFront.
-# https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
-resource "aws_cloudfront_origin_access_identity" "main" {
-  comment = var.full_domain
-}
-
 # The origin bucket that holds the static files for the website. Note the bucket is private: that's because the contents
 # are exposed via CloudFront only.
-resource "aws_s3_bucket" "mirror_a" {
-  provider = aws.ireland
-
-  acl    = "private"
-  bucket = "a.mirrors.${var.full_domain}"
-
-  tags = {
-    project = "website"
-  }
-}
-
 resource "aws_s3_bucket" "root" {
   provider = aws.ireland
 
@@ -82,13 +64,15 @@ resource "aws_s3_bucket" "root" {
   }
 }
 
-# Applies the policy (see aws_iam_policy_document.s3_policy above) to the bucket, granting CloudFront read access to
-# the private origin bucket.
-resource "aws_s3_bucket_policy" "root" {
+resource "aws_cloudfront_origin_access_identity" "main" {
+  comment = var.full_domain
+}
+
+resource "aws_s3_bucket_policy" "new_root" {
   provider = aws.ireland
 
-  bucket = aws_s3_bucket.mirror_a.id
-  policy = data.aws_iam_policy_document.s3_policy.json
+  bucket = aws_s3_bucket.root.id
+  policy = data.aws_iam_policy_document.s3_root_policy.json
 }
 
 resource "aws_cloudfront_distribution" "web" {
@@ -127,7 +111,7 @@ resource "aws_cloudfront_distribution" "web" {
   }
 
   origin {
-    domain_name = aws_s3_bucket.mirror_a.bucket_regional_domain_name
+    domain_name = aws_s3_bucket.root.bucket_regional_domain_name
     origin_id   = local.s3_origin_id
 
     s3_origin_config {
