@@ -27,8 +27,33 @@ data "aws_acm_certificate" "root" {
   domain = var.root_domain
 }
 
-# Policy granting the Origin Access Identity permission to read from the S3 origin bucket.
-data "aws_iam_policy_document" "s3_policy" {
+# Policy granting the Origin Access Identity permission to read from the S3 root origin bucket.
+data "aws_iam_policy_document" "s3_root_policy" {
+  statement {
+    actions   = ["s3:GetObject"]
+    resources = [
+      "${aws_s3_bucket.root.arn}/*"
+    ]
+
+    principals {
+      type        = "AWS"
+      identifiers = [aws_cloudfront_origin_access_identity.main.iam_arn]
+    }
+  }
+
+  statement {
+    actions   = ["s3:ListBucket"]
+    resources = [aws_s3_bucket.root.arn]
+
+    principals {
+      type        = "AWS"
+      identifiers = [aws_cloudfront_origin_access_identity.main.iam_arn]
+    }
+  }
+}
+
+# Policy granting the Origin Access Identity permission to read from the S3 mirror_a origin bucket.
+data "aws_iam_policy_document" "s3_mirror_a_policy" {
   statement {
     actions   = ["s3:GetObject"]
     resources = [
@@ -52,7 +77,7 @@ data "aws_iam_policy_document" "s3_policy" {
   }
 }
 
-# A special type of user that allows us to expose the origin bucket only via CloudFront.
+# A special type of user that allows us to expose the origin buckets only via CloudFront.
 # https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
 resource "aws_cloudfront_origin_access_identity" "main" {
   comment = var.full_domain
@@ -60,22 +85,23 @@ resource "aws_cloudfront_origin_access_identity" "main" {
 
 # The origin bucket that holds the static files for the website. Note the bucket is private: that's because the contents
 # are exposed via CloudFront only.
-resource "aws_s3_bucket" "mirror_a" {
+resource "aws_s3_bucket" "root" {
   provider = aws.ireland
 
   acl    = "private"
-  bucket = "a.mirrors.${var.full_domain}"
+  bucket = var.full_domain
 
   tags = {
     project = "website"
   }
 }
 
-resource "aws_s3_bucket" "root" {
+# TODO: remove this
+resource "aws_s3_bucket" "mirror_a" {
   provider = aws.ireland
 
   acl    = "private"
-  bucket = var.full_domain
+  bucket = "a.mirrors.${var.full_domain}"
 
   tags = {
     project = "website"
@@ -88,7 +114,14 @@ resource "aws_s3_bucket_policy" "root" {
   provider = aws.ireland
 
   bucket = aws_s3_bucket.mirror_a.id
-  policy = data.aws_iam_policy_document.s3_policy.json
+  policy = data.aws_iam_policy_document.s3_mirror_a_policy.json
+}
+
+resource "aws_s3_bucket_policy" "new_root" {
+  provider = aws.ireland
+
+  bucket = aws_s3_bucket.root.id
+  policy = data.aws_iam_policy_document.s3_root_policy.json
 }
 
 resource "aws_cloudfront_distribution" "web" {
