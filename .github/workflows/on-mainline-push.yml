@@ -94,8 +94,6 @@ jobs:
           aws-region: us-east-1
       - name: Upload bundle to S3
         run: aws s3 sync public s3://cy7.io
-      - name: Upload bundle to eu-west-1 S3 mirror
-        run: aws s3 sync public s3://a.mirrors.cy7.io
       - name: Invalidate CloudFront caches
         run: aws cloudfront create-invalidation --distribution-id ${{ needs.query-existing-infrastructure.outputs.website-cloudfront-distribution-id }} --paths "/*"
   deploy-storybook:
@@ -118,5 +116,3 @@ jobs:
           aws-region: us-east-1
       - name: Upload bundle to S3
         run: aws s3 sync storybook-static s3://storybook.cy7.io
-      - name: Upload bundle to eu-west-1 S3 mirror
-        run: aws s3 sync storybook-static s3://a.mirrors.storybook.cy7.io
