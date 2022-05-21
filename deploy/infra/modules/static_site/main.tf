@@ -71,6 +71,17 @@ resource "aws_s3_bucket" "mirror_a" {
   }
 }
 
+resource "aws_s3_bucket" "root" {
+  provider = aws.ireland
+
+  acl    = "private"
+  bucket = var.full_domain
+
+  tags = {
+    project = "website"
+  }
+}
+
 # Applies the policy (see aws_iam_policy_document.s3_policy above) to the bucket, granting CloudFront read access to
 # the private origin bucket.
 resource "aws_s3_bucket_policy" "root" {
