@@ -160,7 +160,7 @@ resource "aws_cloudfront_distribution" "web" {
   }
 
   origin {
-    domain_name = aws_s3_bucket.mirror_a.bucket_regional_domain_name
+    domain_name = aws_s3_bucket.root.bucket_regional_domain_name
     origin_id   = local.s3_origin_id
 
     s3_origin_config {
