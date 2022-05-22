@@ -1,0 +1,13 @@
+name: Yarn install
+description: Install Yarn dependencies, using caching to speed up builds
+runs:
+  using: "composite"
+  steps:
+    - run: pwd
+      shell: bash
+    - run: ls
+      shell: bash
+    - run: yarn install --frozen-lockfile
+      shell: bash
+    - run: ls
+      shell: bash
