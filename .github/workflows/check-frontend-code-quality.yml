@@ -15,5 +15,5 @@ jobs:
         with:
           name: generated
           path: generated
-      - uses: bahmutov/npm-install@v1
+      - uses: ./.github/actions/yarn-install
       - run: LEFTHOOK_EXCLUDE=infra yarn lefthook run check-all
