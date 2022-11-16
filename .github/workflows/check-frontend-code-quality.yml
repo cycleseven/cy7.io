@@ -15,5 +15,5 @@ jobs:
         with:
           name: generated
           path: generated
-      - uses: ./.github/actions/yarn-install
-      - run: LEFTHOOK_EXCLUDE=infra yarn lefthook run check-all
+      - uses: ./.github/actions/pnpm-install
+      - run: LEFTHOOK_EXCLUDE=infra pnpm exec lefthook run check-all

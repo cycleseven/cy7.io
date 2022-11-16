@@ -14,8 +14,8 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16.18.0
-      - uses: ./.github/actions/yarn-install
-      - run: yarn build
+      - uses: ./.github/actions/pnpm-install
+      - run: pnpm run build
       - name: Store generated code
         uses: actions/upload-artifact@v2
         with:
@@ -29,8 +29,8 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16.18.0
-      - uses: ./.github/actions/yarn-install
-      - run: yarn build-storybook --docs --quiet
+      - uses: ./.github/actions/pnpm-install
+      - run: pnpm exec build-storybook --docs --quiet
   check-frontend-code-quality:
     name: Check frontend code quality
     needs: build
