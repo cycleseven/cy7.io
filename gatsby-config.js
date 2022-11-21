@@ -67,7 +67,8 @@ module.exports = {
         url: "https://twitter.com/rickhanlonii/status/1195738341301522432",
       },
       {
-        name: "It's fascinating to imagine the amazing things people will do with their computer in 30 years",
+        name:
+          "It's fascinating to imagine the amazing things people will do with their computer in 30 years",
         url: "https://twitter.com/dubenko_/status/1218268093669048326",
       },
       {
@@ -78,7 +79,8 @@ module.exports = {
         name: "HTMLMediaElement.canPlayType()",
         description:
           "The greatest API of all time. The return value will SHOCK you",
-        url: "https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/canPlayType",
+        url:
+          "https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/canPlayType",
       },
     ],
   },

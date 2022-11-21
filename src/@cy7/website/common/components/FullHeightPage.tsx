@@ -16,12 +16,11 @@ const applyGlobalStyles = globalCss({
     minHeight: "100%",
   },
 
-  "html.cy7-full-height-page body, html.cy7-full-height-page #___gatsby, html.cy7-full-height-page #gatsby-focus-wrapper":
-    {
-      display: "flex",
-      flexDirection: "column",
-      flexGrow: 1,
-    },
+  "html.cy7-full-height-page body, html.cy7-full-height-page #___gatsby, html.cy7-full-height-page #gatsby-focus-wrapper": {
+    display: "flex",
+    flexDirection: "column",
+    flexGrow: 1,
+  },
 });
 
 type FullHeightPageProps = ComponentProps<typeof FullHeightContainer>;
