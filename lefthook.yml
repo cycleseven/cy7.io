@@ -2,25 +2,25 @@ pre-push:
   parallel: true
   commands:
     eslint:
-      run: pnpm exec eslint src --max-warnings 0
+      run: yarn eslint src --max-warnings 0
     prettier-check:
-      run: pnpm exec prettier --check "**/*.{js,ts,tsx,css,yml,yaml,json,md}"
+      run: yarn prettier --check "**/*.{js,ts,tsx,css,yml,yaml,json,md}"
     typescript-check:
-      run: pnpm exec tsc --noEmit
+      run: yarn tsc --noEmit
     terraform-format-check:
       run: terraform fmt -check deploy/infra
     jest:
-      run: pnpm exec jest
+      run: yarn test
 
 pre-commit:
   parallel: true
   commands:
     prettier-js:
       glob: "*.{js,ts,tsx}"
-      run: pnpm exec prettier --write {staged_files} && git add {staged_files}
+      run: yarn prettier --write {staged_files} && git add {staged_files}
     prettier-non-js:
       glob: "*.{css,yml,yaml,json,md}"
-      run: pnpm exec prettier --write --no-bracket-spacing {staged_files} && git add {staged_files}
+      run: yarn prettier --write --no-bracket-spacing {staged_files} && git add {staged_files}
     terraform-format:
       glob: "*.{tf,tfvars}"
       run: "echo {staged_files} | xargs -n1 -I[] sh -c 'terraform fmt [] && git add []'"
@@ -30,16 +30,16 @@ check-all:
   commands:
     eslint:
       tags: frontend
-      run: pnpm exec eslint src --max-warnings 0
+      run: yarn eslint src --max-warnings 0
     prettier-check:
       tags: frontend
-      run: pnpm exec prettier --check "**/*.{js,ts,tsx,css,yml,yaml,json,md}"
+      run: yarn prettier --check "**/*.{js,ts,tsx,css,yml,yaml,json,md}"
     typescript-check:
       tags: frontend
-      run: pnpm exec tsc --noEmit
+      run: yarn tsc --noEmit
     terraform-format-check:
       tags: infra
       run: terraform fmt -check deploy/infra
     jest:
       tags: frontend
-      run: pnpm test
+      run: yarn test

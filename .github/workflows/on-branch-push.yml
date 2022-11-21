@@ -10,14 +10,14 @@ jobs:
     env:
       GATSBY_BUILD_SHA: ${{ github.sha }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
         with:
           node-version: 16.18.0
-      - uses: ./.github/actions/pnpm-install
-      - run: pnpm run build
+      - uses: ./.github/actions/yarn-install
+      - run: yarn build
       - name: Store generated code
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: generated
           path: generated
@@ -25,12 +25,12 @@ jobs:
     name: Build Storybook
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
         with:
           node-version: 16.18.0
-      - uses: ./.github/actions/pnpm-install
-      - run: pnpm exec build-storybook --docs --quiet
+      - uses: ./.github/actions/yarn-install
+      - run: yarn build-storybook --docs --quiet
   check-frontend-code-quality:
     name: Check frontend code quality
     needs: build

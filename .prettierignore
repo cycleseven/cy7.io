@@ -9,7 +9,6 @@ src/@cy7/docs/**/*.mdx
 .serverless
 package.json
 package-lock.json
-pnpm-lock.yaml
 schema.graphql
 generated
 node_modules

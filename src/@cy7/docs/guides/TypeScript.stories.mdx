@@ -8,7 +8,7 @@ This project is written with Typescript, using the out of the box support provid
 
 > Note that this means Typescript support is achieved using Babel transpilation: type errors will not actually prevent the project from running, as the Typescript compiler is not actually invoked when running Gatsby's development server or build process. [See the caveats section of `gatsby-plugin-typescript` for more info](https://www.gatsbyjs.com/plugins/gatsby-plugin-typescript/#caveats). However, Typescript errors and autocomplete suggestions will still be surfaced in your editor.
 
-You can perform a type check across the codebase by running `pnpm exec tsc --noEmit` at the command line.
+You can perform a type check across the codebase by running `yarn tsc --noEmit` at the command line.
 
 Type checking is also performed automatically on pre-push via Git hooks: it's expected that deployed code is always free from type errors. In future, CI will also verify that code is free from type errors.
 

@@ -16,7 +16,7 @@ The following lines of defence are in place:
 
 ## Git hooks
 
-To make it as easy as possible to stick to the project's conventions, Git hooks are automatically configured for you when installing dependencies with `pnpm`. This is managed by [Lefthook](https://evilmartians.com/chronicles/lefthook-knock-your-teams-code-back-into-shape).
+To make it as easy as possible to stick to the project's conventions, Git hooks are automatically configured for you when installing dependencies with `yarn`. This is managed by [Lefthook](https://evilmartians.com/chronicles/lefthook-knock-your-teams-code-back-into-shape).
 
 Out of the box, the following checks run automatically as part of your `git` workflow. These are configured via `lefthook.yml`.
 
@@ -33,7 +33,7 @@ Out of the box, the following checks run automatically as part of your `git` wor
 
 If any check fails, your code won't be pushed.
 
-> If you don't see any code quality checks running on `git commit` or `git push`, try running `pnpm exec lefthook install` to manually re-install the hooks to your `.git/hooks` directory.
+> If you don't see any code quality checks running on `git commit` or `git push`, try running `yarn lefthook install` to manually re-install the hooks to your `.git/hooks` directory.
 
 ## Why not lint + test on commit too?
 
