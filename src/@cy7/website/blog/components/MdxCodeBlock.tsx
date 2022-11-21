@@ -14,9 +14,9 @@ interface MdxCodeBlockProps {
 function MdxCodeBlock({ children }: MdxCodeBlockProps): React.ReactElement {
   const props = children.props;
   const code = props.children;
-  const language = (props.className
-    ? props.className.replace(/language-/, "")
-    : null) as SupportedCodeBlockLanguages | null;
+  const language = (
+    props.className ? props.className.replace(/language-/, "") : null
+  ) as SupportedCodeBlockLanguages | null;
 
   return <CodeBlock code={code} language={language} />;
 }
