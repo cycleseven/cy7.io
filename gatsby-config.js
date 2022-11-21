@@ -83,6 +83,7 @@ module.exports = {
     ],
   },
   plugins: [
+    "gatsby-plugin-pnpm",
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
     {
