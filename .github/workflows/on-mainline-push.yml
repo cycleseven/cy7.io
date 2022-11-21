@@ -17,12 +17,12 @@ jobs:
       - uses: ./.github/actions/pnpm-install
       - run: pnpm run build
       - name: Store generated code
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: generated
           path: generated
       - name: Store Gatsby build output
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: bundle
           path: public
@@ -37,7 +37,7 @@ jobs:
       - uses: ./.github/actions/pnpm-install
       - run: pnpm exec build-storybook --docs --quiet
       - name: Store Storybook build output
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: storybook-bundle
           path: storybook-static
