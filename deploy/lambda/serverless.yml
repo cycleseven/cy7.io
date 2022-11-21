@@ -14,7 +14,7 @@ provider:
 package:
   exclude:
     - node_modules/**
-    - yarn.lock
+    - pnpm-lock.yaml
 
 functions:
   redirect:
