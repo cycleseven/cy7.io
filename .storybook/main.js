@@ -1,14 +1,15 @@
 module.exports = {
-  addons: ["@storybook/addon-docs/preset"],
+  addons: ["@storybook/addon-docs"],
   core: {
     builder: "webpack5",
   },
   stories: [
     // Intro
     "../src/@cy7/docs/intro/HelloWorld.stories.mdx",
-    "../src/@cy7/docs/intro/ProjectLayout.stories.mdx",
 
     // Guides
+    "../src/@cy7/docs/guides/SettingUp.stories.mdx",
+    "../src/@cy7/docs/guides/ProjectLayout.stories.mdx",
     "../src/@cy7/docs/guides/Blogging.stories.mdx",
     "../src/@cy7/docs/guides/CodeQuality.stories.mdx",
     "../src/@cy7/docs/guides/Accessibility.stories.mdx",

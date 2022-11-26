@@ -4,39 +4,17 @@ import { Meta } from "@storybook/addon-docs";
 
 # Testing
 
-The codebase comes equipped with Jest. You can write tests by creating a new `*.test.ts` file anywhere. By convention, tests live in a `__tests__` directory colocated with the code under test.
+The codebase contains some automated tests, but not too many.
 
-Run the test suite with `pnpm test`, which invokes the Jest CLI.
+* Tests are written with Jest, and can be run with `pnpm test` or `pnpm exec jest`.
+* Jest executes all `*.test.ts` files discovered under the `src` directory.
 
-## Philosophy (for now)
+## Philosophy
 
-Tests in the current codebase usually just invoke pure functions rather than rendering UI components. There's no expectation that the codebase has a high level of testing coverage.
+* Test coverage isn't measured, and high coverage isn't a goal.
+* Tests are written if
 
-Instead, tests tend to narrow in on smaller chunks of logic that are extracted out from React components. Here's a typical example.
-
-```tsx
-import assert from "assert";
-import { slugify } from "@cy7/website/common/utils/slugify";
-
-describe("@cy7/utils/slugify/slugify", () => {
-  it("should convert a typical heading to a URL-friendly format", () => {
-    assert.equal(
-      slugify("The truth about stack traces"),
-      "the-truth-about-stack-traces"
-    );
-  });
-
-  it("should dedupe hyphens", () => {
-    assert.equal(slugify("Stack traces - the truth"), "stack-traces-the-truth");
-  });
-
-  it("should strip punctuation", () => {
-    assert.equal(slugify("Wow!!!"), "wow");
-  });
-});
-```
-
-This loose approach allows the test suite to focus on the areas where it provides a good return on investment.
+* There's no requirement to test the rendering of React components.
 
 For example, when writing a pure function that processes some data, it's natural to want to try it against a couple of examples and edge cases to make sure it's correct. Adopting a TDD style for writing this type of function tends to speed up the process if anything, and the resulting style of test executes quickly and is cheap to rewrite or delete if code is rewritten.
 

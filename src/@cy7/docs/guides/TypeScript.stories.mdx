@@ -18,9 +18,10 @@ GraphQL has its own static type system. However, it's useful to be able to acces
 
 To achieve this, types for GraphQL queries are automatically generated using [gatsby-plugin-graphql-codegen](https://github.com/d4rekanguok/gatsby-typescript/tree/master/packages/gatsby-plugin-graphql-codegen). The best way to understand how to use these types is to refer to existing examples such as the site's home page component (`<HomePage />`). Note how the `data` prop that Gatsby populates is fully typed.
 
-The generated GraphQL types live in `generated/@cy7/gql-types`. Imports are set up such that `generated` acts as a "root", just like `src`. That means you can import generated types like this:
-
 ```tsx
+import React from "react";
+import { graphql } from "gatsby";
+
 // This import assumes a GraphQL query with the name `homePage` exists.
 import { HomePageQuery } from "@cy7/gql-types";
 
@@ -30,6 +31,8 @@ interface HomePageProps {
 
 function HomePage({ data }: HomePageProps): React.ReactElement {
   // Static type information is available on `data` in here
+
+  return <div />;
 }
 
 export const query = graphql`
@@ -38,3 +41,5 @@ export const query = graphql`
   }
 `;
 ```
+
+> 💡 The generated GraphQL types live in `generated/@cy7/gql-types`. Imports are set up such that `generated` acts as a "root", just like `src`. That means you can import generated types directly from `@cy7/gql-types`.
