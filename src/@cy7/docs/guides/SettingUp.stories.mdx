@@ -1,0 +1,21 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Guides / Setting up" />
+
+# Setting up
+
+All the code needed to run and deploy the site lives in a single open source repository hosted on GitHub ([cycleseven/cy7.io](https://github.com/cycleseven/cy7.io/)).
+
+1. Ensure you have a working copy of `git` on your development machine.
+1. Clone the [repository](https://github.com/cycleseven/cy7.io/).
+1. Follow the [README](https://github.com/cycleseven/cy7.io#readme) instructions to get up and running.
+
+## Tech stack
+
+[cy7.io](https://cy7.io) is a static site written in [TypeScript](https://www.typescriptlang.org/), built using [Gatsby](https://www.gatsbyjs.com/), and styled with [Stitches](https://stitches.dev/). These docs are built with [Storybook](https://storybook.js.org/).
+
+Both [cy7.io](https://cy7.io) and [storybook.cy7.io](https://storybook.cy7.io) are hosted in AWS S3 buckets, and served via CloudFront. Infrastructure is defined in code using [Terraform](https://www.terraform.io/).
+
+## Isn't that overkill for a handful of blog posts?
+
+Probably. But this is a personal side project: an outlet for experimentation, learning things and having fun ✌️
