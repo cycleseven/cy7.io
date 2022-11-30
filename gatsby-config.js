@@ -29,9 +29,14 @@ module.exports = {
       name: "About this site",
       links: [
         {
-          name: "Source code (Github)",
+          name: "Source code (GitHub)",
           type: "external",
           url: "https://github.com/cycleseven/cy7.io",
+        },
+        {
+          name: "Developer guide (Storybook)",
+          type: "external",
+          url: "https://storybook.cy7.io",
         },
       ],
     },
