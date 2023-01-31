@@ -23,7 +23,6 @@ specifiers:
   '@types/prismjs': ^1.16.6
   '@types/react': 17.0.11
   '@types/react-dom': ^17.0.2
-  '@types/react-helmet': ^6.1.0
   '@types/react-router-dom': ^5.1.7
   '@types/typography': ^0.16.3
   '@typescript-eslint/eslint-plugin': ^4.31.0
@@ -51,7 +50,6 @@ specifiers:
   gatsby-plugin-no-javascript: ^2.0.5
   gatsby-plugin-offline: ^4.13.0
   gatsby-plugin-pnpm: ^1.2.10
-  gatsby-plugin-react-helmet: ^5.24.0
   gatsby-plugin-sharp: ^4.24.0
   gatsby-plugin-typography: ^4.24.0
   gatsby-plugin-webpack-bundle-analyser-v2: ^1.1.25
@@ -66,7 +64,6 @@ specifiers:
   prismjs: ^1.23.0
   react: ^17.0.2
   react-dom: ^17.0.2
-  react-helmet: ^6.1.0
   react-innertext: ^1.1.5
   react-typography: ^0.16.19
   typescript: ^4.4.2
@@ -91,7 +88,6 @@ dependencies:
   '@types/prismjs': 1.26.0
   '@types/react': 17.0.11
   '@types/react-dom': 17.0.18
-  '@types/react-helmet': 6.1.5
   '@types/react-router-dom': 5.3.3
   '@types/typography': 0.16.4
   '@typescript-eslint/eslint-plugin': 4.33.0_b437dje45jwsli5vlhomcei76i
@@ -119,7 +115,6 @@ dependencies:
   gatsby-plugin-no-javascript: 2.0.5_gatsby@4.24.8
   gatsby-plugin-offline: 4.14.0_7xvwnmfsrzv33leu54btuohidy
   gatsby-plugin-pnpm: 1.2.10_gatsby@4.24.8
-  gatsby-plugin-react-helmet: 5.24.0_q77azxndogvj44oyn7au6xu7my
   gatsby-plugin-sharp: 4.24.0_gatsby@4.24.8
   gatsby-plugin-typography: 4.24.0_h5c7os5ahtq6x5lv7az7rbocry
   gatsby-plugin-webpack-bundle-analyser-v2: 1.1.30_gatsby@4.24.8
@@ -134,7 +129,6 @@ dependencies:
   prismjs: 1.29.0
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
-  react-helmet: 6.1.0_react@17.0.2
   react-innertext: 1.1.5_dcomdg4o37szlezyxbr7nzoci4
   react-typography: 0.16.20_react@17.0.2
   typescript: 4.9.3
@@ -4799,12 +4793,6 @@ packages:
 
   /@types/react-dom/17.0.18:
     resolution: {integrity: sha512-rLVtIfbwyur2iFKykP2w0pl/1unw26b5td16d5xMgp7/yjTHomkyxPYChFoCr/FtEX1lN9wY6lFj1qvKdS5kDw==}
-    dependencies:
-      '@types/react': 17.0.11
-    dev: false
-
-  /@types/react-helmet/6.1.5:
-    resolution: {integrity: sha512-/ICuy7OHZxR0YCAZLNg9r7I9aijWUWvxaPR6uTuyxe8tAj5RL4Sw1+R6NhXUtOsarkGYPmaHdBDvuXh2DIN/uA==}
     dependencies:
       '@types/react': 17.0.11
     dev: false
@@ -9630,18 +9618,6 @@ packages:
       gatsby: 4.24.8_x2xizrza2m7a6mxy4cewm5q2b4
       lodash.get: 4.4.2
       lodash.uniq: 4.5.0
-    dev: false
-
-  /gatsby-plugin-react-helmet/5.24.0_q77azxndogvj44oyn7au6xu7my:
-    resolution: {integrity: sha512-SU/SrWsbEFLQhuzDXucYlQ4O5pTdpOdxw07xIRwyFfxFzGml/9f62h2dTtUJOIXP1mYfl31bw7eCbGlc8QzF5w==}
-    engines: {node: '>=14.15.0'}
-    peerDependencies:
-      gatsby: ^4.0.0-next
-      react-helmet: ^5.1.3 || ^6.0.0
-    dependencies:
-      '@babel/runtime': 7.20.1
-      gatsby: 4.24.8_x2xizrza2m7a6mxy4cewm5q2b4
-      react-helmet: 6.1.0_react@17.0.2
     dev: false
 
   /gatsby-plugin-sharp/4.24.0_gatsby@4.24.8:
@@ -15319,22 +15295,6 @@ packages:
     resolution: {integrity: sha512-/6UZ2qgEyH2aqzYZgQPxEnz33NJ2gNsnHA2o5+o4wW9bLM/JYQitNP9xPhsXwC08hMMovfGe/8retsdDsczPRg==}
     dev: false
 
-  /react-fast-compare/3.2.0:
-    resolution: {integrity: sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==}
-    dev: false
-
-  /react-helmet/6.1.0_react@17.0.2:
-    resolution: {integrity: sha512-4uMzEY9nlDlgxr61NL3XbKRy1hEkXmKNXhjbAIOVw5vcFrsdYbH2FEwcNyWvWinl103nXgzYNlns9ca+8kFiWw==}
-    peerDependencies:
-      react: '>=16.3.0'
-    dependencies:
-      object-assign: 4.1.1
-      prop-types: 15.8.1
-      react: 17.0.2
-      react-fast-compare: 3.2.0
-      react-side-effect: 2.1.2_react@17.0.2
-    dev: false
-
   /react-innertext/1.1.5_dcomdg4o37szlezyxbr7nzoci4:
     resolution: {integrity: sha512-PWAqdqhxhHIv80dT9znP2KvS+hfkbRovFp4zFYHFFlOoQLRiawIic81gKb3U1wEyJZgMwgs3JoLtwryASRWP3Q==}
     peerDependencies:
@@ -15390,14 +15350,6 @@ packages:
       neo-async: 2.6.2
       react: 17.0.2
       webpack: 5.51.1
-    dev: false
-
-  /react-side-effect/2.1.2_react@17.0.2:
-    resolution: {integrity: sha512-PVjOcvVOyIILrYoyGEpDN3vmYNLdy1CajSFNt4TDsVQC5KpTijDvWVoR+/7Rz2xT978D8/ZtFceXxzsPwZEDvw==}
-    peerDependencies:
-      react: ^16.3.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      react: 17.0.2
     dev: false
 
   /react-typography/0.16.20_react@17.0.2:

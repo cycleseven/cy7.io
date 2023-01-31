@@ -1,5 +1,4 @@
 import React from "react";
-import { Helmet } from "react-helmet";
 
 interface BaseMetaProps {
   /**
@@ -35,21 +34,19 @@ type MetaProps = MetaPropsWithDescription | MetaPropsWithNoIndex;
 
 function Meta(props: MetaProps): React.ReactElement {
   const { noTitleTemplate = false, title } = props;
+  const formattedTitle = noTitleTemplate ? title : `${title} — cy7.io`;
 
   return (
-    <Helmet
-      title={title}
-      titleTemplate={noTitleTemplate ? undefined : "%s — cy7.io"}
-    >
+    <React.Fragment>
+      <title>{formattedTitle}</title>
       {"description" in props && (
         <meta content={props.description} name="description" />
       )}
       {"noIndex" in props && <meta content="noindex" name="robots" />}
-      {/* Render a custom meta tag displaying git sha for the latest build */}
       {process.env.GATSBY_BUILD_SHA && (
         <meta content={process.env.GATSBY_BUILD_SHA} name="build-sha" />
       )}
-    </Helmet>
+    </React.Fragment>
   );
 }
 
