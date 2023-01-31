@@ -1,5 +1,4 @@
 import React, { ComponentProps } from "react";
-import { Helmet } from "react-helmet";
 import { globalCss, styled } from "@cy7/design-system";
 
 const FullHeightContainer = styled("div", {
@@ -9,19 +8,26 @@ const FullHeightContainer = styled("div", {
   minWidth: "300px",
 });
 
+// TODO: in the past, these styles were scoped using a .cy7-full-height-page class
+//       applied to the <html> element. This would allow <FullHeightPage /> to
+//       be mounted and unmounted for different pages depending on their needs.
+//
+//       In Gatsby v4 the usage of <Helmet /> is discouraged in favour of the
+//       Gatsby Head API. So this dynamic behaviour has been removed in favour
+//       of static global CSS. This should be revisited if new pages on the site
+//       have different needs.
 const applyGlobalStyles = globalCss({
-  "html.cy7-full-height-page": {
+  html: {
     display: "flex",
     flexDirection: "column",
     minHeight: "100%",
   },
 
-  "html.cy7-full-height-page body, html.cy7-full-height-page #___gatsby, html.cy7-full-height-page #gatsby-focus-wrapper":
-    {
-      display: "flex",
-      flexDirection: "column",
-      flexGrow: 1,
-    },
+  "body, #___gatsby, #gatsby-focus-wrapper": {
+    display: "flex",
+    flexDirection: "column",
+    flexGrow: 1,
+  },
 });
 
 type FullHeightPageProps = ComponentProps<typeof FullHeightContainer>;
@@ -29,18 +35,7 @@ type FullHeightPageProps = ComponentProps<typeof FullHeightContainer>;
 function FullHeightPage(props: FullHeightPageProps): React.ReactElement {
   applyGlobalStyles();
 
-  return (
-    <React.Fragment>
-      <Helmet>
-        {/* The lang="en" attribute is set via gatsby-ssr APIs, so this warning
-            is a false positive here.
-        */}
-        {/* eslint-disable-next-line jsx-a11y/html-has-lang */}
-        <html className="cy7-full-height-page" />
-      </Helmet>
-      <FullHeightContainer {...props} />
-    </React.Fragment>
-  );
+  return <FullHeightContainer {...props} />;
 }
 
 export default FullHeightPage;

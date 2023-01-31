@@ -103,4 +103,4 @@ Don't worry about "polluting" `@cy7` with new packages for code that doesn't fit
 Deciding whether your reusable component belongs in `@cy7/website/common` or `@cy7/design-system` can be tricky. These pointers may help:
 
 - Components named after generic UI elements like `<Button />`, `<Dialog />` or `<Stack />` are usually good candidates for the design system. Check out some design systems and component libraries like [Braid](https://seek-oss.github.io/braid-design-system/) or [Material UI](https://material-ui.com/) for inspiration.
-- Components that "know about" Gatsby _don't_ belong in the design system. In particular, this means components with `useStaticQuery()`, components that make use of Gatsby APIs like `gatsby-plugin-image` or `<Link />`, and components that render to the site's `<head>` element with `react-helmet`.
+- Components that "know about" Gatsby _don't_ belong in the design system. In particular, this means components with `useStaticQuery()`, components that make use of Gatsby APIs like `gatsby-plugin-image`, `<Link />`, or are designed to be used with the Gatsby Head API.
