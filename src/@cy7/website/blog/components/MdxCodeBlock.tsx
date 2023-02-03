@@ -3,16 +3,17 @@ import { SupportedCodeBlockLanguages } from "@cy7/website/blog/types";
 import CodeBlock from "@cy7/website/blog/components/CodeBlock";
 
 interface MdxCodeBlockProps {
-  children: {
-    props: {
-      children: string;
-      className: string;
-    };
-  };
+  children?: React.ReactNode;
 }
 
 function MdxCodeBlock({ children }: MdxCodeBlockProps): React.ReactElement {
-  const props = children.props;
+  const element = React.Children.only(children) as React.ReactElement;
+
+  if (!element) {
+    throw new Error("<MdxCodeBlock /> rendered without valid children");
+  }
+
+  const props = element.props;
   const code = props.children;
   const language = (
     props.className ? props.className.replace(/language-/, "") : null

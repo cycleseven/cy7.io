@@ -50,18 +50,13 @@ function MdxHeading({
   );
 }
 
-type MdxTagHeadingProps = Omit<MdxHeadingProps, "as">;
+type MdxTagHeadingProps = { children?: React.ReactNode };
 
 function createMdxHeading(as: HeadingElement) {
   return function MdxTagHeading({
     children,
-    ...props
   }: MdxTagHeadingProps): React.ReactElement {
-    return (
-      <MdxHeading as={as} {...props}>
-        {children}
-      </MdxHeading>
-    );
+    return <MdxHeading as={as}>{children}</MdxHeading>;
   };
 }
 

@@ -13,9 +13,8 @@ import {
 import { styled, Gutters, MaxWidth } from "@cy7/design-system";
 import { Meta, Page, WarpTotem } from "@cy7/website/common";
 import { BlogPostPageQuery } from "@cy7/gql-types";
-import { MDXProvider, MDXProviderComponents } from "@mdx-js/react";
+import { MDXProvider } from "@mdx-js/react";
 import { graphql } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
 
 const Root = styled(MaxWidth, {
@@ -44,7 +43,7 @@ const BlogDate = styled("p", {
   letterSpacing: "0.11em",
 });
 
-const mdxComponents: MDXProviderComponents = {
+const mdxComponents = {
   inlineCode: MdxInlineCode,
   pre: MdxCodeBlock,
   a: MdxLink,
@@ -58,10 +57,11 @@ const mdxComponents: MDXProviderComponents = {
 };
 
 interface BlogPostProps {
+  children: React.ReactNode;
   data: BlogPostPageQuery;
 }
 
-function BlogPost({ data }: BlogPostProps): React.ReactElement {
+function BlogPost({ data, children }: BlogPostProps): React.ReactElement {
   const blogPost = data.blogPost;
 
   if (
@@ -99,11 +99,7 @@ function BlogPost({ data }: BlogPostProps): React.ReactElement {
                 </BlogDate>
               </BlogHeader>
 
-              <MDXProvider components={mdxComponents}>
-                <MDXRenderer images={blogPost.frontmatter.images}>
-                  {blogPost.body}
-                </MDXRenderer>
-              </MDXProvider>
+              <MDXProvider components={mdxComponents}>{children}</MDXProvider>
             </article>
           </main>
         </Root>
@@ -115,7 +111,6 @@ function BlogPost({ data }: BlogPostProps): React.ReactElement {
 export const query = graphql`
   query blogPostPage($slug: String!) {
     blogPost: mdx(frontmatter: { slug: { eq: $slug } }) {
-      body
       fields {
         friendlyDate
       }
