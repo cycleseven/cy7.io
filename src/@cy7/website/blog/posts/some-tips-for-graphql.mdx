@@ -261,7 +261,7 @@ To see why this is the way to go, let's step into the shoes of a frontend develo
 To illustrate this, let's imagine building an "update my name" feature in a hypothetical app. Our designer hands us this mockup of the feature.
 
 <Box css={{ marginBottom: "$1" }}>
-  <Img alt="Web app mockup, showing a form to update the user's name, with their name also displayed in a global toolbar at the top of the screen" image={getImage(props.images[0])} width="100%" />
+  <Img alt="Web app mockup, showing a form to update the user's name, with their name also displayed in a global toolbar at the top of the screen" image={getImage(props.data.blogPost.frontmatter.images[0])} width="100%" />
 </Box>
 
 Note how the user's name is displayed in the nav bar too. The app will feel broken if that's not also updated after save, so we need to make sure that piece of data is kept in sync.
@@ -283,7 +283,7 @@ For example, *clicking a link* is a user event. That event triggers the need to 
 <Box css={{ marginBottom: "$1", marginTop: "$1" }}>
   <Img
     alt="Mockup of four different stages an app's loading sequence might go through if different parts of the page resolve at different times"
-    image={getImage(props.images[1])}
+    image={getImage(props.data.blogPost.frontmatter.images[1])}
     width="100%"
   />
 </Box>

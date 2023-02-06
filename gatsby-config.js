@@ -14,7 +14,7 @@ module.exports = {
           url: "https://github.com/cycleseven",
         },
         {
-          name: "Linkedin",
+          name: "LinkedIn",
           type: "external",
           url: "https://www.linkedin.com/in/cycleseven/",
         },

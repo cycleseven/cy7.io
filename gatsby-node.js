@@ -47,6 +47,9 @@ exports.createPages = async ({ graphql, actions }) => {
             frontmatter {
               slug
             }
+            internal {
+              contentFilePath
+            }
           }
         }
       }
@@ -56,7 +59,9 @@ exports.createPages = async ({ graphql, actions }) => {
   result.data.allMdx.edges.forEach(({ node }) => {
     createPage({
       path: node.frontmatter.slug,
-      component: path.resolve(`./src/templates/BlogPost.tsx`),
+      component: `${path.resolve(
+        `./src/templates/BlogPost.tsx`
+      )}?__contentFilePath=${node.internal.contentFilePath}`,
       context: {
         slug: node.frontmatter.slug,
       },
