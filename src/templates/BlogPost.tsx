@@ -1,13 +1,13 @@
 import {
   MdxBlockquote,
-  MdxCodeBlock,
+  MdxPre,
   MdxH1,
   MdxH2,
   MdxH3,
   MdxH4,
   MdxH5,
   MdxH6,
-  MdxInlineCode,
+  MdxCode,
   MdxLink,
 } from "@cy7/website/blog";
 import { styled, Gutters, MaxWidth } from "@cy7/design-system";
@@ -44,8 +44,8 @@ const BlogDate = styled("p", {
 });
 
 const mdxComponents = {
-  inlineCode: MdxInlineCode,
-  pre: MdxCodeBlock,
+  code: MdxCode,
+  pre: MdxPre,
   a: MdxLink,
   h1: MdxH1,
   h2: MdxH2,

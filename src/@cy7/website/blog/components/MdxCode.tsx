@@ -1,6 +1,6 @@
 import { styled } from "@cy7/design-system";
 
-const MdxInlineCode = styled("code", {
+const MdxCode = styled("code", {
   backgroundColor: "$codeInlineBg",
   borderRadius: "$2",
   border: "solid 1px $codeInlineBorder",
@@ -16,4 +16,4 @@ const MdxInlineCode = styled("code", {
   },
 });
 
-export default MdxInlineCode;
+export default MdxCode;

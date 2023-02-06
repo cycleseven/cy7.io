@@ -6,7 +6,7 @@ interface MdxCodeBlockProps {
   children?: React.ReactNode;
 }
 
-function MdxCodeBlock({ children }: MdxCodeBlockProps): React.ReactElement {
+function MdxPre({ children }: MdxCodeBlockProps): React.ReactElement {
   const element = React.Children.only(children) as React.ReactElement;
 
   if (!element) {
@@ -22,4 +22,4 @@ function MdxCodeBlock({ children }: MdxCodeBlockProps): React.ReactElement {
   return <CodeBlock code={code} language={language} />;
 }
 
-export default MdxCodeBlock;
+export default MdxPre;
