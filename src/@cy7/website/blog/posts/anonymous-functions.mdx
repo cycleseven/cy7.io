@@ -26,7 +26,7 @@ array
   .map(x => x * 2);
 ```
 
-Anonymous functions are often [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) too. Arrow functions themselves aren't necessarily treated as nameless though: most environments these days are clever enough to use the variable name instead.
+Anonymous functions are often [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) too. Arrow functions themselves aren't necessarily nameless in practice though: most environments these days are clever enough to use the assigned variable name.
 
 <CodeBlock
   code={`
@@ -76,7 +76,7 @@ Note that the function name `doSomething` helpfully appears in the error output.
   outputType="error"
 />
 
-Things get especially hairy when lots of your code lives in files with the same name. Errors can becomes way harder to track down than they have to be: this example could be line 12 of any `index.js` file.
+Things get especially hairy when lots of files have the same name. Errors become harder to track down than they have to be: this example could be line 12 of any `index.js` file.
 
 <CodeBlock
   output={`
@@ -97,7 +97,7 @@ import React from "react";
 export default () => <p>Hello world</p>;
 ```
 
-This may look "clean", but components declared this way show up as `Anonymous` in React Dev Tools (I've also seen `_default`). That means you can't search for them, and making sense of the tree becomes tricky. Your component tree ends up looking like this...
+This may look clean, but components declared this way show up as `Anonymous` or `_default` in React Dev Tools. That means you can't search for them, and making sense of the tree becomes tricky. Your component tree ends up looking like this...
 
 ```
 _default
@@ -121,9 +121,9 @@ Keep your component tree looking more like the second example by naming your com
 
 ## Are anonymous functions always bad then?
 
-Not necessarily. I wouldn't argue against the example up at the top of this post. It's easier to read, and in all likelihood, not much will go wrong with `map(x => x * 2)`. The downsides to that particular tradeoff aren't that compelling.
+Not necessarily. I wouldn't argue against the example up at the top of this post. It's easier to read, not much is likely to go wrong with `map(x => x * 2)`. The downsides to that particular tradeoff aren't that compelling.
 
-Sometimes functions are labelled in another way too. For example, many JS testing frameworks encourage code like this:
+Sometimes alternative labels are available for functions beyond their name. For example, many JS testing frameworks encourage code like this:
 
 ```javascript
 test("should return true", () => {
@@ -131,8 +131,6 @@ test("should return true", () => {
 });
 ```
 
-The function itself is anonymous, but the test still has a label that will show up if there's an error. So there's no need to fret over this either.
+The function itself is anonymous, but the test still has a label that will show up if there's an error.
 
-## The bottom line
-
-Anonymous functions are everywhere, and they have their place, for better or worse. But be aware of their costs too. We're human, and all but the most trivial functions we write are subject to bugs. So lean towards using named functions instead when in doubt, and maybe you'll help your future self out.
+Anonymous functions are everywhere, and they have their place, for better or worse. But we should be aware of their costs too. We're human, and all but the most trivial functions are subject to bugs. So lean towards using named functions instead when in doubt, and maybe you'll help your future self out.
