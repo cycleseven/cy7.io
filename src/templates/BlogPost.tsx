@@ -64,14 +64,7 @@ interface BlogPostProps {
 function BlogPost({ data, children }: BlogPostProps): React.ReactElement {
   const blogPost = data.blogPost;
 
-  if (
-    blogPost?.fields === null ||
-    blogPost?.fields === undefined ||
-    blogPost?.frontmatter === null ||
-    blogPost?.frontmatter === undefined ||
-    blogPost?.frontmatter?.description === null ||
-    blogPost?.frontmatter?.description === undefined
-  ) {
+  if (!blogPost?.fields || !blogPost?.frontmatter) {
     throw new Error(`Invalid blog post data: ${JSON.stringify(blogPost)}`);
   }
 
@@ -80,11 +73,6 @@ function BlogPost({ data, children }: BlogPostProps): React.ReactElement {
       <Gutters>
         <Root width="bestForText">
           <main>
-            <Meta
-              description={blogPost.frontmatter.description}
-              title={blogPost.frontmatter.title}
-            />
-
             <nav>
               <WarpTotem />
             </nav>
@@ -105,6 +93,25 @@ function BlogPost({ data, children }: BlogPostProps): React.ReactElement {
         </Root>
       </Gutters>
     </Page>
+  );
+}
+
+interface HeadProps {
+  data: BlogPostPageQuery;
+}
+
+export function Head({ data }: HeadProps): React.ReactNode {
+  const blogPost = data.blogPost;
+
+  if (!blogPost?.fields || !blogPost?.frontmatter) {
+    throw new Error(`Invalid blog post data: ${JSON.stringify(blogPost)}`);
+  }
+
+  return (
+    <Meta
+      description={blogPost.frontmatter.description}
+      title={blogPost.frontmatter.title}
+    />
   );
 }
 

@@ -10,7 +10,6 @@ function NotFoundPage(): React.ReactElement {
   return (
     <Page>
       <Gutters>
-        <Meta noIndex title="Not found" />
         <nav>
           <WarpTotem />
         </nav>
@@ -30,6 +29,10 @@ function NotFoundPage(): React.ReactElement {
       </Gutters>
     </Page>
   );
+}
+
+export function Head(): React.ReactNode {
+  return <Meta noIndex title="Not found" />;
 }
 
 export default NotFoundPage;

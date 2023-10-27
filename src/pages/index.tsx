@@ -126,21 +126,10 @@ interface HomePageProps {
 function HomePage({ data }: HomePageProps): React.ReactElement {
   const blogPosts = data?.blogPosts?.nodes;
   const photoOfMe = data?.photoOfMe?.childImageSharp?.gatsbyImageData;
-  const description = data?.site?.siteMetadata?.description;
-
-  if (description === undefined || description === null) {
-    throw new Error("Description must be provided in Gatsby site metadata");
-  }
 
   return (
     <Page>
       <Gutters>
-        <Meta
-          description={description}
-          noTitleTemplate
-          title="cy7.io — owen's wee website"
-        />
-
         <Stack space="3">
           <Header>
             <HeroImage />
@@ -212,6 +201,22 @@ function HomePage({ data }: HomePageProps): React.ReactElement {
   );
 }
 /* eslint-enable */
+
+export function Head({ data }: HomePageProps): React.ReactNode {
+  const description = data?.site?.siteMetadata?.description;
+
+  if (typeof description !== "string") {
+    throw new Error("Description must be provided in Gatsby site metadata");
+  }
+
+  return (
+    <Meta
+      description={description}
+      noTitleTemplate
+      title="cy7.io — owen's wee website"
+    />
+  );
+}
 
 export const query = graphql`
   query homePage {
