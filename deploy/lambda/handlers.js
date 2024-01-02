@@ -27,16 +27,10 @@ module.exports.redirect = async (event) => {
 // https://aws.amazon.com/blogs/compute/implementing-default-directory-indexes-in-amazon-s3-backed-amazon-cloudfront-origins-using-lambdaedge/
 module.exports.subdirectoryIndex = async (event) => {
   const request = event.Records[0].cf.request;
-
   let uri = request.uri;
-
-  // eslint-disable-next-line
-  console.log(`Incoming URI: ${uri}`);
 
   // If the URI already directly references a file, don't mess with it
   if (uri.indexOf(".") > -1) {
-    // eslint-disable-next-line
-    console.log("URI not modified");
     return request;
   }
 
@@ -49,7 +43,5 @@ module.exports.subdirectoryIndex = async (event) => {
   // Replace it with a default index.
   request.uri = uri.replace(/\/$/, "/index.html");
 
-  // eslint-disable-next-line
-  console.log(`Modified URI: ${uri}`);
   return request;
 };
