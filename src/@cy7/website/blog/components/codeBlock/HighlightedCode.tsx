@@ -3,7 +3,7 @@ import Pre from "@cy7/website/blog/components/codeBlock/Pre";
 import Token from "@cy7/website/blog/components/codeBlock/Token";
 import { SupportedCodeBlockLanguages } from "@cy7/website/blog/types";
 import React from "react";
-import Highlight, { Prism } from "prism-react-renderer";
+import { Highlight } from "prism-react-renderer";
 
 interface CodeBlockContentProps {
   code: string;
@@ -23,30 +23,28 @@ function HighlightedCode({
   }
 
   return (
-    <Highlight code={code} language={language} Prism={Prism}>
-      {({ tokens, getLineProps, getTokenProps }) => (
+    <Highlight code={code} language={language}>
+      {({ tokens, getTokenProps }) => (
         <Pre>
           <Code>
-            {tokens.map((line, i) => {
-              const { key: lineKey } = getLineProps({ line, key: i });
+            {tokens.map((line, i) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <div key={i}>
+                {line.map((token, key) => {
+                  const { children } = getTokenProps({
+                    token,
+                    key,
+                  });
 
-              return (
-                <div key={lineKey}>
-                  {line.map((token, j) => {
-                    const { children, key: tokenKey } = getTokenProps({
-                      token,
-                      key: j,
-                    });
-
-                    return (
-                      <Token key={tokenKey} token={token}>
-                        {children}
-                      </Token>
-                    );
-                  })}
-                </div>
-              );
-            })}
+                  return (
+                    // eslint-disable-next-line react/no-array-index-key
+                    <Token key={key} token={token}>
+                      {children}
+                    </Token>
+                  );
+                })}
+              </div>
+            ))}
           </Code>
         </Pre>
       )}

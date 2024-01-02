@@ -226,7 +226,7 @@ export const query = graphql`
       }
     }
 
-    blogPosts: allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+    blogPosts: allMdx(sort: { frontmatter: { date: DESC } }) {
       nodes {
         fields {
           friendlyDate

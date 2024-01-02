@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.18.0
+          node-version: 20.10.0
       - uses: ./.github/actions/pnpm-install
       - run: pnpm run build
       - name: Store generated code
@@ -28,9 +28,9 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.18.0
+          node-version: 20.10.0
       - uses: ./.github/actions/pnpm-install
-      - run: pnpm exec build-storybook --docs --quiet
+      - run: pnpm exec storybook build --docs --quiet
   check-frontend-code-quality:
     name: Check frontend code quality
     needs: build

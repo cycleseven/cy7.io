@@ -1,8 +1,6 @@
 module.exports = {
-  addons: ["@storybook/addon-docs"],
-  core: {
-    builder: "webpack5",
-  },
+  addons: ["@storybook/addon-docs", "@storybook/addon-mdx-gfm"],
+
   stories: [
     // Intro
     "../src/@cy7/docs/intro/HelloWorld.stories.mdx",
@@ -25,4 +23,13 @@ module.exports = {
     "../src/@cy7/docs/website/Overview.stories.mdx",
     "../src/@cy7/docs/website/**/*.stories.{mdx,tsx}",
   ],
+
+  framework: {
+    name: "@storybook/react-webpack5",
+    options: {},
+  },
+
+  docs: {
+    autodocs: true,
+  },
 };

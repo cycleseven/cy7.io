@@ -68,4 +68,4 @@ You can read more about this project's code quality guidance in the [developer g
 - **Format all code with Prettier:** `pnpm exec prettier --write .`
 - **Run all code quality checks at once:** `pnpm exec lefthook run check-all`
 - **Run Storybook:** `pnpm run storybook`
-- **Build Storybook:** `pnpm exec build-storybook --docs`
+- **Build Storybook:** `pnpm exec storybook build --docs`
