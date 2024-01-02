@@ -195,5 +195,14 @@
   },
   "prettier": {
     "endOfLine": "lf"
+  },
+  "pnpm": {
+    "overrides": {
+      "cross-fetch@>=3.0.0 <3.1.5": ">=3.1.5",
+      "got@<11.8.5": ">=11.8.5",
+      "http-cache-semantics@<4.1.1": ">=4.1.1",
+      "axios@>=0.8.1 <1.6.0": ">=1.6.0",
+      "node-fetch@<2.6.7": ">=2.6.7"
+    }
   }
 }
