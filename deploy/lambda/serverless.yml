@@ -2,7 +2,7 @@ service: cy7-redirect-lambda
 
 provider:
   name: aws
-  runtime: nodejs16.x
+  runtime: nodejs20.x
   region: us-east-1
   timeout: 5
   memorySize: 128
@@ -12,9 +12,9 @@ provider:
     project: website
 
 package:
-  exclude:
-    - node_modules/**
-    - pnpm-lock.yaml
+  patterns:
+    - "!node_modules/**"
+    - "!pnpm-lock.yaml"
 
 functions:
   redirect:
