@@ -1,6 +1,6 @@
 {
   "name": "cy7.io schema",
-  "schemaPath": "schema.json",
+  "schemaPath": "schema.graphql",
   "extensions": {
     "endpoints": {
       "Default GraphQL Endpoint": {
