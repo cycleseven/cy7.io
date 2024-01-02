@@ -35,7 +35,7 @@ jobs:
         with:
           node-version: 20.10.0
       - uses: ./.github/actions/pnpm-install
-      - run: pnpm exec build-storybook --docs --quiet
+      - run: pnpm exec storybook build --docs --quiet
       - name: Store Storybook build output
         uses: actions/upload-artifact@v3
         with:

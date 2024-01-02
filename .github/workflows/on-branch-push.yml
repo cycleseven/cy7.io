@@ -30,7 +30,7 @@ jobs:
         with:
           node-version: 20.10.0
       - uses: ./.github/actions/pnpm-install
-      - run: pnpm exec build-storybook --docs --quiet
+      - run: pnpm exec storybook build --docs --quiet
   check-frontend-code-quality:
     name: Check frontend code quality
     needs: build

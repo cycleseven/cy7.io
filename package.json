@@ -7,15 +7,17 @@
   "sideEffects": false,
   "dependencies": {
     "@babel/core": "^7.23.7",
+    "@babel/preset-env": "^7.23.7",
+    "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
     "@dangerfarms/eslint-config-df": "^6.2.0",
     "@mdx-js/react": "^3.0.0",
     "@stitches/react": "^1.2.8",
-    "@storybook/addon-actions": "^6.5.16",
-    "@storybook/addon-docs": "^6.5.16",
-    "@storybook/builder-webpack5": "^6.5.16",
-    "@storybook/manager-webpack5": "^6.5.16",
-    "@storybook/react": "^6.5.16",
+    "@storybook/addon-actions": "^7.6.7",
+    "@storybook/addon-docs": "^7.6.7",
+    "@storybook/addon-mdx-gfm": "^7.6.7",
+    "@storybook/react": "^7.6.7",
+    "@storybook/react-webpack5": "^7.6.7",
     "@types/jest": "^26.0.24",
     "@types/node": "^20.10.6",
     "@types/prismjs": "^1.26.3",
@@ -64,6 +66,7 @@
     "react-dom": "^18.2.0",
     "react-innertext": "^1.1.5",
     "react-typography": "^0.16.23",
+    "storybook": "^7.6.7",
     "typescript": "^4.9.5",
     "typography": "^0.16.24",
     "webpack": "5.89.0"
@@ -83,7 +86,7 @@
     "build": "gatsby build",
     "start": "GATSBY_GRAPHQL_IDE=playground gatsby develop",
     "test": "jest",
-    "storybook": "start-storybook -p 8001 --docs"
+    "storybook": "storybook dev -p 8001 --docs"
   },
   "repository": {
     "type": "git",
